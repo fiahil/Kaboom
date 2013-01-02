@@ -7,7 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace Kaboom
+namespace Kaboom.Sources
 {
     [Activity(Label = "Kaboom", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Microsoft.Xna.Framework.AndroidGameActivity

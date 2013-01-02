@@ -19,7 +19,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 
-namespace Kaboom
+namespace Kaboom.Sources
 {
     class MainGame : Game
     {
@@ -31,6 +31,8 @@ namespace Kaboom
             this.graphics = new GraphicsDeviceManager(this);
             this.graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
+
+            Square.Unitest();
         }
 
         protected override void LoadContent()
