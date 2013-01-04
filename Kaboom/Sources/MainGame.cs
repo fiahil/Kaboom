@@ -31,19 +31,23 @@ namespace Kaboom.Sources
             this.graphics = new GraphicsDeviceManager(this);
             this.graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
-
-            Square.Unitest();
         }
 
         protected override void LoadContent()
         {
             base.LoadContent();
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            KaboomResources.textures["background1"] = Content.Load<Texture2D>("background1");
+            KaboomResources.textures["background2"] = Content.Load<Texture2D>("background2");
+            KaboomResources.textures["background3"] = Content.Load<Texture2D>("background3");
+            KaboomResources.textures["pony"] = Content.Load<Texture2D>("pony");
         }
 
         protected override void Initialize()
         {
             base.Initialize();
+            this.Components.Add(new Map(this, this.spriteBatch, 20, 40));
         }
 
         protected override void Update(GameTime gameTime)

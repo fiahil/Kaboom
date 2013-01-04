@@ -16,12 +16,12 @@ namespace Kaboom.Sources
     class Square
     {
         private SortedSet<IEntity> entities_;
-        private Rectangle offset_;
+        private Rectangle base_;
 
-        public Square(Rectangle offset)
+        public Square(Rectangle baseLoc)
         {
             this.entities_ = new SortedSet<IEntity>(new EntityComparer());
-            this.offset_ = offset;
+            this.base_ = baseLoc;
         }
 
         /// <summary>
@@ -44,24 +44,27 @@ namespace Kaboom.Sources
         /// Draw entities using SpriteBatch. Should be called between sb.begin() & sb.end()
         /// </summary>
         /// <param name="sb">SpriteBatch used to render testures</param>
-        public void Draw(SpriteBatch sb)
+        public void Draw(SpriteBatch sb, GameTime t)
         {
+            var opaqueCount = 0;
             foreach (var item in this.entities_)
             {
-                //item.Draw();
                 if (item.Visibility == eVisibility.OPAQUE)
+                    opaqueCount++;
+                if (opaqueCount > 1)
                     break;
+                item.Draw(sb, t, this.base_);
             }
         }
 
         public static void Unitest()
         {
             Square sq = new Square(Rectangle.Empty);
-            sq.addEntity(new UnitestEntity(0));
-            sq.addEntity(new UnitestEntity(2));
-            sq.addEntity(new UnitestEntity(5));
-            sq.addEntity(new UnitestEntity(1));
-            sq.addEntity(new UnitestEntity(2));
+            sq.addEntity(new UnitestEntity(0, null));
+            sq.addEntity(new UnitestEntity(2, null));
+            sq.addEntity(new UnitestEntity(5, null));
+            sq.addEntity(new UnitestEntity(1, null));
+            sq.addEntity(new UnitestEntity(2, null));
 
             // Put your breakpoint here
         }
