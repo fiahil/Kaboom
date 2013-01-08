@@ -74,7 +74,13 @@ namespace Kaboom.Sources
 
         public void Draw(SpriteBatch sb, GameTime t, Rectangle r)
         {
-            sb.Draw(this.tile_, new Rectangle(r.X * this.tile_.Bounds.Width + 5, r.Y * this.tile_.Bounds.Height + 5, this.tile_.Bounds.Width, this.tile_.Bounds.Height), Color.White);
+            // TODO: Do not draw outside screen.
+            sb.Draw(this.tile_,
+                new Rectangle(
+                    (r.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                    (r.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                    Camera.Instance.DimX,
+                    Camera.Instance.DimY), Color.White);
         }
     }
 }

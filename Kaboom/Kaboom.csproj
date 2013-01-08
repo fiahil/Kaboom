@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sources\Camera.cs" />
     <Compile Include="Sources\IEntity.cs" />
     <Compile Include="Sources\MainActivity.cs" />
     <Compile Include="Sources\MainGame.cs" />

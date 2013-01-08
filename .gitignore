@@ -1,0 +1,13 @@
+*.obj
+*.dll
+*.suo
+*.apk
+*.pdb
+*.mdb
+*.cache
+*.fakes
+*.class
+*.java
+*.flag
+*.jar
+*.stamp
