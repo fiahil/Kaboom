@@ -46,14 +46,11 @@ namespace Kaboom.Sources
         /// <param name="sb">SpriteBatch used to render testures</param>
         public void Draw(SpriteBatch sb, GameTime t)
         {
-            var opaqueCount = 0;
             foreach (var item in this.entities_)
             {
-                if (item.Visibility == eVisibility.OPAQUE)
-                    opaqueCount++;
-                if (opaqueCount > 1)
-                    break;
                 item.Draw(sb, t, this.base_);
+                if (item.Visibility == eVisibility.OPAQUE)
+                    break;
             }
         }
 

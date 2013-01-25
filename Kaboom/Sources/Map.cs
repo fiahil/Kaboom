@@ -27,6 +27,7 @@ namespace Kaboom.Sources
         private SpriteBatch sb_;
         private int sizeX_;
         private int sizeY_;
+        private bool rotated_;
 
         public Map(Game g, SpriteBatch sb, int sizex, int sizey)
             : base(g)
@@ -35,6 +36,7 @@ namespace Kaboom.Sources
             this.board_ = new Square[sizex, sizey];
             this.sizeX_ = sizex;
             this.sizeY_ = sizey;
+            this.rotated_ = false;
 
             for (int i = 0; i < this.sizeX_; i++)
             {
@@ -91,6 +93,7 @@ namespace Kaboom.Sources
         {
             base.LoadContent();
         }
+
 
         public override void Update(GameTime gameTime)
         {

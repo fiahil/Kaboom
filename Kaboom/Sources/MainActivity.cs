@@ -2,6 +2,7 @@
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -15,9 +16,7 @@ namespace Kaboom.Sources
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
             MainGame.Activity = this;
-
             var g = new MainGame();
             SetContentView(g.Window);
 

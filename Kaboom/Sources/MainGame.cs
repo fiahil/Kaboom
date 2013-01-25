@@ -69,13 +69,13 @@ namespace Kaboom.Sources
                     Camera.Instance.DimY = Camera.Instance.DimY + (this.isZoomed ? -30 : 30);
                     this.isZoomed = !this.isZoomed;
                 }
-
-                if (g.GestureType == GestureType.FreeDrag)
+                if (this.isZoomed && g.GestureType == GestureType.FreeDrag)
                 {
                     if (oldDrag != Vector2.Zero)
                     {
                         Camera.Instance.OffX += (int)(g.Position.X - oldDrag.X);
                         Camera.Instance.OffY += (int)(g.Position.Y - oldDrag.Y);
+                        // TODO : limit gestion
                     }
 
                     this.oldDrag = g.Position;
