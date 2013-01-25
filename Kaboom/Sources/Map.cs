@@ -57,6 +57,7 @@ namespace Kaboom.Sources
         /// </summary>
         public void Randomize()
         {
+            // TODO: Do a true map generator (with a random entity factory) (labyrinth generator?)
             for (var i = 0; i < this.sizeX_; i++)
             {
                 for (var j = 0; j < this.sizeY_; j++)
@@ -66,6 +67,9 @@ namespace Kaboom.Sources
             }
         }
 
+        /// <summary>
+        /// Initialize a new map
+        /// </summary>
         public override void Initialize()
         {
             base.Initialize();
@@ -73,6 +77,10 @@ namespace Kaboom.Sources
             Randomize();
         }
 
+        /// <summary>
+        /// Update all map's entities
+        /// </summary>
+        /// <param name="gameTime">GameClock</param>
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -83,6 +91,10 @@ namespace Kaboom.Sources
             }
         }
 
+        /// <summary>
+        /// Draw all map's entities. Call SpriteBatch's begin and end
+        /// </summary>
+        /// <param name="gameTime">GameClock</param>
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
