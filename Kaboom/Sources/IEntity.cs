@@ -21,54 +21,70 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Kaboom.Sources
 {
-    enum eVisibility
+    /// <summary>
+    /// Define Entities' visibility
+    /// </summary>
+    enum EVisibility
     {
-        OPAQUE,
-        TRANSPARENT
+        Opaque,
+        Transparent
     }
 
+    /// <summary>
+    /// Define a drawable Kaboom component
+    /// </summary>
     interface IEntity
     {
         int ZIndex { get; set; }
-        eVisibility Visibility { get; set; }
+        EVisibility Visibility { get; set; }
 
+        /// <summary>
+        /// Draw an entity on the screen
+        /// </summary>
+        /// <param name="sb">SpriteBatch used to draw textures</param>
+        /// <param name="t">Game clock</param>
+        /// <param name="r">Position position offset used to draw objects</param>
         void Draw(SpriteBatch sb, GameTime t, Rectangle r);
+
+        void Update(GameTime time);
     }
 
+    /// <summary>
+    /// Comparer for SortedSet
+    /// </summary>
     class EntityComparer : IComparer<IEntity>
     {
+        /// <summary>
+        /// Compare two entities by matching their Z-index
+        /// </summary>
+        /// <param name="a">First entity</param>
+        /// <param name="b">Second entity</param>
+        /// <returns></returns>
         public int Compare(IEntity a, IEntity b)
         {
             return a.ZIndex - b.ZIndex;
         }
     }
 
+    /// <summary>
+    /// Exemple of implementation
+    /// </summary>
     class UnitestEntity : IEntity
     {
-        private int zindex_;
-        private eVisibility visibility_;
-        private Texture2D tile_;
+        private readonly Texture2D tile_;
 
-        public UnitestEntity(int z, Texture2D tile, eVisibility v = eVisibility.OPAQUE)
+        public UnitestEntity(int z, Texture2D tile, EVisibility v = EVisibility.Opaque)
         {
-            this.zindex_ = z;
-            this.visibility_ = v;
+            this.ZIndex = z;
+            this.Visibility = v;
             this.tile_ = tile;
         }
 
-        public eVisibility Visibility
-        {
-            get { return visibility_; }
-            set { visibility_ = value; }
-        }
-        
-        public int ZIndex
-        {
-            get { return zindex_; }
-            set { zindex_ = value; }
-        }
+        public EVisibility Visibility { get; set; }
 
-        public void Update(GameTime t)
+        public int ZIndex { get; set; }
+
+        public void Update(GameTime time)
         {
         }
 

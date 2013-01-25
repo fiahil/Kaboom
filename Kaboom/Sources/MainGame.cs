@@ -23,71 +23,94 @@ namespace Kaboom.Sources
 {
     class MainGame : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private readonly GraphicsDeviceManager graphics_;
+        private SpriteBatch spriteBatch_;
 
+        /// <summary>
+        /// Create the game instance
+        /// </summary>
         public MainGame()
         {
-            this.graphics = new GraphicsDeviceManager(this);
-            this.graphics.IsFullScreen = true;
+            this.graphics_ = new GraphicsDeviceManager(this)
+                {
+                    IsFullScreen = true
+                };
             Content.RootDirectory = "Content";
         }
 
+        /// <summary>
+        /// Load heavy content and resources
+        /// </summary>
         protected override void LoadContent()
         {
             base.LoadContent();
-            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch_ = new SpriteBatch(GraphicsDevice);
 
-            KaboomResources.textures["background1"] = Content.Load<Texture2D>("background1");
-            KaboomResources.textures["background2"] = Content.Load<Texture2D>("background2");
-            KaboomResources.textures["background3"] = Content.Load<Texture2D>("background3");
-            KaboomResources.textures["pony"] = Content.Load<Texture2D>("pony");
+            KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
+            KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
+            KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
+            KaboomResources.Textures["pony"] = Content.Load<Texture2D>("pony");
         }
 
+        /// <summary>
+        /// Initialise game
+        /// </summary>
         protected override void Initialize()
         {
             base.Initialize();
-            this.Components.Add(new Map(this, this.spriteBatch, 20, 40));
+
+            this.Components.Add(new Map(this, this.spriteBatch_, 20, 40));
             TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete | GestureType.DoubleTap;
         }
 
-        // Patch
-        private Vector2 oldDrag = Vector2.Zero;
-        private bool isZoomed = false;
-        // EndofPatch
+        ////////////////////////////////////////////////////////////////////////////////////////////////// Patch
+        private Vector2 oldDrag_ = Vector2.Zero;
+        private bool isZoomed_ = false;
+        ////////////////////////////////////////////////////////////////////////////////////////////////// EndofPatch
 
+        /// <summary>
+        /// Update game and game components
+        /// </summary>
+        /// <param name="gameTime">Game clock</param>
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            // Gesture test
             while (TouchPanel.IsGestureAvailable)
             {
                 var g = TouchPanel.ReadGesture();
 
                 if (g.GestureType == GestureType.DoubleTap)
                 {
-                    Camera.Instance.DimX = Camera.Instance.DimX + (this.isZoomed ? -30 : 30);
-                    Camera.Instance.DimY = Camera.Instance.DimY + (this.isZoomed ? -30 : 30);
-                    this.isZoomed = !this.isZoomed;
+                    Camera.Instance.DimX = Camera.Instance.DimX + (this.isZoomed_ ? -30 : 30);
+                    Camera.Instance.DimY = Camera.Instance.DimY + (this.isZoomed_ ? -30 : 30);
+                    this.isZoomed_ = !this.isZoomed_;
                 }
 
                 if (g.GestureType == GestureType.FreeDrag)
                 {
-                    if (oldDrag != Vector2.Zero)
+                    if (oldDrag_ != Vector2.Zero)
                     {
-                        Camera.Instance.OffX += (int)(g.Position.X - oldDrag.X);
-                        Camera.Instance.OffY += (int)(g.Position.Y - oldDrag.Y);
+                        Camera.Instance.OffX += (int)(g.Position.X - oldDrag_.X);
+                        Camera.Instance.OffY += (int)(g.Position.Y - oldDrag_.Y);
                     }
 
-                    this.oldDrag = g.Position;
+                    this.oldDrag_ = g.Position;
                 }
                 if (g.GestureType == GestureType.DragComplete)
-                    this.oldDrag = Vector2.Zero;
+                    this.oldDrag_ = Vector2.Zero;
             }
         }
 
+        /// <summary>
+        /// Draw game components
+        /// </summary>
+        /// <param name="gameTime">Game clock</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.LightBlue);
+
             base.Draw(gameTime);
         }
     }

@@ -23,11 +23,18 @@ namespace Kaboom.Sources
 {
     class Map : DrawableGameComponent
     {
-        private Square[,] board_;
-        private SpriteBatch sb_;
-        private int sizeX_;
-        private int sizeY_;
+        private readonly Square[,] board_;
+        private readonly SpriteBatch sb_;
+        private readonly int sizeX_;
+        private readonly int sizeY_;
 
+        /// <summary>
+        /// Initialize a new map
+        /// </summary>
+        /// <param name="g">Game instance</param>
+        /// <param name="sb">Spritebatch used to draw textures</param>
+        /// <param name="sizex">X map number of entities</param>
+        /// <param name="sizey">Y map number of entities</param>
         public Map(Game g, SpriteBatch sb, int sizex, int sizey)
             : base(g)
         {
@@ -36,46 +43,25 @@ namespace Kaboom.Sources
             this.sizeX_ = sizex;
             this.sizeY_ = sizey;
 
-            for (int i = 0; i < this.sizeX_; i++)
+            for (var i = 0; i < this.sizeX_; i++)
             {
-                for (int j = 0; j < this.sizeY_; j++)
+                for (var j = 0; j < this.sizeY_; j++)
                 {
-                    this.board_[i, j] = new Square(new Rectangle(i, j, 0, 0));
+                    this.board_[i, j] = new Square(new Point(i, j));
                 }
             }
         }
 
+        /// <summary>
+        /// Randomly fill the map with entities
+        /// </summary>
         public void Randomize()
         {
-            Random r = new Random();
-
-            for (int i = 0; i < this.sizeX_; i++)
+            for (var i = 0; i < this.sizeX_; i++)
             {
-                for (int j = 0; j < this.sizeY_; j++)
+                for (var j = 0; j < this.sizeY_; j++)
                 {
-                    switch (r.Next(3))
-                    {
-                        case 0:
-                            this.board_[i, j].addEntity(new UnitestEntity(0, KaboomResources.textures["background1"]));
-                            break;
-
-                        case 1:
-                            this.board_[i, j].addEntity(new UnitestEntity(0, KaboomResources.textures["background2"]));
-                            break;
-
-                        case 2:
-                            this.board_[i, j].addEntity(new UnitestEntity(0, KaboomResources.textures["background3"]));
-                            break;
-
-                        default:
-                            this.board_[i, j].addEntity(new UnitestEntity(0, KaboomResources.textures["background1"]));
-                            break;
-                    }
-
-                    if (r.Next(2) == 0)
-                    {
-                        this.board_[i, j].addEntity(new UnitestEntity(1, KaboomResources.textures["pony"], eVisibility.TRANSPARENT));
-                    }
+                    this.board_[i, j].AddEntity(new UnitestEntity(0, KaboomResources.Textures["background1"]));
                 }
             }
         }
@@ -87,18 +73,13 @@ namespace Kaboom.Sources
             Randomize();
         }
 
-        protected override void LoadContent()
-        {
-            base.LoadContent();
-        }
-
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 
             foreach (var item in this.board_)
             {
-                item.Update();
+                item.Update(gameTime);
             }
         }
 

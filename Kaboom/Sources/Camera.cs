@@ -8,22 +8,24 @@ namespace Kaboom.Sources
     {
         public static Camera Instance = new Camera();
 
-        private int posX;
-        private int posY;
-        private int sizeX;
-        private int sizeY;
-
-        Camera(int x = 10, int y = 10, int dimx = 10, int dimy = 10)
+        /// <summary>
+        /// Instanciate a new camera
+        /// </summary>
+        /// <param name="x">X start position of the camera</param>
+        /// <param name="y">Y start position of the camera</param>
+        /// <param name="dimx">X lenght of elements</param>
+        /// <param name="dimy">Y lenght of elements</param>
+        private Camera(int x = 10, int y = 10, int dimx = 10, int dimy = 10)
         {
-            this.posX = x;
-            this.posY = y;
-            this.sizeX = dimx;
-            this.sizeY = dimy;
+            this.OffX = x;
+            this.OffY = y;
+            this.DimX = dimx;
+            this.DimY = dimy;
         }
-
-        public int OffX { get { return this.posX; } set { this.posX = value; } }
-        public int OffY { get { return this.posY; } set { this.posY = value; } }
-        public int DimX { get { return this.sizeX; } set { this.sizeX = value; } }
-        public int DimY { get { return this.sizeY; } set { this.sizeY = value; } }
+        
+        public int OffX { get; set; }
+        public int OffY { get; set; }
+        public int DimX { get; set; }
+        public int DimY { get; set; }
     }
 }

@@ -21,8 +21,11 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Kaboom.Sources
 {
+    /// <summary>
+    /// Static heavy resources 
+    /// </summary>
     class KaboomResources
     {
-        public static Dictionary<string, Texture2D> textures = new Dictionary<string,Texture2D>();
+        public static Dictionary<string, Texture2D> Textures = new Dictionary<string,Texture2D>();
     }
 }
