@@ -55,7 +55,7 @@ namespace Kaboom.Sources
         /// <param name="t">Game clock used for Sprites' animation</param>
         public void Draw(SpriteBatch sb, GameTime t)
         {
-            foreach (var item in this.entities_)
+            foreach (var item in this.entities_.Reverse())
             {
                 item.Draw(sb, t, new Rectangle(this.base_.X, this.base_.Y, 0, 0));
                 if (item.Visibility == EVisibility.Opaque)

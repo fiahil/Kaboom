@@ -26,6 +26,7 @@ namespace Kaboom.Sources
         private readonly GraphicsDeviceManager graphics_;
         private SpriteBatch spriteBatch_;
         private readonly Event em_;
+        private Map map_;
 
         /// <summary>
         /// Create the game instance
@@ -61,12 +62,9 @@ namespace Kaboom.Sources
         {
             base.Initialize();
 
-            this.Components.Add(new Map(this, this.spriteBatch_, 20, 40));
+            this.map_ = new Map(this, this.spriteBatch_, 20, 20);
+            this.Components.Add(this.map_);
         }
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////// Patch
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////// EndofPatch
 
         /// <summary>
         /// Update game and game components
@@ -96,7 +94,8 @@ namespace Kaboom.Sources
                         Camera.Instance.DimX = Camera.Instance.DimX + 30;
                         Camera.Instance.DimY = Camera.Instance.DimY + 30;
                         break;
-                    default:
+                    case Action.Type.Tap:
+                        this.map_.AddNewEntity(new UnitestEntity(2, KaboomResources.Textures["pony"]), this.map_.GetCoordByPos(ret.Pos));
                         break;
                 }
                 ret = this.em_.GetEvents();                 

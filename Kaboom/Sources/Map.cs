@@ -78,6 +78,26 @@ namespace Kaboom.Sources
             Randomize();
         }
 
+        /// <summary>
+        /// Place an entity on the map
+        /// </summary>
+        /// <param name="entity">the entity to place on the map</param>
+        /// <param name="coordinates">coordinates of the entity</param>
+        public void AddNewEntity(IEntity entity, Point coordinates)
+        {
+            this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
+        }
+
+        /// <summary>
+        /// Return the coordinates of the square matching the given position
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        public Point GetCoordByPos(Vector2 position)
+        {
+            //TODO: Implement algorithm
+            return Point.Zero;
+        }
 
         /// <summary>
         /// Update all map's entities
