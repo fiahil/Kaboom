@@ -84,7 +84,7 @@ namespace Kaboom.Sources
                 {
                     case Action.Type.NoEvent:
                         break;
-                    case Action.Type.Scroll:
+                    case Action.Type.Drag:
                         Camera.Instance.OffX += ret.DeltaX;
                         Camera.Instance.OffY += ret.DeltaY;
                         break;
