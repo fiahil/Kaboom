@@ -11,14 +11,15 @@ using Microsoft.Xna.Framework;
 
 namespace Kaboom.Sources
 {
-    [Activity(Label = "Kaboom", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Kaboom",
+        MainLauncher = true,
+        Icon = "@drawable/icon",
+        ConfigurationChanges = ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.Orientation)]
     public class MainActivity : AndroidGameActivity
     {
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            MainGame.Activity = this;
 
             Game.Activity = this;
 
