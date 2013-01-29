@@ -14,19 +14,24 @@ namespace Kaboom.Sources
     [Activity(Label = "Kaboom",
         MainLauncher = true,
         Icon = "@drawable/icon",
+        AlwaysRetainTaskState = true,
+        LaunchMode = LaunchMode.SingleInstance,
+        ScreenOrientation = ScreenOrientation.Landscape,
         ConfigurationChanges = ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.Orientation)]
     public class MainActivity : AndroidGameActivity
     {
+        private MainGame game_;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             Game.Activity = this;
 
-            var g = new MainGame();
-            SetContentView(g.Window);
+            this.game_ = new MainGame();
 
-            g.Run();
+            SetContentView(this.game_.Window);
+            this.game_.Run();
         }
     }
 }

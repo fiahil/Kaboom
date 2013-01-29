@@ -74,7 +74,7 @@ namespace Kaboom.Sources
         {
             base.Update(gameTime);
 
-            // Gesture test
+            ///////////////////////////////////////////////////////TODO: Gesture test
             var ret = this.em_.GetEvents();
             while (ret.ActionType != Action.Type.NoEvent)
             {

@@ -46,7 +46,7 @@ namespace Kaboom.Sources
         private bool isZoomed_;
 
         /// <summary>
-        /// Event Ctor
+        /// Enable gestures
         /// </summary>
         public Event()
         {
@@ -56,7 +56,7 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
-        /// Get one event and return the correspondant Action, that contain all the required information
+        /// Get one event and return the correspondant Action, that contain position and delta of gesture
         /// </summary>
         public Action GetEvents()
         {
