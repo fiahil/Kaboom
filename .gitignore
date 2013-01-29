@@ -11,3 +11,4 @@
 *.flag
 *.jar
 *.stamp
+obj/
