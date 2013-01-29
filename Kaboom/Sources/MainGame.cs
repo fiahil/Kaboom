@@ -35,14 +35,15 @@ namespace Kaboom.Sources
         {
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
-                    IsFullScreen = true
+                    IsFullScreen = true,
+                    SupportedOrientations = DisplayOrientation.Portrait | DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
                 };
             em_ = new Event();
             Content.RootDirectory = "Content";
         }
 
         /// <summary>
-        /// Load heavy content and resources
+        /// Load heavy content and resources that shouldn't be copied
         /// </summary>
         protected override void LoadContent()
         {
@@ -103,7 +104,7 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
-        /// Draw game components
+        /// Draw game components (Map)
         /// </summary>
         /// <param name="gameTime">Game clock</param>
         protected override void Draw(GameTime gameTime)
