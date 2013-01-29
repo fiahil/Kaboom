@@ -168,6 +168,8 @@ namespace Kaboom.Sources
                 }
                 ret = this.em_.GetEvents();                 
             }
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
         }
 
         /// <summary>
