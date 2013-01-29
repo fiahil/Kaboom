@@ -95,7 +95,7 @@ namespace Kaboom.Sources
                         Camera.Instance.DimY = Camera.Instance.DimY + 30;
                         break;
                     case Action.Type.Tap:
-                        this.map_.AddNewEntity(new UnitestEntity(2, KaboomResources.Textures["pony"]), this.map_.GetCoordByPos(ret.Pos));
+                        this.map_.AddNewEntity(new UnitestEntity(2, KaboomResources.Textures["pony"], EVisibility.Transparent), this.map_.GetCoordByPos(ret.Pos));
                         break;
                 }
                 ret = this.em_.GetEvents();                 

@@ -55,12 +55,16 @@ namespace Kaboom.Sources
         /// <param name="t">Game clock used for Sprites' animation</param>
         public void Draw(SpriteBatch sb, GameTime t)
         {
-            foreach (var item in this.entities_.Reverse())
+            var opaqueCount = 0;
+            foreach (var item in this.entities_)
             {
-                item.Draw(sb, t, new Rectangle(this.base_.X, this.base_.Y, 0, 0));
                 if (item.Visibility == EVisibility.Opaque)
-                    break;
-            }
+                    opaqueCount++;
+                if (opaqueCount > 1)
+                     break;
+                item.Draw(sb, t, new Rectangle(this.base_.X, this.base_.Y, 0, 0));
+             }
+
         }
 
         /// <summary>
@@ -69,9 +73,11 @@ namespace Kaboom.Sources
         public static void Unitest()
         {
             var sq = new Square(Point.Zero);
+
+            // Z-index test
             sq.AddEntity(new UnitestEntity(0, null));
             sq.AddEntity(new UnitestEntity(2, null));
-            sq.AddEntity(new UnitestEntity(5, null));
+            sq.AddEntity(new UnitestEntity(5, null, EVisibility.Transparent));
             sq.AddEntity(new UnitestEntity(1, null));
             sq.AddEntity(new UnitestEntity(2, null));
 
