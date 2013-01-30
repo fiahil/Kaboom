@@ -66,9 +66,16 @@ namespace Kaboom.Sources
                     opaqueCount++;
                 if (opaqueCount > 1)
                      break;
-                item.Draw(sb, t, new Rectangle(this.base_.X, this.base_.Y, 0, 0));
+                item.Draw(sb, t, this.base_);
              }
+        }
 
+        /// <summary>
+        /// Getter for base coordinates
+        /// </summary>
+        public Point Base
+        {
+            get { return this.base_; }
         }
 
         /// <summary>

@@ -90,13 +90,24 @@ namespace Kaboom.Sources
 
         /// <summary>
         /// Return the coordinates of the square matching the given position
+        /// Throw IndexOutOfRangeException when position outside the board
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
         public Point GetCoordByPos(Vector2 position)
         {
-            //TODO: Implement algorithm
-            return Point.Zero;
+            foreach (var square in this.board_)
+            {
+                var r = new Rectangle(
+                    (square.Base.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                    (square.Base.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                    Camera.Instance.DimX,
+                    Camera.Instance.DimY);
+
+                if (r.Contains(new Point((int)position.X, (int)position.Y)))
+                    return square.Base;
+            }
+            throw new IndexOutOfRangeException();
         }
 
         /// <summary>

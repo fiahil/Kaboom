@@ -193,9 +193,16 @@ namespace Kaboom.Sources
                         }
                         break;
                     case Action.Type.Tap:
-                        this.map_.AddNewEntity(
-                            new UnitestEntity(2, KaboomResources.Textures["pony"], EVisibility.Transparent),
-                            this.map_.GetCoordByPos(ret.Pos));
+                        try
+                        {
+                            this.map_.AddNewEntity(
+                                new UnitestEntity(2, KaboomResources.Textures["pony"], EVisibility.Transparent),
+                                this.map_.GetCoordByPos(ret.Pos));
+                        }
+                        catch
+                        {
+
+                        }
                         break;
                 }
                 ret = this.em_.GetEvents();                 
