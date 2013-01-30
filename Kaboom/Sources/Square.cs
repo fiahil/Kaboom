@@ -13,6 +13,10 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Kaboom.Sources
 {
+    /// <summary>
+    /// Storage class for entities.
+    /// Used a SortedSet to sort entities using their Z-Index
+    /// </summary>
     class Square
     {
         private readonly SortedSet<IEntity> entities_;

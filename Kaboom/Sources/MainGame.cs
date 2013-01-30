@@ -38,7 +38,8 @@ namespace Kaboom.Sources
         {
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
-                    IsFullScreen = true
+                    IsFullScreen = true,
+                    SupportedOrientations = DisplayOrientation.Portrait | DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
                 };
             em_ = new Event();
             maxZoom_ = new int[2];
@@ -48,7 +49,7 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
-        /// Load heavy content and resources
+        /// Load heavy content and resources that shouldn't be copied
         /// </summary>
         protected override void LoadContent()
         {
@@ -167,10 +168,12 @@ namespace Kaboom.Sources
                 }
                 ret = this.em_.GetEvents();                 
             }
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
         }
 
         /// <summary>
-        /// Draw game components
+        /// Draw game components (Map)
         /// </summary>
         /// <param name="gameTime">Game clock</param>
         protected override void Draw(GameTime gameTime)

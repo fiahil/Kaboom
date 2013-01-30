@@ -69,7 +69,7 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
-        /// Initialize a new map
+        /// Initialize a new map by unserialization or randomization
         /// </summary>
         public override void Initialize()
         {
