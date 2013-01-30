@@ -164,11 +164,27 @@ namespace Kaboom.Sources
                         Camera.Instance.OffY += ret.DeltaY;
                         break;
                     case Action.Type.ZoomIn:
+                        try
+                        {
+                            var where = this.map_.GetCoordByPos(ret.Pos);
+                            Camera.Instance.OffX = -1 * (where.X * 80) + GraphicsDevice.Viewport.Width / 2;
+                            if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
+                                Camera.Instance.OffY = -1 * (where.Y * 80) + (int)(0.1 * GraphicsDevice.Viewport.Width) + GraphicsDevice.Viewport.Height / 2;
+                            else
+                                Camera.Instance.OffY = -1 * (where.Y * 80) + (int)(0.1 * GraphicsDevice.Viewport.Height) + GraphicsDevice.Viewport.Height / 2;
+
+                        }
+                        catch (Exception)
+                        {
+                            Camera.Instance.OffX = -1 * ((this.width_ * 80) / 2) + GraphicsDevice.Viewport.Width / 2;
+                            if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
+                                Camera.Instance.OffY = -1 * ((this.height_ * 80) /2) + (int)(0.1 * GraphicsDevice.Viewport.Width) + GraphicsDevice.Viewport.Height / 2;
+                            else
+                                Camera.Instance.OffY = -1 * ((this.height_ * 80) /2) + (int)(0.1 * GraphicsDevice.Viewport.Height) + GraphicsDevice.Viewport.Height / 2;
+                        }
                         Camera.Instance.DimX = 80;
                         Camera.Instance.DimY = 80;
-                        // TODO : It's Nawak
-                        Camera.Instance.OffX = (int) (ret.Pos.X);
-                        Camera.Instance.OffY = (int) (ret.Pos.Y);
+                        
                         break;
                     case Action.Type.ZoomOut:
                         if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)

@@ -73,6 +73,7 @@ namespace Kaboom.Sources
                 {
                     ret.ActionType = this.isZoomed_ ? Action.Type.ZoomOut : Action.Type.ZoomIn;
                     this.isZoomed_ = !this.isZoomed_;
+                    ret.Pos = g.Position;
                     return ret;
                 }
                 if (g.GestureType == GestureType.Tap)
