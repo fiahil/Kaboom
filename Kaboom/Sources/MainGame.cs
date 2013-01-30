@@ -84,8 +84,8 @@ namespace Kaboom.Sources
                     (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) / this.height_)
                     maxZoom_[0] = (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) /
                                   this.height_;
-                Camera.Instance.DimY = maxZoom_[0];
-                Camera.Instance.DimX = maxZoom_[0];
+                Camera.Instance.DimY = maxZoom_[1];
+                Camera.Instance.DimX = maxZoom_[1];
                 Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
                 Camera.Instance.OffY = (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Height) -
                                         (maxZoom_[1] * this.height_)) / 2 + (int) (0.1 * GraphicsDevice.Viewport.Height);
@@ -140,8 +140,8 @@ namespace Kaboom.Sources
                     case Action.Type.ZoomOut:
                         if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
                         {
-                            Camera.Instance.DimY = maxZoom_[0];
-                            Camera.Instance.DimX = maxZoom_[0];
+                            Camera.Instance.DimY = maxZoom_[1];
+                            Camera.Instance.DimX = maxZoom_[1];
                             Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
                             Camera.Instance.OffY = (GraphicsDevice.Viewport.Height -
                                                     (int) (0.1 * GraphicsDevice.Viewport.Height) -
