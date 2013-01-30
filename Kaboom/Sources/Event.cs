@@ -43,7 +43,7 @@ namespace Kaboom.Sources
     {
 
         private Vector2 oldDrag_;
-        private bool isZoomed_;
+        public bool isZoomed_;
 
         /// <summary>
         /// Enable gestures

@@ -30,6 +30,8 @@ namespace Kaboom.Sources
         private int height_;
         private int width_;
         private int[] maxZoom_;
+        private int widthRef_;
+        private Microsoft.Xna.Framework.DisplayOrientation oldOrientation_;
 
         /// <summary>
         /// Create the game instance
@@ -39,12 +41,13 @@ namespace Kaboom.Sources
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
                     IsFullScreen = true,
-                    SupportedOrientations = DisplayOrientation.Portrait | DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
+                    SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
                 };
             em_ = new Event();
             maxZoom_ = new int[2];
             this.height_ = 1;
             this.width_ = 1;
+            this.widthRef_ = 1;
             Content.RootDirectory = "Content";
         }
 
@@ -71,25 +74,28 @@ namespace Kaboom.Sources
 
             this.height_ = 20;
             this.width_ = 40;
+            this.widthRef_ = GraphicsDevice.Viewport.Width;
             this.map_ = new Map(this, this.spriteBatch_, this.width_, this.height_);
             this.Components.Add(this.map_);
+            this.oldOrientation_ = this.Window.CurrentOrientation;
+
             if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
             {
                 maxZoom_[1] = GraphicsDevice.Viewport.Width / this.width_;
                 if (maxZoom_[1] >
                     (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Height)) / this.height_)
-                    maxZoom_[1] = (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Height)) /
+                    maxZoom_[1] = (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Width)) /
                                   this.height_;
                 maxZoom_[0] = GraphicsDevice.Viewport.Height / this.width_;
                 if (maxZoom_[0] >
-                    (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) / this.height_)
+                    (GraphicsDevice.Viewport.Width - (int)(0.1 * GraphicsDevice.Viewport.Height)) / this.height_)
                     maxZoom_[0] = (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) /
                                   this.height_;
                 Camera.Instance.DimY = maxZoom_[1];
                 Camera.Instance.DimX = maxZoom_[1];
                 Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
-                Camera.Instance.OffY = (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Height) -
-                                        (maxZoom_[1] * this.height_)) / 2 + (int) (0.1 * GraphicsDevice.Viewport.Height);
+                Camera.Instance.OffY = (GraphicsDevice.Viewport.Height - (int)(0.1 * GraphicsDevice.Viewport.Width) -
+                                        (maxZoom_[1] * this.height_)) / 2 + (int)(0.1 * GraphicsDevice.Viewport.Width);
             }
             else
             {
@@ -101,7 +107,7 @@ namespace Kaboom.Sources
                 maxZoom_[1] = GraphicsDevice.Viewport.Height / this.width_;
                 if (maxZoom_[1] >
                     (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) / this.height_)
-                    maxZoom_[1] = (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) /
+                    maxZoom_[1] = (GraphicsDevice.Viewport.Width - (int)(0.1 * GraphicsDevice.Viewport.Height)) /
                                   this.height_;
                 Camera.Instance.DimY = maxZoom_[0];
                 Camera.Instance.DimX = maxZoom_[0];
@@ -118,6 +124,32 @@ namespace Kaboom.Sources
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            if (this.oldOrientation_ != this.Window.CurrentOrientation && this.widthRef_ != GraphicsDevice.Viewport.Width)
+            {
+                if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
+                {
+                    Camera.Instance.DimY = maxZoom_[1];
+                    Camera.Instance.DimX = maxZoom_[1];
+                    Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
+                    Camera.Instance.OffY = (GraphicsDevice.Viewport.Height -
+                                            (int)(0.1 * GraphicsDevice.Viewport.Width) -
+                                            (maxZoom_[1] * this.height_)) / 2 +
+                                           (int)(0.1 * GraphicsDevice.Viewport.Width);
+                }
+                else
+                {
+                    Camera.Instance.DimY = maxZoom_[0];
+                    Camera.Instance.DimX = maxZoom_[0];
+                    Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[0] * this.width_)) / 2;
+                    Camera.Instance.OffY = (GraphicsDevice.Viewport.Height -
+                                            (int)(0.1 * GraphicsDevice.Viewport.Height) -
+                                            (maxZoom_[0] * this.height_)) / 2 +
+                                           (int)(0.1 * GraphicsDevice.Viewport.Height);
+                }
+                this.em_.isZoomed_ = false;
+                this.oldOrientation_ = this.Window.CurrentOrientation;
+                this.widthRef_ = GraphicsDevice.Viewport.Width;
+            }
 
             ///////////////////////////////////////////////////////TODO: Gesture test
             var ret = this.em_.GetEvents();
@@ -145,9 +177,9 @@ namespace Kaboom.Sources
                             Camera.Instance.DimX = maxZoom_[1];
                             Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
                             Camera.Instance.OffY = (GraphicsDevice.Viewport.Height -
-                                                    (int) (0.1 * GraphicsDevice.Viewport.Height) -
+                                                    (int)(0.1 * GraphicsDevice.Viewport.Width) -
                                                     (maxZoom_[1] * this.height_)) / 2 +
-                                                   (int) (0.1 * GraphicsDevice.Viewport.Height);
+                                                   (int)(0.1 * GraphicsDevice.Viewport.Width);
                         }
                         else
                         {
