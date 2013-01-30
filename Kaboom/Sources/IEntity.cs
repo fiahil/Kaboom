@@ -44,7 +44,7 @@ namespace Kaboom.Sources
         /// <param name="sb">SpriteBatch used to draw textures</param>
         /// <param name="t">Game clock</param>
         /// <param name="r">Position position offset used to draw objects</param>
-        void Draw(SpriteBatch sb, GameTime t, Rectangle r);
+        void Draw(SpriteBatch sb, GameTime t, Point r);
 
         void Update(GameTime time);
     }
@@ -88,7 +88,7 @@ namespace Kaboom.Sources
         {
         }
 
-        public void Draw(SpriteBatch sb, GameTime t, Rectangle r)
+        public void Draw(SpriteBatch sb, GameTime t, Point r)
         {
             // TODO: Do not draw outside screen.
             sb.Draw(this.tile_,
