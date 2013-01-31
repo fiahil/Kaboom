@@ -47,6 +47,18 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
+        /// Called on bomb pickup
+        /// </summary>
+        /// <param name="entity">Entity picked up</param>
+        /// <param name="player">Player who picked up the entity</param>
+        /// <returns></returns>
+        public bool OnPickUp(IEntity entity, Player player)
+        {
+            //TODO: Replace IEntity with IBomb
+            return true;
+        }
+
+        /// <summary>
         /// Called on bomb explosion. Propagation is launched once within this function
         /// </summary>
         /// <param name="bomb">Exploded bomb</param>
@@ -71,7 +83,7 @@ namespace Kaboom.Sources
         /// <summary>
         /// Called on item collect
         /// </summary>
-        /// <param name="item">Picked-up item</param>
+        /// <param name="item">Picked-up bonus/malus</param>
         /// <returns>Success or failure</returns>
         public bool OnCollect(IEntity item)
         {

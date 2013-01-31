@@ -35,7 +35,15 @@ namespace Kaboom.Sources
     /// </summary>
     interface IEntity
     {
+        /// <summary>
+        /// Position on Z-Axis
+        /// Indice of superposition
+        /// </summary>
         int ZIndex { get; set; }
+
+        /// <summary>
+        /// Define if the 
+        /// </summary>
         EVisibility Visibility { get; set; }
 
         /// <summary>
@@ -66,6 +74,7 @@ namespace Kaboom.Sources
         }
     }
 
+    #region Unitest
     /// <summary>
     /// Exemple of implementation
     /// </summary>
@@ -99,4 +108,5 @@ namespace Kaboom.Sources
                     Camera.Instance.DimY), Color.White);
         }
     }
+    #endregion
 }

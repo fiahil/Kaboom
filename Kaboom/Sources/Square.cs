@@ -53,6 +53,15 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
+        /// Get Highest Z-Index form SortedSet
+        /// </summary>
+        /// <returns>Z-Index</returns>
+        public int GetMaxZIndex()
+        {
+            return this.entities_.Max.ZIndex;
+        }
+
+        /// <summary>
         /// Draw entities using SpriteBatch. Should be called between sb.begin() & sb.end()
         /// </summary>
         /// <param name="sb">SpriteBatch used to render testures</param>
@@ -78,6 +87,7 @@ namespace Kaboom.Sources
             get { return this.base_; }
         }
 
+        #region Unitest
         /// <summary>
         /// Square Unitests
         /// </summary>
@@ -94,5 +104,6 @@ namespace Kaboom.Sources
 
             // Put your breakpoint here
         }
+        #endregion
     }
 }

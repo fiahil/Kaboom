@@ -29,9 +29,11 @@ namespace Kaboom.Sources
         private Map map_;
         private int height_;
         private int width_;
-        private int[] maxZoom_;
+        private readonly int[] maxZoom_;
         private int widthRef_;
-        private Microsoft.Xna.Framework.DisplayOrientation oldOrientation_;
+        private DisplayOrientation oldOrientation_;
+        private readonly List<Player> players_;
+        private Gameplay gameplay_;
 
         /// <summary>
         /// Create the game instance
@@ -43,8 +45,10 @@ namespace Kaboom.Sources
                     IsFullScreen = true,
                     SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
                 };
-            em_ = new Event();
-            maxZoom_ = new int[2];
+            this.em_ = new Event();
+            this.players_ = new List<Player>();
+            this.gameplay_ = new Gameplay();
+            this.maxZoom_ = new int[2];
             this.height_ = 1;
             this.width_ = 1;
             this.widthRef_ = 1;
@@ -71,6 +75,9 @@ namespace Kaboom.Sources
         protected override void Initialize()
         {
             base.Initialize();
+
+            this.players_.Add(new Player(this.map_, "Player 1", true));
+            this.players_.Add(new Player(this.map_, "Player 2", false));
 
             this.height_ = 20;
             this.width_ = 40;
@@ -151,7 +158,7 @@ namespace Kaboom.Sources
                 this.widthRef_ = GraphicsDevice.Viewport.Width;
             }
 
-            ///////////////////////////////////////////////////////TODO: Gesture test
+            ///////////////////////////////////////////////////////TODO: Not A TODO: Gesture test
             var ret = this.em_.GetEvents();
             while (ret.ActionType != Action.Type.NoEvent)
             {
@@ -209,20 +216,46 @@ namespace Kaboom.Sources
                         }
                         break;
                     case Action.Type.Tap:
-                        try
+                        foreach (var player in this.players_)
                         {
-                            this.map_.AddNewEntity(
-                                new UnitestEntity(2, KaboomResources.Textures["pony"], EVisibility.Transparent),
-                                this.map_.GetCoordByPos(ret.Pos));
-                        }
-                        catch
-                        {
-
+                            if (player.TurnToPlay)
+                            {
+                                try
+                                {
+                                    if (player.Name == "Player 1")
+                                    {
+                                        var coord = this.map_.GetCoordByPos(ret.Pos);
+                                        var entity = new UnitestEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1, KaboomResources.Textures["background2"], EVisibility.Transparent);
+                                        this.gameplay_.OnNewEntity(entity);
+                                        this.map_.AddNewEntity(entity, coord);
+                                        player.TurnToPlay = false;
+                                    }
+                                    else
+                                    {
+                                        var coord = this.map_.GetCoordByPos(ret.Pos);
+                                        var entity = new UnitestEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1, KaboomResources.Textures["background3"], EVisibility.Transparent);
+                                        this.gameplay_.OnNewEntity(entity);
+                                        this.map_.AddNewEntity(entity, coord);
+                                        player.TurnToPlay = false;
+                                    }
+                                }
+                                catch
+                                {
+                                }
+                            }
+                            else
+                            {
+                                player.TurnToPlay = true;
+                            }
                         }
                         break;
                 }
-                ret = this.em_.GetEvents();                 
+                ret = this.em_.GetEvents();
             }
+
+            ///////////////////////////////////////////////////////////////TODO: Not a TODO: Gameplay handler. Done above
+
+            ///////////////////////////////////////////////////////////////TODO: Not a TODO: BackButton handler
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
         }

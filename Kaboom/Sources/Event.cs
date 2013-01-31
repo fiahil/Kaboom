@@ -101,6 +101,7 @@ namespace Kaboom.Sources
             return ret;
         }
 
+        #region Unitest
         /// <summary>
         /// Event Unitests
         /// </summary>
@@ -119,5 +120,6 @@ namespace Kaboom.Sources
                 // Put your breakpoint here
             }
         }
+        #endregion
     }
 }

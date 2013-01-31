@@ -74,6 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\Map.cs" />
     <Compile Include="Sources\KaboomResources.cs" />
+    <Compile Include="Sources\Player.cs" />
     <Compile Include="Sources\Square.cs" />
   </ItemGroup>
   <ItemGroup>

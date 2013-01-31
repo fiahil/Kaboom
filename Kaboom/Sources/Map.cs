@@ -92,8 +92,8 @@ namespace Kaboom.Sources
         /// Return the coordinates of the square matching the given position
         /// Throw IndexOutOfRangeException when position outside the board
         /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
+        /// <param name="position">Position to poll</param>
+        /// <returns>Matching coordinates</returns>
         public Point GetCoordByPos(Vector2 position)
         {
             foreach (var square in this.board_)
@@ -108,6 +108,16 @@ namespace Kaboom.Sources
                     return square.Base;
             }
             throw new IndexOutOfRangeException();
+        }
+
+        /// <summary>
+        /// Return the highest Z-Index for the square matching the given coordinates
+        /// </summary>
+        /// <param name="point">Coordinates</param>
+        /// <returns>Highest Z-Index found at this position. -1 if no entities on the square</returns>
+        public int GetMaxZIndexOnCoord(Point point)
+        {
+            return this.board_[point.X, point.Y].GetMaxZIndex();
         }
 
         /// <summary>
