@@ -26,6 +26,7 @@ namespace Kaboom.Sources
     /// </summary>
     class KaboomResources
     {
-        public static Dictionary<string, Texture2D> Textures = new Dictionary<string,Texture2D>();
+        public static Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();
+        public static Dictionary<string, SpriteFont> Fonts = new Dictionary<string, SpriteFont>();
     }
 }

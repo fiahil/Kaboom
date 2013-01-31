@@ -30,8 +30,6 @@ namespace Kaboom.Sources
         private int height_;
         private int width_;
         private int[] maxZoom_;
-        private int widthRef_;
-        private Microsoft.Xna.Framework.DisplayOrientation oldOrientation_;
 
         /// <summary>
         /// Create the game instance
@@ -41,13 +39,12 @@ namespace Kaboom.Sources
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
                     IsFullScreen = true,
-                    SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
+                    SupportedOrientations = DisplayOrientation.Portrait | DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight
                 };
             em_ = new Event();
             maxZoom_ = new int[2];
             this.height_ = 1;
             this.width_ = 1;
-            this.widthRef_ = 1;
             Content.RootDirectory = "Content";
         }
 
@@ -62,6 +59,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
+            KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
             KaboomResources.Textures["pony"] = Content.Load<Texture2D>("pony");
         }
 
@@ -74,28 +72,25 @@ namespace Kaboom.Sources
 
             this.height_ = 20;
             this.width_ = 40;
-            this.widthRef_ = GraphicsDevice.Viewport.Width;
             this.map_ = new Map(this, this.spriteBatch_, this.width_, this.height_);
             this.Components.Add(this.map_);
-            this.oldOrientation_ = this.Window.CurrentOrientation;
-
             if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
             {
                 maxZoom_[1] = GraphicsDevice.Viewport.Width / this.width_;
                 if (maxZoom_[1] >
                     (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Height)) / this.height_)
-                    maxZoom_[1] = (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Width)) /
+                    maxZoom_[1] = (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Height)) /
                                   this.height_;
                 maxZoom_[0] = GraphicsDevice.Viewport.Height / this.width_;
                 if (maxZoom_[0] >
-                    (GraphicsDevice.Viewport.Width - (int)(0.1 * GraphicsDevice.Viewport.Height)) / this.height_)
+                    (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) / this.height_)
                     maxZoom_[0] = (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) /
                                   this.height_;
-                Camera.Instance.DimY = maxZoom_[1];
-                Camera.Instance.DimX = maxZoom_[1];
+                Camera.Instance.DimY = maxZoom_[0];
+                Camera.Instance.DimX = maxZoom_[0];
                 Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
-                Camera.Instance.OffY = (GraphicsDevice.Viewport.Height - (int)(0.1 * GraphicsDevice.Viewport.Width) -
-                                        (maxZoom_[1] * this.height_)) / 2 + (int)(0.1 * GraphicsDevice.Viewport.Width);
+                Camera.Instance.OffY = (GraphicsDevice.Viewport.Height - (int) (0.1 * GraphicsDevice.Viewport.Height) -
+                                        (maxZoom_[1] * this.height_)) / 2 + (int) (0.1 * GraphicsDevice.Viewport.Height);
             }
             else
             {
@@ -107,7 +102,7 @@ namespace Kaboom.Sources
                 maxZoom_[1] = GraphicsDevice.Viewport.Height / this.width_;
                 if (maxZoom_[1] >
                     (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) / this.height_)
-                    maxZoom_[1] = (GraphicsDevice.Viewport.Width - (int)(0.1 * GraphicsDevice.Viewport.Height)) /
+                    maxZoom_[1] = (GraphicsDevice.Viewport.Width - (int) (0.1 * GraphicsDevice.Viewport.Width)) /
                                   this.height_;
                 Camera.Instance.DimY = maxZoom_[0];
                 Camera.Instance.DimX = maxZoom_[0];
@@ -124,32 +119,6 @@ namespace Kaboom.Sources
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (this.oldOrientation_ != this.Window.CurrentOrientation && this.widthRef_ != GraphicsDevice.Viewport.Width)
-            {
-                if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
-                {
-                    Camera.Instance.DimY = maxZoom_[1];
-                    Camera.Instance.DimX = maxZoom_[1];
-                    Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
-                    Camera.Instance.OffY = (GraphicsDevice.Viewport.Height -
-                                            (int)(0.1 * GraphicsDevice.Viewport.Width) -
-                                            (maxZoom_[1] * this.height_)) / 2 +
-                                           (int)(0.1 * GraphicsDevice.Viewport.Width);
-                }
-                else
-                {
-                    Camera.Instance.DimY = maxZoom_[0];
-                    Camera.Instance.DimX = maxZoom_[0];
-                    Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[0] * this.width_)) / 2;
-                    Camera.Instance.OffY = (GraphicsDevice.Viewport.Height -
-                                            (int)(0.1 * GraphicsDevice.Viewport.Height) -
-                                            (maxZoom_[0] * this.height_)) / 2 +
-                                           (int)(0.1 * GraphicsDevice.Viewport.Height);
-                }
-                this.em_.isZoomed_ = false;
-                this.oldOrientation_ = this.Window.CurrentOrientation;
-                this.widthRef_ = GraphicsDevice.Viewport.Width;
-            }
 
             ///////////////////////////////////////////////////////TODO: Gesture test
             var ret = this.em_.GetEvents();
@@ -164,38 +133,22 @@ namespace Kaboom.Sources
                         Camera.Instance.OffY += ret.DeltaY;
                         break;
                     case Action.Type.ZoomIn:
-                        try
-                        {
-                            var where = this.map_.GetCoordByPos(ret.Pos);
-                            Camera.Instance.OffX = -1 * (where.X * 80) + GraphicsDevice.Viewport.Width / 2;
-                            if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
-                                Camera.Instance.OffY = -1 * (where.Y * 80) + (int)(0.1 * GraphicsDevice.Viewport.Width) + GraphicsDevice.Viewport.Height / 2;
-                            else
-                                Camera.Instance.OffY = -1 * (where.Y * 80) + (int)(0.1 * GraphicsDevice.Viewport.Height) + GraphicsDevice.Viewport.Height / 2;
-
-                        }
-                        catch (Exception)
-                        {
-                            Camera.Instance.OffX = -1 * ((this.width_ * 80) / 2) + GraphicsDevice.Viewport.Width / 2;
-                            if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
-                                Camera.Instance.OffY = -1 * ((this.height_ * 80) /2) + (int)(0.1 * GraphicsDevice.Viewport.Width) + GraphicsDevice.Viewport.Height / 2;
-                            else
-                                Camera.Instance.OffY = -1 * ((this.height_ * 80) /2) + (int)(0.1 * GraphicsDevice.Viewport.Height) + GraphicsDevice.Viewport.Height / 2;
-                        }
                         Camera.Instance.DimX = 80;
                         Camera.Instance.DimY = 80;
-                        
+                        // TODO : It's Nawak
+                        Camera.Instance.OffX = (int) (ret.Pos.X);
+                        Camera.Instance.OffY = (int) (ret.Pos.Y);
                         break;
                     case Action.Type.ZoomOut:
                         if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
                         {
-                            Camera.Instance.DimY = maxZoom_[1];
-                            Camera.Instance.DimX = maxZoom_[1];
+                            Camera.Instance.DimY = maxZoom_[0];
+                            Camera.Instance.DimX = maxZoom_[0];
                             Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
                             Camera.Instance.OffY = (GraphicsDevice.Viewport.Height -
-                                                    (int)(0.1 * GraphicsDevice.Viewport.Width) -
+                                                    (int) (0.1 * GraphicsDevice.Viewport.Height) -
                                                     (maxZoom_[1] * this.height_)) / 2 +
-                                                   (int)(0.1 * GraphicsDevice.Viewport.Width);
+                                                   (int) (0.1 * GraphicsDevice.Viewport.Height);
                         }
                         else
                         {
@@ -209,16 +162,9 @@ namespace Kaboom.Sources
                         }
                         break;
                     case Action.Type.Tap:
-                        try
-                        {
-                            this.map_.AddNewEntity(
-                                new UnitestEntity(2, KaboomResources.Textures["pony"], EVisibility.Transparent),
-                                this.map_.GetCoordByPos(ret.Pos));
-                        }
-                        catch
-                        {
-
-                        }
+                        this.map_.AddNewEntity(
+                            new UnitestEntity(2, new SpriteSheet(KaboomResources.Textures["BombSheet"], new int[2] {8, 18} , 2), EVisibility.Transparent),
+                            this.map_.GetCoordByPos(ret.Pos));
                         break;
                 }
                 ret = this.em_.GetEvents();                 

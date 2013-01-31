@@ -74,6 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\Map.cs" />
     <Compile Include="Sources\KaboomResources.cs" />
+    <Compile Include="Sources\SpriteSheet.cs" />
     <Compile Include="Sources\Square.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +94,7 @@
     <AndroidAsset Include="Assets\Content\background1.png" />
     <AndroidAsset Include="Assets\Content\background2.png" />
     <AndroidAsset Include="Assets\Content\background3.png" />
+    <AndroidAsset Include="Assets\Content\BombSheet.png" />
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup />
