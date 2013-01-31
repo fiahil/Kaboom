@@ -1,27 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Kaboom.Sources
 {
-    class Map : DrawableGameComponent
+    internal class Map : DrawableGameComponent
     {
 
         private readonly Square[,] board_;
@@ -40,7 +23,7 @@ namespace Kaboom.Sources
             : base(g)
         {
             this.sb_ = sb;
-            this.board_ = new Square[sizex, sizey];
+            this.board_ = new Square[sizex,sizey];
             this.sizeX_ = sizex;
             this.sizeY_ = sizey;
 
@@ -63,7 +46,10 @@ namespace Kaboom.Sources
             {
                 for (var j = 0; j < this.sizeY_; j++)
                 {
-                    this.board_[i, j].AddEntity(new UnitestEntity(0, KaboomResources.Textures["background1"]));
+                    this.board_[i, j].AddEntity(new UnitestEntity(0,
+                                                                  new SpriteSheet(
+                                                                      KaboomResources.Textures["background1"],
+                                                                      new[] {1})));
                 }
             }
         }
@@ -104,7 +90,7 @@ namespace Kaboom.Sources
                     Camera.Instance.DimX,
                     Camera.Instance.DimY);
 
-                if (r.Contains(new Point((int)position.X, (int)position.Y)))
+                if (r.Contains(new Point((int) position.X, (int) position.Y)))
                     return square.Base;
             }
             throw new IndexOutOfRangeException();

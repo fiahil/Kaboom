@@ -1,23 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Kaboom.Sources
 {
@@ -33,7 +18,7 @@ namespace Kaboom.Sources
         private int widthRef_;
         private DisplayOrientation oldOrientation_;
         private readonly List<Player> players_;
-        private Gameplay gameplay_;
+        private readonly Gameplay gameplay_;
 
         /// <summary>
         /// Create the game instance
@@ -77,7 +62,7 @@ namespace Kaboom.Sources
             base.Initialize();
 
             this.players_.Add(new Player(this.map_, "Player 1", true));
-            this.players_.Add(new Player(this.map_, "Player 2", false));
+            this.players_.Add(new Player(this.map_, "Player 2"));
 
             this.height_ = 20;
             this.width_ = 40;
@@ -225,7 +210,10 @@ namespace Kaboom.Sources
                                     if (player.Name == "Player 1")
                                     {
                                         var coord = this.map_.GetCoordByPos(ret.Pos);
-                                        var entity = new UnitestEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1, KaboomResources.Textures["background2"], EVisibility.Transparent);
+                                        var entity = new UnitestEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                                                       new SpriteSheet(
+                                                                           KaboomResources.Textures["background2"],
+                                                                           new[] {1}), EVisibility.Transparent);
                                         this.gameplay_.OnNewEntity(entity);
                                         this.map_.AddNewEntity(entity, coord);
                                         player.TurnToPlay = false;
@@ -233,7 +221,10 @@ namespace Kaboom.Sources
                                     else
                                     {
                                         var coord = this.map_.GetCoordByPos(ret.Pos);
-                                        var entity = new UnitestEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1, KaboomResources.Textures["background3"], EVisibility.Transparent);
+                                        var entity = new UnitestEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                                                       new SpriteSheet(
+                                                                           KaboomResources.Textures["background3"],
+                                                                           new[] {1}), EVisibility.Transparent);
                                         this.gameplay_.OnNewEntity(entity);
                                         this.map_.AddNewEntity(entity, coord);
                                         player.TurnToPlay = false;
@@ -241,6 +232,7 @@ namespace Kaboom.Sources
                                 }
                                 catch
                                 {
+                                    player.TurnToPlay = false;
                                 }
                             }
                             else

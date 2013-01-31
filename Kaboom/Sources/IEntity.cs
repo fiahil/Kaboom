@@ -1,23 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Kaboom.Sources
 {
@@ -80,9 +63,9 @@ namespace Kaboom.Sources
     /// </summary>
     class UnitestEntity : IEntity
     {
-        private readonly Texture2D tile_;
+        private readonly SpriteSheet tile_;
 
-        public UnitestEntity(int z, Texture2D tile, EVisibility v = EVisibility.Opaque)
+        public UnitestEntity(int z, SpriteSheet tile, EVisibility v = EVisibility.Opaque)
         {
             this.ZIndex = z;
             this.Visibility = v;
@@ -95,17 +78,19 @@ namespace Kaboom.Sources
 
         public void Update(GameTime time)
         {
+            this.tile_.Update(time);
         }
 
-        public void Draw(SpriteBatch sb, GameTime t, Point r)
+        public void Draw(SpriteBatch sb, GameTime t, Point p)
         {
             // TODO: Do not draw outside screen.
-            sb.Draw(this.tile_,
-                new Rectangle(
-                    (r.X * Camera.Instance.DimX) + Camera.Instance.OffX,
-                    (r.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
-                    Camera.Instance.DimX,
-                    Camera.Instance.DimY), Color.White);
+            this.tile_.Draw(sb, t, p);
+            //sb.Draw(this.tile_,
+                //new Rectangle(
+                //    (r.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                //    (r.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                //    Camera.Instance.DimX,
+                //    Camera.Instance.DimY), Color.White);
         }
     }
     #endregion

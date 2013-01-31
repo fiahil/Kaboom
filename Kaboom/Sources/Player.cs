@@ -1,25 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Input.Touch;
-
-namespace Kaboom.Sources
+﻿namespace Kaboom.Sources
 {
     /// <summary>
     /// Manage player state
@@ -64,11 +43,12 @@ namespace Kaboom.Sources
         public static void Unitest()
         {
             var p1 = new Player(null, "Boris", true);
-            var p2 = new Player(null, "Georges", false);
+            var p2 = new Player(null, "Georges");
 
             if (p1.TurnToPlay)
             {
-                p1.BombSelected = new UnitestEntity(0, KaboomResources.Textures["pony"]);
+                p1.BombSelected = new UnitestEntity(0,
+                                                    new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}));
                 p1.TurnToPlay = false;
             }
             else
@@ -78,7 +58,8 @@ namespace Kaboom.Sources
 
             if (p2.TurnToPlay)
             {
-                p2.BombSelected = new UnitestEntity(0, KaboomResources.Textures["background2"]);
+                p2.BombSelected = new UnitestEntity(0,
+                                                    new SpriteSheet(KaboomResources.Textures["background2"], new[] {1}));
                 p2.TurnToPlay = false;
             }
             else
