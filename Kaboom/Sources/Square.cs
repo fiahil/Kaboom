@@ -87,11 +87,11 @@ namespace Kaboom.Sources
             var sq = new Square(Point.Zero);
 
             // Z-index test
-            sq.AddEntity(new UnitestEntity(0, null));
-            sq.AddEntity(new UnitestEntity(2, null));
-            sq.AddEntity(new UnitestEntity(5, null, EVisibility.Transparent));
-            sq.AddEntity(new UnitestEntity(1, null));
-            sq.AddEntity(new UnitestEntity(2, null));
+            sq.AddEntity(new StaticEntity(0, null));
+            sq.AddEntity(new StaticEntity(2, null));
+            sq.AddEntity(new StaticEntity(5, null, EVisibility.Transparent));
+            sq.AddEntity(new StaticEntity(1, null));
+            sq.AddEntity(new StaticEntity(2, null));
 
             // Put your breakpoint here
         }

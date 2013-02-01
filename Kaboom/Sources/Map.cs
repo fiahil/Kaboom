@@ -46,7 +46,7 @@ namespace Kaboom.Sources
             {
                 for (var j = 0; j < this.sizeY_; j++)
                 {
-                    this.board_[i, j].AddEntity(new UnitestEntity(0,
+                    this.board_[i, j].AddEntity(new StaticEntity(0,
                                                                   new SpriteSheet(
                                                                       KaboomResources.Textures["background1"],
                                                                       new[] {1})));

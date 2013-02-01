@@ -210,7 +210,7 @@ namespace Kaboom.Sources
                                     if (player.Name == "Player 1")
                                     {
                                         var coord = this.map_.GetCoordByPos(ret.Pos);
-                                        var entity = new UnitestEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                        var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
                                                                        new SpriteSheet(
                                                                            KaboomResources.Textures["background2"],
                                                                            new[] {1}), EVisibility.Transparent);
@@ -221,7 +221,7 @@ namespace Kaboom.Sources
                                     else
                                     {
                                         var coord = this.map_.GetCoordByPos(ret.Pos);
-                                        var entity = new UnitestEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                        var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
                                                                        new SpriteSheet(
                                                                            KaboomResources.Textures["background3"],
                                                                            new[] {1}), EVisibility.Transparent);
