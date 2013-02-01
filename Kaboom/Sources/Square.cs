@@ -37,9 +37,19 @@ namespace Kaboom.Sources
         /// </summary>
         public void Update(GameTime time)
         {
+            var x = 0;
             foreach (var entity in this.entities_)
             {
                 entity.Update(time);
+                if (base_.X == 0 && base_.Y == 0)
+                    if (entity is IBomb)
+                    {
+                        ((IBomb)entity).IsReadyToExplode();
+                    }
+                    else if (entity is UnitestEntity)
+                    {
+                        break;
+                    }
             }
         }
 
