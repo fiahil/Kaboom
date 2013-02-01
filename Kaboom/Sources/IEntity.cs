@@ -56,42 +56,4 @@ namespace Kaboom.Sources
             return a.ZIndex - b.ZIndex;
         }
     }
-
-    #region Unitest
-    /// <summary>
-    /// Exemple of implementation
-    /// </summary>
-    class UnitestEntity : IEntity
-    {
-        private readonly SpriteSheet tile_;
-
-        public UnitestEntity(int z, SpriteSheet tile, EVisibility v = EVisibility.Opaque)
-        {
-            this.ZIndex = z;
-            this.Visibility = v;
-            this.tile_ = tile;
-        }
-
-        public EVisibility Visibility { get; set; }
-
-        public int ZIndex { get; set; }
-
-        public void Update(GameTime time)
-        {
-            this.tile_.Update(time);
-        }
-
-        public void Draw(SpriteBatch sb, GameTime t, Point p)
-        {
-            // TODO: Do not draw outside screen.
-            this.tile_.Draw(sb, t, p);
-            //sb.Draw(this.tile_,
-                //new Rectangle(
-                //    (r.X * Camera.Instance.DimX) + Camera.Instance.OffX,
-                //    (r.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
-                //    Camera.Instance.DimX,
-                //    Camera.Instance.DimY), Color.White);
-        }
-    }
-    #endregion
 }
