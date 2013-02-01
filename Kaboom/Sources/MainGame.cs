@@ -51,7 +51,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
-            KaboomResources.Textures["pony"] = Content.Load<Texture2D>("pony");
+            KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
         }
 
         /// <summary>
@@ -258,9 +258,12 @@ namespace Kaboom.Sources
         /// <param name="gameTime">Game clock</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.LightBlue);
+            GraphicsDevice.Clear(Color.AliceBlue);
 
             base.Draw(gameTime);
+            this.spriteBatch_.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            this.spriteBatch_.DrawString(KaboomResources.Fonts["default"], "Kaboom: Ce soir dans ton salon", Vector2.Zero, Color.White);
+            this.spriteBatch_.End();
         }
     }
 }
