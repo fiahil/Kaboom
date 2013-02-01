@@ -80,6 +80,7 @@
     <Compile Include="Sources\Player.cs" />
     <Compile Include="Sources\SpriteSheet.cs" />
     <Compile Include="Sources\Square.cs" />
+    <Compile Include="Sources\StaticEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\background2.xnb" />
