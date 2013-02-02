@@ -32,6 +32,7 @@ namespace Kaboom.Sources
                 for (var j = 0; j < this.sizeY_; j++)
                 {
                     this.board_[i, j] = new Square(new Point(i, j));
+                    this.board_[i, j].Explosion += ExplosionRuler;
                 }
             }
         }
@@ -132,6 +133,24 @@ namespace Kaboom.Sources
                 item.Draw(this.sb_, gameTime);
             }
             this.sb_.End();
+        }
+
+        public void ExplosionRuler(IBomb bomb, Point pos)
+        {
+            foreach (var position in bomb.GetPattern())
+            {
+                var touchedPos = new Point(pos.X + position.X, pos.Y + position.Y);
+                var t = new Rectangle(0, 0, sizeX_, sizeY_);
+                
+                if (t.Contains(touchedPos))
+                    board_[touchedPos.X, touchedPos.Y].Explode();
+            }
+        }
+
+        public void SetExplosion(Point pos)
+        {
+            // TODO : Exploser a la pos et non en 0 0
+            board_[pos.X, pos.Y].Explode();
         }
     }
 }

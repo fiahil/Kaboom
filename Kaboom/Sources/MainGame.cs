@@ -201,6 +201,7 @@ namespace Kaboom.Sources
                         }
                         break;
                     case Action.Type.Tap:
+                      
                         foreach (var player in this.players_)
                         {
                             if (player.TurnToPlay)
@@ -210,10 +211,14 @@ namespace Kaboom.Sources
                                     if (player.Name == "Player 1")
                                     {
                                         var coord = this.map_.GetCoordByPos(ret.Pos);
-                                        var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
-                                                                       new SpriteSheet(
-                                                                           KaboomResources.Textures["background2"],
-                                                                           new[] {1}), EVisibility.Transparent);
+                                        var entity = new Bomb(Pattern.Type.Square, this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                                                                                 new SpriteSheet(
+                                                                                                 KaboomResources.Textures["background2"],
+                                                                                                  new[] { 1 }));
+                                        //var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                        //                               new SpriteSheet(
+                                        //                                   KaboomResources.Textures["background2"],
+                                        //                                   new[] {1}), EVisibility.Transparent);
                                         this.gameplay_.OnNewEntity(entity);
                                         this.map_.AddNewEntity(entity, coord);
                                         player.TurnToPlay = false;
@@ -221,11 +226,15 @@ namespace Kaboom.Sources
                                     else
                                     {
                                         var coord = this.map_.GetCoordByPos(ret.Pos);
-                                        var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
-                                                                       new SpriteSheet(
-                                                                           KaboomResources.Textures["background3"],
-                                                                           new[] {1}), EVisibility.Transparent);
-                                        this.gameplay_.OnNewEntity(entity);
+                                        var entity = new Bomb(Pattern.Type.Square, this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                                                                                new SpriteSheet(
+                                                                                                KaboomResources.Textures["background3"],
+                                                                                                 new[] { 1 }));
+                                        //var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                        //                               new SpriteSheet(
+                                        //                                   KaboomResources.Textures["background3"],
+                                        //                                   new[] {1}), EVisibility.Transparent);
+                                        //this.gameplay_.OnNewEntity(entity);
                                         this.map_.AddNewEntity(entity, coord);
                                         player.TurnToPlay = false;
                                     }
@@ -233,6 +242,7 @@ namespace Kaboom.Sources
                                 catch
                                 {
                                     player.TurnToPlay = false;
+                                    this.map_.SetExplosion(new Point(0, 0));
                                 }
                             }
                             else

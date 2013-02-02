@@ -11,8 +11,11 @@ namespace Kaboom.Sources
     /// </summary>
     class Square
     {
+        public delegate void ExplosionHandler(IBomb bomb, Point pos);
+      
         private readonly SortedSet<IEntity> entities_;
         private readonly Point base_;
+        public event ExplosionHandler Explosion;
 
         /// <summary>
         /// Square ctor
@@ -41,6 +44,22 @@ namespace Kaboom.Sources
             foreach (var entity in this.entities_)
             {
                 entity.Update(time);
+                if (base_.X == 2 && base_.Y == 2)
+                {
+                    if (entity is IBomb && ((IBomb) entity).IsReadyToExplode())
+                    {
+                        Explosion((IBomb) entity, base_);
+                        entity.Visibility = EVisibility.Opaque;
+                    }
+                }
+                else
+                {
+                    if (entity is IBomb && ((IBomb) entity).IsReadyToExplode())
+                    {
+                        Explosion((IBomb) entity, base_);
+                        entity.Visibility = EVisibility.Opaque;
+                    }
+                }
             }
         }
 
@@ -75,6 +94,14 @@ namespace Kaboom.Sources
         public Point Base
         {
             get { return this.base_; }
+        }
+
+        public void Explode()
+        {
+            foreach (var entity in entities_.OfType<IBomb>())
+            {
+                (entity).SetForExplosion(100);
+            }
         }
 
         #region Unitest

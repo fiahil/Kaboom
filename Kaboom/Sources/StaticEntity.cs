@@ -37,7 +37,7 @@ namespace Kaboom.Sources
         /// Update spritesheet
         /// </summary>
         /// <param name="time"></param>
-        public void Update(GameTime time)
+        public virtual void Update(GameTime time)
         {
             this.tile_.Update(time);
         }
