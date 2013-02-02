@@ -71,6 +71,7 @@ namespace Kaboom.Sources
         private int _currentAnimation;
         private int _currentFrame;
         private double _currentElapsedTime;
+        public event EventHandler AnimationDone;
 
         /// <summary>
         /// 
@@ -150,7 +151,10 @@ namespace Kaboom.Sources
              //
              
              if (this._anims[this._currentAnimation].Cycle == false)
-                 this._currentAnimation = 0;
+             {
+                 if (AnimationDone != null)
+                     AnimationDone(this, null); 
+             }
              this._currentFrame = 0;
          }
 

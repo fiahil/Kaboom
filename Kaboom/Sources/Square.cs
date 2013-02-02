@@ -13,7 +13,6 @@ namespace Kaboom.Sources
     class Square
     {
         public delegate void ExplosionHandler(IBomb bomb, Point pos);
-        public delegate void ExplosionCleaner(IEntity e);
 
         private readonly SortedSet<IEntity> entities_;
         private readonly Point base_;
@@ -35,10 +34,17 @@ namespace Kaboom.Sources
         /// <param name="entity">The entity to add</param>
         public void AddEntity(IEntity entity)
         {
-            entity.animfini += delegate(object sender, EventArgs e)
-                {
-                    
-                };
+            // TODO : Property si besoin
+
+            ((StaticEntity)entity).Tile.AnimationDone += 
+                (sender, ea) =>
+                    {
+                        foreach (var e in entities_.Where(e => ((StaticEntity)e).Tile == sender))
+                        {
+                            ((StaticEntity)e).MarkedForDestroy = true;
+                            break;
+                        }
+                    };
             this.entities_.Add(entity);
         }
 
@@ -47,26 +53,16 @@ namespace Kaboom.Sources
         /// </summary>
         public void Update(GameTime time)
         {
-            foreach (var entity in this.entities_)
+            var list = entities_.ToList();
+            for (var i = 0; i < entities_.Count; ++i)
             {
-                entity.Update(time);
-                if (base_.X == 2 && base_.Y == 2)
-                {
-                    if (entity is IBomb && ((IBomb) entity).IsReadyToExplode())
-                    {
-                        Explosion((IBomb) entity, base_);
-                        entity.Visibility = EVisibility.Opaque;
-                    }
-                }
-                else
-                {
-                    if (entity is IBomb && ((IBomb) entity).IsReadyToExplode())
-                    {
-                        Explosion((IBomb) entity, base_);
-                        entity.Visibility = EVisibility.Opaque;
-                    }
-                }
+                list[i].Update(time);
+                if (list[i] is IBomb && ((IBomb)list[i]).IsReadyToExplode())
+                    Explosion((IBomb)list[i], base_);
+                if (((StaticEntity) list[i]).MarkedForDestroy)
+                    entities_.Remove(list[i]);
             }
+            //entities_.RemoveWhere(e => ((StaticEntity)e).MarkedForDestroy);
         }
 
         /// <summary>
@@ -108,7 +104,7 @@ namespace Kaboom.Sources
         {
             foreach (var entity in entities_.OfType<IBomb>())
             {
-                (entity).SetForExplosion(200);
+                (entity).SetForExplosion(500);
             }
         }
 

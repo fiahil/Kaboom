@@ -8,7 +8,8 @@ namespace Kaboom.Sources
     /// </summary>
     class StaticEntity : IEntity
     {
-        private readonly SpriteSheet tile_;
+        public SpriteSheet Tile;
+        public bool MarkedForDestroy { get; set; }
 
         /// <summary>
         /// Construct a new entity
@@ -18,9 +19,10 @@ namespace Kaboom.Sources
         /// <param name="visibility">Entity's visibility</param>
         public StaticEntity(int zindex, SpriteSheet tile, EVisibility visibility = EVisibility.Opaque)
         {
+            MarkedForDestroy = false;
             this.ZIndex = zindex;
             this.Visibility = visibility;
-            this.tile_ = tile;
+            this.Tile = tile;
         }
 
         /// <summary>
@@ -39,7 +41,7 @@ namespace Kaboom.Sources
         /// <param name="time"></param>
         public virtual void Update(GameTime time)
         {
-            this.tile_.Update(time);
+            this.Tile.Update(time);
         }
 
         /// <summary>
@@ -50,7 +52,7 @@ namespace Kaboom.Sources
         /// <param name="p">Coordinates of the square containing the entity</param>
         public void Draw(SpriteBatch sb, GameTime t, Point p)
         {
-            this.tile_.Draw(sb, t, p);
+            this.Tile.Draw(sb, t, p);
         }
     }
 }
