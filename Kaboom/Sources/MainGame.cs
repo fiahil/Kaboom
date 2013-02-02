@@ -19,6 +19,7 @@ namespace Kaboom.Sources
         private DisplayOrientation oldOrientation_;
         private readonly List<Player> players_;
         private readonly Gameplay gameplay_;
+        private Hud hud_;
 
         /// <summary>
         /// Create the game instance
@@ -52,6 +53,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
             KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
+            KaboomResources.Textures["hud"] = Content.Load<Texture2D>("hud");
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
         }
 
@@ -70,6 +72,9 @@ namespace Kaboom.Sources
             this.widthRef_ = GraphicsDevice.Viewport.Width;
             this.map_ = new Map(this, this.spriteBatch_, this.width_, this.height_);
             this.Components.Add(this.map_);
+            this.hud_ = new Hud(this, this.spriteBatch_);
+            this.Components.Add(this.hud_);
+
             this.oldOrientation_ = this.Window.CurrentOrientation;
 
             if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
@@ -162,22 +167,29 @@ namespace Kaboom.Sources
                             var where = this.map_.GetCoordByPos(ret.Pos);
                             Camera.Instance.OffX = -1 * (where.X * 80) + GraphicsDevice.Viewport.Width / 2;
                             if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
-                                Camera.Instance.OffY = -1 * (where.Y * 80) + (int)(0.1 * GraphicsDevice.Viewport.Width) + GraphicsDevice.Viewport.Height / 2;
+                                Camera.Instance.OffY = -1 * (where.Y * 80) + (int) (0.1 * GraphicsDevice.Viewport.Width) +
+                                                       GraphicsDevice.Viewport.Height / 2;
                             else
-                                Camera.Instance.OffY = -1 * (where.Y * 80) + (int)(0.1 * GraphicsDevice.Viewport.Height) + GraphicsDevice.Viewport.Height / 2;
+                                Camera.Instance.OffY = -1 * (where.Y * 80) +
+                                                       (int) (0.1 * GraphicsDevice.Viewport.Height) +
+                                                       GraphicsDevice.Viewport.Height / 2;
 
                         }
                         catch (Exception)
                         {
                             Camera.Instance.OffX = -1 * ((this.width_ * 80) / 2) + GraphicsDevice.Viewport.Width / 2;
                             if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
-                                Camera.Instance.OffY = -1 * ((this.height_ * 80) /2) + (int)(0.1 * GraphicsDevice.Viewport.Width) + GraphicsDevice.Viewport.Height / 2;
+                                Camera.Instance.OffY = -1 * ((this.height_ * 80) / 2) +
+                                                       (int) (0.1 * GraphicsDevice.Viewport.Width) +
+                                                       GraphicsDevice.Viewport.Height / 2;
                             else
-                                Camera.Instance.OffY = -1 * ((this.height_ * 80) /2) + (int)(0.1 * GraphicsDevice.Viewport.Height) + GraphicsDevice.Viewport.Height / 2;
+                                Camera.Instance.OffY = -1 * ((this.height_ * 80) / 2) +
+                                                       (int) (0.1 * GraphicsDevice.Viewport.Height) +
+                                                       GraphicsDevice.Viewport.Height / 2;
                         }
                         Camera.Instance.DimX = 80;
                         Camera.Instance.DimY = 80;
-                        
+
                         break;
                     case Action.Type.ZoomOut:
                         if (this.Window.CurrentOrientation == DisplayOrientation.Portrait)
@@ -186,9 +198,9 @@ namespace Kaboom.Sources
                             Camera.Instance.DimX = maxZoom_[1];
                             Camera.Instance.OffX = (GraphicsDevice.Viewport.Width - (maxZoom_[1] * this.width_)) / 2;
                             Camera.Instance.OffY = (GraphicsDevice.Viewport.Height -
-                                                    (int)(0.1 * GraphicsDevice.Viewport.Width) -
+                                                    (int) (0.1 * GraphicsDevice.Viewport.Width) -
                                                     (maxZoom_[1] * this.height_)) / 2 +
-                                                   (int)(0.1 * GraphicsDevice.Viewport.Width);
+                                                   (int) (0.1 * GraphicsDevice.Viewport.Width);
                         }
                         else
                         {
@@ -202,53 +214,64 @@ namespace Kaboom.Sources
                         }
                         break;
                     case Action.Type.Tap:
-                      
-                        foreach (var player in this.players_)
+                        var hudEvent = this.hud_.GetHudEvent(ret.Pos);
+                        if (hudEvent != Hud.eHudAction.NoAction)
                         {
-                            if (player.TurnToPlay)
+                            if (hudEvent == Hud.eHudAction.Detonator)
                             {
-                                try
-                                {
-                                    if (player.Name == "Player 1")
-                                    {
-                                        var coord = this.map_.GetCoordByPos(ret.Pos);
-                                        var entity = new Bomb(Pattern.Type.Square, this.map_.GetMaxZIndexOnCoord(coord) + 1,
-                                                                                                 new SpriteSheet(
-                                                                                                 KaboomResources.Textures["BombSheet"],
-                                                                                                  new[] { 8, 18 }, 2));
-                                        //var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
-                                        //                               new SpriteSheet(
-                                        //                                   KaboomResources.Textures["background2"],
-                                        //                                   new[] {1}), EVisibility.Transparent);
-                                        this.gameplay_.OnNewEntity(entity);
-                                        this.map_.AddNewEntity(entity, coord);
-                                        player.TurnToPlay = false;
-                                    }
-                                    else
-                                    {
-                                        var coord = this.map_.GetCoordByPos(ret.Pos);
-                                        var entity = new Bomb(Pattern.Type.Square, this.map_.GetMaxZIndexOnCoord(coord) + 1,
-                                                                                                new SpriteSheet(
-                                                                                                KaboomResources.Textures["BombSheet"],
-                                                                                                 new[] { 8, 18 }, 2));
-                                        //var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
-                                        //                               new SpriteSheet(
-                                        //                                   KaboomResources.Textures["background3"],
-                                        //                                   new[] {1}), EVisibility.Transparent);
-                                        //this.gameplay_.OnNewEntity(entity);
-                                        this.map_.AddNewEntity(entity, coord);
-                                        player.TurnToPlay = false;
-                                    }
-                                }
-                                catch
-                                {
-                                    player.TurnToPlay = false;
-                                    this.map_.SetExplosion(new Point(0, 0));
-                                }
+                                this.map_.SetExplosion(new Point(0, 0));
                             }
-                            else
+                        }
+                        else
+                        {
+                            foreach (var player in this.players_)
                             {
-                                player.TurnToPlay = true;
+                                if (player.TurnToPlay)
+                                {
+                                    try
+                                    {
+                                        if (player.Name == "Player 1")
+                                        {
+                                            var coord = this.map_.GetCoordByPos(ret.Pos);
+                                            var entity = new Bomb(Pattern.Type.Square,
+                                                                  this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                                                  new SpriteSheet(
+                                                                      KaboomResources.Textures["BombSheet"],
+                                                                      new[] {8, 18}, 2));
+                                            //var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                            //                               new SpriteSheet(
+                                            //                                   KaboomResources.Textures["background2"],
+                                            //                                   new[] {1}), EVisibility.Transparent);
+                                            this.gameplay_.OnNewEntity(entity);
+                                            this.map_.AddNewEntity(entity, coord);
+                                            player.TurnToPlay = false;
+                                        }
+                                        else
+                                        {
+                                            var coord = this.map_.GetCoordByPos(ret.Pos);
+                                            var entity = new Bomb(Pattern.Type.Square,
+                                                                  this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                                                  new SpriteSheet(
+                                                                      KaboomResources.Textures["BombSheet"],
+                                                                      new[] {9, 18}, 2));
+                                            //var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
+                                            //                               new SpriteSheet(
+                                            //                                   KaboomResources.Textures["background3"],
+                                            //                                   new[] {1}), EVisibility.Transparent);
+                                            //this.gameplay_.OnNewEntity(entity);
+                                            this.map_.AddNewEntity(entity, coord);
+                                            player.TurnToPlay = false;
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        player.TurnToPlay = false;
+                                    }
+                                }
+                                else
+                                {
+                                    player.TurnToPlay = true;
+                                }
                             }
                         }
                         break;
@@ -269,12 +292,9 @@ namespace Kaboom.Sources
         /// <param name="gameTime">Game clock</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.AliceBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             base.Draw(gameTime);
-            this.spriteBatch_.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            this.spriteBatch_.DrawString(KaboomResources.Fonts["default"], "Kaboom: Ce soir dans ton salon", Vector2.Zero, Color.White);
-            this.spriteBatch_.End();
         }
     }
 }
