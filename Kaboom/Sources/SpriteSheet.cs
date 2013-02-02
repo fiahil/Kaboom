@@ -30,47 +30,46 @@ namespace Kaboom.Sources
     {
         class Anim
         {
-            private Point _head;
-            private int _nbTotalFrames;
-            private int _nbLines;
-            private double _speed;
-            private bool _isCycle;
+            private readonly Point head_;
+            private readonly int nbTotalFrames_;
+            private int nbLines_;
+            private readonly bool isCycle_;
 
             public Anim(Point h, int frames, int lines, double frameSpeed, bool isCycle = false)
             {
-                this._head = h;
-                this._nbTotalFrames = frames;
-                this._nbLines = lines;
-                this._speed = frameSpeed;
-                this._isCycle = isCycle;
+                this.head_ = h;
+                this.nbTotalFrames_ = frames;
+                this.NbLines = lines;
+                this.Speed = frameSpeed;
+                this.isCycle_ = isCycle;
             }
 
-            public double Speed
-            {
-                get { return this._speed; }
-                set { this._speed = value; }
-            }
+            public double Speed { get; set; }
+
             public bool Cycle
             {
-                get { return this._isCycle; }
+                get { return this.isCycle_; }
             }
-            public Point head
-            {
-                get { return this._head; }
-            }
+
             public int Totalframes
             {
-                get { return this._nbTotalFrames; }
+                get { return this.nbTotalFrames_; }
+            }
+
+            public int NbLines
+            {
+                get { return nbLines_; }
+                set { nbLines_ = value; }
             }
         }
 
-        private Texture2D _SpriteSheet;
-        private Rectangle _frameSize;
-        private Dictionary<int, Anim> _anims;
-        private readonly Event _event;
-        private int _currentAnimation;
-        private int _currentFrame;
-        private double _currentElapsedTime;
+        private readonly Texture2D spriteSheet_;
+        private Rectangle frameSize_;
+        private readonly Dictionary<int, Anim> anims_;
+        private readonly Event event_;
+        private int currentAnimation_;
+        private int currentFrame_;
+        private double currentElapsedTime_;
         public event EventHandler AnimationDone;
 
         /// <summary>
@@ -82,21 +81,21 @@ namespace Kaboom.Sources
         /// <param name="frameSpeed">the average speed given to the animations</param>
         public SpriteSheet(Texture2D text, int[] framesPerAnim, int animations = 1, double frameSpeed = 30.0)
         {
-            this._SpriteSheet = text;
-            this._currentAnimation = 0;
-            this._currentFrame = 0;
-            this._currentElapsedTime = 0;
-            this._event = new Event();
+            this.spriteSheet_ = text;
+            this.currentAnimation_ = 0;
+            this.currentFrame_ = 0;
+            this.currentElapsedTime_ = 0;
+            this.event_ = new Event();
 
-            this._anims = new Dictionary<int, Anim>(); // int useless, a terme mettre un enum qui fit bien.
+            this.anims_ = new Dictionary<int, Anim>(); // int useless, a terme mettre un enum qui fit bien.
 
-            this._frameSize = new Rectangle(0, 0, (int)(this._SpriteSheet.Width / framesPerAnim.Max()),
-                                        (int)(this._SpriteSheet.Height / animations));
+            this.frameSize_ = new Rectangle(0, 0, this.spriteSheet_.Width / framesPerAnim.Max(),
+                                        this.spriteSheet_.Height / animations);
  
-            this._anims.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], 1, frameSpeed, true));
-            for (int i = 1; i < animations; ++i)
+            this.anims_.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], 1, frameSpeed, true));
+            for (var i = 1; i < animations; ++i)
             {
-                this._anims.Add(i, new Anim(new Point(0, i * this._frameSize.Y), framesPerAnim[i], 1, frameSpeed));
+                this.anims_.Add(i, new Anim(new Point(0, i * this.frameSize_.Y), framesPerAnim[i], 1, frameSpeed));
             }
         }
 
@@ -110,22 +109,22 @@ namespace Kaboom.Sources
         /// <param name="animations">the number of animation on the SpriteSheet</param>
         public SpriteSheet(Texture2D text, int[] framesPerAnim, int[] linesPerAnim, double[] frameSpeed, int animations = 1)
         {
-            this._SpriteSheet = text;
-            this._currentAnimation = 0;
-            this._currentFrame = 0;
-            this._currentElapsedTime = 0;
-            this._event = new Event();
+            this.spriteSheet_ = text;
+            this.currentAnimation_ = 0;
+            this.currentFrame_ = 0;
+            this.currentElapsedTime_ = 0;
+            this.event_ = new Event();
 
-            this._anims = new Dictionary<int, Anim>(); // int useless, a terme mettre un enum qui fit bien.
+            this.anims_ = new Dictionary<int, Anim>(); // int useless, a terme mettre un enum qui fit bien.
 
-            this._frameSize = new Rectangle(0, 0, (int)(this._SpriteSheet.Width / framesPerAnim.Max()),
-                                                (int)(this._SpriteSheet.Height /animations));
+            this.frameSize_ = new Rectangle(0, 0, this.spriteSheet_.Width / framesPerAnim.Max(),
+                                                this.spriteSheet_.Height /animations);
 
-            this._anims.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], linesPerAnim[0], frameSpeed[0], true));
+            this.anims_.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], linesPerAnim[0], frameSpeed[0], true));
 
-            for (int i = 1; i < animations; ++i)
+            for (var i = 1; i < animations; ++i)
             {
-                this._anims.Add(i, new Anim(new Point(0, i * this._frameSize.Height), framesPerAnim[i], linesPerAnim[i], frameSpeed[i]));
+                this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], linesPerAnim[i], frameSpeed[i]));
             }
         }
 
@@ -136,26 +135,26 @@ namespace Kaboom.Sources
         /// </summary>
         public void Update(GameTime gameTime)
         {
-         this._currentElapsedTime += gameTime.ElapsedGameTime.TotalSeconds;
+         this.currentElapsedTime_ += gameTime.ElapsedGameTime.TotalSeconds;
 
-         if (this._currentElapsedTime >= 1 / this._anims[this._currentAnimation].Speed)
+         if (this.currentElapsedTime_ >= 1 / this.anims_[this.currentAnimation_].Speed)
          {
-             this._currentElapsedTime = 0.0;
-             ++this._currentFrame;
+             this.currentElapsedTime_ = 0.0;
+             ++this.currentFrame_;
          }
 
-         if (this._currentFrame >= this._anims[this._currentAnimation].Totalframes)
+         if (this.currentFrame_ >= this.anims_[this.currentAnimation_].Totalframes)
          {
              //
              // Event
              //
              
-             if (this._anims[this._currentAnimation].Cycle == false)
+             if (this.anims_[this.currentAnimation_].Cycle == false)
              {
                  if (AnimationDone != null)
                      AnimationDone(this, null); 
              }
-             this._currentFrame = 0;
+             this.currentFrame_ = 0;
          }
 
         }
@@ -167,31 +166,31 @@ namespace Kaboom.Sources
         public void Draw(SpriteBatch sb, GameTime t, Point r)
         {
             sb.Draw(
-                this._SpriteSheet,
+                this.spriteSheet_,
                 new Rectangle(
                     (r.X * Camera.Instance.DimX) + Camera.Instance.OffX,
                     (r.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
                     Camera.Instance.DimX,
                     Camera.Instance.DimY),
                 new Rectangle(
-                    this._frameSize.Width * this._currentFrame,
-                    this._frameSize.Height * (int)(this._anims[this._currentAnimation].head.Y / this._frameSize.Height),
-                    this._frameSize.Width,
-                    this._frameSize.Height),
+                    this.frameSize_.Width * this.currentFrame_,
+                    this.frameSize_.Height * this.currentAnimation_,
+                    this.frameSize_.Width,
+                    this.frameSize_.Height),
                 Color.White);
         }
         public void ResetCurrentAnim()
         {
-            this._currentFrame = 0;
+            this.currentFrame_ = 0;
         }
         public double Speed
         {
-            get { return this._anims[this._currentAnimation].Speed; }
+            get { return this.anims_[this.currentAnimation_].Speed; }
         }
-        public int Animation
+        public int CAnimation
         {
-            get { return this._currentAnimation; }
-            set { this._currentAnimation = value; }
+            get { return this.currentAnimation_; }
+            set { this.currentAnimation_ = value; }
         }
    };
                    
@@ -200,17 +199,17 @@ namespace Kaboom.Sources
     /// Definition of a Font who represent a Latin Style alphabet (26char)
     /// plus the numerics and several special char.
     /// </summary>
-    class TTFont
+    class TtFont
     {
-        private SpriteFont   _font;
+        private readonly SpriteFont   font_;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="font">the loaded font who represent the current used alphabet</param>
-        public TTFont(SpriteFont font)
+        public TtFont(SpriteFont font)
         {
-            this._font = font;
+            this.font_ = font;
         }
 
         /// <summary>
@@ -219,10 +218,10 @@ namespace Kaboom.Sources
         /// <param name="sb">SpriteBatch used to draw textures</param>
         /// <param name="str">the string to display on screen</param>
         /// <param name="posInScreen">the position where the display ll be printed</param>
-        public void putstrOnScreen(SpriteBatch sb, string str, Rectangle posInScreen)
+        public void PutstrOnScreen(SpriteBatch sb, string str, Rectangle posInScreen)
         {
             sb.Begin();
-            sb.DrawString(this._font, "<- Mets ton message ici ->", new Vector2(posInScreen.X, posInScreen.Y), Color.White);
+            sb.DrawString(this.font_, "<- Mets ton message ici ->", new Vector2(posInScreen.X, posInScreen.Y), Color.White);
             sb.End();
         }
     };
