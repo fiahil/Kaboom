@@ -10,6 +10,7 @@ namespace Kaboom.Sources
         private readonly Pattern pattern_;
         private double timeBeforeExplosion_;
         private bool readyToExplode_;
+        private bool animationLaunched_;
 
         public Bomb(Pattern.Type type, int zIndex, SpriteSheet tile) :
             base (zIndex, tile, EVisibility.Transparent)
@@ -17,6 +18,7 @@ namespace Kaboom.Sources
             pattern_ = new Pattern(type);
             readyToExplode_ = false;
             timeBeforeExplosion_ = 0;
+            animationLaunched_ = false;
         }
 
         /// <summary>
@@ -37,9 +39,13 @@ namespace Kaboom.Sources
         /// <returns></returns>
         public bool IsReadyToExplode()
         {
-            if (Visibility == EVisibility.Opaque)
+            if (!(readyToExplode_ && timeBeforeExplosion_ <= 0))
                 return false;
-            return readyToExplode_ && timeBeforeExplosion_ <= 0;
+            if (!animationLaunched_)
+                Tile.Animation = 1;
+            animationLaunched_ = true;
+            readyToExplode_ = false;
+            return true;
         }
 
         /// <summary>

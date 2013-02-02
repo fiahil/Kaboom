@@ -51,6 +51,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
+            KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
         }
 
@@ -213,8 +214,8 @@ namespace Kaboom.Sources
                                         var coord = this.map_.GetCoordByPos(ret.Pos);
                                         var entity = new Bomb(Pattern.Type.Square, this.map_.GetMaxZIndexOnCoord(coord) + 1,
                                                                                                  new SpriteSheet(
-                                                                                                 KaboomResources.Textures["background2"],
-                                                                                                  new[] { 1 }));
+                                                                                                 KaboomResources.Textures["BombSheet"],
+                                                                                                  new[] { 8, 18 }, 2));
                                         //var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
                                         //                               new SpriteSheet(
                                         //                                   KaboomResources.Textures["background2"],
@@ -228,8 +229,8 @@ namespace Kaboom.Sources
                                         var coord = this.map_.GetCoordByPos(ret.Pos);
                                         var entity = new Bomb(Pattern.Type.Square, this.map_.GetMaxZIndexOnCoord(coord) + 1,
                                                                                                 new SpriteSheet(
-                                                                                                KaboomResources.Textures["background3"],
-                                                                                                 new[] { 1 }));
+                                                                                                KaboomResources.Textures["BombSheet"],
+                                                                                                 new[] { 8, 18 }, 2));
                                         //var entity = new StaticEntity(this.map_.GetMaxZIndexOnCoord(coord) + 1,
                                         //                               new SpriteSheet(
                                         //                                   KaboomResources.Textures["background3"],
