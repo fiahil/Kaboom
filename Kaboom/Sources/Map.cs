@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -137,13 +138,15 @@ namespace Kaboom.Sources
 
         public void ExplosionRuler(IBomb bomb, Point pos)
         {
-            foreach (var position in bomb.GetPattern())
+            foreach (var touchedPos in
+                from position in bomb.GetPattern()
+                select new Point(pos.X + position.X, pos.Y + position.Y)
+                into touchedPos
+                let t = new Rectangle(0, 0, sizeX_, sizeY_)
+                where t.Contains(touchedPos)
+                select touchedPos)
             {
-                var touchedPos = new Point(pos.X + position.X, pos.Y + position.Y);
-                var t = new Rectangle(0, 0, sizeX_, sizeY_);
-                
-                if (t.Contains(touchedPos))
-                    board_[touchedPos.X, touchedPos.Y].Explode();
+                board_[touchedPos.X, touchedPos.Y].Explode();
             }
         }
 
