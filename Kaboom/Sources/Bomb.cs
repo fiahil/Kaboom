@@ -42,7 +42,7 @@ namespace Kaboom.Sources
             if (!(readyToExplode_ && timeBeforeExplosion_ <= 0))
                 return false;
             if (!animationLaunched_)
-                Tile.Animation = 1;
+                Tile.CAnimation = 1;
             animationLaunched_ = true;
             readyToExplode_ = false;
             return true;
