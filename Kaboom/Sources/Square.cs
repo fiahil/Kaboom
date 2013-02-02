@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -59,19 +60,17 @@ namespace Kaboom.Sources
         /// <param name="t">Game clock used for Sprites' animation</param>
         public void Draw(SpriteBatch sb, GameTime t)
         {
-            var opaqueCount = 0;
-            foreach (var item in this.entities_)
+            var opaqueAllowed = 0;
+            foreach (var entity in this.entities_.Reverse().TakeWhile(
+                entity => entity.Visibility == EVisibility.Transparent ||
+                    (entity.Visibility == EVisibility.Opaque && opaqueAllowed++ == 0)).Reverse())
             {
-                if (item.Visibility == EVisibility.Opaque)
-                    opaqueCount++;
-                if (opaqueCount > 1)
-                     break;
-                item.Draw(sb, t, this.base_);
-             }
+                entity.Draw(sb, t, this.base_);
+            }
         }
 
         /// <summary>
-        /// Getter for base coordinates
+        /// Getter for base coordinates6
         /// </summary>
         public Point Base
         {
