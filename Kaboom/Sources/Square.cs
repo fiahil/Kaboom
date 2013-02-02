@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,7 +13,8 @@ namespace Kaboom.Sources
     class Square
     {
         public delegate void ExplosionHandler(IBomb bomb, Point pos);
-      
+        public delegate void ExplosionCleaner(IEntity e);
+
         private readonly SortedSet<IEntity> entities_;
         private readonly Point base_;
         public event ExplosionHandler Explosion;
@@ -30,10 +32,14 @@ namespace Kaboom.Sources
         /// <summary>
         /// Add an entity to the square
         /// </summary>
-        /// <param name="e">The entity to add</param>
-        public void AddEntity(IEntity e)
+        /// <param name="entity">The entity to add</param>
+        public void AddEntity(IEntity entity)
         {
-            this.entities_.Add(e);
+            entity.animfini += delegate(object sender, EventArgs e)
+                {
+                    
+                };
+            this.entities_.Add(entity);
         }
 
         /// <summary>
@@ -102,7 +108,7 @@ namespace Kaboom.Sources
         {
             foreach (var entity in entities_.OfType<IBomb>())
             {
-                (entity).SetForExplosion(100);
+                (entity).SetForExplosion(200);
             }
         }
 
