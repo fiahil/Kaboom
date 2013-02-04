@@ -32,7 +32,6 @@ namespace Kaboom.Sources
         {
             private readonly Point head_;
             private readonly int nbTotalFrames_;
-            private int nbLines_;
             private readonly bool isCycle_;
 
             public Anim(Point h, int frames, int lines, double frameSpeed, bool isCycle = false)
@@ -44,7 +43,7 @@ namespace Kaboom.Sources
                 this.isCycle_ = isCycle;
             }
 
-            public double Speed { get; set; }
+            public double Speed { get; private set; }
 
             public bool Cycle
             {
@@ -56,11 +55,13 @@ namespace Kaboom.Sources
                 get { return this.nbTotalFrames_; }
             }
 
-            public int NbLines
+            public Point Head
             {
-                get { return nbLines_; }
-                set { nbLines_ = value; }
+                get { return this.head_; }
             }
+// ReSharper disable UnusedAutoPropertyAccessor.Local
+            private int NbLines { get; set; }
+// ReSharper restore UnusedAutoPropertyAccessor.Local
         }
 
         private readonly Texture2D spriteSheet_;
@@ -95,19 +96,20 @@ namespace Kaboom.Sources
             this.anims_.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], 1, frameSpeed, true));
             for (var i = 1; i < animations; ++i)
             {
-                this.anims_.Add(i, new Anim(new Point(0, i * this.frameSize_.Y), framesPerAnim[i], 1, frameSpeed));
+                this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], 1, frameSpeed));
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
+        ///  <summary>
+        /// 
+        ///  </summary>
         /// <param name="text"> The SpriteSheet</param>
         /// <param name="framesPerAnim">The number of Frames of each animations</param>
         /// <param name="linesPerAnim">The number of Lines for each animations</param>
         /// <param name="frameSpeed">the average speed given to the animations</param>
+        /// <param name="cycles"></param>
         /// <param name="animations">the number of animation on the SpriteSheet</param>
-        public SpriteSheet(Texture2D text, int[] framesPerAnim, int[] linesPerAnim, double[] frameSpeed, int animations = 1)
+        public SpriteSheet(Texture2D text, int[] framesPerAnim, int[] linesPerAnim, double[] frameSpeed, bool[] cycles, int animations = 1)
         {
             this.spriteSheet_ = text;
             this.currentAnimation_ = 0;
@@ -120,11 +122,10 @@ namespace Kaboom.Sources
             this.frameSize_ = new Rectangle(0, 0, this.spriteSheet_.Width / framesPerAnim.Max(),
                                                 this.spriteSheet_.Height /animations);
 
-            this.anims_.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], linesPerAnim[0], frameSpeed[0], true));
-
-            for (var i = 1; i < animations; ++i)
+            for (var i = 0; i < animations; ++i)
             {
-                this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], linesPerAnim[i], frameSpeed[i]));
+                this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], linesPerAnim[i], frameSpeed[i], cycles[i]));
+                i += linesPerAnim[i] - 1;
             }
         }
 
@@ -135,28 +136,21 @@ namespace Kaboom.Sources
         /// </summary>
         public void Update(GameTime gameTime)
         {
-         this.currentElapsedTime_ += gameTime.ElapsedGameTime.TotalSeconds;
+            this.currentElapsedTime_ += gameTime.ElapsedGameTime.TotalSeconds;
 
-         if (this.currentElapsedTime_ >= 1 / this.anims_[this.currentAnimation_].Speed)
-         {
-             this.currentElapsedTime_ = 0.0;
-             ++this.currentFrame_;
-         }
+            if (this.currentElapsedTime_ >= 1 / this.anims_[this.currentAnimation_].Speed)
+            {
+                this.currentElapsedTime_ = 0.0;
+                ++this.currentFrame_;
+            }
 
-         if (this.currentFrame_ >= this.anims_[this.currentAnimation_].Totalframes)
-         {
-             //
-             // Event
-             //
-             
-             if (this.anims_[this.currentAnimation_].Cycle == false)
-             {
-                 if (AnimationDone != null)
-                     AnimationDone(this, null); 
-             }
-             this.currentFrame_ = 0;
-         }
-
+            if (this.currentFrame_ < this.anims_[this.currentAnimation_].Totalframes) return;
+            if (this.anims_[this.currentAnimation_].Cycle == false)
+            {
+                if (AnimationDone != null)
+                    AnimationDone(this, null);
+            }
+            this.currentFrame_ = 0;
         }
 
         /// <summary>
@@ -174,7 +168,7 @@ namespace Kaboom.Sources
                     Camera.Instance.DimY),
                 new Rectangle(
                     this.frameSize_.Width * this.currentFrame_,
-                    this.frameSize_.Height * this.currentAnimation_,
+                    this.frameSize_.Height * this.anims_[this.currentAnimation_].Head.Y,
                     this.frameSize_.Width,
                     this.frameSize_.Height),
                 Color.White);
@@ -192,7 +186,12 @@ namespace Kaboom.Sources
             get { return this.currentAnimation_; }
             set { this.currentAnimation_ = value; }
         }
-   };
+
+        public Event Event
+        {
+            get { return event_; }
+        }
+    };
                    
  
     /// <summary>
