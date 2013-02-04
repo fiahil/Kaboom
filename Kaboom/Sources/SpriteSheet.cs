@@ -70,6 +70,7 @@ namespace Kaboom.Sources
         private readonly Event event_;
         private int currentAnimation_;
         private int currentFrame_;
+        private int currentLine_;
         private double currentElapsedTime_;
         public event EventHandler AnimationDone;
 
@@ -85,6 +86,7 @@ namespace Kaboom.Sources
             this.spriteSheet_ = text;
             this.currentAnimation_ = 0;
             this.currentFrame_ = 0;
+            this.currentLine_ = 0;
             this.currentElapsedTime_ = 0;
             this.event_ = new Event();
 
@@ -142,6 +144,8 @@ namespace Kaboom.Sources
             {
                 this.currentElapsedTime_ = 0.0;
                 ++this.currentFrame_;
+                if (this.currentFrame_ * this.frameSize_.Width >= this.spriteSheet_.Width)
+                    ++this.currentLine_;
             }
 
             if (this.currentFrame_ < this.anims_[this.currentAnimation_].Totalframes) return;
@@ -151,24 +155,41 @@ namespace Kaboom.Sources
                     AnimationDone(this, null);
             }
             this.currentFrame_ = 0;
+            this.currentLine_ = 0;
         }
 
         /// <summary>
         /// Draw the current sprite of the animation on screen
         /// <param name="sb">SpriteBatch used to draw textures</param>   
         /// </summary>
-        public void Draw(SpriteBatch sb, GameTime t, Point r)
+        public void Draw(SpriteBatch sb, GameTime t, Point p)
         {
             sb.Draw(
                 this.spriteSheet_,
                 new Rectangle(
-                    (r.X * Camera.Instance.DimX) + Camera.Instance.OffX,
-                    (r.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                    (p.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                    (p.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
                     Camera.Instance.DimX,
                     Camera.Instance.DimY),
                 new Rectangle(
                     this.frameSize_.Width * this.currentFrame_,
-                    this.frameSize_.Height * this.anims_[this.currentAnimation_].Head.Y,
+                    this.frameSize_.Height * (this.anims_[this.currentAnimation_].Head.Y + this.currentLine_),
+                    this.frameSize_.Width,
+                    this.frameSize_.Height),
+                Color.White);
+        }
+        /// <summary>
+        /// Draw the current sprite of the animation on screen
+        /// <param name="sb">SpriteBatch used to draw textures</param>   
+        /// </summary>
+        public void Draw(SpriteBatch sb, GameTime t, Rectangle r)
+        {
+            sb.Draw(
+                this.spriteSheet_,
+                r,
+                new Rectangle(
+                    this.frameSize_.Width * this.currentFrame_,
+                    this.frameSize_.Height * (this.anims_[this.currentAnimation_].Head.Y + this.currentLine_),
                     this.frameSize_.Width,
                     this.frameSize_.Height),
                 Color.White);
