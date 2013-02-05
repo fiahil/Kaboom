@@ -144,7 +144,7 @@ namespace Kaboom.Sources
                                             (maxZoom_[0] * this.height_)) / 2 +
                                            (int)(0.1 * GraphicsDevice.Viewport.Height);
                 }
-                this.em_.isZoomed_ = false;
+                this.em_.IsZoomed = false;
                 this.oldOrientation_ = this.Window.CurrentOrientation;
                 this.widthRef_ = GraphicsDevice.Viewport.Width;
             }
@@ -215,9 +215,9 @@ namespace Kaboom.Sources
                         break;
                     case Action.Type.Tap:
                         var hudEvent = this.hud_.GetHudEvent(ret.Pos);
-                        if (hudEvent != Hud.eHudAction.NoAction)
+                        if (hudEvent != Hud.EHudAction.NoAction)
                         {
-                            if (hudEvent == Hud.eHudAction.Detonator)
+                            if (hudEvent == Hud.EHudAction.Detonator)
                             {
                                 this.map_.SetExplosion(new Point(0, 0));
                             }

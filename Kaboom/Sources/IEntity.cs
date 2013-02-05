@@ -19,6 +19,17 @@ namespace Kaboom.Sources
     interface IEntity
     {
         /// <summary>
+        /// SpriteSheet associated with the entity
+        /// </summary>
+        SpriteSheet Tile { get; set; }
+
+        /// <summary>
+        /// Mark the entity for destruction
+        /// Allow it to play death animation before being removed
+        /// </summary>
+        bool MarkedForDestruction { get; set; }
+
+        /// <summary>
         /// Position on Z-Axis
         /// Indice of superposition
         /// </summary>
@@ -37,6 +48,10 @@ namespace Kaboom.Sources
         /// <param name="r">Position position offset used to draw objects</param>
         void Draw(SpriteBatch sb, GameTime t, Point r);
 
+        /// <summary>
+        /// Update entity and entity's spritesheet
+        /// </summary>
+        /// <param name="time">game clock</param>
         void Update(GameTime time);
     }
 

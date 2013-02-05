@@ -24,7 +24,7 @@ namespace Kaboom.Sources
     {
 
         private Vector2 oldDrag_;
-        public bool isZoomed_;
+        public bool IsZoomed;
 
         /// <summary>
         /// Enable gestures
@@ -33,7 +33,7 @@ namespace Kaboom.Sources
         {
             TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete | GestureType.DoubleTap | GestureType.Tap;
             this.oldDrag_ = Vector2.Zero;
-            this.isZoomed_ = false;
+            this.IsZoomed = false;
         }
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace Kaboom.Sources
 
                 if (g.GestureType == GestureType.DoubleTap)
                 {
-                    ret.ActionType = this.isZoomed_ ? Action.Type.ZoomOut : Action.Type.ZoomIn;
-                    this.isZoomed_ = !this.isZoomed_;
+                    ret.ActionType = this.IsZoomed ? Action.Type.ZoomOut : Action.Type.ZoomIn;
+                    this.IsZoomed = !this.IsZoomed;
                     ret.Pos = g.Position;
                     return ret;
                 }
@@ -63,7 +63,7 @@ namespace Kaboom.Sources
                     ret.Pos = g.Position;
                     return ret;
                 }
-                if (this.isZoomed_ && g.GestureType == GestureType.FreeDrag)
+                if (this.IsZoomed && g.GestureType == GestureType.FreeDrag)
                 {
                     if (oldDrag_ != Vector2.Zero)
                     {

@@ -5,7 +5,7 @@ namespace Kaboom.Sources
 {
     class Hud : DrawableGameComponent
     {
-        public enum eHudAction
+        public enum EHudAction
         {
             Bomb1,
             Bomb2,
@@ -68,14 +68,14 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="pos">Position of the current tap</param>
         /// <returns></returns>
-        public eHudAction GetHudEvent(Vector2 pos)
+        public EHudAction GetHudEvent(Vector2 pos)
         {
             var detonator =
                 new Rectangle(
                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                     (int)((652.0 / 780.0) * this.width_), 0, (int)((128.0 / 780.0) * this.width_), this.height_);
             if (detonator.Contains(new Point((int)pos.X, (int)pos.Y)))
-                return eHudAction.Detonator;
+                return EHudAction.Detonator;
             var padding = 4;
             for (var i = 0; i < 5; ++i, padding += 57)
             {
@@ -85,7 +85,7 @@ namespace Kaboom.Sources
                         (int)(((padding) / 780.0) * this.width_), 0, (int)((61.0 / 780.0) * this.width_),
                         (int)((81.0 / 125.0) * this.height_));
                 if (bomb.Contains(new Point((int)pos.X, (int)pos.Y)))
-                    return (eHudAction)(i);
+                    return (EHudAction)(i);
             }
             var selectedBomb =
                 new Rectangle(
@@ -93,8 +93,8 @@ namespace Kaboom.Sources
                     (int)((296.0 / 780.0) * this.width_), 0, (int)((109.0 / 780.0) * this.width_),
                     (int)((119.0 / 125.0) * this.height_));
             if (selectedBomb.Contains(new Point((int)pos.X, (int)pos.Y)))
-                return eHudAction.SelectedBomb;
-            return eHudAction.NoAction;
+                return EHudAction.SelectedBomb;
+            return EHudAction.NoAction;
         }
     }
 }

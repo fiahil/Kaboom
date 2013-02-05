@@ -8,9 +8,6 @@ namespace Kaboom.Sources
     /// </summary>
     class StaticEntity : IEntity
     {
-        public SpriteSheet Tile;
-        public bool MarkedForDestroy { get; set; }
-
         /// <summary>
         /// Construct a new entity
         /// </summary>
@@ -19,11 +16,22 @@ namespace Kaboom.Sources
         /// <param name="visibility">Entity's visibility</param>
         public StaticEntity(int zindex, SpriteSheet tile, EVisibility visibility = EVisibility.Opaque)
         {
-            MarkedForDestroy = false;
+            MarkedForDestruction = false;
             this.ZIndex = zindex;
             this.Visibility = visibility;
             this.Tile = tile;
         }
+
+        /// <summary>
+        /// SpriteSheet associated with the entity
+        /// </summary>
+        public SpriteSheet Tile { get; set; }
+
+        /// <summary>
+        /// Mark the entity for destruction
+        /// Allow it to play death animation before being removed
+        /// </summary>
+        public bool MarkedForDestruction { get; set; }
 
         /// <summary>
         /// Entity's visibility

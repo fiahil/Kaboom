@@ -34,14 +34,12 @@ namespace Kaboom.Sources
         /// <param name="entity">The entity to add</param>
         public void AddEntity(IEntity entity)
         {
-            // TODO : Property si besoin
-
-            ((StaticEntity)entity).Tile.AnimationDone += 
+            entity.Tile.AnimationDone += 
                 (sender, ea) =>
                     {
-                        foreach (var e in entities_.Where(e => ((StaticEntity)e).Tile == sender))
+                        foreach (var e in entities_.Where(e => e.Tile == sender))
                         {
-                            ((StaticEntity)e).MarkedForDestroy = true;
+                            e.MarkedForDestruction = true;
                             break;
                         }
                     };
@@ -59,10 +57,9 @@ namespace Kaboom.Sources
                 list[i].Update(time);
                 if (list[i] is IBomb && ((IBomb)list[i]).IsReadyToExplode())
                     Explosion((IBomb)list[i], base_);
-                if (((StaticEntity) list[i]).MarkedForDestroy)
+                if (list[i].MarkedForDestruction)
                     entities_.Remove(list[i]);
             }
-            //entities_.RemoveWhere(e => ((StaticEntity)e).MarkedForDestroy);
         }
 
         /// <summary>
