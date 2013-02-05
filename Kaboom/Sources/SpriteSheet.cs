@@ -28,17 +28,28 @@ namespace Kaboom.Sources
     /// </summary>
     class SpriteSheet
     {
+
+        /// <summary>
+        /// Represent the animations of the SpriteSheet
+        /// </summary>
         class Anim
         {
             private readonly Point head_;
             private readonly int nbTotalFrames_;
             private readonly bool isCycle_;
 
-            public Anim(Point h, int frames, int lines, double frameSpeed, bool isCycle = false)
+            /// <summary>
+            /// Constructor
+            /// </summary>
+            /// <param name="h">A point who represent the beginning of the animation</param>
+            /// <param name="frames">the number of frames of the animation</param>
+            /// <param name="frameSpeed">the speed of the animation</param>
+            /// <param name="isCycle">define if the animation have to be done in cycle or only one time</param>
+            /// 
+            public Anim(Point h, int frames, double frameSpeed, bool isCycle = false)
             {
                 this.head_ = h;
                 this.nbTotalFrames_ = frames;
-                this.NbLines = lines;
                 this.Speed = frameSpeed;
                 this.isCycle_ = isCycle;
             }
@@ -59,9 +70,6 @@ namespace Kaboom.Sources
             {
                 get { return this.head_; }
             }
-// ReSharper disable UnusedAutoPropertyAccessor.Local
-            private int NbLines { get; set; }
-// ReSharper restore UnusedAutoPropertyAccessor.Local
         }
 
         private readonly Texture2D spriteSheet_;
@@ -95,10 +103,10 @@ namespace Kaboom.Sources
             this.frameSize_ = new Rectangle(0, 0, this.spriteSheet_.Width / framesPerAnim.Max(),
                                         this.spriteSheet_.Height / animations);
  
-            this.anims_.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], 1, frameSpeed, true));
+            this.anims_.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], frameSpeed, true));
             for (var i = 1; i < animations; ++i)
             {
-                this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], 1, frameSpeed));
+                this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], frameSpeed));
             }
         }
 
@@ -126,7 +134,7 @@ namespace Kaboom.Sources
 
             for (var i = 0; i < animations; ++i)
             {
-                this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], linesPerAnim[i], frameSpeed[i], cycles[i]));
+                this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], frameSpeed[i], cycles[i]));
                 i += linesPerAnim[i] - 1;
             }
         }
