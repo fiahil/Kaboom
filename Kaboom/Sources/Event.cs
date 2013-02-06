@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Kaboom.Sources
 {
-    struct Action
+    class Action
     {
         public enum Type
         {
@@ -12,7 +12,7 @@ namespace Kaboom.Sources
             ZoomOut,
             Tap,
             NoEvent
-        };
+        }
 
         public Type ActionType;
         public int DeltaX;
@@ -24,7 +24,6 @@ namespace Kaboom.Sources
     {
 
         private Vector2 oldDrag_;
-        public bool IsZoomed;
 
         /// <summary>
         /// Enable gestures
@@ -33,7 +32,6 @@ namespace Kaboom.Sources
         {
             TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete | GestureType.DoubleTap | GestureType.Tap;
             this.oldDrag_ = Vector2.Zero;
-            this.IsZoomed = false;
         }
 
         /// <summary>
@@ -41,19 +39,21 @@ namespace Kaboom.Sources
         /// </summary>
         public Action GetEvents()
         {
-            Action ret;
-            ret.ActionType = Action.Type.NoEvent;
-            ret.DeltaX = 0;
-            ret.DeltaY = 0;
-            ret.Pos = Vector2.Zero;
+            var ret = new Action
+                {
+                    ActionType = Action.Type.NoEvent,
+                    DeltaX = 0,
+                    DeltaY = 0,
+                    Pos = Vector2.Zero
+                };
+
             if (TouchPanel.IsGestureAvailable)
             {
                 var g = TouchPanel.ReadGesture();
 
                 if (g.GestureType == GestureType.DoubleTap)
                 {
-                    ret.ActionType = this.IsZoomed ? Action.Type.ZoomOut : Action.Type.ZoomIn;
-                    this.IsZoomed = !this.IsZoomed;
+                    ret.ActionType = Viewport.Instance.IsZoomed ? Action.Type.ZoomOut : Action.Type.ZoomIn;
                     ret.Pos = g.Position;
                     return ret;
                 }
@@ -63,7 +63,7 @@ namespace Kaboom.Sources
                     ret.Pos = g.Position;
                     return ret;
                 }
-                if (this.IsZoomed && g.GestureType == GestureType.FreeDrag)
+                if (Viewport.Instance.IsZoomed && g.GestureType == GestureType.FreeDrag)
                 {
                     if (oldDrag_ != Vector2.Zero)
                     {
