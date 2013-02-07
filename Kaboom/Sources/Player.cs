@@ -34,7 +34,7 @@
         /// <summary>
         /// Return the actual picked up bomb or null if none selected
         /// </summary>
-        public IEntity BombSelected { get; set; }
+        public Entity BombSelected { get; set; }
 
         #region Unitest
         /// <summary>
@@ -47,8 +47,7 @@
 
             if (p1.TurnToPlay)
             {
-                p1.BombSelected = new StaticEntity(0,
-                                                    new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}));
+                p1.BombSelected = new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}));
                 p1.TurnToPlay = false;
             }
             else
@@ -58,8 +57,7 @@
 
             if (p2.TurnToPlay)
             {
-                p2.BombSelected = new StaticEntity(0,
-                                                    new SpriteSheet(KaboomResources.Textures["background2"], new[] {1}));
+                p2.BombSelected = new Entity(0, new SpriteSheet(KaboomResources.Textures["background2"], new[] {1}));
                 p2.TurnToPlay = false;
             }
             else

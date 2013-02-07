@@ -69,8 +69,6 @@
     <Compile Include="Sources\Event.cs" />
     <Compile Include="Sources\Gameplay.cs" />
     <Compile Include="Sources\Hud.cs" />
-    <Compile Include="Sources\IBomb.cs" />
-    <Compile Include="Sources\IEntity.cs" />
     <Compile Include="Sources\MainActivity.cs" />
     <Compile Include="Sources\MainGame.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -81,7 +79,7 @@
     <Compile Include="Sources\Player.cs" />
     <Compile Include="Sources\SpriteSheet.cs" />
     <Compile Include="Sources\Square.cs" />
-    <Compile Include="Sources\StaticEntity.cs" />
+    <Compile Include="Sources\Entity.cs" />
     <Compile Include="Sources\Viewport.cs" />
   </ItemGroup>
   <ItemGroup>

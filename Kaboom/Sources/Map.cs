@@ -48,8 +48,7 @@ namespace Kaboom.Sources
             {
                 for (var j = 0; j < this.sizeY_; j++)
                 {
-                    this.board_[i, j].AddEntity(new StaticEntity(0,
-                        new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 })));
+                    this.board_[i, j].AddEntity(new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 })));
                 }
             }
         }
@@ -69,7 +68,7 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="entity">the entity to place on the map</param>
         /// <param name="coordinates">coordinates of the entity</param>
-        public void AddNewEntity(IEntity entity, Point coordinates)
+        public void AddNewEntity(Entity entity, Point coordinates)
         {
             this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
         }
@@ -82,13 +81,11 @@ namespace Kaboom.Sources
         /// <returns>Matching coordinates</returns>
         public Point GetCoordByPos(Vector2 position)
         {
+            var r = new Rectangle(0, 0, Camera.Instance.DimX, Camera.Instance.DimY);
             foreach (var square in this.board_)
             {
-                var r = new Rectangle(
-                    (square.Base.X * Camera.Instance.DimX) + Camera.Instance.OffX,
-                    (square.Base.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
-                    Camera.Instance.DimX,
-                    Camera.Instance.DimY);
+                r.X = (square.Base.X * Camera.Instance.DimX) + Camera.Instance.OffX;
+                r.Y = (square.Base.Y * Camera.Instance.DimY) + Camera.Instance.OffY;
 
                 if (r.Contains(new Point((int) position.X, (int) position.Y)))
                     return square.Base;
@@ -136,23 +133,31 @@ namespace Kaboom.Sources
             this.sb_.End();
         }
 
-        public void ExplosionRuler(IBomb bomb, Point pos)
+        /// <summary>
+        /// Deleguate for explosion
+        /// </summary>
+        /// <param name="bomb">Bomb ready to boom</param>
+        /// <param name="pos">Position of the bomb</param>
+        public void ExplosionRuler(Bomb bomb, Point pos)
         {
+            var t = new Rectangle(0, 0, sizeX_, sizeY_);
             foreach (var touchedPos in
                 from position in bomb.GetPattern()
                 select new Point(pos.X + position.X, pos.Y + position.Y)
                 into touchedPos
-                let t = new Rectangle(0, 0, sizeX_, sizeY_)
                 where t.Contains(touchedPos)
                 select touchedPos)
             {
                 board_[touchedPos.X, touchedPos.Y].Explode();
             }
         }
-
+        
+        /// <summary>
+        /// Launch an explosion on given position
+        /// </summary>
+        /// <param name="pos">Position to start explosion</param>
         public void SetExplosion(Point pos)
         {
-            // TODO : Exploser a la pos et non en 0 0
             board_[pos.X, pos.Y].Explode();
         }
     }

@@ -3,20 +3,26 @@ using Microsoft.Xna.Framework;
 
 namespace Kaboom.Sources
 {
-    class Bomb : StaticEntity, IBomb
+    class Bomb : Entity
     {
         private readonly Pattern pattern_;
         private double timeBeforeExplosion_;
         private bool readyToExplode_;
         private bool animationLaunched_;
 
-        public Bomb(Pattern.Type type, int zIndex, SpriteSheet tile) :
-            base (zIndex, tile, EVisibility.Transparent)
+        /// <summary>
+        /// Construct a new bomb on Z-index 10
+        /// </summary>
+        /// <param name="type">Pattern type</param>
+        /// <param name="tile">Bomb Skin</param>
+        public Bomb(Pattern.Type type, SpriteSheet tile) :
+            base (10, tile, EVisibility.Transparent)
         {
             pattern_ = new Pattern(type);
             readyToExplode_ = false;
             timeBeforeExplosion_ = 0;
             animationLaunched_ = false;
+            this.MarkedForDestruction = false;
         }
 
         /// <summary>
@@ -66,5 +72,10 @@ namespace Kaboom.Sources
             readyToExplode_ = true;
             timeBeforeExplosion_ = time;
         }
+
+        /// <summary>
+        /// Indicate whether the bomb will be removed
+        /// </summary>
+        public bool MarkedForDestruction { get; set; }
     }
 }

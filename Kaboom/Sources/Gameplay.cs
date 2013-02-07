@@ -10,7 +10,7 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="entity">Entity created</param>
         /// <returns>Success or failure</returns>
-        public bool OnNewEntity(IEntity entity)
+        public bool OnNewEntity(Entity entity)
         {
             return true;
         }
@@ -20,7 +20,7 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="entity">Entity destroyed</param>
         /// <returns>Success or failure</returns>
-        public bool OnDestroyEntity(IEntity entity)
+        public bool OnDestroyEntity(Entity entity)
         {
             return true;
         }
@@ -31,9 +31,9 @@ namespace Kaboom.Sources
         /// <param name="entity">Entity picked up</param>
         /// <param name="player">Player who picked up the entity</param>
         /// <returns></returns>
-        public bool OnPickUp(IEntity entity, Player player)
+        public bool OnPickUp(Entity entity, Player player)
         {
-            //TODO: Replace IEntity with IBomb
+            //TODO: Replace Entity with IBomb
             return true;
         }
 
@@ -42,9 +42,9 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="bomb">Exploded bomb</param>
         /// <returns>Success or failure</returns>
-        public bool OnExplosion(IEntity bomb)
+        public bool OnExplosion(Entity bomb)
         {
-            //TODO: Replace IEntity with IBomb
+            //TODO: Replace Entity with IBomb
             return true;
         }
 
@@ -53,9 +53,9 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="checkpoint">Activated checkpoint</param>
         /// <returns>Success or failure</returns>
-        public bool OnActivation(IEntity checkpoint)
+        public bool OnActivation(Entity checkpoint)
         {
-            //TODO: Replace IEntity with IActivable/ICheckpoint
+            //TODO: Replace Entity with IActivable/ICheckpoint
             return true;
         }
 
@@ -64,9 +64,9 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="item">Picked-up bonus/malus</param>
         /// <returns>Success or failure</returns>
-        public bool OnCollect(IEntity item)
+        public bool OnCollect(Entity item)
         {
-            //TODO: Replace IEntity with ICollectable
+            //TODO: Replace Entity with ICollectable
             return true;
         }
     }

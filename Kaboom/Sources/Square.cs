@@ -12,9 +12,9 @@ namespace Kaboom.Sources
     /// </summary>
     class Square
     {
-        public delegate void ExplosionHandler(IBomb bomb, Point pos);
+        public delegate void ExplosionHandler(Bomb bomb, Point pos);
 
-        private readonly SortedSet<IEntity> entities_;
+        private readonly SortedSet<Entity> entities_;
         private readonly Point base_;
         public event ExplosionHandler Explosion;
 
@@ -24,7 +24,7 @@ namespace Kaboom.Sources
         /// <param name="baseLoc">Map coordinates</param>
         public Square(Point baseLoc)
         {
-            this.entities_ = new SortedSet<IEntity>(new EntityComparer());
+            this.entities_ = new SortedSet<Entity>(new EntityComparer());
             this.base_ = baseLoc;
         }
 
@@ -32,15 +32,14 @@ namespace Kaboom.Sources
         /// Add an entity to the square
         /// </summary>
         /// <param name="entity">The entity to add</param>
-        public void AddEntity(IEntity entity)
+        public void AddEntity(Entity entity)
         {
             entity.Tile.AnimationDone += 
                 (sender, ea) =>
                     {
-                        foreach (var e in entities_.Where(e => e.Tile == sender))
+                        foreach (var e in this.entities_.Where(e => e.Tile == sender && e is Bomb).Select(e => e as Bomb))
                         {
                             e.MarkedForDestruction = true;
-                            break;
                         }
                     };
             this.entities_.Add(entity);
@@ -55,10 +54,17 @@ namespace Kaboom.Sources
             for (var i = 0; i < entities_.Count; ++i)
             {
                 list[i].Update(time);
-                if (list[i] is IBomb && ((IBomb)list[i]).IsReadyToExplode())
-                    Explosion((IBomb)list[i], base_);
-                if (list[i].MarkedForDestruction)
-                    entities_.Remove(list[i]);
+                if (list[i] is Bomb)
+                {
+                    var bomb = list[i] as Bomb;
+                    if (bomb.IsReadyToExplode() && Explosion != null)
+                        Explosion(bomb, base_);
+                    if (bomb.MarkedForDestruction)
+                        entities_.Remove(bomb);
+                }/* TODO: ...
+                if (list[i] is Block)
+                {
+                }*/
             }
         }
 
@@ -95,11 +101,14 @@ namespace Kaboom.Sources
             get { return this.base_; }
         }
 
+        /// <summary>
+        /// Set explosion marker on all bombs in the square
+        /// </summary>
         public void Explode()
         {
-            foreach (var entity in entities_.OfType<IBomb>())
+            foreach (var entity in entities_.OfType<Bomb>())
             {
-                (entity).SetForExplosion(500);
+                entity.SetForExplosion(500);
             }
         }
 
@@ -112,11 +121,11 @@ namespace Kaboom.Sources
             var sq = new Square(Point.Zero);
 
             // Z-index test
-            sq.AddEntity(new StaticEntity(0, null));
-            sq.AddEntity(new StaticEntity(2, null));
-            sq.AddEntity(new StaticEntity(5, null, EVisibility.Transparent));
-            sq.AddEntity(new StaticEntity(1, null));
-            sq.AddEntity(new StaticEntity(2, null));
+            sq.AddEntity(new Entity(0, null));
+            sq.AddEntity(new Entity(2, null));
+            sq.AddEntity(new Entity(5, null, EVisibility.Transparent));
+            sq.AddEntity(new Entity(1, null));
+            sq.AddEntity(new Entity(2, null));
 
             // Put your breakpoint here
         }

@@ -1,12 +1,22 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Kaboom.Sources
 {
     /// <summary>
-    /// Exemple of implementation
+    /// Define Entities' visibility
     /// </summary>
-    class StaticEntity : IEntity
+    enum EVisibility
+    {
+        Opaque,
+        Transparent
+    }
+
+    /// <summary>
+    /// Basic entity
+    /// </summary>
+    class Entity
     {
         /// <summary>
         /// Construct a new entity
@@ -14,9 +24,8 @@ namespace Kaboom.Sources
         /// <param name="zindex">Z-Axis' indice of supperposition</param>
         /// <param name="tile">Texture associated with the entity</param>
         /// <param name="visibility">Entity's visibility</param>
-        public StaticEntity(int zindex, SpriteSheet tile, EVisibility visibility = EVisibility.Opaque)
+        public Entity(int zindex, SpriteSheet tile, EVisibility visibility = EVisibility.Opaque)
         {
-            MarkedForDestruction = false;
             this.ZIndex = zindex;
             this.Visibility = visibility;
             this.Tile = tile;
@@ -26,12 +35,6 @@ namespace Kaboom.Sources
         /// SpriteSheet associated with the entity
         /// </summary>
         public SpriteSheet Tile { get; set; }
-
-        /// <summary>
-        /// Mark the entity for destruction
-        /// Allow it to play death animation before being removed
-        /// </summary>
-        public bool MarkedForDestruction { get; set; }
 
         /// <summary>
         /// Entity's visibility
@@ -61,6 +64,23 @@ namespace Kaboom.Sources
         public void Draw(SpriteBatch sb, GameTime t, Point p)
         {
             this.Tile.Draw(sb, t, p);
+        }
+    }
+
+    /// <summary>
+    /// Comparer for SortedSet
+    /// </summary>
+    class EntityComparer : IComparer<Entity>
+    {
+        /// <summary>
+        /// Compare two entities by matching their Z-index
+        /// </summary>
+        /// <param name="a">First entity</param>
+        /// <param name="b">Second entity</param>
+        /// <returns></returns>
+        public int Compare(Entity a, Entity b)
+        {
+            return a.ZIndex - b.ZIndex;
         }
     }
 }
