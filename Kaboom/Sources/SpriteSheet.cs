@@ -1,38 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Kaboom.Sources
 {
 
-   
+
     /// <summary>
     /// Definition of an animated Sprite
     /// </summary>
-    class SpriteSheet
+    internal class SpriteSheet
     {
 
         /// <summary>
         /// Represent the animations of the SpriteSheet
         /// </summary>
-        class Anim
+        private class Anim
         {
             private readonly Point head_;
             private readonly int nbTotalFrames_;
@@ -89,7 +74,7 @@ namespace Kaboom.Sources
         /// <param name="framesPerAnim">The number of Frames of each animations</param>
         /// <param name="animations">the number of animation on the SpriteSheet</param>
         /// <param name="frameSpeed">the average speed given to the animations</param>
-        public SpriteSheet(Texture2D text, int[] framesPerAnim, int animations = 1, double frameSpeed = 30.0)
+        public SpriteSheet(Texture2D text, int[] framesPerAnim, int animations, double frameSpeed = 30.0)
         {
             this.spriteSheet_ = text;
             this.currentAnimation_ = 0;
@@ -101,8 +86,8 @@ namespace Kaboom.Sources
             this.anims_ = new Dictionary<int, Anim>(); // int useless, a terme mettre un enum qui fit bien.
 
             this.frameSize_ = new Rectangle(0, 0, this.spriteSheet_.Width / framesPerAnim.Max(),
-                                        this.spriteSheet_.Height / animations);
- 
+                                            this.spriteSheet_.Height / animations);
+
             this.anims_.Add(0, new Anim(new Point(0, 0), framesPerAnim[0], frameSpeed, true));
             for (var i = 1; i < animations; ++i)
             {
@@ -119,7 +104,8 @@ namespace Kaboom.Sources
         /// <param name="frameSpeed">the average speed given to the animations</param>
         /// <param name="cycles"></param>
         /// <param name="animations">the number of animation on the SpriteSheet</param>
-        public SpriteSheet(Texture2D text, int[] framesPerAnim, int[] linesPerAnim, double[] frameSpeed, bool[] cycles, int animations = 1)
+        public SpriteSheet(Texture2D text, int[] framesPerAnim, int[] linesPerAnim, double[] frameSpeed, bool[] cycles,
+                           int animations)
         {
             this.spriteSheet_ = text;
             this.currentAnimation_ = 0;
@@ -130,7 +116,7 @@ namespace Kaboom.Sources
             this.anims_ = new Dictionary<int, Anim>(); // int useless, a terme mettre un enum qui fit bien.
 
             this.frameSize_ = new Rectangle(0, 0, this.spriteSheet_.Width / framesPerAnim.Max(),
-                                                this.spriteSheet_.Height /animations);
+                                            this.spriteSheet_.Height / animations);
 
             for (var i = 0; i < animations; ++i)
             {
@@ -186,6 +172,7 @@ namespace Kaboom.Sources
                     this.frameSize_.Height),
                 Color.White);
         }
+
         /// <summary>
         /// Draw the current sprite of the animation on screen
         /// <param name="sb">SpriteBatch used to draw textures</param>   
@@ -202,55 +189,33 @@ namespace Kaboom.Sources
                     this.frameSize_.Height),
                 Color.White);
         }
+
         public void ResetCurrentAnim()
         {
             this.currentFrame_ = 0;
         }
+
         public double Speed
         {
             get { return this.anims_[this.currentAnimation_].Speed; }
         }
+
         public int CAnimation
         {
-            get { return this.currentAnimation_; }
-            set { this.currentAnimation_ = value; }
+            get
+            {
+                return this.currentAnimation_;
+            }
+            set
+            {
+                this.currentAnimation_ = value;
+                this.currentFrame_ = 0;
+            }
         }
 
         public Event Event
         {
             get { return event_; }
-        }
-    };
-                   
- 
-    /// <summary>
-    /// Definition of a Font who represent a Latin Style alphabet (26char)
-    /// plus the numerics and several special char.
-    /// </summary>
-    class TtFont
-    {
-        private readonly SpriteFont   font_;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="font">the loaded font who represent the current used alphabet</param>
-        public TtFont(SpriteFont font)
-        {
-            this.font_ = font;
-        }
-
-        /// <summary>
-        /// Method who allow the user to display a string on the screen at the position he wants
-        /// </summary>
-        /// <param name="sb">SpriteBatch used to draw textures</param>
-        /// <param name="str">the string to display on screen</param>
-        /// <param name="posInScreen">the position where the display ll be printed</param>
-        public void PutstrOnScreen(SpriteBatch sb, string str, Rectangle posInScreen)
-        {
-            sb.Begin();
-            sb.DrawString(this.font_, "<- Mets ton message ici ->", new Vector2(posInScreen.X, posInScreen.Y), Color.White);
-            sb.End();
         }
     };
 }

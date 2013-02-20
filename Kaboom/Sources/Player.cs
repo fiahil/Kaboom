@@ -47,7 +47,7 @@
 
             if (p1.TurnToPlay)
             {
-                p1.BombSelected = new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}));
+                p1.BombSelected = new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}, 1));
                 p1.TurnToPlay = false;
             }
             else
@@ -57,7 +57,7 @@
 
             if (p2.TurnToPlay)
             {
-                p2.BombSelected = new Entity(0, new SpriteSheet(KaboomResources.Textures["background2"], new[] {1}));
+                p2.BombSelected = new Entity(0, new SpriteSheet(KaboomResources.Textures["background2"], new[] {1}, 1));
                 p2.TurnToPlay = false;
             }
             else

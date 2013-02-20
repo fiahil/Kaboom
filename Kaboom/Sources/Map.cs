@@ -50,10 +50,18 @@ namespace Kaboom.Sources
             {
                 for (var j = 0; j < this.sizeY_; j++)
                 {
-                    this.board_[i, j].AddEntity(new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 })));
-    
-                    if (i != 0 && j != 0)
-                        this.board_[i, j].AddEntity(new Block(new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1,  }, 2), r.Next(2) == 0));
+                    this.board_[i, j].AddEntity(new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1)));
+
+                    if (i != 0 || j != 0)
+                    {
+                        this.board_[i, j].AddEntity(r.Next(2) == 0
+                                                        ? new Block(
+                                                              new SpriteSheet(KaboomResources.Textures["background2"],
+                                                                              new[] { 4, 4 }, 2, 8), true)
+                                                        : new Block(
+                                                              new SpriteSheet(KaboomResources.Textures["background3"],
+                                                                              new[] { 1 }, 1, 1), false));
+                    }
                 }
             }
         }

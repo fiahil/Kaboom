@@ -51,8 +51,8 @@ namespace Kaboom.Sources
         {
             base.Initialize();
 
-            this.map_ = new Map(this, this.spriteBatch_, 40, 20);
-            Viewport.Instance.Initialize(GraphicsDevice, this.map_, 40, 20); // TODO map size property
+            this.map_ = new Map(this, this.spriteBatch_, 20, 10);
+            Viewport.Instance.Initialize(GraphicsDevice, this.map_, 20, 10); // TODO map size property
             this.Components.Add(this.map_);
             this.hud_ = new Hud(this, this.spriteBatch_);
             this.Components.Add(this.hud_);
