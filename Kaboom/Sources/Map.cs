@@ -44,11 +44,16 @@ namespace Kaboom.Sources
         public void Randomize()
         {
             // TODO: Do a true map generator (with a random entity factory) (labyrinth generator?)
+            var r = new Random();
+
             for (var i = 0; i < this.sizeX_; i++)
             {
                 for (var j = 0; j < this.sizeY_; j++)
                 {
                     this.board_[i, j].AddEntity(new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 })));
+    
+                    if (i != 0 && j != 0)
+                        this.board_[i, j].AddEntity(new Block(new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1,  }, 2), r.Next(2) == 0));
                 }
             }
         }
@@ -140,6 +145,9 @@ namespace Kaboom.Sources
         /// <param name="pos">Position of the bomb</param>
         public void ExplosionRuler(Bomb bomb, Point pos)
         {
+            if (bomb == null)
+                return;
+
             var t = new Rectangle(0, 0, sizeX_, sizeY_);
             foreach (var touchedPos in
                 from position in bomb.GetPattern()

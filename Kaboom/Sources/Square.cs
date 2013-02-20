@@ -37,7 +37,7 @@ namespace Kaboom.Sources
             entity.Tile.AnimationDone += 
                 (sender, ea) =>
                     {
-                        foreach (var e in this.entities_.Where(e => e.Tile == sender && e is Bomb).Select(e => e as Bomb))
+                        foreach (var e in this.entities_.Where(e => e.Tile == sender && e is Explosable).Select(e => e as Explosable))
                         {
                             e.MarkedForDestruction = true;
                         }
@@ -54,17 +54,14 @@ namespace Kaboom.Sources
             for (var i = 0; i < entities_.Count; ++i)
             {
                 list[i].Update(time);
-                if (list[i] is Bomb)
+                if (list[i] is Explosable)
                 {
-                    var bomb = list[i] as Bomb;
-                    if (bomb.IsReadyToExplode() && Explosion != null)
-                        Explosion(bomb, base_);
-                    if (bomb.MarkedForDestruction)
-                        entities_.Remove(bomb);
-                }/* TODO: ...
-                if (list[i] is Block)
-                {
-                }*/
+                    var explosable = list[i] as Explosable;
+                    if (explosable.IsReadyToExplode() && Explosion != null)
+                        Explosion(explosable as Bomb, base_);
+                    if (explosable.MarkedForDestruction)
+                        entities_.Remove(explosable);
+                }
             }
         }
 
@@ -102,13 +99,16 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
-        /// Set explosion marker on all bombs in the square
+        /// Set explosion marker on all bombs and blocks in the square
         /// </summary>
         public void Explode()
         {
-            foreach (var entity in entities_.OfType<Bomb>())
+            foreach (var entity in entities_)
             {
-                entity.SetForExplosion(500);
+                if (entity as Bomb != null)
+                    ((Bomb)entity).SetForExplosion(500);
+                if (entity as Block != null && ((Block)entity).Destroyable)
+                    ((Block)entity).SetForExplosion(50);
             }
         }
 

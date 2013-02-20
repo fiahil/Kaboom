@@ -64,9 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sources\Block.cs" />
     <Compile Include="Sources\Bomb.cs" />
     <Compile Include="Sources\Camera.cs" />
     <Compile Include="Sources\Event.cs" />
+    <Compile Include="Sources\Explodable.cs" />
     <Compile Include="Sources\Gameplay.cs" />
     <Compile Include="Sources\Hud.cs" />
     <Compile Include="Sources\MainActivity.cs" />
