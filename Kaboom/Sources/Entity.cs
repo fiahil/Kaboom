@@ -66,21 +66,4 @@ namespace Kaboom.Sources
             this.Tile.Draw(sb, t, p);
         }
     }
-
-    /// <summary>
-    /// Comparer for SortedSet
-    /// </summary>
-    class EntityComparer : IComparer<Entity>
-    {
-        /// <summary>
-        /// Compare two entities by matching their Z-index
-        /// </summary>
-        /// <param name="a">First entity</param>
-        /// <param name="b">Second entity</param>
-        /// <returns></returns>
-        public int Compare(Entity a, Entity b)
-        {
-            return a.ZIndex - b.ZIndex;
-        }
-    }
 }

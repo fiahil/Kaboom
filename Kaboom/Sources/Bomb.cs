@@ -13,7 +13,7 @@ namespace Kaboom.Sources
         /// <param name="type">Pattern type</param>
         /// <param name="tile">Bomb Skin</param>
         public Bomb(Pattern.Type type, SpriteSheet tile) :
-            base (10, tile, EVisibility.Transparent)
+            base (3, tile, EVisibility.Transparent)
         {
             pattern_ = new Pattern(type);
         }

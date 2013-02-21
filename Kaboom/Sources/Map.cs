@@ -49,7 +49,7 @@ namespace Kaboom.Sources
             {
                 for (var j = 0; j < this.sizeY_; j++)
                 {
-                    this.board_[i, j].AddEntity(new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1)));
+                    this.board_[i, j].AddEntity(new Entity(1, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1)));
 
                     if (i != 7 || j != 7)
                     {

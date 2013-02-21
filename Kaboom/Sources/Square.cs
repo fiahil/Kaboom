@@ -7,14 +7,13 @@ namespace Kaboom.Sources
 {
     /// <summary>
     /// Storage class for entities.
-    /// Used a SortedSet to sort entities using their Z-Index
+    /// Used a table to sort entities using their Z-Index
     /// </summary>
     class Square
     {
         public delegate void ExplosionHandler(Bomb bomb, Point pos);
 
-        private readonly SortedSet<Entity> entities_;
-        private readonly Point base_;
+        private readonly Entity[] entities_;
         public event ExplosionHandler Explosion;
 
         /// <summary>
@@ -23,30 +22,31 @@ namespace Kaboom.Sources
         /// <param name="baseLoc">Map coordinates</param>
         public Square(Point baseLoc)
         {
-            this.entities_ = new SortedSet<Entity>(new EntityComparer());
-            this.base_ = baseLoc;
+            this.entities_ = new Entity[5];
+            this.Base = baseLoc;
         }
 
         /// <summary>
         /// Add an entity to the square
         /// </summary>
         /// <param name="entity">The entity to add</param>
-        public void AddEntity(Entity entity)
+        public bool AddEntity(Entity entity)
         {
             entity.Tile.AnimationDone += 
                 (sender, ea) =>
                     {
-                        foreach (var e in this.entities_.Where(e => e.Tile == sender && e is Explosable).Select(e => e as Explosable))
+                        foreach (var e in this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(e => e as Explosable))
                         {
                             e.MarkedForDestruction = true;
                         }
                     };
-            if (this.entities_.Any(b => b is Block))
+
+            if (this.entities_[entity.ZIndex] == null)
             {
-                return;
+                this.entities_[entity.ZIndex] = entity;
+                return true;
             }
-            
-            this.entities_.Add(entity);
+            return false;
         }
 
         /// <summary>
@@ -54,33 +54,29 @@ namespace Kaboom.Sources
         /// </summary>
         public void Update(GameTime time)
         {
-            var list = entities_.ToList();
-            for (var i = 0; i < entities_.Count; ++i)
+            for (var i = 0; i < this.entities_.Length; i++)
             {
-                list[i].Update(time);
-                if (list[i] is Explosable)
+                if (this.entities_[i] == null) continue;
+
+                this.entities_[i].Update(time);
+                if (this.entities_[i] is Explosable)
                 {
-                    var explosable = list[i] as Explosable;
+                    var explosable = this.entities_[i] as Explosable;
                     if (explosable.IsReadyToExplode() && Explosion != null)
-                        Explosion(explosable as Bomb, base_);
-                    if (explosable.MarkedForDestruction /**/&& explosable is Bomb) //TODO ==========TMP : INHIBE DESTRUCTION========================================================================
-                        entities_.Remove(explosable);
-                    else if (explosable.MarkedForDestruction && explosable is Block)/**/
-                    {/**/
-                        entities_.Remove(explosable);/**/
-                        this.AddEntity(new Block(new SpriteSheet(KaboomResources.Textures["background2"], new[] {1, 2}, 2, 2), true));/**/
-                    }/**/
+                        Explosion(explosable as Bomb, this.Base);
+                    if (explosable.MarkedForDestruction)
+                        this.entities_[i] = null;
                 }
             }
         }
 
         /// <summary>
-        /// Get Highest Z-Index form SortedSet
+        /// Get Highest Z-Index
         /// </summary>
         /// <returns>Z-Index</returns>
         public int GetMaxZIndex()
         {
-            return this.entities_.Max.ZIndex;
+            return this.entities_.Reverse().Where(elt => elt != null).Select(elt => elt.ZIndex).FirstOrDefault();
         }
 
         /// <summary>
@@ -91,34 +87,28 @@ namespace Kaboom.Sources
         public void Draw(SpriteBatch sb, GameTime t)
         {
             var opaqueAllowed = 0;
-            foreach (var entity in this.entities_.Reverse().TakeWhile(
+            foreach (var entity in this.entities_.Where(e => e != null).Reverse().TakeWhile(
                 entity => entity.Visibility == EVisibility.Transparent ||
                     (entity.Visibility == EVisibility.Opaque && opaqueAllowed++ == 0)).Reverse())
             {
-                entity.Draw(sb, t, this.base_);
+                entity.Draw(sb, t, this.Base);
             }
         }
 
         /// <summary>
-        /// Getter for base coordinates6
+        /// Getter for base coordinates
         /// </summary>
-        public Point Base
-        {
-            get { return this.base_; }
-        }
+        public Point Base { get; private set; }
 
         /// <summary>
         /// Set explosion marker on all bombs and blocks in the square
         /// </summary>
         public void Explode()
         {
-            foreach (var entity in entities_)
-            {
-                if (entity as Bomb != null)
-                    ((Bomb)entity).SetForExplosion(500);
-                if (entity as Block != null && ((Block)entity).Destroyable)
-                    ((Block)entity).SetForExplosion(50);
-            }
+            if (this.entities_[4] != null && ((Block)this.entities_[4]).Destroyable)
+                ((Block)this.entities_[4]).SetForExplosion(25);
+            if (this.entities_[3] != null)
+                ((Bomb)this.entities_[3]).SetForExplosion(500);
         }
 
         #region Unitest

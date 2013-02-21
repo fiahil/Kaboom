@@ -12,7 +12,7 @@ namespace Kaboom.Sources
         /// <param name="tile">Sprite</param>
         /// <param name="isDestroyable">Destructability of the entity</param>
         public Block(SpriteSheet tile, bool isDestroyable)
-            : base(5, tile, EVisibility.Opaque)
+            : base(4, tile, EVisibility.Opaque)
         {
             this.Destroyable = isDestroyable;
         }
