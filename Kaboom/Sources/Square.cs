@@ -63,8 +63,13 @@ namespace Kaboom.Sources
                     var explosable = list[i] as Explosable;
                     if (explosable.IsReadyToExplode() && Explosion != null)
                         Explosion(explosable as Bomb, base_);
-                    if (explosable.MarkedForDestruction)
+                    if (explosable.MarkedForDestruction /**/&& explosable is Bomb) //TODO ==========TMP : INHIBE DESTRUCTION========================================================================
                         entities_.Remove(explosable);
+                    else if (explosable.MarkedForDestruction && explosable is Block)/**/
+                    {/**/
+                        entities_.Remove(explosable);/**/
+                        this.AddEntity(new Block(new SpriteSheet(KaboomResources.Textures["background2"], new[] {1, 2}, 2, 2), true));/**/
+                    }/**/
                 }
             }
         }

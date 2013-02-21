@@ -7,7 +7,6 @@ namespace Kaboom.Sources
 {
     internal class Map : DrawableGameComponent
     {
-
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
         private readonly int sizeX_;
@@ -52,12 +51,12 @@ namespace Kaboom.Sources
                 {
                     this.board_[i, j].AddEntity(new Entity(0, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1)));
 
-                    if (i != 0 || j != 0)
+                    if (i != 7 || j != 7)
                     {
-                        this.board_[i, j].AddEntity(r.Next(2) == 0
+                        this.board_[i, j].AddEntity(/*r.Next(2)*/ 0 == 0
                                                         ? new Block(
                                                               new SpriteSheet(KaboomResources.Textures["background2"],
-                                                                              new[] { 4, 4 }, 2, 8), true)
+                                                                              new[] { 1, 2 }, 2, 2), true)
                                                         : new Block(
                                                               new SpriteSheet(KaboomResources.Textures["background3"],
                                                                               new[] { 1 }, 1, 1), false));

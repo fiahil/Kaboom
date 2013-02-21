@@ -6,14 +6,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Kaboom.Sources
 {
-
-
     /// <summary>
     /// Definition of an animated Sprite
     /// </summary>
     internal class SpriteSheet
     {
-
         /// <summary>
         /// Represent the animations of the SpriteSheet
         /// </summary>

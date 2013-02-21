@@ -85,9 +85,7 @@
     <Compile Include="Sources\Viewport.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Content\background3.xnb" />
     <AndroidAsset Include="Assets\Content\defaultFont.xnb" />
-    <AndroidAsset Include="Assets\Content\background2.xnb" />
     <AndroidAsset Include="Assets\Content\background1.xnb" />
     <AndroidAsset Include="Assets\Content\hud.xnb" />
     <AndroidAsset Include="Assets\Content\BombSheet.xnb" />
@@ -103,6 +101,8 @@
     <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Content\background3.png" />
+    <AndroidAsset Include="Assets\Content\background2.png" />
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup />

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -51,8 +52,8 @@ namespace Kaboom.Sources
         {
             base.Initialize();
 
-            this.map_ = new Map(this, this.spriteBatch_, 20, 10);
-            Viewport.Instance.Initialize(GraphicsDevice, this.map_, 20, 10); // TODO map size property
+            this.map_ = new Map(this, this.spriteBatch_, 15, 15);
+            Viewport.Instance.Initialize(GraphicsDevice, this.map_, 15, 15); // TODO map size property
             this.Components.Add(this.map_);
             this.hud_ = new Hud(this, this.spriteBatch_);
             this.Components.Add(this.hud_);
@@ -94,7 +95,7 @@ namespace Kaboom.Sources
                             {
                                 if (hudEvent == Hud.EHudAction.Detonator)
                                 {
-                                    this.map_.SetExplosion(new Point(0, 0));
+                                    this.map_.SetExplosion(new Point(7, 7)); //TODO : place true detonators
                                 }
                             }
                             else
@@ -102,7 +103,21 @@ namespace Kaboom.Sources
                                 try
                                 {
                                     var coord = this.map_.GetCoordByPos(ret.Pos);
-                                    var entity = new Bomb(Pattern.Type.Square, new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2));
+                                    var entity = new Bomb(new[]
+                                                            {
+                                                                Pattern.Type.Square,
+                                                                Pattern.Type.LineH,
+                                                                Pattern.Type.LineV,
+                                                                Pattern.Type.AngleT,
+                                                                Pattern.Type.AngleL,
+                                                                Pattern.Type.AngleR,
+                                                                Pattern.Type.AngleB,
+                                                                Pattern.Type.BigSquare,
+                                                                Pattern.Type.HfH,
+                                                                Pattern.Type.HfV,
+                                                                Pattern.Type.X,
+                                                                Pattern.Type.Ultimate
+                                                            }[new Random().Next(12)], new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] {8, 18}, 2));
                                     this.map_.AddNewEntity(entity, coord);
                                 }
                                 catch

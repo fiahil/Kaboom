@@ -8,7 +8,17 @@ namespace Kaboom.Sources
         public enum Type
         {
             Square,
-            Cross
+            LineH,
+            LineV,
+            AngleT,
+            AngleB,
+            AngleL,
+            AngleR,
+            BigSquare,
+            HfV,
+            HfH,
+            X,
+            Ultimate
         }
 
         // TODO : Store time before explosion of each pos
@@ -17,25 +27,195 @@ namespace Kaboom.Sources
                 {
                     Type.Square, new List<Point>
                         {
-                            new Point(-1, -1),
-                            new Point(0, -1),
-                            new Point(1, -1),
-                 
                             new Point(-1, 0),
+                            new Point(0, 0),
                             new Point(1, 0),
-                            
-                            new Point(-1, 1),
+                            new Point(0, -1),
+                            new Point(0, 1)
+                        }
+                },
+                {
+                    Type.LineH, new List<Point>
+                        {
+                            new Point(-2, 0),
+                            new Point(-1, 0),
+                            new Point(0, 0),
+                            new Point(1, 0),
+                            new Point(2, 0)
+                        }
+                },
+                {
+                    Type.LineV, new List<Point>
+                        {
+                            new Point(0, -2),
+                            new Point(0, -1),
+                            new Point(0, 0),
                             new Point(0, 1),
+                            new Point(0, 2)
+                        }
+                },
+                {
+                    Type.AngleL, new List<Point>
+                        {
+                            new Point(0, 0),
+                            new Point(-1, 0),
+                            new Point(-2, 0),
+                            new Point(0, 1),
+                            new Point(0, 2),
+                            new Point(-1, 1)
+                        }
+                },
+                {
+                    Type.AngleT, new List<Point>
+                        {
+                            new Point(-2, 0),
+                            new Point(-1, 0),
+                            new Point(0, 0),
+                            new Point(0, -1),
+                            new Point(0, -2),
+                            new Point(-1, -1)
+                        }
+                },
+                {
+                    Type.AngleB, new List<Point>
+                        {
+                            new Point(0, 2),
+                            new Point(0, 1),
+                            new Point(0, 0),
+                            new Point(1, 0),
+                            new Point(2, 0),
                             new Point(1, 1)
                         }
                 },
                 {
-                    Type.Cross, new List<Point>
+                    Type.AngleR, new List<Point>
                         {
+                            new Point(2, 0),
+                            new Point(1, 0),
+                            new Point(0, 0),
                             new Point(0, -1),
+                            new Point(0, -2),
+                            new Point(1, -1)
+                        }
+                },
+                {
+                    Type.BigSquare, new List<Point>
+                        {
+                            new Point(0, 2),
+                            new Point(-1, 1),
+                            new Point(0, 1),
+                            new Point(1, 1),
+
+                            new Point(0, -2),
+                            new Point(-1, -1),
+                            new Point(0, -1),
+                            new Point(1, -1),
+
+                            new Point(-2, 0),
                             new Point(-1, 0),
+                            new Point(0, 0),
                             new Point(1, 0),
+                            new Point(2, 0)
+                        }
+                },
+                {
+                    Type.HfH, new List<Point>
+                        {
+                            new Point(0, 0),
+
+                            new Point(0, 1),
+                            new Point(0, 2),
+                            new Point(-1, 2),
+                            new Point(-2, 2),
+                            new Point(1, 2),
+                            new Point(2, 2),
+
+                            new Point(0, -1),
+                            new Point(0, -2),
+                            new Point(-1, -2),
+                            new Point(-2, -2),
+                            new Point(1, -2),
+                            new Point(2, -2)
+                        }
+                },
+                {
+                    Type.HfV, new List<Point>
+                        {
+                            new Point(0, 0),
+
                             new Point(1, 0),
+                            new Point(2, 0),
+                            new Point(2, 1),
+                            new Point(2, 2),
+                            new Point(2, -1),
+                            new Point(2, -2),
+
+                            new Point(-1, 0),
+                            new Point(-2, 0),
+                            new Point(-2, 1),
+                            new Point(-2, 2),
+                            new Point(-2, -1),
+                            new Point(-2, -2)
+                        }
+                },
+                {
+                    Type.X, new List<Point>
+                        {
+                            new Point(0, 0),
+
+                            new Point(-1, -1),
+                            new Point(-2, -2),
+                            new Point(-3, -3),
+                            
+                            new Point(1, 1),
+                            new Point(2, 2),
+                            new Point(3, 3),
+
+                            new Point(1, -1),
+                            new Point(2, -2),
+                            new Point(3, -3),
+
+                            new Point(-1, 1),
+                            new Point(-2, 2),
+                            new Point(-3, 3)
+                        }
+                },
+                {
+                    Type.Ultimate, new List<Point>
+                        {
+                            new Point(0, 0),
+
+                            new Point(-6, 0),
+                            new Point(-5, 0),
+                            new Point(-4, 0),
+
+                            new Point(6, 0),
+                            new Point(5, 0),
+                            new Point(4, 0),
+
+                            new Point(0, -6),
+                            new Point(0, -5),
+                            new Point(0, -4),
+
+                            new Point(0, 6),
+                            new Point(0, 5),
+                            new Point(0, 4),
+
+                            new Point(-3, 3),
+                            new Point(-4, 3),
+                            new Point(-3, 4),
+
+                            new Point(3, 3),
+                            new Point(4, 3),
+                            new Point(3, 4),
+
+                            new Point(3, -3),
+                            new Point(4, -3),
+                            new Point(3, -4),
+
+                            new Point(-3, -3),
+                            new Point(-4, -3),
+                            new Point(-3, -4)
                         }
                 }
             };
