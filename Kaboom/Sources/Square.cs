@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -40,6 +39,9 @@ namespace Kaboom.Sources
                             e.MarkedForDestruction = true;
                         }
                     };
+
+            if (entity is Bomb && this.entities_[4] != null)
+                return false;
 
             if (this.entities_[entity.ZIndex] == null)
             {
@@ -103,12 +105,12 @@ namespace Kaboom.Sources
         /// <summary>
         /// Set explosion marker on all bombs and blocks in the square
         /// </summary>
-        public void Explode()
+        public void Explode(double time)
         {
             if (this.entities_[4] != null && ((Block)this.entities_[4]).Destroyable)
-                ((Block)this.entities_[4]).SetForExplosion(25);
+                ((Block)this.entities_[4]).SetForExplosion(time);
             if (this.entities_[3] != null)
-                ((Bomb)this.entities_[3]).SetForExplosion(500);
+                ((Bomb)this.entities_[3]).SetForExplosion(time);
         }
 
         #region Unitest

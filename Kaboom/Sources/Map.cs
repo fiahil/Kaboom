@@ -156,14 +156,11 @@ namespace Kaboom.Sources
                 return;
 
             var t = new Rectangle(0, 0, sizeX_, sizeY_);
-            foreach (var touchedPos in
-                from position in bomb.GetPattern()
-                select new Point(pos.X + position.X, pos.Y + position.Y)
-                into touchedPos
-                where t.Contains(touchedPos)
-                select touchedPos)
+
+            foreach (var elt in
+                    bomb.GetPattern().Where(elt => t.Contains(new Point(pos.X + elt.Point.X, pos.Y + elt.Point.Y))))
             {
-                board_[touchedPos.X, touchedPos.Y].Explode();
+                this.board_[pos.X + elt.Point.X, pos.Y + elt.Point.Y].Explode(elt.Time);
             }
         }
         
@@ -173,7 +170,7 @@ namespace Kaboom.Sources
         /// <param name="pos">Position to start explosion</param>
         public void SetExplosion(Point pos)
         {
-            board_[pos.X, pos.Y].Explode();
+            board_[pos.X, pos.Y].Explode(500);
         }
     }
 }

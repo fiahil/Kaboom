@@ -18,11 +18,16 @@ namespace Kaboom.Sources
             pattern_ = new Pattern(type);
         }
 
+        public void NextOrientation()
+        {
+            this.pattern_.NextOrientation();
+        }
+
         /// <summary>
         /// Get pattern
         /// </summary>
         /// <returns>A list of points representing the explosion pattern</returns>
-        public List<Point> GetPattern()
+        public List<Pattern.PatternElement> GetPattern()
         {
             return pattern_.GetPattern();
         }

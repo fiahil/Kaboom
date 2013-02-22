@@ -105,19 +105,14 @@ namespace Kaboom.Sources
                                     var coord = this.map_.GetCoordByPos(ret.Pos);
                                     var entity = new Bomb(new[]
                                                             {
+                                                                Pattern.Type.Angle,
                                                                 Pattern.Type.Square,
-                                                                Pattern.Type.LineH,
-                                                                Pattern.Type.LineV,
-                                                                Pattern.Type.AngleT,
-                                                                Pattern.Type.AngleL,
-                                                                Pattern.Type.AngleR,
-                                                                Pattern.Type.AngleB,
+                                                                Pattern.Type.Line,
                                                                 Pattern.Type.BigSquare,
-                                                                Pattern.Type.HfH,
-                                                                Pattern.Type.HfV,
+                                                                Pattern.Type.H,
                                                                 Pattern.Type.X,
                                                                 Pattern.Type.Ultimate
-                                                            }[new Random().Next(12)], new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] {8, 18}, 2));
+                                                            }[new Random().Next(7)], new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] {8, 18}, 2));
                                     this.map_.AddNewEntity(entity, coord);
                                 }
                                 catch

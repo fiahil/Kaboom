@@ -3,224 +3,307 @@ using Microsoft.Xna.Framework;
 
 namespace Kaboom.Sources
 {
-    class Pattern
+    internal class Pattern
     {
         public enum Type
         {
             Square,
-            LineH,
-            LineV,
-            AngleT,
-            AngleB,
-            AngleL,
-            AngleR,
+            Line,
+            Angle,
             BigSquare,
-            HfV,
-            HfH,
+            H,
             X,
             Ultimate
         }
 
-        // TODO : Store time before explosion of each pos
-        private static readonly Dictionary<Type, List<Point>> patterns_ = new Dictionary<Type, List<Point>>
+        /// <summary>
+        /// Describe a point in a pattern
+        /// </summary>
+        public class PatternElement
+        {
+            public Point Point;
+            public double Time;
+
+            /// <summary>
+            /// Initilize a new PatternElement
+            /// </summary>
+            /// <param name="x">X coordinate</param>
+            /// <param name="y">Y coordinate</param>
+            /// <param name="time">trigger in milliseconds</param>
+            public PatternElement(int x, int y, double time = 500)
             {
+                this.Point = new Point(x, y);
+                this.Time = time;
+            }
+        }
+
+        /// <summary>
+        /// Pattern List
+        /// </summary>
+        private static readonly Dictionary<Type, List<List<PatternElement>>> patterns_ = new Dictionary
+            <Type, List<List<PatternElement>>>
+            {
+                #region Square
                 {
-                    Type.Square, new List<Point>
+                    Type.Square, new List<List<PatternElement>>
                         {
-                            new Point(-1, 0),
-                            new Point(0, 0),
-                            new Point(1, 0),
-                            new Point(0, -1),
-                            new Point(0, 1)
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(-1, 0),
+                                    new PatternElement(0, 0),
+                                    new PatternElement(1, 0),
+                                    new PatternElement(0, -1),
+                                    new PatternElement(0, 1)
+                                }
                         }
                 },
+
+                #endregion
+
+                #region Line
                 {
-                    Type.LineH, new List<Point>
+                    Type.Line, new List<List<PatternElement>>
                         {
-                            new Point(-2, 0),
-                            new Point(-1, 0),
-                            new Point(0, 0),
-                            new Point(1, 0),
-                            new Point(2, 0)
+                            #region Vertical
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(-2, 0),
+                                    new PatternElement(-1, 0),
+                                    new PatternElement(0, 0),
+                                    new PatternElement(1, 0),
+                                    new PatternElement(2, 0)
+                                },
+                            #endregion
+
+                            #region Horizontal
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(0, -2),
+                                    new PatternElement(0, -1),
+                                    new PatternElement(0, 0),
+                                    new PatternElement(0, 1),
+                                    new PatternElement(0, 2)
+                                }
+                            #endregion
+
                         }
                 },
+
+                #endregion
+
+                #region Angle
                 {
-                    Type.LineV, new List<Point>
+                    Type.Angle, new List<List<PatternElement>>
                         {
-                            new Point(0, -2),
-                            new Point(0, -1),
-                            new Point(0, 0),
-                            new Point(0, 1),
-                            new Point(0, 2)
+                            #region BottomLeft
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(0, 0, 500),
+                                    new PatternElement(-1, 0, 750),
+                                    new PatternElement(-2, 0, 1000),
+                                    new PatternElement(0, 1, 750),
+                                    new PatternElement(0, 2, 1000),
+                                    new PatternElement(-1, 1, 1000)
+                                },
+
+                            #endregion
+
+                            #region TopLeft
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(-2, 0, 1000),
+                                    new PatternElement(-1, 0, 750),
+                                    new PatternElement(0, 0, 500),
+                                    new PatternElement(0, -1, 750),
+                                    new PatternElement(0, -2, 1000),
+                                    new PatternElement(-1, -1, 1000)
+                                },
+
+                            #endregion
+
+                            #region TopRight
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(2, 0, 1000),
+                                    new PatternElement(1, 0, 750),
+                                    new PatternElement(0, 0, 500),
+                                    new PatternElement(0, -1, 750),
+                                    new PatternElement(0, -2, 1000),
+                                    new PatternElement(1, -1, 1000)
+                                },
+
+                            #endregion
+                                
+                            #region BottomRight
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(2, 0, 1000),
+                                    new PatternElement(1, 0, 750),
+                                    new PatternElement(0, 0, 500),
+                                    new PatternElement(0, 1, 750),
+                                    new PatternElement(0, 2, 1000),
+                                    new PatternElement(1, 1, 1000)
+                                }
+
+                            #endregion
+
                         }
                 },
+                #endregion
+
+                #region H
                 {
-                    Type.AngleL, new List<Point>
+                    Type.H, new List<List<PatternElement>>
                         {
-                            new Point(0, 0),
-                            new Point(-1, 0),
-                            new Point(-2, 0),
-                            new Point(0, 1),
-                            new Point(0, 2),
-                            new Point(-1, 1)
+                            #region Horizontal
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(0, 0),
+
+                                    new PatternElement(0, 1),
+                                    new PatternElement(0, 2),
+                                    new PatternElement(-1, 2),
+                                    new PatternElement(-2, 2),
+                                    new PatternElement(1, 2),
+                                    new PatternElement(2, 2),
+
+                                    new PatternElement(0, -1),
+                                    new PatternElement(0, -2),
+                                    new PatternElement(-1, -2),
+                                    new PatternElement(-2, -2),
+                                    new PatternElement(1, -2),
+                                    new PatternElement(2, -2)
+                                },
+                            #endregion
+
+                            #region Vertical
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(0, 0),
+
+                                    new PatternElement(1, 0),
+                                    new PatternElement(2, 0),
+                                    new PatternElement(2, 1),
+                                    new PatternElement(2, 2),
+                                    new PatternElement(2, -1),
+                                    new PatternElement(2, -2),
+
+                                    new PatternElement(-1, 0),
+                                    new PatternElement(-2, 0),
+                                    new PatternElement(-2, 1),
+                                    new PatternElement(-2, 2),
+                                    new PatternElement(-2, -1),
+                                    new PatternElement(-2, -2)
+                                }
+
+                            #endregion
                         }
                 },
+
+                #endregion
+
+                #region BigSquare
                 {
-                    Type.AngleT, new List<Point>
+                    Type.BigSquare, new List<List<PatternElement>>
                         {
-                            new Point(-2, 0),
-                            new Point(-1, 0),
-                            new Point(0, 0),
-                            new Point(0, -1),
-                            new Point(0, -2),
-                            new Point(-1, -1)
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(0, 2),
+                                    new PatternElement(-1, 1),
+                                    new PatternElement(0, 1),
+                                    new PatternElement(1, 1),
+
+                                    new PatternElement(0, -2),
+                                    new PatternElement(-1, -1),
+                                    new PatternElement(0, -1),
+                                    new PatternElement(1, -1),
+
+                                    new PatternElement(-2, 0),
+                                    new PatternElement(-1, 0),
+                                    new PatternElement(0, 0),
+                                    new PatternElement(1, 0),
+                                    new PatternElement(2, 0)
+                                }
                         }
                 },
+
+                #endregion
+
+                #region X
                 {
-                    Type.AngleB, new List<Point>
+                    Type.X, new List<List<PatternElement>>
                         {
-                            new Point(0, 2),
-                            new Point(0, 1),
-                            new Point(0, 0),
-                            new Point(1, 0),
-                            new Point(2, 0),
-                            new Point(1, 1)
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(0, 0),
+
+                                    new PatternElement(-1, -1),
+                                    new PatternElement(-2, -2),
+                                    new PatternElement(-3, -3),
+
+                                    new PatternElement(1, 1),
+                                    new PatternElement(2, 2),
+                                    new PatternElement(3, 3),
+
+                                    new PatternElement(1, -1),
+                                    new PatternElement(2, -2),
+                                    new PatternElement(3, -3),
+
+                                    new PatternElement(-1, 1),
+                                    new PatternElement(-2, 2),
+                                    new PatternElement(-3, 3)
+                                }
                         }
                 },
+                #endregion
+
+                #region Ultimate
                 {
-                    Type.AngleR, new List<Point>
+                    Type.Ultimate, new List<List<PatternElement>>
                         {
-                            new Point(2, 0),
-                            new Point(1, 0),
-                            new Point(0, 0),
-                            new Point(0, -1),
-                            new Point(0, -2),
-                            new Point(1, -1)
-                        }
-                },
-                {
-                    Type.BigSquare, new List<Point>
-                        {
-                            new Point(0, 2),
-                            new Point(-1, 1),
-                            new Point(0, 1),
-                            new Point(1, 1),
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(0, 0),
 
-                            new Point(0, -2),
-                            new Point(-1, -1),
-                            new Point(0, -1),
-                            new Point(1, -1),
+                                    new PatternElement(-6, 0),
+                                    new PatternElement(-5, 0),
+                                    new PatternElement(-4, 0),
 
-                            new Point(-2, 0),
-                            new Point(-1, 0),
-                            new Point(0, 0),
-                            new Point(1, 0),
-                            new Point(2, 0)
-                        }
-                },
-                {
-                    Type.HfH, new List<Point>
-                        {
-                            new Point(0, 0),
+                                    new PatternElement(6, 0),
+                                    new PatternElement(5, 0),
+                                    new PatternElement(4, 0),
 
-                            new Point(0, 1),
-                            new Point(0, 2),
-                            new Point(-1, 2),
-                            new Point(-2, 2),
-                            new Point(1, 2),
-                            new Point(2, 2),
+                                    new PatternElement(0, -6),
+                                    new PatternElement(0, -5),
+                                    new PatternElement(0, -4),
 
-                            new Point(0, -1),
-                            new Point(0, -2),
-                            new Point(-1, -2),
-                            new Point(-2, -2),
-                            new Point(1, -2),
-                            new Point(2, -2)
-                        }
-                },
-                {
-                    Type.HfV, new List<Point>
-                        {
-                            new Point(0, 0),
+                                    new PatternElement(0, 6),
+                                    new PatternElement(0, 5),
+                                    new PatternElement(0, 4),
 
-                            new Point(1, 0),
-                            new Point(2, 0),
-                            new Point(2, 1),
-                            new Point(2, 2),
-                            new Point(2, -1),
-                            new Point(2, -2),
+                                    new PatternElement(-3, 3),
+                                    new PatternElement(-4, 3),
+                                    new PatternElement(-3, 4),
 
-                            new Point(-1, 0),
-                            new Point(-2, 0),
-                            new Point(-2, 1),
-                            new Point(-2, 2),
-                            new Point(-2, -1),
-                            new Point(-2, -2)
-                        }
-                },
-                {
-                    Type.X, new List<Point>
-                        {
-                            new Point(0, 0),
+                                    new PatternElement(3, 3),
+                                    new PatternElement(4, 3),
+                                    new PatternElement(3, 4),
 
-                            new Point(-1, -1),
-                            new Point(-2, -2),
-                            new Point(-3, -3),
-                            
-                            new Point(1, 1),
-                            new Point(2, 2),
-                            new Point(3, 3),
+                                    new PatternElement(3, -3),
+                                    new PatternElement(4, -3),
+                                    new PatternElement(3, -4),
 
-                            new Point(1, -1),
-                            new Point(2, -2),
-                            new Point(3, -3),
-
-                            new Point(-1, 1),
-                            new Point(-2, 2),
-                            new Point(-3, 3)
-                        }
-                },
-                {
-                    Type.Ultimate, new List<Point>
-                        {
-                            new Point(0, 0),
-
-                            new Point(-6, 0),
-                            new Point(-5, 0),
-                            new Point(-4, 0),
-
-                            new Point(6, 0),
-                            new Point(5, 0),
-                            new Point(4, 0),
-
-                            new Point(0, -6),
-                            new Point(0, -5),
-                            new Point(0, -4),
-
-                            new Point(0, 6),
-                            new Point(0, 5),
-                            new Point(0, 4),
-
-                            new Point(-3, 3),
-                            new Point(-4, 3),
-                            new Point(-3, 4),
-
-                            new Point(3, 3),
-                            new Point(4, 3),
-                            new Point(3, 4),
-
-                            new Point(3, -3),
-                            new Point(4, -3),
-                            new Point(3, -4),
-
-                            new Point(-3, -3),
-                            new Point(-4, -3),
-                            new Point(-3, -4)
+                                    new PatternElement(-3, -3),
+                                    new PatternElement(-4, -3),
+                                    new PatternElement(-3, -4)
+                                }
                         }
                 }
+
+                #endregion
             };
 
-        public Type SelectedType;
+        private int orientation_;
 
         /// <summary>
         /// Initialize a class pattern with the given type, throw an exception if the type doesn't exist.
@@ -230,16 +313,28 @@ namespace Kaboom.Sources
         {
             if (!patterns_.ContainsKey(type))
                 throw new KeyNotFoundException();
-                this.SelectedType = type;
+            this.SelectedType = type;
+            this.orientation_ = 0;
+        }
+
+        public Type SelectedType
+        {
+            get;
+            private set;
+        }
+
+        public void NextOrientation()
+        {
+            this.orientation_ = (this.orientation_ + 1) % patterns_[this.SelectedType].Count;
         }
         
         /// <summary>
         /// GetPattern
         /// </summary>
         /// <returns>A list of points representing the explosion pattern</returns>
-        public List<Point> GetPattern()
+        public List<PatternElement> GetPattern()
         {
-            return patterns_[SelectedType];
+            return patterns_[this.SelectedType][this.orientation_];
         }
     }
 }
