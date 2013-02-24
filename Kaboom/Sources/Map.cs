@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Kaboom.Sources
 {
-    internal class Map : DrawableGameComponent
+    class Map : DrawableGameComponent
     {
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
@@ -157,8 +157,7 @@ namespace Kaboom.Sources
 
             var t = new Rectangle(0, 0, sizeX_, sizeY_);
 
-            foreach (var elt in
-                    bomb.GetPattern().Where(elt => t.Contains(new Point(pos.X + elt.Point.X, pos.Y + elt.Point.Y))))
+            foreach (var elt in bomb.GetPattern().Where(elt => t.Contains(new Point(pos.X + elt.Point.X, pos.Y + elt.Point.Y))))
             {
                 this.board_[pos.X + elt.Point.X, pos.Y + elt.Point.Y].Explode(elt.Time);
             }

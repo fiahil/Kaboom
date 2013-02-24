@@ -12,7 +12,6 @@ namespace Kaboom.Sources
         private readonly Event em_;
         private Map map_;
         private Hud hud_;
-        private readonly Gameplay gameplay_;
 
         /// <summary>
         /// Create the game instance
@@ -25,7 +24,7 @@ namespace Kaboom.Sources
                     SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
                 };
             this.em_ = new Event();
-            this.gameplay_ = new Gameplay();
+            new Gameplay();
             Content.RootDirectory = "Content";
         }
 

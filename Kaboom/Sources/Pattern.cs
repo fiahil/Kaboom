@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Kaboom.Sources
 {
-    internal class Pattern
+    public class Pattern
     {
         public enum Type
         {
