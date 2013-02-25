@@ -52,7 +52,7 @@ namespace Kaboom.Sources
             base.Initialize();
 
             this.map_ = new Map(this, this.spriteBatch_, 15, 15);
-            Viewport.Instance.Initialize(GraphicsDevice, this.map_, 15, 15); // TODO map size property
+            Viewport.Instance.Initialize(GraphicsDevice, this.map_);
             this.Components.Add(this.map_);
             this.hud_ = new Hud(this, this.spriteBatch_);
             this.Components.Add(this.hud_);

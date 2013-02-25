@@ -36,16 +36,16 @@ namespace Kaboom.Serializer
     public class MapElements
     {
         public SquareProxy[][] Board;
-        public int DimensionX;
-        public int DimensionY;
+        public int SizeX;
+        public int SizeY;
 
         /// <summary>
         /// Initialize a new MapElement by default
         /// </summary>
         public MapElements()
         {
-            this.DimensionX = 0;
-            this.DimensionY = 0;
+            this.SizeX = 0;
+            this.SizeY = 0;
             this.Board = null;
         }
 
@@ -56,8 +56,8 @@ namespace Kaboom.Serializer
         /// <param name="y">Y size of the map (in square)</param>
         public MapElements(int x, int y)
         {
-            this.DimensionX = x;
-            this.DimensionY = y;
+            this.SizeX = x;
+            this.SizeY = y;
             this.Board = new SquareProxy[x][];
 
             for (var i = 0; i < x; i++)

@@ -16,6 +16,11 @@ namespace Kaboom.Sources
             Ultimate
         }
 
+        public static Type[] All = new[]
+            {
+                Type.Square, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
+            };
+
         /// <summary>
         /// Describe a point in a pattern
         /// </summary>
