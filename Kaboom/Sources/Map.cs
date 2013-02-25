@@ -1,16 +1,78 @@
 using System;
 using System.Linq;
+using Kaboom.Serializer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Kaboom.Sources
 {
-    internal class Map : DrawableGameComponent
+    class Map : DrawableGameComponent
     {
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
-        private readonly int sizeX_;
-        private readonly int sizeY_;
+
+        /// <summary>
+        /// Initialize a new map from a MapElements
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="sb"></param>
+        /// <param name="me"></param>
+        public Map(Game g, SpriteBatch sb, MapElements me)
+            : base(g)
+        {
+            this.sb_ = sb;
+            this.SizeX = me.SizeX;
+            this.SizeY = me.SizeY;
+
+            this.board_ = new Square[this.SizeX,this.SizeY];
+            for (var i = 0; i < this.SizeX; i++)
+            {
+                for (var j = 0; j < this.SizeY; j++)
+                {
+                    this.board_[i, j] = new Square(new Point(i, j));
+                    this.board_[i, j].Explosion += ExplosionRuler;
+
+                    var typeArray = Pattern.All;
+
+                    foreach (var entity in me.Board[i][j].Entities)
+                    {
+                        var bombProxy = entity as BombProxy;
+                        var blockProxy = entity as BlockProxy;
+
+                        if (bombProxy != null)
+                        {
+                            this.board_[i, j].AddEntity(
+                                new Bomb(typeArray[bombProxy.Type],
+                                         new SpriteSheet(
+                                             KaboomResources.Textures[bombProxy.TileIdentifier],
+                                             bombProxy.TileFramePerAnim,
+                                             bombProxy.TileTotalAnim,
+                                             bombProxy.TileFrameSpeed)));
+                        }
+                        
+                        if (blockProxy != null)
+                        {
+                            this.board_[i, j].AddEntity(
+                                new Block(new SpriteSheet(
+                                              KaboomResources.Textures[blockProxy.TileIdentifier],
+                                              blockProxy.TileFramePerAnim,
+                                              blockProxy.TileTotalAnim,
+                                              blockProxy.TileFrameSpeed), blockProxy.Destroyable));
+                        }
+                        else
+                        {
+                            this.board_[i, j].AddEntity(
+                                new Entity(entity.ZIndex,
+                                           new SpriteSheet(
+                                               KaboomResources.Textures[entity.TileIdentifier],
+                                               entity.TileFramePerAnim,
+                                               entity.TileTotalAnim,
+                                               entity.TileFrameSpeed)));
+                        }
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Initialize a new map
@@ -24,12 +86,12 @@ namespace Kaboom.Sources
         {
             this.sb_ = sb;
             this.board_ = new Square[sizex,sizey];
-            this.sizeX_ = sizex;
-            this.sizeY_ = sizey;
+            this.SizeX = sizex;
+            this.SizeY = sizey;
 
-            for (var i = 0; i < this.sizeX_; i++)
+            for (var i = 0; i < this.SizeX; i++)
             {
-                for (var j = 0; j < this.sizeY_; j++)
+                for (var j = 0; j < this.SizeY; j++)
                 {
                     this.board_[i, j] = new Square(new Point(i, j));
                     this.board_[i, j].Explosion += ExplosionRuler;
@@ -45,15 +107,15 @@ namespace Kaboom.Sources
             // TODO: Do a true map generator (with a random entity factory) (labyrinth generator?)
             var r = new Random();
 
-            for (var i = 0; i < this.sizeX_; i++)
+            for (var i = 0; i < this.SizeX; i++)
             {
-                for (var j = 0; j < this.sizeY_; j++)
+                for (var j = 0; j < this.SizeY; j++)
                 {
                     this.board_[i, j].AddEntity(new Entity(1, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1)));
 
                     if (i != 7 || j != 7)
                     {
-                        this.board_[i, j].AddEntity(/*r.Next(2)*/ 0 == 0
+                        this.board_[i, j].AddEntity(r.Next(2) != 0
                                                         ? new Block(
                                                               new SpriteSheet(KaboomResources.Textures["background2"],
                                                                               new[] { 1, 2 }, 2, 2), true)
@@ -63,16 +125,6 @@ namespace Kaboom.Sources
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Initialize a new map by unserialization or randomization
-        /// </summary>
-        public override void Initialize()
-        {
-            base.Initialize();
-
-            Randomize();
         }
 
         /// <summary>
@@ -155,10 +207,9 @@ namespace Kaboom.Sources
             if (bomb == null)
                 return;
 
-            var t = new Rectangle(0, 0, sizeX_, sizeY_);
+            var t = new Rectangle(0, 0, this.SizeX, this.SizeY);
 
-            foreach (var elt in
-                    bomb.GetPattern().Where(elt => t.Contains(new Point(pos.X + elt.Point.X, pos.Y + elt.Point.Y))))
+            foreach (var elt in bomb.GetPattern().Where(elt => t.Contains(new Point(pos.X + elt.Point.X, pos.Y + elt.Point.Y))))
             {
                 this.board_[pos.X + elt.Point.X, pos.Y + elt.Point.Y].Explode(elt.Time);
             }
@@ -172,5 +223,15 @@ namespace Kaboom.Sources
         {
             board_[pos.X, pos.Y].Explode(500);
         }
+
+        /// <summary>
+        /// Dimension of the map (in square)
+        /// </summary>
+        public int SizeX { get; private set; }
+
+        /// <summary>
+        /// Dimension of the map (in square)
+        /// </summary>
+        public int SizeY { get; private set; }
     }
 }

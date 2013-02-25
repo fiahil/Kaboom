@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Kaboom.Sources
 {
-    internal class Pattern
+    public class Pattern
     {
         public enum Type
         {
@@ -16,6 +16,11 @@ namespace Kaboom.Sources
             Ultimate,
             NoPattern
         }
+
+        public static Type[] All = new[]
+            {
+                Type.Square, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
+            };
 
         /// <summary>
         /// Describe a point in a pattern

@@ -1,4 +1,7 @@
 using System;
+using System.IO;
+using System.Xml.Serialization;
+using Kaboom.Serializer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -10,24 +13,38 @@ namespace Kaboom.Sources
     {
         private readonly GraphicsDeviceManager graphics_;
         private SpriteBatch spriteBatch_;
+        private readonly string level_;
         private readonly Event em_;
         private Map map_;
         private Hud hud_;
-        private readonly Gameplay gameplay_;
 
         /// <summary>
         /// Create the game instance
         /// </summary>
-        public MainGame()
+        public MainGame(string level = "level1")
         {
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
                     IsFullScreen = true,
                     SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
                 };
+            this.level_ = level;
             this.em_ = new Event();
-            this.gameplay_ = new Gameplay();
             Content.RootDirectory = "Content";
+        }
+
+        /// <summary>
+        /// Load a MapElements
+        /// </summary>
+        /// <param name="filename">filename to fetch</param>
+        /// <returns>Map description</returns>
+        private MapElements LoadLevel(string filename)
+        {
+            var serializer = new XmlSerializer(typeof(MapElements));
+            using (var fs = TitleContainer.OpenStream(Path.Combine(Content.RootDirectory, filename + ".xml")))
+            {
+                return (MapElements)serializer.Deserialize(fs);
+            }
         }
 
         /// <summary>
@@ -45,6 +62,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["hud"] = Content.Load<Texture2D>("hud");
             KaboomResources.Textures["hud_active"] = Content.Load<Texture2D>("hud_active");
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
+            KaboomResources.Levels["level1"] = this.LoadLevel("level1");
         }
 
         /// <summary>
@@ -54,8 +72,8 @@ namespace Kaboom.Sources
         {
             base.Initialize();
 
-            this.map_ = new Map(this, this.spriteBatch_, 15, 15);
-            Viewport.Instance.Initialize(GraphicsDevice, this.map_, 15, 15); // TODO map size property
+            this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Levels[this.level_]);
+            Viewport.Instance.Initialize(GraphicsDevice, this.map_);
             this.Components.Add(this.map_);
             this.hud_ = new Hud(this, this.spriteBatch_, new List<Hud.BombInfo>
                                                              {

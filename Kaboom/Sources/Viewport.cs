@@ -13,7 +13,6 @@ namespace Kaboom.Sources
         private GraphicsDevice graphicsDevice_;
         private int[] maxZoom_;
         private Map map_;
-        private Point mapDimensions_;
         private DisplayOrientation oldOrientation_;
 
         public static Viewport Instance = new Viewport();
@@ -32,52 +31,49 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="graphicsDevice">Graphic device used to fetch Viewport</param>
         /// <param name="map">Map</param>
-        /// <param name="mapWidth">Map width</param>
-        /// <param name="mapHeight">Map length</param>
-        public void Initialize(GraphicsDevice graphicsDevice, Map map, int mapWidth, int mapHeight)
+        public void Initialize(GraphicsDevice graphicsDevice, Map map)
         {
             this.graphicsDevice_ = graphicsDevice;
             this.maxZoom_ = new int[2];
-            this.mapDimensions_ = new Point(mapWidth, mapHeight);
 
             this.map_ = map;
             this.oldOrientation_ = this.GetOrientation();
 
             if (this.GetOrientation() == DisplayOrientation.Portrait)
             {
-                maxZoom_[1] = this.graphicsDevice_.Viewport.Width / this.mapDimensions_.X;
+                maxZoom_[1] = this.graphicsDevice_.Viewport.Width / this.map_.SizeX;
                 if (maxZoom_[1] >
-                    (this.graphicsDevice_.Viewport.Height - (int) (0.1 * this.graphicsDevice_.Viewport.Height)) / this.mapDimensions_.Y)
+                    (this.graphicsDevice_.Viewport.Height - (int) (0.1 * this.graphicsDevice_.Viewport.Height)) / this.map_.SizeY)
                     maxZoom_[1] = (this.graphicsDevice_.Viewport.Height - (int) (0.1 * this.graphicsDevice_.Viewport.Width)) /
-                                  this.mapDimensions_.Y;
-                maxZoom_[0] = this.graphicsDevice_.Viewport.Height / this.mapDimensions_.X;
+                                  this.map_.SizeY;
+                maxZoom_[0] = this.graphicsDevice_.Viewport.Height / this.map_.SizeX;
                 if (maxZoom_[0] >
-                    (this.graphicsDevice_.Viewport.Width - (int) (0.1 * this.graphicsDevice_.Viewport.Height)) / this.mapDimensions_.Y)
+                    (this.graphicsDevice_.Viewport.Width - (int) (0.1 * this.graphicsDevice_.Viewport.Height)) / this.map_.SizeY)
                     maxZoom_[0] = (this.graphicsDevice_.Viewport.Width - (int) (0.1 * this.graphicsDevice_.Viewport.Width)) /
-                                  this.mapDimensions_.Y;
+                                  this.map_.SizeY;
                 Camera.Instance.DimY = maxZoom_[1];
                 Camera.Instance.DimX = maxZoom_[1];
-                Camera.Instance.OffX = (this.graphicsDevice_.Viewport.Width - (maxZoom_[1] * this.mapDimensions_.X)) / 2;
+                Camera.Instance.OffX = (this.graphicsDevice_.Viewport.Width - (maxZoom_[1] * this.map_.SizeX)) / 2;
                 Camera.Instance.OffY = (this.graphicsDevice_.Viewport.Height - (int) (0.1 * this.graphicsDevice_.Viewport.Width) -
-                                        (maxZoom_[1] * this.mapDimensions_.Y)) / 2 + (int) (0.1 * this.graphicsDevice_.Viewport.Width);
+                                        (maxZoom_[1] * this.map_.SizeY)) / 2 + (int) (0.1 * this.graphicsDevice_.Viewport.Width);
             }
             else
             {
-                maxZoom_[0] = this.graphicsDevice_.Viewport.Width / this.mapDimensions_.X;
+                maxZoom_[0] = this.graphicsDevice_.Viewport.Width / this.map_.SizeX;
                 if (maxZoom_[0] >
-                    (this.graphicsDevice_.Viewport.Height - (int) (0.1 * this.graphicsDevice_.Viewport.Height)) / this.mapDimensions_.Y)
+                    (this.graphicsDevice_.Viewport.Height - (int) (0.1 * this.graphicsDevice_.Viewport.Height)) / this.map_.SizeY)
                     maxZoom_[0] = (this.graphicsDevice_.Viewport.Height - (int) (0.1 * this.graphicsDevice_.Viewport.Height)) /
-                                  this.mapDimensions_.Y;
-                maxZoom_[1] = this.graphicsDevice_.Viewport.Height / this.mapDimensions_.X;
+                                  this.map_.SizeY;
+                maxZoom_[1] = this.graphicsDevice_.Viewport.Height / this.map_.SizeX;
                 if (maxZoom_[1] >
-                    (this.graphicsDevice_.Viewport.Width - (int) (0.1 * this.graphicsDevice_.Viewport.Width)) / this.mapDimensions_.Y)
+                    (this.graphicsDevice_.Viewport.Width - (int) (0.1 * this.graphicsDevice_.Viewport.Width)) / this.map_.SizeY)
                     maxZoom_[1] = (this.graphicsDevice_.Viewport.Width - (int) (0.1 * this.graphicsDevice_.Viewport.Height)) /
-                                  this.mapDimensions_.Y;
+                                  this.map_.SizeY;
                 Camera.Instance.DimY = maxZoom_[0];
                 Camera.Instance.DimX = maxZoom_[0];
-                Camera.Instance.OffX = (this.graphicsDevice_.Viewport.Width - (maxZoom_[0] * this.mapDimensions_.X)) / 2;
+                Camera.Instance.OffX = (this.graphicsDevice_.Viewport.Width - (maxZoom_[0] * this.map_.SizeX)) / 2;
                 Camera.Instance.OffY = (this.graphicsDevice_.Viewport.Height - (int) (0.1 * this.graphicsDevice_.Viewport.Height) -
-                                        (maxZoom_[0] * this.mapDimensions_.Y)) / 2 + (int) (0.1 * this.graphicsDevice_.Viewport.Height);
+                                        (maxZoom_[0] * this.map_.SizeY)) / 2 + (int) (0.1 * this.graphicsDevice_.Viewport.Height);
             }
         }
 
@@ -123,13 +119,13 @@ namespace Kaboom.Sources
             }
             catch (Exception)
             {
-                Camera.Instance.OffX = -1 * ((this.mapDimensions_.X * 80) / 2) + this.graphicsDevice_.Viewport.Width / 2;
+                Camera.Instance.OffX = -1 * ((this.map_.SizeX * 80) / 2) + this.graphicsDevice_.Viewport.Width / 2;
                 if (this.GetOrientation() == DisplayOrientation.Portrait)
-                    Camera.Instance.OffY = -1 * ((this.mapDimensions_.Y * 80) / 2) +
+                    Camera.Instance.OffY = -1 * ((this.map_.SizeY * 80) / 2) +
                                            (int) (0.1 * this.graphicsDevice_.Viewport.Width) +
                                            this.graphicsDevice_.Viewport.Height / 2;
                 else
-                    Camera.Instance.OffY = -1 * ((this.mapDimensions_.Y * 80) / 2) +
+                    Camera.Instance.OffY = -1 * ((this.map_.SizeY * 80) / 2) +
                                            (int) (0.1 * this.graphicsDevice_.Viewport.Height) +
                                            this.graphicsDevice_.Viewport.Height / 2;
             }
@@ -147,20 +143,20 @@ namespace Kaboom.Sources
             {
                 Camera.Instance.DimY = maxZoom_[1];
                 Camera.Instance.DimX = maxZoom_[1];
-                Camera.Instance.OffX = (this.graphicsDevice_.Viewport.Width - (maxZoom_[1] * this.mapDimensions_.X)) / 2;
+                Camera.Instance.OffX = (this.graphicsDevice_.Viewport.Width - (maxZoom_[1] * this.map_.SizeX)) / 2;
                 Camera.Instance.OffY = (this.graphicsDevice_.Viewport.Height -
                                         (int) (0.1 * this.graphicsDevice_.Viewport.Width) -
-                                        (maxZoom_[1] * this.mapDimensions_.Y)) / 2 +
+                                        (maxZoom_[1] * this.map_.SizeY)) / 2 +
                                        (int) (0.1 * this.graphicsDevice_.Viewport.Width);
             }
             else
             {
                 Camera.Instance.DimY = maxZoom_[0];
                 Camera.Instance.DimX = maxZoom_[0];
-                Camera.Instance.OffX = (this.graphicsDevice_.Viewport.Width - (maxZoom_[0] * this.mapDimensions_.X)) / 2;
+                Camera.Instance.OffX = (this.graphicsDevice_.Viewport.Width - (maxZoom_[0] * this.map_.SizeX)) / 2;
                 Camera.Instance.OffY = (this.graphicsDevice_.Viewport.Height -
                                         (int) (0.1 * this.graphicsDevice_.Viewport.Height) -
-                                        (maxZoom_[0] * this.mapDimensions_.Y)) / 2 +
+                                        (maxZoom_[0] * this.map_.SizeY)) / 2 +
                                        (int) (0.1 * this.graphicsDevice_.Viewport.Height);
             }
             this.IsZoomed = false;
