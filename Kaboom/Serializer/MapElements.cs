@@ -14,7 +14,7 @@ namespace Kaboom.Serializer
 
     public class BlockProxy : EntityProxy
     {
-        public bool Detroyable;
+        public bool Destroyable;
     }
 
     public class BombProxy : EntityProxy

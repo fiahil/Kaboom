@@ -1,4 +1,5 @@
 using System;
+using Kaboom.Serializer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -24,7 +25,6 @@ namespace Kaboom.Sources
                     SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
                 };
             this.em_ = new Event();
-            new Gameplay();
             Content.RootDirectory = "Content";
         }
 
@@ -51,7 +51,64 @@ namespace Kaboom.Sources
         {
             base.Initialize();
 
-            this.map_ = new Map(this, this.spriteBatch_, 15, 15);
+            //TODO import from serializer
+            var r = new Random(777);
+            var me = new MapElements(15, 15);
+
+                for (var i = 0; i < 15; i++)
+                {
+                    for (var j = 0; j < 15; j++)
+                    {
+                        me.Board[i][j].Entities.Add(new EntityProxy
+                            {
+                                TileIdentifier = "background1",
+                                TileFramePerAnim = new[] {1},
+                                TileTotalAnim = 1,
+                                TileFrameSpeed = 1,
+                                ZIndex = 1
+                            });
+
+                        if (i == 6 && j == 7)
+                        {
+                            me.Board[i][j].Entities.Add(new BombProxy
+                                {
+                                    TileIdentifier = "BombSheet",
+                                    TileFramePerAnim = new[] {8, 18},
+                                    TileTotalAnim = 2,
+                                    TileFrameSpeed = 20,
+                                    Type = 0
+                                });
+                        }
+                        if ((i == 7 || i == 6) && j == 7)
+                            continue;
+
+                        if (r.Next(2) == 0)
+                        {
+                            me.Board[i][j].Entities.Add(new BlockProxy
+                                {
+                                    Destroyable = true,
+                                    TileIdentifier = "background2",
+                                    TileFramePerAnim = new[] {1, 2},
+                                    TileTotalAnim = 2,
+                                    TileFrameSpeed = 2
+                                });
+                        }
+                        else
+                        {
+                            me.Board[i][j].Entities.Add(new BlockProxy
+                                {
+                                    Destroyable = false,
+                                    TileIdentifier = "background3",
+                                    TileFramePerAnim = new[] {1},
+                                    TileTotalAnim = 1,
+                                    TileFrameSpeed = 1
+                                });
+                        }
+                    }
+                }
+                //ENDOF TODO
+
+            this.map_ = new Map(this, this.spriteBatch_, me);
             Viewport.Instance.Initialize(GraphicsDevice, this.map_);
             this.Components.Add(this.map_);
             this.hud_ = new Hud(this, this.spriteBatch_);

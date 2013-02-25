@@ -57,7 +57,7 @@ namespace Kaboom.Sources
                                               KaboomResources.Textures[blockProxy.TileIdentifier],
                                               blockProxy.TileFramePerAnim,
                                               blockProxy.TileTotalAnim,
-                                              blockProxy.TileFrameSpeed), blockProxy.Detroyable));
+                                              blockProxy.TileFrameSpeed), blockProxy.Destroyable));
                         }
                         else
                         {
@@ -125,16 +125,6 @@ namespace Kaboom.Sources
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Initialize a new map by unserialization or randomization
-        /// </summary>
-        public override void Initialize()
-        {
-            base.Initialize();
-
-            Randomize();
         }
 
         /// <summary>

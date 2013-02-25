@@ -21,7 +21,7 @@ namespace KaboomEditor.Pages
 
             myObject.Board[0][0].Entities.Add(new BlockProxy()
                 {
-                    Detroyable = true,
+                    Destroyable = true,
                     TileFramePerAnim = new[] {1},
                     TileFrameSpeed = 1,
                     TileIdentifier = "koukou",
