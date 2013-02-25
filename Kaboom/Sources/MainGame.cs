@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace Kaboom.Sources
 {
@@ -42,6 +43,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
             KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
             KaboomResources.Textures["hud"] = Content.Load<Texture2D>("hud");
+            KaboomResources.Textures["hud_active"] = Content.Load<Texture2D>("hud_active");
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
         }
 
@@ -55,7 +57,21 @@ namespace Kaboom.Sources
             this.map_ = new Map(this, this.spriteBatch_, 15, 15);
             Viewport.Instance.Initialize(GraphicsDevice, this.map_, 15, 15); // TODO map size property
             this.Components.Add(this.map_);
-            this.hud_ = new Hud(this, this.spriteBatch_);
+            this.hud_ = new Hud(this, this.spriteBatch_, new List<Hud.BombInfo>
+                                                             {
+                                                                 new Hud.BombInfo(Pattern.Type.Square,
+                                                                                  new SpriteSheet(
+                                                                                      KaboomResources.Textures[
+                                                                                          "BombSheet"], new[] {9, 18},
+                                                                                      2), 3),
+                                                                 new Hud.BombInfo(Pattern.Type.Square,
+                                                                                  new SpriteSheet(
+                                                                                      KaboomResources.Textures[
+                                                                                          "BombSheet"], new[] {9, 18},
+                                                                                      2), 5)
+                                                             });
+            // TODO : This is a HUD Unitest
+
             this.Components.Add(this.hud_);
         }
 
@@ -93,7 +109,7 @@ namespace Kaboom.Sources
                             var hudEvent = this.hud_.GetHudEvent(ret.Pos);
                             if (hudEvent != Hud.EHudAction.NoAction)
                             {
-                                if (hudEvent == Hud.EHudAction.Detonator)
+                                if (hudEvent == Hud.EHudAction.BombDetonation)
                                 {
                                     this.map_.SetExplosion(new Point(7, 7)); //TODO : place true detonators
                                 }

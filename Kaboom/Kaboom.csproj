@@ -87,7 +87,6 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\defaultFont.xnb" />
     <AndroidAsset Include="Assets\Content\background1.xnb" />
-    <AndroidAsset Include="Assets\Content\hud.xnb" />
     <AndroidAsset Include="Assets\Content\BombSheet.xnb" />
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
@@ -103,6 +102,8 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\background3.png" />
     <AndroidAsset Include="Assets\Content\background2.png" />
+    <AndroidAsset Include="Assets\Content\hud_active.png" />
+    <AndroidAsset Include="Assets\Content\hud.png" />
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup />

@@ -13,7 +13,8 @@ namespace Kaboom.Sources
             BigSquare,
             H,
             X,
-            Ultimate
+            Ultimate,
+            NoPattern
         }
 
         /// <summary>
