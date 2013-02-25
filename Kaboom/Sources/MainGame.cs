@@ -21,7 +21,7 @@ namespace Kaboom.Sources
         /// <summary>
         /// Create the game instance
         /// </summary>
-        public MainGame(string level = "level1")
+        public MainGame(string level)
         {
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
