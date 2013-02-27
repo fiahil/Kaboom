@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -10,9 +11,10 @@ namespace KaboomEditor.Pages
 {
     public class SquareLabel : Label
     {
+        public List<EntityProxy> Entities = new List<EntityProxy>();
+
         public int XCoord { get; set; }
         public int YCoord { get; set; }
-        public EntityProxy Entity { get; set; }
     }
 
     /// <summary>
@@ -22,12 +24,15 @@ namespace KaboomEditor.Pages
     {
         private MapElements mapElements_;
 
-        private bool brossing_;
+        private bool painting_;
+        private bool cleaning_;
+
         public MainWindow()
         {
             InitializeComponent();
             CreateBoard(10, 5);
-            this.brossing_ = false;
+            this.painting_ = false;
+            this.cleaning_ = false;
         }
 
         private void CreateBoard(int w, int h)
@@ -49,48 +54,64 @@ namespace KaboomEditor.Pages
                             Background = j % 2 == i % 2 ? Brushes.SlateGray : Brushes.Silver,
                             ToolTip = "(" + j + ", " + i + ")",
                             XCoord = j,
-                            YCoord = i,
-                            Entity = new EntityProxy
-                                {
-                                    TileIdentifier = "background1",
-                                    TileFramePerAnim = new[] {1},
-                                    TileTotalAnim = 1,
-                                    TileFrameSpeed = 1,
-                                    ZIndex = 1
-                                }
+                            YCoord = i
                         };
+                    elt.Entities.Add(new EntityProxy
+                        {
+                            TileIdentifier = "background1",
+                            TileFramePerAnim = new[] {1},
+                            TileTotalAnim = 1,
+                            TileFrameSpeed = 1,
+                            ZIndex = 1
+                        });
 
-                    elt.MouseLeftButtonUp += (sender, args) => { this.brossing_ = false; };
+                    elt.MouseLeftButtonUp += (sender, args) => { this.painting_ = false; };
                     elt.MouseLeftButtonDown += (sender, args) =>
                         {
-                            this.brossing_ = true;
+                            this.painting_ = true;
                             if (((SquareLabel) sender).IsMouseOver)
                             {
-                                ((SquareLabel)sender).Entity = new BlockProxy
-                                    {
-                                        TileIdentifier = "background2",
-                                        TileFramePerAnim = new[] { 1, 2 },
-                                        TileTotalAnim = 2,
-                                        TileFrameSpeed = 2,
-                                        Destroyable = true
-                                    };
-                                ((SquareLabel)sender).Background = Brushes.Sienna;                                    
-                            }
-                        };
-
-                    elt.MouseEnter += (sender, args) =>
-                        {
-                            if (this.brossing_)
-                            {
-                                ((SquareLabel) sender).Entity = new BlockProxy
+                                ((SquareLabel) sender).Entities.Add(new BlockProxy
                                     {
                                         TileIdentifier = "background2",
                                         TileFramePerAnim = new[] {1, 2},
                                         TileTotalAnim = 2,
                                         TileFrameSpeed = 2,
                                         Destroyable = true
-                                    };
+                                    });
+                                ((SquareLabel)sender).Background = Brushes.Sienna;
+                            }
+                        };
+
+                    elt.MouseRightButtonUp += (sender, args) => { this.cleaning_ = false; };
+                    elt.MouseRightButtonDown += (sender, args) =>
+                        {
+                            this.cleaning_ = true;
+                            if (((SquareLabel) sender).IsMouseOver)
+                            {
+                                ((SquareLabel)sender).Entities.Clear();
+                                ((SquareLabel)sender).Background = Brushes.CadetBlue;
+                            }
+                        };
+
+                    elt.MouseEnter += (sender, args) =>
+                        {
+                            if (this.painting_)
+                            {
+                                ((SquareLabel) sender).Entities.Add(new BlockProxy
+                                    {
+                                        TileIdentifier = "background2",
+                                        TileFramePerAnim = new[] {1, 2},
+                                        TileTotalAnim = 2,
+                                        TileFrameSpeed = 2,
+                                        Destroyable = true
+                                    });
                                 ((SquareLabel) sender).Background = Brushes.Sienna;
+                            }
+                            if (this.cleaning_)
+                            {
+                                ((SquareLabel)sender).Entities.Clear();
+                                ((SquareLabel) sender).Background = Brushes.CadetBlue;
                             }
                         };
                     uniformGrid.Children.Add(elt);
@@ -106,7 +127,7 @@ namespace KaboomEditor.Pages
             {
                 foreach (SquareLabel elt in board.Children)
                 {
-                    this.mapElements_.Board[elt.XCoord][elt.YCoord].Entities.Add(elt.Entity);
+                    this.mapElements_.Board[elt.XCoord][elt.YCoord].Entities = elt.Entities;
                 }
             }
 
