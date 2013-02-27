@@ -8,6 +8,13 @@ using Kaboom.Serializer;
 
 namespace KaboomEditor.Pages
 {
+    public class SquareLabel : Label
+    {
+        public int XCoord { get; set; }
+        public int YCoord { get; set; }
+        public EntityProxy Entity { get; set; }
+    }
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -15,107 +22,94 @@ namespace KaboomEditor.Pages
     {
         private MapElements mapElements_;
 
+        private bool brossing_;
         public MainWindow()
         {
             InitializeComponent();
-            CreateBoard(5, 10);
+            CreateBoard(10, 5);
+            this.brossing_ = false;
         }
 
         private void CreateBoard(int w, int h)
         {
-            this.mapElements_ = new MapElements(w, h);
             var uniformGrid = (UniformGrid)this.FindName("Board");
-            if (uniformGrid != null)
+            if (uniformGrid == null)
+                return;
+
+            this.mapElements_ = new MapElements(w, h);
+            uniformGrid.Children.Clear();
+            uniformGrid.Columns = w;
+            uniformGrid.Rows = h;
+            for (var i = 0; i < h; i++)
             {
-                uniformGrid.Children.Clear();
-                uniformGrid.Columns = h;
-                uniformGrid.Rows = w;
-                for (var i = 0; i < w; i++)
+                for (var j = 0; j < w; j++)
                 {
-                    for (var j = 0; j < h; j++)
-                    {
-                        uniformGrid.Children.Add(new Label
+                    var elt = new SquareLabel
+                        {
+                            Background = j % 2 == i % 2 ? Brushes.SlateGray : Brushes.Silver,
+                            ToolTip = "(" + j + ", " + i + ")",
+                            XCoord = j,
+                            YCoord = i,
+                            Entity = new EntityProxy
+                                {
+                                    TileIdentifier = "background1",
+                                    TileFramePerAnim = new[] {1},
+                                    TileTotalAnim = 1,
+                                    TileFrameSpeed = 1,
+                                    ZIndex = 1
+                                }
+                        };
+
+                    elt.MouseLeftButtonUp += (sender, args) => { this.brossing_ = false; };
+                    elt.MouseLeftButtonDown += (sender, args) =>
+                        {
+                            this.brossing_ = true;
+                            if (((SquareLabel) sender).IsMouseOver)
                             {
-                                Background = j % 2 == i % 2 ? Brushes.SlateGray : Brushes.Silver,
-                                ToolTip = "(" + i + ", " + j + ")"
-                            });
-                    }
+                                ((SquareLabel)sender).Entity = new BlockProxy
+                                    {
+                                        TileIdentifier = "background2",
+                                        TileFramePerAnim = new[] { 1, 2 },
+                                        TileTotalAnim = 2,
+                                        TileFrameSpeed = 2,
+                                        Destroyable = true
+                                    };
+                                ((SquareLabel)sender).Background = Brushes.Sienna;                                    
+                            }
+                        };
+
+                    elt.MouseEnter += (sender, args) =>
+                        {
+                            if (this.brossing_)
+                            {
+                                ((SquareLabel) sender).Entity = new BlockProxy
+                                    {
+                                        TileIdentifier = "background2",
+                                        TileFramePerAnim = new[] {1, 2},
+                                        TileTotalAnim = 2,
+                                        TileFrameSpeed = 2,
+                                        Destroyable = true
+                                    };
+                                ((SquareLabel) sender).Background = Brushes.Sienna;
+                            }
+                        };
+                    uniformGrid.Children.Add(elt);
                 }
             }
         }
-
-
-        /*
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            var r = new Random(777);
-            var me = new MapElements(15, 15);
-
-            for (var i = 0; i < 15; i++)
-            {
-                for (var j = 0; j < 15; j++)
-                {
-                    me.Board[i][j].Entities.Add(new EntityProxy
-                    {
-                        TileIdentifier = "background1",
-                        TileFramePerAnim = new[] { 1 },
-                        TileTotalAnim = 1,
-                        TileFrameSpeed = 1,
-                        ZIndex = 1
-                    });
-
-                    if (i == 6 && j == 7)
-                    {
-                        me.Board[i][j].Entities.Add(new BombProxy
-                        {
-                            TileIdentifier = "BombSheet",
-                            TileFramePerAnim = new[] { 8, 18 },
-                            TileTotalAnim = 2,
-                            TileFrameSpeed = 20,
-                            Type = 0
-                        });
-                    }
-                    if ((i == 7 || i == 6 || i == 5) && j == 7)
-                        continue;
-
-                    if (r.Next(2) == 0)
-                    {
-                        me.Board[i][j].Entities.Add(new BlockProxy
-                        {
-                            Destroyable = true,
-                            TileIdentifier = "background2",
-                            TileFramePerAnim = new[] { 1, 2 },
-                            TileTotalAnim = 2,
-                            TileFrameSpeed = 2
-                        });
-                    }
-                    else
-                    {
-                        me.Board[i][j].Entities.Add(new BlockProxy
-                        {
-                            Destroyable = false,
-                            TileIdentifier = "background3",
-                            TileFramePerAnim = new[] { 1 },
-                            TileTotalAnim = 1,
-                            TileFrameSpeed = 1
-                        });
-                    }
-                }
-            }
-
-            
-            var mySerializer = new XmlSerializer(typeof(MapElements));
-            // To write to a file, create a StreamWriter object.
-
-            using (var writer = new StreamWriter("level1.xml"))
-            {
-                mySerializer.Serialize(writer, me);
-            }
-        }
-        */
 
         private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
         {
+            var board = this.FindName("Board") as UniformGrid;
+
+            if (board != null)
+            {
+                foreach (SquareLabel elt in board.Children)
+                {
+                    this.mapElements_.Board[elt.XCoord][elt.YCoord].Entities.Add(elt.Entity);
+                }
+            }
+
             var mySerializer = new XmlSerializer(typeof(MapElements));
 
             var box = (TextBox) this.FindName("TextBoxFilename");

@@ -14,9 +14,9 @@ namespace Kaboom.Sources
         /// <summary>
         /// Initialize a new map from a MapElements
         /// </summary>
-        /// <param name="g"></param>
-        /// <param name="sb"></param>
-        /// <param name="me"></param>
+        /// <param name="g">Game</param>
+        /// <param name="sb">Spritebatch used to render texture</param>
+        /// <param name="me">MapElement used to construct entities in the map</param>
         public Map(Game g, SpriteBatch sb, MapElements me)
             : base(g)
         {
