@@ -111,8 +111,8 @@
     <AndroidAsset Include="Assets\Content\hud.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
-    <AndroidResource Include="Resources\Drawable\Screen.png" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
+    <AndroidResource Include="Resources\Drawable\Screen.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
