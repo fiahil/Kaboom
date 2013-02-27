@@ -18,6 +18,12 @@ namespace Kaboom.Sources
             pattern_ = new Pattern(type);
         }
 
+        public bool Merge(Bomb bomb)
+        {
+            this.pattern_.MergePatterns(bomb.pattern_);
+            return true;
+        }
+
         public void NextOrientation()
         {
             this.pattern_.NextOrientation();

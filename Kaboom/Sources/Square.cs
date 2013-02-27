@@ -25,6 +25,12 @@ namespace Kaboom.Sources
             this.Base = baseLoc;
         }
 
+
+        private bool MergeBombs(Entity entity)
+        {
+            return ((Bomb)this.entities_[3]).Merge((Bomb)entity);
+        }
+
         /// <summary>
         /// Add an entity to the square
         /// </summary>
@@ -43,6 +49,8 @@ namespace Kaboom.Sources
             if (entity is Bomb && this.entities_[4] != null)
                 return false;
 
+            if (entity is Bomb && this.entities_[3] != null)
+                MergeBombs(entity);
             if (this.entities_[entity.ZIndex] == null)
             {
                 this.entities_[entity.ZIndex] = entity;
