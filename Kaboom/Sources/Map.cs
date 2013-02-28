@@ -178,9 +178,9 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="entity">the entity to place on the map</param>
         /// <param name="coordinates">coordinates of the entity</param>
-        public void AddNewEntity(Entity entity, Point coordinates)
+        public bool AddNewEntity(Entity entity, Point coordinates)
         {
-            this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
+            return this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
         }
 
         public void RemoveEntity(Point coordinates, int offset = 5)

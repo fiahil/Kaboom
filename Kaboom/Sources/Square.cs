@@ -37,6 +37,8 @@ namespace Kaboom.Sources
 
         public void RemoveEntity(int offset)
         {
+            if (entities_[3] != null)
+                entities_[3].Consistency = EConsistence.Real;
             if (offset < this.entities_.Length)
             this.entities_[offset] = null;
         }
@@ -47,10 +49,13 @@ namespace Kaboom.Sources
         /// <param name="entity">The entity to add</param>
         public bool AddEntity(Entity entity)
         {
-            entity.Tile.AnimationDone += 
+            entity.Tile.AnimationDone +=
                 (sender, ea) =>
                     {
-                        foreach (var e in this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(e => e as Explosable))
+                        foreach (
+                            var e in
+                                this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(
+                                    e => e as Explosable))
                         {
                             e.MarkedForDestruction = true;
                         }
@@ -59,21 +64,35 @@ namespace Kaboom.Sources
             if ((entity is Bomb) && this.entities_[4] != null)
                 return false;
 
-            
-            if (entity is Bomb && this.entities_[3] != null)
-                return MergeBombs(entity);
-
             if (entity is VirtualBomb)
             {
+                if (this.entities_[3] != null)
+                {
+                    if (!((Bomb) entity).Merge((Bomb) entities_[3]))
+                        return false;
+                    entities_[3].Consistency = EConsistence.Virtual;
+                }
                 this.entities_[5] = entity;
+
                 return true;
+            }
+
+            if (entity is Bomb && this.entities_[3] != null)
+            {
+                if (MergeBombs(entity))
+                {
+                    this.entities_[5] = null;
+                    entities_[3].Consistency = EConsistence.Real;
+                    return true;
+                }
+                return false;
             }
 
             if (this.entities_[entity.ZIndex] == null)
             {
-                if (!(entity is VirtualBomb) && entity is Bomb)
-                    this.entities_[5] = null;
+                this.entities_[5] = null;
                 this.entities_[entity.ZIndex] = entity;
+                this.entities_[entity.ZIndex].Consistency = EConsistence.Real;
                 return true;
             }
             return false;

@@ -183,7 +183,8 @@ namespace Kaboom.Sources
                                             this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(), currentBomb_.Coord);
                                             hud_.RemoveBombOfType(pattern);
                                             hud_.UnselectAll();
-
+                                            currentBomb_.Coord.X = -1;
+                                            currentBomb_.Coord.Y = -1;
                                         }
                                         else
                                         {
@@ -192,8 +193,13 @@ namespace Kaboom.Sources
                                             currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
                                             currentBomb_.Entity = new VirtualBomb(pattern,
                                                                                   KaboomResources.Sprites["Bomb"].Clone() as SpriteSheet);
-                                            this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
-                                        }                                    }
+                                            if (!(this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord)))
+                                            {
+                                                currentBomb_.Coord.X = -1;
+                                                currentBomb_.Coord.Y = -1;
+                                            }
+                                        }                                   
+                                    }
                                 }
                                 catch
                                 {
