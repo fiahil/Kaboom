@@ -175,6 +175,11 @@ namespace Kaboom.Sources
             }
         }
 
+        public Vector2 MapDimensions()
+        {
+            return new Vector2(map_.SizeX, map_.SizeY);
+        }
+
         /// <summary>
         /// Un-Zoom. Lock drag gesture
         /// </summary>
