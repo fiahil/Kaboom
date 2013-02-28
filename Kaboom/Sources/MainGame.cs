@@ -29,7 +29,7 @@ namespace Kaboom.Sources
         private readonly Event em_;
         private Map map_;
         private Hud hud_;
-        private CurrentElement currentBomb_;
+        private readonly CurrentElement currentBomb_;
 
         /// <summary>
         /// Create the game instance
@@ -78,9 +78,13 @@ namespace Kaboom.Sources
             KaboomResources.Textures["highlight"] = Content.Load<Texture2D>("HighLight");
             KaboomResources.Textures["highlight2"] = Content.Load<Texture2D>("HighLight2");
 
+            KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["DestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);
+            KaboomResources.Sprites["UndestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background3"], new[] { 1 }, 1, 1);
+
 
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
-            KaboomResources.Levels["level1"] = this.LoadLevel("level1");
+            KaboomResources.Levels["level1"] = LoadLevel("level1");
         }
 
         /// <summary>
@@ -96,20 +100,15 @@ namespace Kaboom.Sources
             this.hud_ = new Hud(this, this.spriteBatch_, new List<Hud.BombInfo>
                                                              {
                                                                  new Hud.BombInfo(Pattern.Type.Square,
-                                                                                  new SpriteSheet(
-                                                                                      KaboomResources.Textures[
-                                                                                          "BombSheet"], new[] {9, 18},
-                                                                                      2), 3),
+                                                                                  KaboomResources.Sprites["Bomb"].Clone()
+                                                                                  as SpriteSheet, 3),
                                                                  new Hud.BombInfo(Pattern.Type.Angle,
-                                                                                  new SpriteSheet(
-                                                                                      KaboomResources.Textures[
-                                                                                          "BombSheet"], new[] {9, 18},
-                                                                                      2), 5),
+
+                                                                                  KaboomResources.Sprites["Bomb"].Clone()
+                                                                                  as SpriteSheet, 5),
                                                                  new Hud.BombInfo(Pattern.Type.Ultimate,
-                                                                                  new SpriteSheet(
-                                                                                      KaboomResources.Textures[
-                                                                                          "BombSheet"], new[] {9, 18},
-                                                                                      2), 1)
+                                                                                  KaboomResources.Sprites["Bomb"].Clone()
+                                                                                  as SpriteSheet, 1)
 
                                                              });
             // TODO : This is a HUD Unitest
@@ -192,13 +191,9 @@ namespace Kaboom.Sources
                                                 map_.RemoveEntity(currentBomb_.Coord);
                                             currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
                                             currentBomb_.Entity = new VirtualBomb(pattern,
-                                                                                  new SpriteSheet(
-                                                                                      KaboomResources.Textures[
-                                                                                          "BombSheet"],
-                                                                                      new[] { 8, 18 }, 2));
+                                                                                  KaboomResources.Sprites["Bomb"].Clone() as SpriteSheet);
                                             this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
-                                        }
-                                    }
+                                        }                                    }
                                 }
                                 catch
                                 {

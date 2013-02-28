@@ -32,12 +32,12 @@ namespace Kaboom.Sources
         /// <returns>Merge succeded or not</returns>
         public bool Merge(Bomb bomb)
         {
-            return this.pattern_.MergePatterns(bomb.pattern_);
+            return pattern_.MergePatterns(bomb.pattern_);
         }
 
         public void NextOrientation()
         {
-            this.pattern_.NextOrientation();
+            pattern_.NextOrientation();
         }
 
         /// <summary>
@@ -64,10 +64,12 @@ namespace Kaboom.Sources
         /// <param name="sb">the spritebatch</param>
         /// <param name="t">the gametime</param>
         /// <param name="p">the position of the bomb</param>
+        /// <param name="depth">depth of the bomb on screen</param>
         public override void Draw(SpriteBatch sb, GameTime t, Point p, int depth)
         {
             base.Draw(sb, t, p, 0);
-            foreach (var elt in pattern_.GetPattern().Where(place => place != null).Select(place => new Point(p.X + place.Point.X, p.Y + place.Point.Y)).Where(temp => temp.X >= 0 && temp.Y >= 0))
+            var mapDimension = Viewport.Instance.MapDimensions();
+            foreach (var elt in pattern_.GetPattern().Where(place => place != null).Select(place => new Point(p.X + place.Point.X, p.Y + place.Point.Y)).Where(temp => temp.X >= 0 && temp.Y >= 0 && temp.X < mapDimension.X && temp.Y < mapDimension.Y))
             {
                 sb.Draw(
                 KaboomResources.Textures[highlight_],
