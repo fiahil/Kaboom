@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Media.Imaging;
 using Kaboom.Serializer;
 
 namespace KaboomEditor.Sources
 {
+    /// <summary>
+    /// Store resources
+    /// </summary>
     public class KeResources
     {
         public enum Type
@@ -55,6 +60,14 @@ namespace KaboomEditor.Sources
                             TileFrameSpeed = 20
                         }
                 }
+            };
+
+        public static Dictionary<Type, BitmapImage> Bitmap = new Dictionary<Type, BitmapImage>
+            {
+                {Type.Background, new BitmapImage(new Uri(@"../../Resources/background1.png", UriKind.Relative))},
+                {Type.BlockBk, new BitmapImage(new Uri(@"../../Resources/background2.png", UriKind.Relative))},
+                {Type.BlockUbk, new BitmapImage(new Uri(@"../../Resources/background3.png", UriKind.Relative))},
+                {Type.Bomb, new BitmapImage(new Uri(@"../../Resources/Bomb.png", UriKind.Relative))}
             };
     }
 }

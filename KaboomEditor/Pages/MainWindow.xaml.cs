@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Xml.Serialization;
 using Kaboom.Serializer;
 using KaboomEditor.Sources;
@@ -20,9 +19,16 @@ namespace KaboomEditor.Pages
         private bool painting_;
         private bool cleaning_;
 
+        private KeResources.Type currentBucket_;
+
         public MainWindow()
         {
             InitializeComponent();
+            this.currentBucket_ = KeResources.Type.BlockBk;
+            var se = this.FindName("SelectedEntity") as Label;
+            if (se != null)
+                se.Content = new AssetImage(this.currentBucket_);
+
             CreateBoard(10, 5);
             this.painting_ = false;
             this.cleaning_ = false;
@@ -56,7 +62,7 @@ namespace KaboomEditor.Pages
                     elt.MouseLeftButtonDown += OnLeftButtonDown;
                     elt.MouseRightButtonUp += OnRightButtonUp;
                     elt.MouseRightButtonDown += OnRightButtonDown;
-                    elt.MouseEnter += OnMouseEnter;
+                    elt.MouseEnter += OnBucketAction;
 
                     uniformGrid.Children.Add(elt);
                 }
@@ -111,29 +117,43 @@ namespace KaboomEditor.Pages
             }
         }
 
+        #region Buckets
+
+        /// <summary>
+        /// Handle click on a bucket button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BucketButton_OnClick(object sender, RoutedEventArgs e)
         {
             var current = this.FindName("SelectedEntity") as Label;
             if (current == null)
                 return;
-            current.Content = ((BucketButton) sender).Type.ToString();
+            this.currentBucket_ = ((BucketButton) sender).Type;
+            current.Content = new AssetImage(this.currentBucket_);
         }
 
-        #region Handlers
-
-        private void OnMouseEnter(object sender, MouseEventArgs args)
+        /// <summary>
+        /// Handle painting or cleaning
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnBucketAction(object sender, MouseEventArgs args)
         {
             if (this.painting_)
             {
-                ((SquareLabel)sender).Entities.Add(KeResources.Proxy[KeResources.Type.BlockUbk].Clone());
-                ((SquareLabel)sender).Background = Brushes.Sienna; //TODO
+                ((SquareLabel) sender).Entities.Add(KeResources.Proxy[this.currentBucket_].Clone());
+                ((SquareLabel) sender).Content = new AssetImage(this.currentBucket_);
             }
             if (this.cleaning_)
             {
                 ((SquareLabel)sender).Entities.Clear();
-                ((SquareLabel)sender).Background = Brushes.CadetBlue; //TODO
+                ((SquareLabel)sender).Content = null;
             }
         }
+        #endregion
+
+        #region Handlers
 
         private void OnLeftButtonUp(object sender, MouseButtonEventArgs args)
         {
@@ -150,7 +170,7 @@ namespace KaboomEditor.Pages
             this.painting_ = true;
             if (((SquareLabel)sender).IsMouseOver)
             {
-                this.OnMouseEnter(sender, args);
+                this.OnBucketAction(sender, args);
             }
         }
 
@@ -159,7 +179,7 @@ namespace KaboomEditor.Pages
             this.cleaning_ = true;
             if (((SquareLabel)sender).IsMouseOver)
             {
-                this.OnMouseEnter(sender, args);
+                this.OnBucketAction(sender, args);
             }
         }
         #endregion

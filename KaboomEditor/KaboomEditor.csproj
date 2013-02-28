@@ -87,6 +87,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sources\AssetImage.cs" />
     <Compile Include="Sources\BucketButton.cs" />
     <Compile Include="Sources\KeResources.cs" />
     <Compile Include="Sources\SquareLabel.cs" />
@@ -135,6 +136,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background1.png" />
+    <Resource Include="Resources\background2.png" />
+    <Resource Include="Resources\background3.png" />
+    <Resource Include="Resources\bomb.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

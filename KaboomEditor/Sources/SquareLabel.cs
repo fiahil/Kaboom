@@ -6,6 +6,9 @@ using Kaboom.Serializer;
 
 namespace KaboomEditor.Sources
 {
+    /// <summary>
+    /// Used to store informations inside board
+    /// </summary>
     public class SquareLabel : Label
     {
         public List<EntityProxy> Entities = new List<EntityProxy>();
