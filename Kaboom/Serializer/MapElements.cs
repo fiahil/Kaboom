@@ -3,6 +3,10 @@ using System.Xml.Serialization;
 
 namespace Kaboom.Serializer
 {
+    /// <summary>
+    /// Entity Proxy Class
+    /// Used to store parameters for instanciation
+    /// </summary>
     public class EntityProxy
     {
         public int ZIndex;
@@ -10,18 +14,68 @@ namespace Kaboom.Serializer
         public int[] TileFramePerAnim;
         public int TileFrameSpeed;
         public int TileTotalAnim;
+
+        public EntityProxy Clone()
+        {
+            return new EntityProxy
+                {
+                    ZIndex = this.ZIndex,
+                    TileIdentifier = this.TileIdentifier,
+                    TileFramePerAnim = this.TileFramePerAnim,
+                    TileFrameSpeed = this.TileFrameSpeed,
+                    TileTotalAnim = this.TileTotalAnim
+                };
+        }
     }
 
+    /// <summary>
+    /// Block Proxy Class
+    /// Used to store parameters for instanciation
+    /// </summary>
     public class BlockProxy : EntityProxy
     {
         public bool Destroyable;
+
+        public new BlockProxy Clone()
+        {
+            return new BlockProxy
+                {
+                    Destroyable = this.Destroyable,
+                    ZIndex = this.ZIndex,
+                    TileIdentifier = this.TileIdentifier,
+                    TileFramePerAnim = this.TileFramePerAnim,
+                    TileFrameSpeed = this.TileFrameSpeed,
+                    TileTotalAnim = this.TileTotalAnim
+                };
+        }
     }
 
+    /// <summary>
+    /// Bomb Proxy Class
+    /// Used to store parameters for instanciation
+    /// </summary>
     public class BombProxy : EntityProxy
     {
         public int Type;
+
+        public new BombProxy Clone()
+        {
+            return new BombProxy
+                {
+                    Type = this.Type,
+                    ZIndex = this.ZIndex,
+                    TileIdentifier = this.TileIdentifier,
+                    TileFramePerAnim = this.TileFramePerAnim,
+                    TileFrameSpeed = this.TileFrameSpeed,
+                    TileTotalAnim = this.TileTotalAnim
+                };
+        }
     }
 
+    /// <summary>
+    /// Square Proxy Class
+    /// Store proxy classes
+    /// </summary>
     public class SquareProxy
     {
         public List<EntityProxy> Entities;
@@ -32,6 +86,9 @@ namespace Kaboom.Serializer
         }
     }
 
+    /// <summary>
+    /// Used to convay a map over xml serialization
+    /// </summary>
     [XmlInclude(typeof(BlockProxy)), XmlInclude(typeof(BombProxy))]
     public class MapElements
     {
