@@ -111,6 +111,14 @@ namespace KaboomEditor.Pages
             }
         }
 
+        private void BucketButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var current = this.FindName("SelectedEntity") as Label;
+            if (current == null)
+                return;
+            current.Content = ((BucketButton) sender).Type.ToString();
+        }
+
         #region Handlers
 
         private void OnMouseEnter(object sender, MouseEventArgs args)

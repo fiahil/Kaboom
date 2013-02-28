@@ -87,6 +87,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sources\BucketButton.cs" />
     <Compile Include="Sources\KeResources.cs" />
     <Compile Include="Sources\SquareLabel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

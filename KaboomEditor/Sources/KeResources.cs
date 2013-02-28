@@ -9,7 +9,8 @@ namespace KaboomEditor.Sources
         {
             Background,
             BlockUbk,
-            BlockBk
+            BlockBk,
+            Bomb
         }
 
         public static Dictionary<Type, EntityProxy> Proxy = new Dictionary<Type, EntityProxy>
@@ -42,6 +43,16 @@ namespace KaboomEditor.Sources
                             TileTotalAnim = 2,
                             TileFrameSpeed = 2,
                             Destroyable = true
+                        }
+                },
+                {
+                    Type.Bomb, new BombProxy
+                        {
+                            Type = 0,
+                            TileIdentifier = "BombSheet",
+                            TileFramePerAnim = new[] {8, 18},
+                            TileTotalAnim = 2,
+                            TileFrameSpeed = 20
                         }
                 }
             };
