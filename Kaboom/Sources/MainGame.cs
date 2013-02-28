@@ -81,7 +81,7 @@ namespace Kaboom.Sources
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["DestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);
             KaboomResources.Sprites["UndestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background3"], new[] { 1 }, 1, 1);
-
+            KaboomResources.Sprites["Ground"] = new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}, 1);
 
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
             KaboomResources.Levels["level1"] = LoadLevel("level1");
