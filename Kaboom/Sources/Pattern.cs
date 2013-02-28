@@ -335,7 +335,7 @@ namespace Kaboom.Sources
         {
             if (!patterns_.ContainsKey(type))
                 throw new KeyNotFoundException();
-            this.SelectedType = Type.Square;
+            this.SelectedType = type;
             this.orientation_ = 0;
         }
 
