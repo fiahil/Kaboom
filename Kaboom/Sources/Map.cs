@@ -128,6 +128,52 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
+        /// Test if the line in posY is contain in the rectangle
+        /// </summary>
+        /// <param name="vision">Testing rectangle</param>
+        /// <param name="posY">Testing line</param>
+        /// <returns></returns>
+        public Boolean LineIsContainHorizontaly(Rectangle vision, int posY)
+        {
+            for (var i = 0; i < this.SizeX; i++)
+            {
+                if (
+                    vision.Contains(
+                        new Rectangle((board_[i, posY].Base.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                                      (board_[i, posY].Base.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                                      Camera.Instance.DimX, Camera.Instance.DimY)))
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Test if the column in posX is contain in the rectangle
+        /// </summary>
+        /// <param name="vision">Testing rectangle</param>
+        /// <param name="posX">Testing column</param>
+        /// <returns></returns>
+        public Boolean LineIsContainVerticaly(Rectangle vision, int posX)
+        {
+            for (var i = 0; i < this.SizeX; i++)
+            {
+                if (
+                    vision.Contains(
+                        new Rectangle((board_[posX, i].Base.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                                      (board_[posX, i].Base.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                                      Camera.Instance.DimX, Camera.Instance.DimY)))
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Place an entity on the map
         /// </summary>
         /// <param name="entity">the entity to place on the map</param>
