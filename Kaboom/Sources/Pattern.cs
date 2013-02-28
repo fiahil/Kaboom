@@ -309,6 +309,15 @@ namespace Kaboom.Sources
                 #endregion
             };
 
+        private static readonly Dictionary<KeyValuePair<Type, Type>, Type> mergings_ = new Dictionary
+            <KeyValuePair<Type, Type>, Type>
+            {
+                #region Square Merging
+                { new KeyValuePair<Type, Type>(Type.Square, Type.Square), Type.BigSquare },
+                #endregion
+
+            };
+
         private int orientation_;
 
         /// <summary>
@@ -319,7 +328,7 @@ namespace Kaboom.Sources
         {
             if (!patterns_.ContainsKey(type))
                 throw new KeyNotFoundException();
-            this.SelectedType = type;
+            this.SelectedType = Type.Square;
             this.orientation_ = 0;
         }
 
@@ -341,6 +350,16 @@ namespace Kaboom.Sources
         public List<PatternElement> GetPattern()
         {
             return patterns_[this.SelectedType][this.orientation_];
+        }
+
+        public bool MergePatterns(Pattern pattern)
+        {
+            var pair = new KeyValuePair<Type, Type>(this.SelectedType, pattern.SelectedType);
+
+            if (!mergings_.ContainsKey(pair))
+                return false;
+            SelectedType = mergings_[pair];
+            return true;
         }
     }
 }
