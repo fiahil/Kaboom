@@ -9,7 +9,7 @@ namespace Kaboom.Sources
     /// <summary>
     /// Definition of an animated Sprite
     /// </summary>
-    internal class SpriteSheet
+    internal class SpriteSheet : ICloneable
     {
         /// <summary>
         /// Represent the animations of the SpriteSheet
@@ -54,6 +54,7 @@ namespace Kaboom.Sources
             }
         }
 
+        #region Attributes
         private readonly Texture2D spriteSheet_;
         private Rectangle frameSize_;
         private readonly Dictionary<int, Anim> anims_;
@@ -63,6 +64,7 @@ namespace Kaboom.Sources
         private int currentLine_;
         private double currentElapsedTime_;
         public event EventHandler AnimationDone;
+        #endregion
 
         /// <summary>
         /// 
@@ -120,6 +122,25 @@ namespace Kaboom.Sources
                 this.anims_.Add(i, new Anim(new Point(0, i), framesPerAnim[i], frameSpeed[i], cycles[i]));
                 i += linesPerAnim[i] - 1;
             }
+        }
+        /// <summary>
+        /// Constructor used by the clone methods.
+        /// Create a new SpriteSheet who is exactly the same
+        /// than the one taken in parameters.
+        /// </summary>
+        /// <param name="ss">The spriteSheet to clone</param>
+        private SpriteSheet(SpriteSheet ss)
+        {
+            if (this == ss) return;
+            this.spriteSheet_ = ss.spriteSheet_;
+            this.frameSize_ = ss.frameSize_;
+            this.anims_ = ss.anims_;
+            this.event_ = ss.event_;
+            this.currentAnimation_ = ss.currentAnimation_;
+            this.AnimationDone = ss.AnimationDone;
+            this.currentFrame_ = ss.currentFrame_;              // TODO : Réinitialiser à 0?
+            this.currentLine_ = ss.currentLine_;                // TODO : Réinitialiser à 0?
+            this.currentElapsedTime_ = ss.currentElapsedTime_;  // TODO : Réinitialiser à 0?
         }
 
         /// <summary>
@@ -187,11 +208,24 @@ namespace Kaboom.Sources
                 Color.White);
         }
 
+        /// <summary>
+        /// Reset the current animation
+        /// </summary>
         public void ResetCurrentAnim()
         {
             this.currentFrame_ = 0;
         }
 
+        /// <summary>
+        /// Clone the current spritesheet into a new object
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            return new SpriteSheet(this);
+        }
+
+        #region Get Set
         public double Speed
         {
             get { return this.anims_[this.currentAnimation_].Speed; }
@@ -214,5 +248,6 @@ namespace Kaboom.Sources
         {
             get { return event_; }
         }
+        #endregion
     };
 }

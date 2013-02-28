@@ -60,7 +60,7 @@ namespace Kaboom.Sources
         /// <param name="sb">spritebatch used to render texture</param>
         /// <param name="t">game clock</param>
         /// <param name="p">Coordinates of the square containing the entity</param>
-        public void Draw(SpriteBatch sb, GameTime t, Point p)
+        public virtual void Draw(SpriteBatch sb, GameTime t, Point p)
         {
             this.Tile.Draw(sb, t, p);
         }

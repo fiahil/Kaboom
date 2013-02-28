@@ -318,6 +318,10 @@ namespace Kaboom.Sources
                 #region Square Merging
                 { new KeyValuePair<Type, Type>(Type.Square, Type.Square), Type.BigSquare },
                 #endregion
+            
+                #region Line Merging
+                { new KeyValuePair<Type, Type>(Type.Line, Type.Angle), Type.X },
+                #endregion
 
             };
 

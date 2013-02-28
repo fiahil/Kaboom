@@ -61,6 +61,8 @@ namespace Kaboom.Sources
             KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
             KaboomResources.Textures["hud"] = Content.Load<Texture2D>("hud");
             KaboomResources.Textures["hud_active"] = Content.Load<Texture2D>("hud_active");
+            KaboomResources.Textures["highlight"] = Content.Load<Texture2D>("HighLight");
+
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
             KaboomResources.Levels["level1"] = this.LoadLevel("level1");
         }

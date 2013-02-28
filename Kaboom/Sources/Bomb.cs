@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Kaboom.Sources
 {
@@ -39,6 +40,29 @@ namespace Kaboom.Sources
         public List<Pattern.PatternElement> GetPattern()
         {
             return pattern_.GetPattern();
+        }
+
+        /// <summary>
+        /// Draw the bomb and its patterns on the screen
+        /// </summary>
+        /// <param name="sb">the spritebatch</param>
+        /// <param name="t">the gametime</param>
+        /// <param name="p">the position of the bomb</param>
+        public override void Draw(SpriteBatch sb, GameTime t, Point p)
+        {
+            base.Draw(sb, t, p);
+            foreach (var elt in pattern_.GetPattern().Where(place => place != null).Select(place => new Point(p.X + place.Point.X, p.Y + place.Point.Y)).Where(temp => temp.X >= 0 && temp.Y >= 0))
+            {
+                sb.Draw(
+                KaboomResources.Textures["highlight"],
+                new Rectangle(
+                    (elt.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                    (elt.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                    Camera.Instance.DimX,
+                    Camera.Instance.DimY),
+                    new Rectangle(0,0,50,50),
+                Color.White,0, new Vector2(0,0), 0, 1);
+            }
         }
     }
 }
