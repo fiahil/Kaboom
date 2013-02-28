@@ -33,10 +33,10 @@ namespace KaboomEditor.Sources
                 {
                     Type.BlockUbk, new BlockProxy
                         {
-                            TileIdentifier = "background2",
-                            TileFramePerAnim = new[] {1, 2},
-                            TileTotalAnim = 2,
-                            TileFrameSpeed = 2,
+                            TileIdentifier = "background3",
+                            TileFramePerAnim = new[] {1},
+                            TileTotalAnim = 1,
+                            TileFrameSpeed = 1,
                             Destroyable = false
                         }
                 },

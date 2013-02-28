@@ -91,7 +91,7 @@ namespace KaboomEditor.Pages
             var box = (TextBox) this.FindName("TextBoxFilename");
             if (box != null)
             {
-                using (var writer = new StreamWriter(box.Text + ".xml"))
+                using (var writer = new StreamWriter(Path.Combine("../../Levels", box.Text + ".xml")))
                 {
                     mySerializer.Serialize(writer, this.mapElements_);
                 }

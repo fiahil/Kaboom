@@ -104,11 +104,11 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\background3.png" />
     <AndroidAsset Include="Assets\Content\background2.png" />
-    <AndroidAsset Include="..\KaboomEditor\bin\Debug\level1.xml">
-      <Link>Assets\Content\level1.xml</Link>
-    </AndroidAsset>
     <AndroidAsset Include="Assets\Content\hud_active.png" />
     <AndroidAsset Include="Assets\Content\hud.png" />
+    <AndroidAsset Include="..\KaboomEditor\Levels\level1.xml">
+      <Link>Assets\Content\level1.xml</Link>
+    </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

@@ -15,7 +15,7 @@ namespace Kaboom.Serializer
         public int TileFrameSpeed;
         public int TileTotalAnim;
 
-        public EntityProxy Clone()
+        public virtual EntityProxy Clone()
         {
             return new EntityProxy
                 {
@@ -36,7 +36,7 @@ namespace Kaboom.Serializer
     {
         public bool Destroyable;
 
-        public new BlockProxy Clone()
+        public override EntityProxy Clone()
         {
             return new BlockProxy
                 {
@@ -58,7 +58,7 @@ namespace Kaboom.Serializer
     {
         public int Type;
 
-        public new BombProxy Clone()
+        public override EntityProxy Clone()
         {
             return new BombProxy
                 {
