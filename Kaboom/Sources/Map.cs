@@ -189,7 +189,7 @@ namespace Kaboom.Sources
         {
             base.Draw(gameTime);
 
-            this.sb_.Begin();
+            this.sb_.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             foreach (var item in this.board_)
             {
                 item.Draw(this.sb_, gameTime);

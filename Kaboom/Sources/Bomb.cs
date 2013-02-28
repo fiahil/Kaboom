@@ -46,9 +46,9 @@ namespace Kaboom.Sources
         /// <param name="sb">the spritebatch</param>
         /// <param name="t">the gametime</param>
         /// <param name="p">the position of the bomb</param>
-        public override void Draw(SpriteBatch sb, GameTime t, Point p)
+        public override void Draw(SpriteBatch sb, GameTime t, Point p, int depth)
         {
-            base.Draw(sb, t, p);
+            base.Draw(sb, t, p, 0);
             foreach (var elt in pattern_.GetPattern().Where(place => place != null).Select(place => new Point(p.X + place.Point.X, p.Y + place.Point.Y)).Where(temp => temp.X >= 0 && temp.Y >= 0))
             {
                 sb.Draw(
@@ -58,8 +58,7 @@ namespace Kaboom.Sources
                     (elt.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
                     Camera.Instance.DimX,
                     Camera.Instance.DimY),
-                    new Rectangle(0,0,50,50),
-                Color.White,0, new Vector2(0,0), 0, 1);
+                Color.White);
             }
         }
     }

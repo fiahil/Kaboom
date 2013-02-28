@@ -174,7 +174,7 @@ namespace Kaboom.Sources
         /// Draw the current sprite of the animation on screen
         /// <param name="sb">SpriteBatch used to draw textures</param>   
         /// </summary>
-        public void Draw(SpriteBatch sb, GameTime t, Point p)
+        public void Draw(SpriteBatch sb, GameTime t, Point p, int layerDepth)
         {
             sb.Draw(
                 this.spriteSheet_,
@@ -188,7 +188,7 @@ namespace Kaboom.Sources
                     this.frameSize_.Height * (this.anims_[this.currentAnimation_].Head.Y + this.currentLine_),
                     this.frameSize_.Width,
                     this.frameSize_.Height),
-                Color.White);
+                Color.White,0, new Vector2(0,0),0, depth: layerDepth);
         }
 
         /// <summary>
