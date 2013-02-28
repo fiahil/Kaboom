@@ -100,11 +100,17 @@ namespace Kaboom.Sources
                                                                                       KaboomResources.Textures[
                                                                                           "BombSheet"], new[] {9, 18},
                                                                                       2), 3),
-                                                                 new Hud.BombInfo(Pattern.Type.Square,
+                                                                 new Hud.BombInfo(Pattern.Type.Angle,
                                                                                   new SpriteSheet(
                                                                                       KaboomResources.Textures[
                                                                                           "BombSheet"], new[] {9, 18},
-                                                                                      2), 5)
+                                                                                      2), 5),
+                                                                 new Hud.BombInfo(Pattern.Type.Ultimate,
+                                                                                  new SpriteSheet(
+                                                                                      KaboomResources.Textures[
+                                                                                          "BombSheet"], new[] {9, 18},
+                                                                                      2), 1)
+
                                                              });
             // TODO : This is a HUD Unitest
 
@@ -158,35 +164,40 @@ namespace Kaboom.Sources
                                 }
                                 else if (hudEvent == Hud.EHudAction.BombRotation)
                                 {
-                                    currentBomb_.Entity.NextOrientation();
-                                    this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                    var pattern = hud_.SelectedBombType();
+                                    if (pattern != Pattern.Type.NoPattern)
+                                    {
+                                        currentBomb_.Entity.NextOrientation();
+                                        this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                    }
                                 }
                             }
                             else
                             {
                                 try
                                 {
-                                    if (this.map_.GetCoordByPos(ret.Pos) == currentBomb_.Coord)
-                                        this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(), currentBomb_.Coord);
-                                    else
+                                    var pattern = hud_.SelectedBombType();
+                                    if (pattern != Pattern.Type.NoPattern)
                                     {
-                                        if (currentBomb_.Coord.X != -1)
-                                            map_.RemoveEntity(currentBomb_.Coord);
-                                        currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
-                                        currentBomb_.Entity = new VirtualBomb(new[]
-                                                                           {
-                                                                               Pattern.Type.Angle,
-                                                                               Pattern.Type.Square,
-                                                                               Pattern.Type.Line,
-                                                                               Pattern.Type.BigSquare,
-                                                                               Pattern.Type.H,
-                                                                               Pattern.Type.X,
-                                                                               Pattern.Type.Ultimate
-                                                                           }[new Random().Next(7)],
-                                                                       new SpriteSheet(
-                                                                           KaboomResources.Textures["BombSheet"],
-                                                                           new[] {8, 18}, 2));
-                                        this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                        if (this.map_.GetCoordByPos(ret.Pos) == currentBomb_.Coord)
+                                        {
+                                            this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(), currentBomb_.Coord);
+                                            hud_.RemoveBombOfType(pattern);
+                                            hud_.UnselectAll();
+
+                                        }
+                                        else
+                                        {
+                                            if (currentBomb_.Coord.X != -1)
+                                                map_.RemoveEntity(currentBomb_.Coord);
+                                            currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
+                                            currentBomb_.Entity = new VirtualBomb(pattern,
+                                                                                  new SpriteSheet(
+                                                                                      KaboomResources.Textures[
+                                                                                          "BombSheet"],
+                                                                                      new[] { 8, 18 }, 2));
+                                            this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                        }
                                     }
                                 }
                                 catch
