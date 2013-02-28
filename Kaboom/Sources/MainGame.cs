@@ -113,8 +113,11 @@ namespace Kaboom.Sources
                     case Action.Type.NoEvent:
                         break;
                     case Action.Type.Drag:
+                        Viewport.Instance.AdjustPos(this.map_, ref ret.DeltaX, ref ret.DeltaY);
+                        
                         Camera.Instance.OffX += ret.DeltaX;
                         Camera.Instance.OffY += ret.DeltaY;
+                        
                         break;
                     case Action.Type.ZoomIn:
                         Viewport.Instance.ZoomIn(ret.Pos);
@@ -140,15 +143,17 @@ namespace Kaboom.Sources
                                 {
                                     var coord = this.map_.GetCoordByPos(ret.Pos);
                                     var entity = new Bomb(new[]
-                                                            {
-                                                                Pattern.Type.Angle,
-                                                                Pattern.Type.Square,
-                                                                Pattern.Type.Line,
-                                                                Pattern.Type.BigSquare,
-                                                                Pattern.Type.H,
-                                                                Pattern.Type.X,
-                                                                Pattern.Type.Ultimate
-                                                            }[new Random().Next(7)], new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] {8, 18}, 2));
+                                                              {
+                                                                  Pattern.Type.Angle,
+                                                                  Pattern.Type.Square,
+                                                                  Pattern.Type.Line,
+                                                                  Pattern.Type.BigSquare,
+                                                                  Pattern.Type.H,
+                                                                  Pattern.Type.X,
+                                                                  Pattern.Type.Ultimate
+                                                              }[new Random().Next(7)],
+                                                          new SpriteSheet(KaboomResources.Textures["BombSheet"],
+                                                                          new[] {8, 18}, 2));
                                     this.map_.AddNewEntity(entity, coord);
                                 }
                                 catch

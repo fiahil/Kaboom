@@ -105,7 +105,7 @@ namespace Kaboom.Sources
                 entity => entity.Visibility == EVisibility.Transparent ||
                     (entity.Visibility == EVisibility.Opaque && opaqueAllowed++ == 0)).Reverse())
             {
-                entity.Draw(sb, t, this.Base);
+                entity.Draw(sb, t, this.Base, 1);
             }
         }
 
