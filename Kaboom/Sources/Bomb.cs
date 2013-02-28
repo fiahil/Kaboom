@@ -20,10 +20,14 @@ namespace Kaboom.Sources
             pattern_ = new Pattern(type);
         }
 
+        /// <summary>
+        /// Try to merge its pattern with the pattern of the given bomb
+        /// </summary>
+        /// <param name="bomb">Bomb to merge with the object</param>
+        /// <returns>Merge succeded or not</returns>
         public bool Merge(Bomb bomb)
         {
-            this.pattern_.MergePatterns(bomb.pattern_);
-            return true;
+            return this.pattern_.MergePatterns(bomb.pattern_);
         }
 
         public void NextOrientation()

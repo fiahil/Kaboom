@@ -25,7 +25,11 @@ namespace Kaboom.Sources
             this.Base = baseLoc;
         }
 
-
+        /// <summary>
+        /// Try to merge the new bomb with the current bomb
+        /// </summary>
+        /// <param name="entity">Bomb to add</param>
+        /// <returns>Merge succeded or not</returns>
         private bool MergeBombs(Entity entity)
         {
             return ((Bomb)this.entities_[3]).Merge((Bomb)entity);
@@ -50,7 +54,7 @@ namespace Kaboom.Sources
                 return false;
 
             if (entity is Bomb && this.entities_[3] != null)
-                MergeBombs(entity);
+                return MergeBombs(entity);
             if (this.entities_[entity.ZIndex] == null)
             {
                 this.entities_[entity.ZIndex] = entity;

@@ -309,11 +309,18 @@ namespace Kaboom.Sources
                 #endregion
             };
 
+        /// <summary>
+        /// Pattern merging table
+        /// </summary>
         private static readonly Dictionary<KeyValuePair<Type, Type>, Type> mergings_ = new Dictionary
             <KeyValuePair<Type, Type>, Type>
             {
                 #region Square Merging
                 { new KeyValuePair<Type, Type>(Type.Square, Type.Square), Type.BigSquare },
+                #endregion
+            
+                #region Line Merging
+                { new KeyValuePair<Type, Type>(Type.Line, Type.Angle), Type.X },
                 #endregion
 
             };
@@ -328,7 +335,7 @@ namespace Kaboom.Sources
         {
             if (!patterns_.ContainsKey(type))
                 throw new KeyNotFoundException();
-            this.SelectedType = Type.Square;
+            this.SelectedType = type;
             this.orientation_ = 0;
         }
 
@@ -352,6 +359,11 @@ namespace Kaboom.Sources
             return patterns_[this.SelectedType][this.orientation_];
         }
 
+        /// <summary>
+        /// Try to merge two patterns. If is possible, the current pattern will be modified
+        /// </summary>
+        /// <param name="pattern">The pattern to merge with the object</param>
+        /// <returns>Merge succeded or not</returns>
         public bool MergePatterns(Pattern pattern)
         {
             var pair = new KeyValuePair<Type, Type>(this.SelectedType, pattern.SelectedType);
