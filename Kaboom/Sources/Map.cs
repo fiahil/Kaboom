@@ -183,6 +183,12 @@ namespace Kaboom.Sources
             this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
         }
 
+        public void RemoveEntity(Point coordinates, int offset = 5)
+        {
+            this.board_[coordinates.X, coordinates.Y].RemoveEntity(offset);
+        }
+
+
         /// <summary>
         /// Return the coordinates of the square matching the given position
         /// Throw IndexOutOfRangeException when position outside the board

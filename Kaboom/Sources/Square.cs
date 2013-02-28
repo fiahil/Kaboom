@@ -21,7 +21,7 @@ namespace Kaboom.Sources
         /// <param name="baseLoc">Map coordinates</param>
         public Square(Point baseLoc)
         {
-            this.entities_ = new Entity[5];
+            this.entities_ = new Entity[6];
             this.Base = baseLoc;
         }
 
@@ -33,6 +33,12 @@ namespace Kaboom.Sources
         private bool MergeBombs(Entity entity)
         {
             return ((Bomb)this.entities_[3]).Merge((Bomb)entity);
+        }
+
+        public void RemoveEntity(int offset)
+        {
+            if (offset < this.entities_.Length)
+            this.entities_[offset] = null;
         }
 
         /// <summary>
@@ -50,13 +56,23 @@ namespace Kaboom.Sources
                         }
                     };
 
-            if (entity is Bomb && this.entities_[4] != null)
+            if ((entity is Bomb) && this.entities_[4] != null)
                 return false;
 
+            
             if (entity is Bomb && this.entities_[3] != null)
                 return MergeBombs(entity);
+
+            if (entity is VirtualBomb)
+            {
+                this.entities_[5] = entity;
+                return true;
+            }
+
             if (this.entities_[entity.ZIndex] == null)
             {
+                if (!(entity is VirtualBomb) && entity is Bomb)
+                    this.entities_[5] = null;
                 this.entities_[entity.ZIndex] = entity;
                 return true;
             }
@@ -103,7 +119,7 @@ namespace Kaboom.Sources
             var opaqueAllowed = 0;
             foreach (var entity in this.entities_.Where(e => e != null).Reverse().TakeWhile(
                 entity => entity.Visibility == EVisibility.Transparent ||
-                    (entity.Visibility == EVisibility.Opaque && opaqueAllowed++ == 0)).Reverse())
+                          (entity.Visibility == EVisibility.Opaque && opaqueAllowed++ == 0)).Reverse().Where(entity => entity.Consistency == EConsistence.Real))
             {
                 entity.Draw(sb, t, this.Base, 1);
             }

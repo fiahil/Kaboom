@@ -331,12 +331,13 @@ namespace Kaboom.Sources
         /// Initialize a class pattern with the given type, throw an exception if the type doesn't exist.
         /// </summary>
         /// <param name="type">Type of the selected pattern</param>
-        public Pattern(Type type)
+        /// <param name="orientation"> </param>
+        public Pattern(Type type, int orientation = 0)
         {
             if (!patterns_.ContainsKey(type))
                 throw new KeyNotFoundException();
             this.SelectedType = type;
-            this.orientation_ = 0;
+            this.orientation_ = orientation;
         }
 
         public Type SelectedType
@@ -357,6 +358,15 @@ namespace Kaboom.Sources
         public List<PatternElement> GetPattern()
         {
             return patterns_[this.SelectedType][this.orientation_];
+        }
+
+        /// <summary>
+        /// return the pattern current orientation
+        /// </summary>
+        /// <returns></returns>
+        public int GetOrientation()
+        {
+            return this.orientation_;
         }
 
         /// <summary>

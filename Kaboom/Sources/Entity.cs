@@ -12,6 +12,12 @@ namespace Kaboom.Sources
         Transparent
     }
 
+    enum EConsistence
+    {
+        Real,
+        Virtual
+    }
+
     /// <summary>
     /// Basic entity
     /// </summary>
@@ -28,7 +34,10 @@ namespace Kaboom.Sources
             this.ZIndex = zindex;
             this.Visibility = visibility;
             this.Tile = tile;
+            this.Consistency = EConsistence.Real;
         }
+
+        public EConsistence Consistency { get; set; }
 
         /// <summary>
         /// SpriteSheet associated with the entity
