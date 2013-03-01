@@ -8,16 +8,21 @@ namespace Kaboom.Sources
     class Bomb : Explosable
     {
         private readonly Pattern pattern_;
+        private readonly string highlight_;
+
 
         /// <summary>
         /// Construct a new bomb on Z-index 10
         /// </summary>
         /// <param name="type">Pattern type</param>
         /// <param name="tile">Bomb Skin</param>
-        public Bomb(Pattern.Type type, SpriteSheet tile) :
+        /// <param name="highlight"> </param>
+        /// <param name="orientation"> orientation of the current pattern </param>
+        public Bomb(Pattern.Type type, SpriteSheet tile, string highlight = "highlight", int orientation = 0) :
             base (3, tile, EVisibility.Transparent)
         {
-            pattern_ = new Pattern(type);
+            highlight_ = highlight;
+            pattern_ = new Pattern(type, orientation);
         }
 
         /// <summary>
@@ -27,12 +32,12 @@ namespace Kaboom.Sources
         /// <returns>Merge succeded or not</returns>
         public bool Merge(Bomb bomb)
         {
-            return this.pattern_.MergePatterns(bomb.pattern_);
+            return pattern_.MergePatterns(bomb.pattern_);
         }
 
         public void NextOrientation()
         {
-            this.pattern_.NextOrientation();
+            pattern_.NextOrientation();
         }
 
         /// <summary>
@@ -44,19 +49,30 @@ namespace Kaboom.Sources
             return pattern_.GetPattern();
         }
 
+       /// <summary>
+       /// Return the orientation of the current pattern
+       /// </summary>
+       /// <returns></returns>
+        public int GetPatternOrientation()
+        {
+            return pattern_.GetOrientation();
+        }
+
         /// <summary>
         /// Draw the bomb and its patterns on the screen
         /// </summary>
         /// <param name="sb">the spritebatch</param>
         /// <param name="t">the gametime</param>
         /// <param name="p">the position of the bomb</param>
+        /// <param name="depth">depth of the bomb on screen</param>
         public override void Draw(SpriteBatch sb, GameTime t, Point p, int depth)
         {
             base.Draw(sb, t, p, 0);
-            foreach (var elt in pattern_.GetPattern().Where(place => place != null).Select(place => new Point(p.X + place.Point.X, p.Y + place.Point.Y)).Where(temp => temp.X >= 0 && temp.Y >= 0))
+            var mapDimension = Viewport.Instance.MapDimensions();
+            foreach (var elt in pattern_.GetPattern().Where(place => place != null).Select(place => new Point(p.X + place.Point.X, p.Y + place.Point.Y)).Where(temp => temp.X >= 0 && temp.Y >= 0 && temp.X < mapDimension.X && temp.Y < mapDimension.Y))
             {
                 sb.Draw(
-                KaboomResources.Textures["highlight"],
+                KaboomResources.Textures[highlight_],
                 new Rectangle(
                     (elt.X * Camera.Instance.DimX) + Camera.Instance.OffX,
                     (elt.Y * Camera.Instance.DimY) + Camera.Instance.OffY,

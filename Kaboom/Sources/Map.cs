@@ -124,17 +124,15 @@ namespace Kaboom.Sources
             {
                 for (var j = 0; j < this.SizeY; j++)
                 {
-                    this.board_[i, j].AddEntity(new Entity(1, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1)));
+                    this.board_[i, j].AddEntity(new Entity(1, KaboomResources.Sprites["Ground"].Clone() as SpriteSheet));
 
                     if (i != 7 || j != 7)
                     {
                         this.board_[i, j].AddEntity(r.Next(2) != 0
                                                         ? new Block(
-                                                              new SpriteSheet(KaboomResources.Textures["background2"],
-                                                                              new[] { 1, 2 }, 2, 2), true)
+                                                              KaboomResources.Sprites["DestructibleBlock"].Clone() as SpriteSheet, true)
                                                         : new Block(
-                                                              new SpriteSheet(KaboomResources.Textures["background3"],
-                                                                              new[] { 1 }, 1, 1), false));
+                                                              KaboomResources.Sprites["UndestructibleBlock"].Clone() as SpriteSheet, false));
                     }
                 }
             }
@@ -191,10 +189,16 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="entity">the entity to place on the map</param>
         /// <param name="coordinates">coordinates of the entity</param>
-        public void AddNewEntity(Entity entity, Point coordinates)
+        public bool AddNewEntity(Entity entity, Point coordinates)
         {
-            this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
+            return this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
         }
+
+        public void RemoveEntity(Point coordinates, int offset = 5)
+        {
+            this.board_[coordinates.X, coordinates.Y].RemoveEntity(offset);
+        }
+
 
         /// <summary>
         /// Return the coordinates of the square matching the given position

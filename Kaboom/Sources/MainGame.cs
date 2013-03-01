@@ -9,6 +9,18 @@ using System.Collections.Generic;
 
 namespace Kaboom.Sources
 {
+    class CurrentElement
+    {
+        public Point Coord;
+        public VirtualBomb Entity;
+
+        public CurrentElement()
+        {
+            Coord = new Point(-1, -1);
+            Entity = null;
+        }
+    }
+
     class MainGame : Game
     {
         private readonly GraphicsDeviceManager graphics_;
@@ -17,12 +29,14 @@ namespace Kaboom.Sources
         private readonly Event em_;
         private Map map_;
         private Hud hud_;
+        private readonly CurrentElement currentBomb_;
 
         /// <summary>
         /// Create the game instance
         /// </summary>
         public MainGame(string level)
         {
+            currentBomb_ = new CurrentElement();
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
                     IsFullScreen = true,
@@ -62,9 +76,15 @@ namespace Kaboom.Sources
             KaboomResources.Textures["hud"] = Content.Load<Texture2D>("hud");
             KaboomResources.Textures["hud_active"] = Content.Load<Texture2D>("hud_active");
             KaboomResources.Textures["highlight"] = Content.Load<Texture2D>("HighLight");
+            KaboomResources.Textures["highlight2"] = Content.Load<Texture2D>("HighLight2");
+
+            KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["DestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);
+            KaboomResources.Sprites["UndestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background3"], new[] { 1 }, 1, 1);
+            KaboomResources.Sprites["Ground"] = new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}, 1);
 
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
-            KaboomResources.Levels["level1"] = this.LoadLevel("level1");
+            KaboomResources.Levels["level1"] = LoadLevel("level1");
         }
 
         /// <summary>
@@ -80,15 +100,16 @@ namespace Kaboom.Sources
             this.hud_ = new Hud(this, this.spriteBatch_, new List<Hud.BombInfo>
                                                              {
                                                                  new Hud.BombInfo(Pattern.Type.Square,
-                                                                                  new SpriteSheet(
-                                                                                      KaboomResources.Textures[
-                                                                                          "BombSheet"], new[] {9, 18},
-                                                                                      2), 3),
-                                                                 new Hud.BombInfo(Pattern.Type.Square,
-                                                                                  new SpriteSheet(
-                                                                                      KaboomResources.Textures[
-                                                                                          "BombSheet"], new[] {9, 18},
-                                                                                      2), 5)
+                                                                                  KaboomResources.Sprites["Bomb"].Clone()
+                                                                                  as SpriteSheet, 3),
+                                                                 new Hud.BombInfo(Pattern.Type.Angle,
+
+                                                                                  KaboomResources.Sprites["Bomb"].Clone()
+                                                                                  as SpriteSheet, 5),
+                                                                 new Hud.BombInfo(Pattern.Type.Ultimate,
+                                                                                  KaboomResources.Sprites["Bomb"].Clone()
+                                                                                  as SpriteSheet, 1)
+
                                                              });
             // TODO : This is a HUD Unitest
 
@@ -135,26 +156,50 @@ namespace Kaboom.Sources
                                 if (hudEvent == Hud.EHudAction.BombDetonation)
                                 {
                                     map_.ActivateDetonators();
+                                    if (currentBomb_.Coord.X != -1)
+                                        map_.RemoveEntity(currentBomb_.Coord);
+                                    currentBomb_.Coord.X = -1;
+                                    currentBomb_.Coord.Y = -1;
+                                }
+                                else if (hudEvent == Hud.EHudAction.BombRotation)
+                                {
+                                    var pattern = hud_.SelectedBombType();
+                                    if (pattern != Pattern.Type.NoPattern)
+                                    {
+                                        currentBomb_.Entity.NextOrientation();
+                                        this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                    }
                                 }
                             }
                             else
                             {
                                 try
                                 {
-                                    var coord = this.map_.GetCoordByPos(ret.Pos);
-                                    var entity = new Bomb(new[]
-                                                              {
-                                                                  Pattern.Type.Angle,
-                                                                  Pattern.Type.Square,
-                                                                  Pattern.Type.Line,
-                                                                  Pattern.Type.BigSquare,
-                                                                  Pattern.Type.H,
-                                                                  Pattern.Type.X,
-                                                                  Pattern.Type.Ultimate
-                                                              }[new Random().Next(7)],
-                                                          new SpriteSheet(KaboomResources.Textures["BombSheet"],
-                                                                          new[] {8, 18}, 2));
-                                    this.map_.AddNewEntity(entity, coord);
+                                    var pattern = hud_.SelectedBombType();
+                                    if (pattern != Pattern.Type.NoPattern)
+                                    {
+                                        if (this.map_.GetCoordByPos(ret.Pos) == currentBomb_.Coord)
+                                        {
+                                            this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(), currentBomb_.Coord);
+                                            hud_.RemoveBombOfType(pattern);
+                                            hud_.UnselectAll();
+                                            currentBomb_.Coord.X = -1;
+                                            currentBomb_.Coord.Y = -1;
+                                        }
+                                        else
+                                        {
+                                            if (currentBomb_.Coord.X != -1)
+                                                map_.RemoveEntity(currentBomb_.Coord);
+                                            currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
+                                            currentBomb_.Entity = new VirtualBomb(pattern,
+                                                                                  KaboomResources.Sprites["Bomb"].Clone() as SpriteSheet);
+                                            if (!(this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord)))
+                                            {
+                                                currentBomb_.Coord.X = -1;
+                                                currentBomb_.Coord.Y = -1;
+                                            }
+                                        }                                   
+                                    }
                                 }
                                 catch
                                 {
