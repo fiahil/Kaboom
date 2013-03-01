@@ -77,6 +77,8 @@ namespace Kaboom.Sources
             KaboomResources.Textures["hud_active"] = Content.Load<Texture2D>("hud_active");
             KaboomResources.Textures["highlight"] = Content.Load<Texture2D>("HighLight");
             KaboomResources.Textures["highlight2"] = Content.Load<Texture2D>("HighLight2");
+            KaboomResources.Textures["goal"] = Content.Load<Texture2D>("Goal");
+            KaboomResources.Textures["checkpoint"] = Content.Load<Texture2D>("CheckPoint");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["DestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);

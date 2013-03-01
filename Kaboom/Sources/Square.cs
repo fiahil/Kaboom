@@ -151,8 +151,8 @@ namespace Kaboom.Sources
 
         public void ActiveDetonator()
         {
-            if (this.entities_[2] != null)
-                Explode(((CheckPoint)this.entities_[2]).Time);
+            if (this.entities_[2] != null && this.entities_[3] != null)
+                    ((Bomb)this.entities_[3]).SetForExplosion(((CheckPoint)this.entities_[2]).Time);
         }
 
         /// <summary>
@@ -160,8 +160,14 @@ namespace Kaboom.Sources
         /// </summary>
         public void Explode(double time)
         {
-            if (this.entities_[4] != null && ((Block)this.entities_[4]).Destroyable)
+            if (this.entities_[4] != null && ((Block) this.entities_[4]).Destroyable)
+            {
                 ((Block)this.entities_[4]).SetForExplosion(time);
+                if (((Block) this.entities_[4]).EndBlock)
+                {
+                    // TODO : Delegate to advertise Map
+                }
+            }
             if (this.entities_[3] != null)
                 ((Bomb)this.entities_[3]).SetForExplosion(time);
         }

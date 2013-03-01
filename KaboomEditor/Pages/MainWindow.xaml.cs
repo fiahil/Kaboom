@@ -34,20 +34,33 @@ namespace KaboomEditor.Pages
                         ZIndex = 1
                     });
 
-                    if (i == 6 && j == 7)
+                    if ((i == 6 && j == 7) || (i == 12 && j == 4) || (i == 3 && j == 9))
                     {
                         me.Board[i][j].Entities.Add(new CheckPointProxy 
                         {
-                            TileIdentifier = "highlight",
-                            TileFramePerAnim = new[] { 8, 18 },
-                            TileTotalAnim = 2,
-                            TileFrameSpeed = 20,
+                            TileIdentifier = "checkpoint",
+                            TileFramePerAnim = new[] { 1 },
+                            TileTotalAnim = 1,
+                            TileFrameSpeed = 1,
                         });
                     }
+
                     if ((i == 7 || i == 6 || i == 5) && j == 7)
                         continue;
 
-                    if (r.Next(2) == 0)
+                    if (i == 0 && j == 12)
+                        me.Board[i][j].Entities.Add(new BlockProxy
+                        {
+                            Destroyable = true,
+                            GameEnd = true,
+                            TileIdentifier = "goal",
+                            TileFramePerAnim = new[] { 1},
+                            TileTotalAnim = 1,
+                            TileFrameSpeed = 1
+                        });
+
+                    // 2eme partie du if simplement pour mettre une case destructible sur les checkpoints
+                    if (r.Next(2) == 0 || me.Board[i][j].Entities.Count > 1)
                     {
                         me.Board[i][j].Entities.Add(new BlockProxy
                         {

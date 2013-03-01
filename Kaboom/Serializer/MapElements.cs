@@ -15,6 +15,7 @@ namespace Kaboom.Serializer
     public class BlockProxy : EntityProxy
     {
         public bool Destroyable;
+        public bool GameEnd = false;
     }
 
     public class BombProxy : EntityProxy
@@ -54,8 +55,6 @@ namespace Kaboom.Serializer
             this.SizeX = 0;
             this.SizeY = 0;
             this.Board = null;
-            this.EndPosY = 0;
-            this.EndPosX = 0;
         }
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace Kaboom.Sources
     {
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
-        private readonly Point end_;
+        private readonly int turnsRemeaning_;
 
         /// <summary>
         /// Initialize a new map from a MapElements
@@ -24,7 +24,7 @@ namespace Kaboom.Sources
             this.sb_ = sb;
             this.SizeX = me.SizeX;
             this.SizeY = me.SizeY;
-            this.end_ = new Point(me.EndPosX, me.EndPosY);
+            this.turnsRemeaning_ = 5;
 
             this.board_ = new Square[this.SizeX,this.SizeY];
             for (var i = 0; i < this.SizeX; i++)
@@ -70,7 +70,7 @@ namespace Kaboom.Sources
                                               KaboomResources.Textures[blockProxy.TileIdentifier],
                                               blockProxy.TileFramePerAnim,
                                               blockProxy.TileTotalAnim,
-                                              blockProxy.TileFrameSpeed), blockProxy.Destroyable));
+                                              blockProxy.TileFrameSpeed), blockProxy.Destroyable, blockProxy.GameEnd));
                         }
                         else
                         {
@@ -242,6 +242,7 @@ namespace Kaboom.Sources
             {
                 item.Update(gameTime);
             }
+
         }
 
         /// <summary>
@@ -257,6 +258,7 @@ namespace Kaboom.Sources
             {
                 item.Draw(this.sb_, gameTime);
             }
+            // TODO : Draw final checkpoint at infos_.EndPos;
             this.sb_.End();
         }
 

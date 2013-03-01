@@ -113,6 +113,8 @@
     <AndroidAsset Include="Assets\Content\hud.png" />
     <AndroidAsset Include="Assets\Content\HighLight.png" />
     <AndroidAsset Include="Assets\Content\HighLight2.png" />
+    <AndroidAsset Include="Assets\Content\Goal.png" />
+    <AndroidAsset Include="Assets\Content\CheckPoint.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Screen.png" />
