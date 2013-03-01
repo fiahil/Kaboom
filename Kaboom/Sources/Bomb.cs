@@ -32,7 +32,14 @@ namespace Kaboom.Sources
         /// <returns>Merge succeded or not</returns>
         public bool Merge(Bomb bomb)
         {
-            return pattern_.MergePatterns(bomb.pattern_);
+            if (pattern_.MergePatterns(bomb.pattern_))
+            {
+                if (pattern_.SelectedType == Pattern.Type.BigSquare)
+                    Tile = KaboomResources.Sprites["BombBigSquare"].Clone() as SpriteSheet;
+                // TODO : foreach merged pattern
+                return true;
+            }
+            return false;
         }
 
         public void NextOrientation()
