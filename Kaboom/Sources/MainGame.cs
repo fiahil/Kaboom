@@ -73,12 +73,26 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
             KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
+            KaboomResources.Textures["BombSheetSquare"] = Content.Load<Texture2D>("BombSheetSquare");
+            KaboomResources.Textures["BombSheetLine"] = Content.Load<Texture2D>("BombSheetLine");
+            KaboomResources.Textures["BombSheetAngle"] = Content.Load<Texture2D>("BombSheetAngle");
+            KaboomResources.Textures["BombSheetH"] = Content.Load<Texture2D>("BombSheetH");
+            KaboomResources.Textures["BombSheetX"] = Content.Load<Texture2D>("BombSheetX");
+            KaboomResources.Textures["BombSheetUltimate"] = Content.Load<Texture2D>("BombSheetUltimate");
+            KaboomResources.Textures["BombSheetBigSquare"] = Content.Load<Texture2D>("BombSheetBigSquare");
             KaboomResources.Textures["hud"] = Content.Load<Texture2D>("hud");
             KaboomResources.Textures["hud_active"] = Content.Load<Texture2D>("hud_active");
             KaboomResources.Textures["highlight"] = Content.Load<Texture2D>("HighLight");
             KaboomResources.Textures["highlight2"] = Content.Load<Texture2D>("HighLight2");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["BombSquare"] = new SpriteSheet(KaboomResources.Textures["BombSheetSquare"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["BombAngle"] = new SpriteSheet(KaboomResources.Textures["BombSheetAngle"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["BombBigSquare"] = new SpriteSheet(KaboomResources.Textures["BombSheetBigSquare"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["BombLine"] = new SpriteSheet(KaboomResources.Textures["BombSheetLine"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["BombH"] = new SpriteSheet(KaboomResources.Textures["BombSheetH"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["BombX"] = new SpriteSheet(KaboomResources.Textures["BombSheetX"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["DestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);
             KaboomResources.Sprites["UndestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background3"], new[] { 1 }, 1, 1);
             KaboomResources.Sprites["Ground"] = new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}, 1);
@@ -100,15 +114,26 @@ namespace Kaboom.Sources
             this.hud_ = new Hud(this, this.spriteBatch_, new List<Hud.BombInfo>
                                                              {
                                                                  new Hud.BombInfo(Pattern.Type.Square,
-                                                                                  KaboomResources.Sprites["Bomb"].Clone()
-                                                                                  as SpriteSheet, 3),
-                                                                 new Hud.BombInfo(Pattern.Type.Angle,
+                                                                                  KaboomResources.Sprites["BombSquare"].
+                                                                                      Clone()
+                                                                                  as SpriteSheet, 3, "BombSquare"),
+                                                                 new Hud.BombInfo(Pattern.Type.Line,
 
-                                                                                  KaboomResources.Sprites["Bomb"].Clone()
-                                                                                  as SpriteSheet, 5),
+                                                                                  KaboomResources.Sprites["BombLine"].
+                                                                                      Clone()
+                                                                                  as SpriteSheet, 5, "BombLine"),
+                                                                 new Hud.BombInfo(Pattern.Type.Angle,
+                                                                                  KaboomResources.Sprites["BombAngle"].
+                                                                                      Clone()
+                                                                                  as SpriteSheet, 5, "BombAngle"),
                                                                  new Hud.BombInfo(Pattern.Type.Ultimate,
-                                                                                  KaboomResources.Sprites["Bomb"].Clone()
-                                                                                  as SpriteSheet, 1)
+                                                                                  KaboomResources.Sprites["BombUltimate"
+                                                                                      ].Clone()
+                                                                                  as SpriteSheet, 5, "BombUltimate"),
+                                                                 new Hud.BombInfo(Pattern.Type.X,
+                                                                                  KaboomResources.Sprites["BombX"
+                                                                                      ].Clone()
+                                                                                  as SpriteSheet, 5, "BombX")
 
                                                              });
             // TODO : This is a HUD Unitest
@@ -170,6 +195,13 @@ namespace Kaboom.Sources
                                         this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
                                     }
                                 }
+                                else if (hudEvent == Hud.EHudAction.BombSelection)
+                                {
+                                    if (currentBomb_.Coord.X != -1)
+                                        map_.RemoveEntity(currentBomb_.Coord);
+                                    currentBomb_.Coord.X = -1;
+                                    currentBomb_.Coord.Y = -1;
+                                }
                             }
                             else
                             {
@@ -192,7 +224,7 @@ namespace Kaboom.Sources
                                                 map_.RemoveEntity(currentBomb_.Coord);
                                             currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
                                             currentBomb_.Entity = new VirtualBomb(pattern,
-                                                                                  KaboomResources.Sprites["Bomb"].Clone() as SpriteSheet);
+                                                                                  KaboomResources.Sprites[hud_.SelectedBombName()].Clone() as SpriteSheet);
                                             if (!(this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord)))
                                             {
                                                 currentBomb_.Coord.X = -1;

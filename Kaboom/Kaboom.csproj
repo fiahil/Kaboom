@@ -112,6 +112,13 @@
     <AndroidAsset Include="Assets\Content\hud.png" />
     <AndroidAsset Include="Assets\Content\HighLight.png" />
     <AndroidAsset Include="Assets\Content\HighLight2.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetSquare.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetBigSquare.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetLine.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetAngle.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetUltimate.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetH.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetX.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Screen.png" />

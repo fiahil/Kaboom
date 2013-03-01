@@ -22,13 +22,15 @@ namespace Kaboom.Sources
             public SpriteSheet Sprite;
             public int Quantity;
             public bool Activated;
+            public string Name;
 
-            public BombInfo(Pattern.Type type, SpriteSheet sprite, int quantity)
+            public BombInfo(Pattern.Type type, SpriteSheet sprite, int quantity, string name)
             {
                 Type = type;
                 Sprite = sprite;
                 Quantity = quantity;
                 Activated = false;
+                Name = name;
             }
         }
 
@@ -110,6 +112,11 @@ namespace Kaboom.Sources
         public Pattern.Type SelectedBombType()
         {
             return isActive_ ? bombSet_[currentPos_].Type : Pattern.Type.NoPattern;
+        }
+
+        public string SelectedBombName()
+        {
+            return isActive_ ? bombSet_[currentPos_].Name : "";            
         }
 
         /// <summary>
