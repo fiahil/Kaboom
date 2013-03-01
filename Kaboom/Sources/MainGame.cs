@@ -30,6 +30,7 @@ namespace Kaboom.Sources
         private Map map_;
         private Hud hud_;
         private readonly CurrentElement currentBomb_;
+        private int round_;
 
         /// <summary>
         /// Create the game instance
@@ -45,6 +46,8 @@ namespace Kaboom.Sources
             this.level_ = level;
             this.em_ = new Event();
             Content.RootDirectory = "Content";
+            round_ = 10;
+            // TODO : get the round number in map object
         }
 
         /// <summary>
@@ -135,7 +138,7 @@ namespace Kaboom.Sources
                                                                                       ].Clone()
                                                                                   as SpriteSheet, 5, "BombX")
 
-                                                             });
+                                                             }, round_);
             // TODO : This is a HUD Unitest
 
             this.Components.Add(this.hud_);
@@ -185,11 +188,12 @@ namespace Kaboom.Sources
                                         map_.RemoveEntity(currentBomb_.Coord);
                                     currentBomb_.Coord.X = -1;
                                     currentBomb_.Coord.Y = -1;
+                                    hud_.NextRound();
                                 }
                                 else if (hudEvent == Hud.EHudAction.BombRotation)
                                 {
                                     var pattern = hud_.SelectedBombType();
-                                    if (pattern != Pattern.Type.NoPattern)
+                                    if (pattern != Pattern.Type.NoPattern && currentBomb_.Coord.X != -1)
                                     {
                                         currentBomb_.Entity.NextOrientation();
                                         this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);

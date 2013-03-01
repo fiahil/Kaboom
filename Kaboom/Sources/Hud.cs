@@ -40,6 +40,7 @@ namespace Kaboom.Sources
         private bool isActive_;
         private int currentPos_;
         private readonly List<BombInfo> bombSet_;
+        private int round_;
 
         /// <summary>
         /// Constructor
@@ -47,7 +48,7 @@ namespace Kaboom.Sources
         /// <param name="game">Main game parameter</param>
         /// <param name="sb">Main spriteBatch to display hud elements</param>
         /// <param name="bombSet">Different bomb type using during this game</param>
-        public Hud(Game game, SpriteBatch sb, List<BombInfo> bombSet)
+        public Hud(Game game, SpriteBatch sb, List<BombInfo> bombSet, int round)
             : base(game)
         {
             sb_ = sb;
@@ -55,6 +56,7 @@ namespace Kaboom.Sources
             width_ = 0;
             currentPos_ = 0;
             bombSet_ = bombSet;
+            round_ = round;
             isActive_ = false;
         }
 
@@ -146,6 +148,16 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
+        /// Decremente roound number to the next
+        /// </summary>
+        public void NextRound()
+        {
+            round_ -= 1;
+            if (round_ <= 0)
+                round_ = 0;
+        }
+
+        /// <summary>
         /// Display the hud
         /// </summary>
         /// <param name="gameTime"></param>
@@ -188,7 +200,13 @@ namespace Kaboom.Sources
 
                 padding += 57;
             }
-
+            padding = 0;
+            if (round_ < 10)
+                padding = 5;
+            this.sb_.DrawString(KaboomResources.Fonts["default"],
+                                    round_.ToString(CultureInfo.InvariantCulture),
+                                    new Vector2(((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) + (int)((((780.0 - (77.0 - padding)) / 780.0) * this.width_)),
+                                                (int)(((100.0 / 125.0) * this.height_) / 2)), Color.White);
             this.sb_.End();
         }
 
