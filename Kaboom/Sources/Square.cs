@@ -83,6 +83,20 @@ namespace Kaboom.Sources
                 {
                     this.entities_[5] = null;
                     entities_[3].Consistency = EConsistence.Real;
+
+                    // TODO : Ce bout de code est fait deux car la spritesheet change entre temps. Il faut y remedier
+                    this.entities_[3].Tile.AnimationDone +=
+                    (sender, ea) =>
+                    {
+                        foreach (
+                            var e in
+                                this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(
+                                    e => e as Explosable))
+                        {
+                            e.MarkedForDestruction = true;
+                        }
+                    };
+                    
                     return true;
                 }
                 return false;
@@ -103,6 +117,11 @@ namespace Kaboom.Sources
         /// </summary>
         public void Update(GameTime time)
         {
+            if (entities_[3] != null)
+            {
+                var toto = 1;
+                toto = 2;
+            }
             for (var i = 0; i < this.entities_.Length; i++)
             {
                 if (this.entities_[i] == null) continue;
@@ -149,13 +168,25 @@ namespace Kaboom.Sources
         /// </summary>
         public Point Base { get; private set; }
 
+        public void ActiveDetonator()
+        {
+            if (this.entities_[2] != null && this.entities_[3] != null)
+                    ((Bomb)this.entities_[3]).SetForExplosion(((CheckPoint)this.entities_[2]).Time);
+        }
+
         /// <summary>
         /// Set explosion marker on all bombs and blocks in the square
         /// </summary>
         public void Explode(double time)
         {
-            if (this.entities_[4] != null && ((Block)this.entities_[4]).Destroyable)
+            if (this.entities_[4] != null && ((Block) this.entities_[4]).Destroyable)
+            {
                 ((Block)this.entities_[4]).SetForExplosion(time);
+                if (((Block) this.entities_[4]).EndBlock)
+                {
+                    // TODO : Delegate to advertise Map
+                }
+            }
             if (this.entities_[3] != null)
                 ((Bomb)this.entities_[3]).SetForExplosion(time);
         }

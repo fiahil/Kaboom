@@ -67,6 +67,7 @@
     <Compile Include="Sources\Block.cs" />
     <Compile Include="Sources\Bomb.cs" />
     <Compile Include="Sources\Camera.cs" />
+    <Compile Include="Sources\CheckPoint.cs" />
     <Compile Include="Sources\Event.cs" />
     <Compile Include="Sources\Explodable.cs" />
     <Compile Include="Sources\Gameplay.cs" />
@@ -112,6 +113,8 @@
     <AndroidAsset Include="Assets\Content\hud.png" />
     <AndroidAsset Include="Assets\Content\HighLight.png" />
     <AndroidAsset Include="Assets\Content\HighLight2.png" />
+    <AndroidAsset Include="Assets\Content\Goal.png" />
+    <AndroidAsset Include="Assets\Content\CheckPoint.png" />
     <AndroidAsset Include="Assets\Content\BombSheetSquare.png" />
     <AndroidAsset Include="Assets\Content\BombSheetBigSquare.png" />
     <AndroidAsset Include="Assets\Content\BombSheetLine.png" />

@@ -87,6 +87,8 @@ namespace Kaboom.Sources
             KaboomResources.Textures["hud_active"] = Content.Load<Texture2D>("hud_active");
             KaboomResources.Textures["highlight"] = Content.Load<Texture2D>("HighLight");
             KaboomResources.Textures["highlight2"] = Content.Load<Texture2D>("HighLight2");
+            KaboomResources.Textures["goal"] = Content.Load<Texture2D>("Goal");
+            KaboomResources.Textures["checkpoint"] = Content.Load<Texture2D>("CheckPoint");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 8, 18 }, 2, 20);
@@ -183,7 +185,7 @@ namespace Kaboom.Sources
                             {
                                 if (hudEvent == Hud.EHudAction.BombDetonation)
                                 {
-                                    this.map_.SetExplosion(new Point(7, 7)); //TODO : place true detonators
+                                    map_.ActivateDetonators();
                                     if (currentBomb_.Coord.X != -1)
                                         map_.RemoveEntity(currentBomb_.Coord);
                                     currentBomb_.Coord.X = -1;
