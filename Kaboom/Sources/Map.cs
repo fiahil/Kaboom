@@ -10,6 +10,7 @@ namespace Kaboom.Sources
     {
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
+        private readonly Point end_;
 
         /// <summary>
         /// Initialize a new map from a MapElements
@@ -23,6 +24,7 @@ namespace Kaboom.Sources
             this.sb_ = sb;
             this.SizeX = me.SizeX;
             this.SizeY = me.SizeY;
+            this.end_ = new Point(me.EndPosX, me.EndPosY);
 
             this.board_ = new Square[this.SizeX,this.SizeY];
             for (var i = 0; i < this.SizeX; i++)
@@ -38,6 +40,7 @@ namespace Kaboom.Sources
                     {
                         var bombProxy = entity as BombProxy;
                         var blockProxy = entity as BlockProxy;
+                        var checkPointProxy = entity as CheckPointProxy;
 
                         if (bombProxy != null)
                         {
@@ -49,7 +52,17 @@ namespace Kaboom.Sources
                                              bombProxy.TileTotalAnim,
                                              bombProxy.TileFrameSpeed)));
                         }
-                        
+
+                        if (checkPointProxy != null)
+                        {
+                            this.board_[i, j].AddEntity(
+                                new CheckPoint(new SpriteSheet(
+                                    KaboomResources.Textures[checkPointProxy.TileIdentifier], 
+                                    checkPointProxy.TileFramePerAnim,
+                                    checkPointProxy.TileTotalAnim,
+                                    checkPointProxy.TileFrameSpeed), 500));
+                        }
+
                         if (blockProxy != null)
                         {
                             this.board_[i, j].AddEntity(
@@ -261,6 +274,14 @@ namespace Kaboom.Sources
             }
         }
         
+        public void ActivateDetonators()
+        {
+            foreach (var square in board_)
+            {
+                square.ActiveDetonator();
+            }    
+        }
+
         /// <summary>
         /// Launch an explosion on given position
         /// </summary>

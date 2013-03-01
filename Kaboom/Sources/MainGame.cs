@@ -134,7 +134,7 @@ namespace Kaboom.Sources
                             {
                                 if (hudEvent == Hud.EHudAction.BombDetonation)
                                 {
-                                    this.map_.SetExplosion(new Point(7, 7)); //TODO : place true detonators
+                                    map_.ActivateDetonators();
                                 }
                             }
                             else

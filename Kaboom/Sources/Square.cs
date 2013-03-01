@@ -114,6 +114,12 @@ namespace Kaboom.Sources
         /// </summary>
         public Point Base { get; private set; }
 
+        public void ActiveDetonator()
+        {
+            if (this.entities_[2] != null)
+                Explode(((CheckPoint)this.entities_[2]).Time);
+        }
+
         /// <summary>
         /// Set explosion marker on all bombs and blocks in the square
         /// </summary>

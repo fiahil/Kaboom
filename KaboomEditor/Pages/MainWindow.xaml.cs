@@ -36,13 +36,12 @@ namespace KaboomEditor.Pages
 
                     if (i == 6 && j == 7)
                     {
-                        me.Board[i][j].Entities.Add(new BombProxy
+                        me.Board[i][j].Entities.Add(new CheckPointProxy 
                         {
-                            TileIdentifier = "BombSheet",
+                            TileIdentifier = "highlight",
                             TileFramePerAnim = new[] { 8, 18 },
                             TileTotalAnim = 2,
                             TileFrameSpeed = 20,
-                            Type = 0
                         });
                     }
                     if ((i == 7 || i == 6 || i == 5) && j == 7)

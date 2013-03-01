@@ -32,12 +32,19 @@ namespace Kaboom.Serializer
         }
     }
 
-    [XmlInclude(typeof(BlockProxy)), XmlInclude(typeof(BombProxy))]
+    public class CheckPointProxy : EntityProxy
+    {
+        // TODO : Faire une gestion de team :)
+    }
+
+    [XmlInclude(typeof(BlockProxy)), XmlInclude(typeof(BombProxy)), XmlInclude(typeof(CheckPointProxy))]
     public class MapElements
     {
         public SquareProxy[][] Board;
         public int SizeX;
         public int SizeY;
+        public int EndPosX;
+        public int EndPosY;
 
         /// <summary>
         /// Initialize a new MapElement by default
@@ -47,6 +54,8 @@ namespace Kaboom.Serializer
             this.SizeX = 0;
             this.SizeY = 0;
             this.Board = null;
+            this.EndPosY = 0;
+            this.EndPosX = 0;
         }
 
         /// <summary>
