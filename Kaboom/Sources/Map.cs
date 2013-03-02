@@ -57,7 +57,7 @@ namespace Kaboom.Sources
                                              KaboomResources.Textures[bombProxy.TileIdentifier],
                                              bombProxy.TileFramePerAnim,
                                              bombProxy.TileTotalAnim,
-                                             bombProxy.TileFrameSpeed)));
+                                             bombProxy.TileFrameSpeed), "" ));
                         }
 
                         if (checkPointProxy != null)
