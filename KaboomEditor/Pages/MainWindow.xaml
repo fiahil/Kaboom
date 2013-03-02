@@ -19,13 +19,12 @@
         		<Label x:Name="SelectedEntity" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Width="40"/>
         	</StackPanel>
         </StatusBar>
-        <StatusBar Margin="0,30,1199,0" VerticalAlignment="Top" Height="661">
-        	<StackPanel Height="661" Width="60" Margin="0">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,30,0,0" Background="#FFF1EDED" Height="271" Width="60" HorizontalAlignment="Left">
         		<!--<sources:BucketButton x:Name="BackgroundButton" Type="Background" Margin="0,1" Padding="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="40" Click="BucketButton_OnClick"/>-->
-                <sources:BucketButton x:Name="BlockUbkButton" Type="BlockUbk" Margin="0,1" Padding="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="40" Click="BucketButton_OnClick"/>
-                <sources:BucketButton x:Name="BlockBkButton" Type="BlockBk" Margin="0,1" Padding="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="40" Click="BucketButton_OnClick"/>
-                <sources:BucketButton x:Name="BombButton" Type="Bomb" Margin="0,1" Padding="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="40" Click="BucketButton_OnClick"/>
-        	</StackPanel>
-        </StatusBar>
+        	<sources:BucketButton x:Name="BlockUbkButton" Type="BlockUbk" Margin="0,5,0,1" Padding="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Width="40" Click="BucketButton_OnClick"/>
+        	<sources:BucketButton x:Name="BlockBkButton" Type="BlockBk" Margin="0,1" Padding="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Width="40" Click="BucketButton_OnClick"/>
+        	<sources:BucketButton x:Name="BombButton" Type="Bomb" Margin="0,1" Padding="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Width="40" Click="BucketButton_OnClick"/>
+        </StackPanel>
+        <StackPanel x:Name="EntitiesPanel" HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="60" Margin="0,301,0,0" Background="#FFF1EDED"/>
     </Grid>
 </Window>

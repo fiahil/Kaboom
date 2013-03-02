@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -56,7 +57,7 @@ namespace KaboomEditor.Pages
                 {
                     var elt = new SquareLabel(i, j);
 
-                    elt.Entities.Add(KeResources.Proxy[KeResources.Type.Background].Clone());
+                    elt.Entities[KeResources.Index[KeResources.Type.Background]] = KeResources.Proxy[KeResources.Type.Background].Clone();
 
                     elt.MouseLeftButtonUp += OnLeftButtonUp;
                     elt.MouseLeftButtonDown += OnLeftButtonDown;
@@ -82,7 +83,7 @@ namespace KaboomEditor.Pages
             {
                 foreach (SquareLabel elt in board.Children)
                 {
-                    this.mapElements_.Board[elt.XCoord][elt.YCoord].Entities = elt.Entities;
+                    this.mapElements_.Board[elt.XCoord][elt.YCoord].Entities = elt.Entities.Where(entity => entity != null).ToList();
                 }
             }
 
@@ -105,8 +106,8 @@ namespace KaboomEditor.Pages
         /// <param name="e"></param>
         private void ButtonNew_OnClick(object sender, RoutedEventArgs e)
         {
-            var height = (TextBox) this.FindName("TextBoxHeight");
-            var width = (TextBox) this.FindName("TextBoxWidth");
+            var height = this.FindName("TextBoxHeight") as TextBox;
+            var width = this.FindName("TextBoxWidth") as TextBox;
 
             if (width != null && height != null)
             {
@@ -142,13 +143,29 @@ namespace KaboomEditor.Pages
         {
             if (this.painting_)
             {
-                ((SquareLabel) sender).Entities.Add(KeResources.Proxy[this.currentBucket_].Clone());
+                ((SquareLabel) sender).Entities[KeResources.Index[this.currentBucket_]] = KeResources.Proxy[this.currentBucket_].Clone();
                 ((SquareLabel) sender).Content = new AssetImage(this.currentBucket_);
             }
             if (this.cleaning_)
             {
-                ((SquareLabel)sender).Entities.Clear();
+                for (var i = 1; i < ((SquareLabel)sender).Entities.Count(); i++)
+                {
+                    ((SquareLabel)sender).Entities[i] = null;
+                }
+
                 ((SquareLabel)sender).Content = null;
+            }
+            var panel = this.FindName("EntitiesPanel") as StackPanel;
+            if (panel == null) return;
+
+            panel.Children.Clear();
+
+            foreach (var entity in ((SquareLabel)sender).Entities.Where(entity => entity != null))
+            {
+                panel.Children.Add(new Label
+                    {
+                        Content = new AssetImage(entity.TileIdentifier)
+                    });
             }
         }
         #endregion

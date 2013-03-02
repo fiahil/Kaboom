@@ -69,5 +69,13 @@ namespace KaboomEditor.Sources
                 {Type.BlockUbk, new BitmapImage(new Uri(@"../../Resources/background3.png", UriKind.Relative))},
                 {Type.Bomb, new BitmapImage(new Uri(@"../../Resources/Bomb.png", UriKind.Relative))}
             };
+
+        public static Dictionary<Type, int> Index = new Dictionary<Type, int>
+            {
+                {Type.Background, 0},
+                {Type.BlockBk, 1},
+                {Type.BlockUbk, 1},
+                {Type.Bomb, 2}
+            };
     }
 }

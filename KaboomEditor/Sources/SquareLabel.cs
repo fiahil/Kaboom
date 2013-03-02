@@ -11,7 +11,7 @@ namespace KaboomEditor.Sources
     /// </summary>
     public class SquareLabel : Label
     {
-        public List<EntityProxy> Entities = new List<EntityProxy>();
+        public EntityProxy[] Entities = new EntityProxy[5];
 
         public int XCoord { get; set; }
         public int YCoord { get; set; }
