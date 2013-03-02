@@ -114,6 +114,7 @@ namespace Kaboom.Sources
             base.Initialize();
 
             this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Levels[this.level_]);
+            this.map_.EndGame += ManageEndGame;
             Viewport.Instance.Initialize(GraphicsDevice, this.map_);
             this.Components.Add(this.map_);
             this.hud_ = new Hud(this, this.spriteBatch_, new List<Hud.BombInfo>
@@ -262,6 +263,11 @@ namespace Kaboom.Sources
             GraphicsDevice.Clear(Color.Black);
 
             base.Draw(gameTime);
+        }
+
+        public void ManageEndGame(object sender, EventArgs ea)
+        {
+            // TODO : Manage end game here
         }
     }
 }

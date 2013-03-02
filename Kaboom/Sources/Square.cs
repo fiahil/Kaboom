@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -14,6 +15,7 @@ namespace Kaboom.Sources
 
         private readonly Entity[] entities_;
         public event ExplosionHandler Explosion;
+        public event EventHandler EndGame;
 
         /// <summary>
         /// Square ctor
@@ -43,23 +45,24 @@ namespace Kaboom.Sources
             this.entities_[offset] = null;
         }
 
+        public void AnimationDoneFunc(object sender, System.EventArgs ea)
+        {
+            foreach (
+                            var e in
+                                this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(
+                                    e => e as Explosable))
+            {
+                e.MarkedForDestruction = true;
+            }
+        }
+
         /// <summary>
         /// Add an entity to the square
         /// </summary>
         /// <param name="entity">The entity to add</param>
         public bool AddEntity(Entity entity)
         {
-            entity.Tile.AnimationDone +=
-                (sender, ea) =>
-                    {
-                        foreach (
-                            var e in
-                                this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(
-                                    e => e as Explosable))
-                        {
-                            e.MarkedForDestruction = true;
-                        }
-                    };
+            entity.Tile.AnimationDone += AnimationDoneFunc;
 
             if ((entity is Bomb) && this.entities_[4] != null)
                 return false;
@@ -83,19 +86,7 @@ namespace Kaboom.Sources
                 {
                     this.entities_[5] = null;
                     entities_[3].Consistency = EConsistence.Real;
-
-                    // TODO : Ce bout de code est fait deux car la spritesheet change entre temps. Il faut y remedier
-                    this.entities_[3].Tile.AnimationDone +=
-                    (sender, ea) =>
-                    {
-                        foreach (
-                            var e in
-                                this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(
-                                    e => e as Explosable))
-                        {
-                            e.MarkedForDestruction = true;
-                        }
-                    };
+                    this.entities_[3].Tile.AnimationDone += AnimationDoneFunc;
                     
                     return true;
                 }
@@ -117,11 +108,6 @@ namespace Kaboom.Sources
         /// </summary>
         public void Update(GameTime time)
         {
-            if (entities_[3] != null)
-            {
-                var toto = 1;
-                toto = 2;
-            }
             for (var i = 0; i < this.entities_.Length; i++)
             {
                 if (this.entities_[i] == null) continue;
@@ -184,6 +170,8 @@ namespace Kaboom.Sources
                 ((Block)this.entities_[4]).SetForExplosion(time);
                 if (((Block) this.entities_[4]).EndBlock)
                 {
+                    if (EndGame != null)
+                        EndGame(this, null);
                     // TODO : Delegate to advertise Map
                 }
             }
