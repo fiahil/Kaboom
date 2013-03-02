@@ -65,8 +65,8 @@ namespace KaboomEditor.Pages
                             Destroyable = true,
                             GameEnd = true,
                             TileIdentifier = "goal",
-                            TileFramePerAnim = new[] { 1},
-                            TileTotalAnim = 1,
+                            TileFramePerAnim = new[] { 1, 1 },
+                            TileTotalAnim = 2,
                             TileFrameSpeed = 1
                         });
 
