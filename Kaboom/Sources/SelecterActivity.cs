@@ -20,7 +20,7 @@ namespace Kaboom.Sources
 
             FindViewById<ListView>(Resource.Id.listViewLevel).Adapter = new ArrayAdapter(this,
                                                                                          Android.Resource.Layout.SimpleListItem1,
-                                                                                         new[] {"level1"});
+                                                                                         new[] {"level1", "level2"});
 
             FindViewById<ListView>(Resource.Id.listViewLevel).ItemClick +=
                 (sender, e) =>

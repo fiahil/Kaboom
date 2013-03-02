@@ -121,6 +121,9 @@
     <AndroidAsset Include="Assets\Content\BombSheetH.png" />
     <AndroidAsset Include="Assets\Content\BombSheetX.png" />
     <AndroidAsset Include="Assets\Content\BombSheetTNT.png" />
+    <AndroidAsset Include="..\KaboomEditor\Levels\level2.xml">
+      <Link>Assets\Content\level2.xml</Link>
+    </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
