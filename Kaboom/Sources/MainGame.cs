@@ -81,6 +81,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["BombSheetAngle"] = Content.Load<Texture2D>("BombSheetAngle");
             KaboomResources.Textures["BombSheetH"] = Content.Load<Texture2D>("BombSheetH");
             KaboomResources.Textures["BombSheetX"] = Content.Load<Texture2D>("BombSheetX");
+            KaboomResources.Textures["BombSheetTNT"] = Content.Load<Texture2D>("BombSheetTNT");
             KaboomResources.Textures["BombSheetUltimate"] = Content.Load<Texture2D>("BombSheetUltimate");
             KaboomResources.Textures["BombSheetBigSquare"] = Content.Load<Texture2D>("BombSheetBigSquare");
             KaboomResources.Textures["hud"] = Content.Load<Texture2D>("hud");
@@ -96,6 +97,7 @@ namespace Kaboom.Sources
             KaboomResources.Sprites["BombAngle"] = new SpriteSheet(KaboomResources.Textures["BombSheetAngle"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombBigSquare"] = new SpriteSheet(KaboomResources.Textures["BombSheetBigSquare"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombLine"] = new SpriteSheet(KaboomResources.Textures["BombSheetLine"], new[] { 8, 18 }, 2, 20);
+            KaboomResources.Sprites["BombTNT"] = new SpriteSheet(KaboomResources.Textures["BombSheetTNT"], new[] { 1, 25 }, 2, 20);
             KaboomResources.Sprites["BombH"] = new SpriteSheet(KaboomResources.Textures["BombSheetH"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombX"] = new SpriteSheet(KaboomResources.Textures["BombSheetX"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["DestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);

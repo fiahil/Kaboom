@@ -45,6 +45,17 @@ namespace KaboomEditor.Pages
                         });
                     }
 
+                    if ((i == 5 && j == 10) || (i == 8 && j == 2))
+                        me.Board[i][j].Entities.Add(new BombProxy 
+                        {
+                            TileIdentifier = "BombSheetTNT",
+                            TileFramePerAnim = new[] { 1, 25 },
+                            TileTotalAnim = 2,
+                            TileFrameSpeed = 20,
+                            Type = 1
+                        });
+                   
+
                     if ((i == 7 || i == 6 || i == 5) && j == 7)
                         continue;
 

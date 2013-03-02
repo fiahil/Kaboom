@@ -76,17 +76,23 @@ namespace Kaboom.Sources
         {
             base.Draw(sb, t, p, 0);
             var mapDimension = Viewport.Instance.MapDimensions();
-            foreach (var elt in pattern_.GetPattern().Where(place => place != null).Select(place => new Point(p.X + place.Point.X, p.Y + place.Point.Y)).Where(temp => temp.X >= 0 && temp.Y >= 0 && temp.X < mapDimension.X && temp.Y < mapDimension.Y))
-            {
-                sb.Draw(
-                KaboomResources.Textures[highlight_],
-                new Rectangle(
-                    (elt.X * Camera.Instance.DimX) + Camera.Instance.OffX,
-                    (elt.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
-                    Camera.Instance.DimX,
-                    Camera.Instance.DimY),
-                Color.White);
-            }
+            if (highlight_ != "")
+                foreach (
+                    var elt in
+                        pattern_.GetPattern().Where(place => place != null).Select(
+                            place => new Point(p.X + place.Point.X, p.Y + place.Point.Y)).Where(
+                                temp => temp.X >= 0 && temp.Y >= 0 && temp.X < mapDimension.X && temp.Y < mapDimension.Y)
+                    )
+                {
+                    sb.Draw(
+                        KaboomResources.Textures[highlight_],
+                        new Rectangle(
+                            (elt.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                            (elt.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                            Camera.Instance.DimX,
+                            Camera.Instance.DimY),
+                        Color.White);
+                }
         }
     }
 }
