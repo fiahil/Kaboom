@@ -8,7 +8,7 @@ namespace Kaboom.Sources
         public enum Type
         {
             Square,
-            TNT,
+            Tnt,
             Line,
             Angle,
             BigSquare,
@@ -20,7 +20,7 @@ namespace Kaboom.Sources
 
         public static Type[] All = new[]
             {
-                Type.Square, Type.TNT, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
+                Type.Square, Type.Tnt, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
             };
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Kaboom.Sources
 
                 #region TNT
                 {
-                    Type.TNT, new List<List<PatternElement>>
+                    Type.Tnt, new List<List<PatternElement>>
                         {
                             new List<PatternElement>
                                 {

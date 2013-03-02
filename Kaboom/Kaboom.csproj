@@ -70,7 +70,6 @@
     <Compile Include="Sources\CheckPoint.cs" />
     <Compile Include="Sources\Event.cs" />
     <Compile Include="Sources\Explodable.cs" />
-    <Compile Include="Sources\Gameplay.cs" />
     <Compile Include="Sources\Hud.cs" />
     <Compile Include="Sources\MainActivity.cs" />
     <Compile Include="Sources\MainGame.cs" />
@@ -80,7 +79,6 @@
     <Compile Include="Sources\KaboomResources.cs" />
     <Compile Include="Serializer\MapElements.cs" />
     <Compile Include="Sources\Pattern.cs" />
-    <Compile Include="Sources\Player.cs" />
     <Compile Include="Sources\SelecterActivity.cs" />
     <Compile Include="Sources\SpriteSheet.cs" />
     <Compile Include="Sources\Square.cs" />

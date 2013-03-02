@@ -117,25 +117,6 @@ namespace Kaboom.Sources
         /// </summary>
         public void Randomize()
         {
-            // TODO: Do a true map generator (with a random entity factory) (labyrinth generator?)
-            var r = new Random();
-
-            for (var i = 0; i < this.SizeX; i++)
-            {
-                for (var j = 0; j < this.SizeY; j++)
-                {
-                    this.board_[i, j].AddEntity(new Entity(1, KaboomResources.Sprites["Ground"].Clone() as SpriteSheet));
-
-                    if (i != 7 || j != 7)
-                    {
-                        this.board_[i, j].AddEntity(r.Next(2) != 0
-                                                        ? new Block(
-                                                              KaboomResources.Sprites["DestructibleBlock"].Clone() as SpriteSheet, true)
-                                                        : new Block(
-                                                              KaboomResources.Sprites["UndestructibleBlock"].Clone() as SpriteSheet, false));
-                    }
-                }
-            }
         }
 
         /// <summary>
@@ -258,7 +239,6 @@ namespace Kaboom.Sources
             {
                 item.Draw(this.sb_, gameTime);
             }
-            // TODO : Draw final checkpoint at infos_.EndPos;
             this.sb_.End();
         }
 
