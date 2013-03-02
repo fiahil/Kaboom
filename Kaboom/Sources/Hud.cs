@@ -203,13 +203,13 @@ namespace Kaboom.Sources
                 padding += 57;
             }
 
-            var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture) + " Points";
+            var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture);
             this.sb_.DrawString(KaboomResources.Fonts["default"],
                                 scoreS,
                                 new Vector2(
                                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                                     (int)((((780.0 - (150.0 + (14 * scoreS.Length))) / 780.0) * this.width_)),
-                                    (int)(((70.0 / 125.0) * this.height_) / 2)), Color.White);
+                                    (int)(((67.0 / 125.0) * this.height_) / 2)), Color.White);
 
             padding = 0;
             if (GameInfos.Round < 10)
