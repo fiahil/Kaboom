@@ -1,8 +1,12 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Xml.Serialization;
 using Kaboom.Serializer;
+using KaboomEditor.Sources;
 
 namespace KaboomEditor.Pages
 {
@@ -11,99 +15,190 @@ namespace KaboomEditor.Pages
     /// </summary>
     public partial class MainWindow
     {
+        private MapElements mapElements_;
+
+        private bool painting_;
+        private bool cleaning_;
+
+        private KeResources.Type currentBucket_;
+
         public MainWindow()
         {
             InitializeComponent();
+            this.currentBucket_ = KeResources.Type.BlockBk;
+            var se = this.FindName("SelectedEntity") as Label;
+            if (se != null)
+                se.Content = new AssetImage(this.currentBucket_);
+
+            CreateBoard(10, 5);
+            this.painting_ = false;
+            this.cleaning_ = false;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Instanciate and fill a new board
+        /// </summary>
+        /// <param name="w">width in square</param>
+        /// <param name="h">height in square</param>
+        private void CreateBoard(int w, int h)
         {
-            var r = new Random(777);
-            var me = new MapElements(15, 15);
+            var uniformGrid = (UniformGrid)this.FindName("Board");
+            if (uniformGrid == null)
+                return;
 
-            for (var i = 0; i < 15; i++)
+            this.mapElements_ = new MapElements(w, h);
+            uniformGrid.Children.Clear();
+            uniformGrid.Columns = w;
+            uniformGrid.Rows = h;
+
+            for (var i = 0; i < h; i++)
             {
-                for (var j = 0; j < 15; j++)
+                for (var j = 0; j < w; j++)
                 {
-                    me.Board[i][j].Entities.Add(new EntityProxy
-                    {
-                        TileIdentifier = "background1",
-                        TileFramePerAnim = new[] { 1 },
-                        TileTotalAnim = 1,
-                        TileFrameSpeed = 1,
-                        ZIndex = 1
-                    });
+                    var elt = new SquareLabel(i, j);
 
-                    if ((i == 6 && j == 7) || (i == 12 && j == 4) || (i == 3 && j == 9))
-                    {
-                        me.Board[i][j].Entities.Add(new CheckPointProxy 
-                        {
-                            TileIdentifier = "checkpoint",
-                            TileFramePerAnim = new[] { 1 },
-                            TileTotalAnim = 1,
-                            TileFrameSpeed = 1,
-                        });
-                    }
+                    elt.Entities[KeResources.Index[KeResources.Type.Background]] = KeResources.Proxy[KeResources.Type.Background].Clone();
 
-                    if ((i == 5 && j == 10) || (i == 8 && j == 2))
-                        me.Board[i][j].Entities.Add(new BombProxy 
-                        {
-                            TileIdentifier = "BombSheetTNT",
-                            TileFramePerAnim = new[] { 1, 25 },
-                            TileTotalAnim = 2,
-                            TileFrameSpeed = 20,
-                            Type = 1
-                        });
-                   
+                    elt.MouseLeftButtonUp += OnLeftButtonUp;
+                    elt.MouseLeftButtonDown += OnLeftButtonDown;
+                    elt.MouseRightButtonUp += OnRightButtonUp;
+                    elt.MouseRightButtonDown += OnRightButtonDown;
+                    elt.MouseEnter += OnBucketAction;
 
-                    if ((i == 7 || i == 6 || i == 5) && j == 7)
-                        continue;
+                    uniformGrid.Children.Add(elt);
+                }
+            }
+        }
 
-                    if (i == 0 && j == 12)
-                        me.Board[i][j].Entities.Add(new BlockProxy
-                        {
-                            Destroyable = true,
-                            GameEnd = true,
-                            TileIdentifier = "goal",
-                            TileFramePerAnim = new[] { 1, 1 },
-                            TileTotalAnim = 2,
-                            TileFrameSpeed = 1
-                        });
+        /// <summary>
+        /// Serialize current map to xml
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
+        {
+            var board = this.FindName("Board") as UniformGrid;
 
-                    // 2eme partie du if simplement pour mettre une case destructible sur les checkpoints
-                    if (r.Next(2) == 0 || me.Board[i][j].Entities.Count > 1)
-                    {
-                        me.Board[i][j].Entities.Add(new BlockProxy
-                        {
-                            Destroyable = true,
-                            TileIdentifier = "background2",
-                            TileFramePerAnim = new[] { 1, 2 },
-                            TileTotalAnim = 2,
-                            TileFrameSpeed = 2
-                        });
-                    }
-                    else
-                    {
-                        me.Board[i][j].Entities.Add(new BlockProxy
-                        {
-                            Destroyable = false,
-                            TileIdentifier = "background3",
-                            TileFramePerAnim = new[] { 1 },
-                            TileTotalAnim = 1,
-                            TileFrameSpeed = 1
-                        });
-                    }
+            if (board != null)
+            {
+                foreach (SquareLabel elt in board.Children)
+                {
+                    this.mapElements_.Board[elt.XCoord][elt.YCoord].Entities = elt.Entities.Where(entity => entity != null).ToList();
                 }
             }
 
-            
             var mySerializer = new XmlSerializer(typeof(MapElements));
-            // To write to a file, create a StreamWriter object.
 
-            using (var writer = new StreamWriter("level1.xml"))
+            var box = (TextBox) this.FindName("TextBoxFilename");
+            if (box != null)
             {
-                mySerializer.Serialize(writer, me);
+                using (var writer = new StreamWriter(Path.Combine("../../Levels", box.Text + ".xml")))
+                {
+                    mySerializer.Serialize(writer, this.mapElements_);
+                }
             }
         }
+
+        /// <summary>
+        /// Create a new board
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonNew_OnClick(object sender, RoutedEventArgs e)
+        {
+            var height = this.FindName("TextBoxHeight") as TextBox;
+            var width = this.FindName("TextBoxWidth") as TextBox;
+
+            if (width != null && height != null)
+            {
+                int h, w;
+                int.TryParse(width.Text, out h);
+                int.TryParse(height.Text, out w);
+                this.CreateBoard(w, h);
+            }
+        }
+
+        #region Buckets
+
+        /// <summary>
+        /// Handle click on a bucket button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BucketButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var current = this.FindName("SelectedEntity") as Label;
+            if (current == null)
+                return;
+            this.currentBucket_ = ((BucketButton) sender).Type;
+            current.Content = new AssetImage(this.currentBucket_);
+        }
+
+        /// <summary>
+        /// Handle painting or cleaning
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnBucketAction(object sender, MouseEventArgs args)
+        {
+            if (this.painting_)
+            {
+                ((SquareLabel) sender).Entities[KeResources.Index[this.currentBucket_]] = KeResources.Proxy[this.currentBucket_].Clone();
+                ((SquareLabel) sender).Content = new AssetImage(this.currentBucket_);
+            }
+            if (this.cleaning_)
+            {
+                for (var i = 1; i < ((SquareLabel)sender).Entities.Count(); i++)
+                {
+                    ((SquareLabel)sender).Entities[i] = null;
+                }
+
+                ((SquareLabel)sender).Content = null;
+            }
+            var panel = this.FindName("EntitiesPanel") as StackPanel;
+            if (panel == null) return;
+
+            panel.Children.Clear();
+
+            foreach (var entity in ((SquareLabel)sender).Entities.Where(entity => entity != null))
+            {
+                panel.Children.Add(new Label
+                    {
+                        Content = new AssetImage(entity.TileIdentifier)
+                    });
+            }
+        }
+        #endregion
+
+        #region Handlers
+
+        private void OnLeftButtonUp(object sender, MouseButtonEventArgs args)
+        {
+            this.painting_ = false;
+        }
+
+        private void OnRightButtonUp(object sender, MouseButtonEventArgs args)
+        {
+            this.cleaning_ = false;
+        }
+
+        private void OnLeftButtonDown(object sender, MouseButtonEventArgs args)
+        {
+            this.painting_ = true;
+            if (((SquareLabel)sender).IsMouseOver)
+            {
+                this.OnBucketAction(sender, args);
+            }
+        }
+
+        private void OnRightButtonDown(object sender, MouseButtonEventArgs args)
+        {
+            this.cleaning_ = true;
+            if (((SquareLabel)sender).IsMouseOver)
+            {
+                this.OnBucketAction(sender, args);
+            }
+        }
+        #endregion
     }
 }

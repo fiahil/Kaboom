@@ -137,9 +137,9 @@ namespace Kaboom.Sources
             this.event_ = ss.event_;
             this.currentAnimation_ = ss.currentAnimation_;
             this.AnimationDone = ss.AnimationDone;
-            this.currentFrame_ = ss.currentFrame_;              // TODO : Réinitialiser à 0?
-            this.currentLine_ = ss.currentLine_;                // TODO : Réinitialiser à 0?
-            this.currentElapsedTime_ = ss.currentElapsedTime_;  // TODO : Réinitialiser à 0?
+            this.currentFrame_ = ss.currentFrame_;
+            this.currentLine_ = ss.currentLine_;
+            this.currentElapsedTime_ = ss.currentElapsedTime_;
         }
 
         /// <summary>
@@ -187,7 +187,7 @@ namespace Kaboom.Sources
                     this.frameSize_.Height * (this.anims_[this.currentAnimation_].Head.Y + this.currentLine_),
                     this.frameSize_.Width,
                     this.frameSize_.Height),
-                Color.White,0, new Vector2(0,0),0, depth: layerDepth);
+                Color.White, 0, new Vector2(0, 0), 0, layerDepth);
         }
 
         /// <summary>

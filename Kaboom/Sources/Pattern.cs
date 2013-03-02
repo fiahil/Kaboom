@@ -8,7 +8,7 @@ namespace Kaboom.Sources
         public enum Type
         {
             Square,
-            TNT,
+            Tnt,
             Line,
             Angle,
             BigSquare,
@@ -20,7 +20,7 @@ namespace Kaboom.Sources
 
         public static Type[] All = new[]
             {
-                Type.Square, Type.TNT, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
+                Type.Square, Type.Tnt, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
             };
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Kaboom.Sources
 
                 #region TNT
                 {
-                    Type.TNT, new List<List<PatternElement>>
+                    Type.Tnt, new List<List<PatternElement>>
                         {
                             new List<PatternElement>
                                 {
@@ -125,7 +125,7 @@ namespace Kaboom.Sources
                             #region BottomLeft
                             new List<PatternElement>
                                 {
-                                    new PatternElement(0, 0, 500),
+                                    new PatternElement(0, 0),
                                     new PatternElement(-1, 0, 750),
                                     new PatternElement(-2, 0, 1000),
                                     new PatternElement(0, 1, 750),
@@ -140,7 +140,7 @@ namespace Kaboom.Sources
                                 {
                                     new PatternElement(-2, 0, 1000),
                                     new PatternElement(-1, 0, 750),
-                                    new PatternElement(0, 0, 500),
+                                    new PatternElement(0, 0),
                                     new PatternElement(0, -1, 750),
                                     new PatternElement(0, -2, 1000),
                                     new PatternElement(-1, -1, 1000)
@@ -153,7 +153,7 @@ namespace Kaboom.Sources
                                 {
                                     new PatternElement(2, 0, 1000),
                                     new PatternElement(1, 0, 750),
-                                    new PatternElement(0, 0, 500),
+                                    new PatternElement(0, 0),
                                     new PatternElement(0, -1, 750),
                                     new PatternElement(0, -2, 1000),
                                     new PatternElement(1, -1, 1000)
@@ -166,7 +166,7 @@ namespace Kaboom.Sources
                                 {
                                     new PatternElement(2, 0, 1000),
                                     new PatternElement(1, 0, 750),
-                                    new PatternElement(0, 0, 500),
+                                    new PatternElement(0, 0),
                                     new PatternElement(0, 1, 750),
                                     new PatternElement(0, 2, 1000),
                                     new PatternElement(1, 1, 1000)
