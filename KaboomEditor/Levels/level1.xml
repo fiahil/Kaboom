@@ -312,9 +312,10 @@
             <TileIdentifier>goal</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>1</int>
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
+            <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
             <GameEnd>true</GameEnd>
           </EntityProxy>
