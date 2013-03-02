@@ -131,7 +131,6 @@ namespace Kaboom.Sources
         /// <param name="ss">The spriteSheet to clone</param>
         private SpriteSheet(SpriteSheet ss)
         {
-            if (this == ss) return;
             this.spriteSheet_ = ss.spriteSheet_;
             this.frameSize_ = ss.frameSize_;
             this.anims_ = ss.anims_;
@@ -239,6 +238,7 @@ namespace Kaboom.Sources
             }
             set
             {
+                if (value >= this.anims_.Count || value < 0) return;
                 this.currentAnimation_ = value;
                 this.currentFrame_ = 0;
             }

@@ -124,6 +124,7 @@
     <AndroidAsset Include="..\KaboomEditor\Levels\level2.xml">
       <Link>Assets\Content\level2.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="Assets\Content\GoalSheet.PNG" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

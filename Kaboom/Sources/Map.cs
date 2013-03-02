@@ -11,6 +11,8 @@ namespace Kaboom.Sources
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
         private readonly int turnsRemeaning_;
+        private bool endGame_ = false;
+        public event EventHandler EndGameManager;
 
         /// <summary>
         /// Initialize a new map from a MapElements
@@ -33,6 +35,8 @@ namespace Kaboom.Sources
                 {
                     this.board_[i, j] = new Square(new Point(i, j));
                     this.board_[i, j].Explosion += ExplosionRuler;
+                    this.board_[i, j].EndGame += ManageEndGame;
+                   
 
                     var typeArray = Pattern.All;
 
@@ -217,13 +221,19 @@ namespace Kaboom.Sources
         /// <param name="gameTime">GameClock</param>
         public override void Update(GameTime gameTime)
         {
+            var nbExplosions = 0;
+
             base.Update(gameTime);
 
             foreach (var item in this.board_)
             {
                 item.Update(gameTime);
+                nbExplosions += item.NbCurrentExplosions;
             }
-
+            if (nbExplosions == 0 && endGame_)
+            {
+                EndGameManager(this, null);
+            }
         }
 
         /// <summary>
@@ -275,6 +285,11 @@ namespace Kaboom.Sources
         public void SetExplosion(Point pos)
         {
             board_[pos.X, pos.Y].Explode(500);
+        }
+
+        public void ManageEndGame(object sender, EventArgs ea)
+        {
+            this.endGame_ = true;
         }
 
         /// <summary>
