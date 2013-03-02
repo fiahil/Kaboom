@@ -111,7 +111,6 @@
     </AndroidAsset>
     <AndroidAsset Include="Assets\Content\HighLight.png" />
     <AndroidAsset Include="Assets\Content\HighLight2.png" />
-    <AndroidAsset Include="Assets\Content\Goal.png" />
     <AndroidAsset Include="Assets\Content\CheckPoint.png" />
     <AndroidAsset Include="Assets\Content\BombSheetSquare.png" />
     <AndroidAsset Include="Assets\Content\BombSheetBigSquare.png" />
