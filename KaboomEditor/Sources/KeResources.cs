@@ -15,7 +15,9 @@ namespace KaboomEditor.Sources
             Background,
             BlockUbk,
             BlockBk,
-            Bomb
+            Bomb,
+            Checkpoint,
+            Goal
         }
 
         public static Dictionary<Type, EntityProxy> Proxy = new Dictionary<Type, EntityProxy>
@@ -37,7 +39,8 @@ namespace KaboomEditor.Sources
                             TileFramePerAnim = new[] {1},
                             TileTotalAnim = 1,
                             TileFrameSpeed = 1,
-                            Destroyable = false
+                            Destroyable = false,
+                            GameEnd = false
                         }
                 },
                 {
@@ -47,17 +50,38 @@ namespace KaboomEditor.Sources
                             TileFramePerAnim = new[] {1, 2},
                             TileTotalAnim = 2,
                             TileFrameSpeed = 2,
-                            Destroyable = true
+                            Destroyable = true,
+                            GameEnd = false
+                        }
+                },
+                {
+                    Type.Goal, new BlockProxy
+                        {
+                            TileIdentifier = "goal",
+                            TileFramePerAnim = new[] {1, 1},
+                            TileTotalAnim = 2,
+                            TileFrameSpeed = 1,
+                            Destroyable = true,
+                            GameEnd = true
                         }
                 },
                 {
                     Type.Bomb, new BombProxy
                         {
-                            Type = 0,
-                            TileIdentifier = "BombSheet",
-                            TileFramePerAnim = new[] {8, 18},
+                            Type = 1,
+                            TileIdentifier = "BombSheetTNT",
+                            TileFramePerAnim = new[] {1, 25},
                             TileTotalAnim = 2,
                             TileFrameSpeed = 20
+                        }
+                },
+                {
+                    Type.Checkpoint, new CheckPointProxy
+                        {
+                            TileIdentifier = "checkpoint",
+                            TileFramePerAnim = new[] {1},
+                            TileTotalAnim = 1,
+                            TileFrameSpeed = 1
                         }
                 }
             };
@@ -67,15 +91,19 @@ namespace KaboomEditor.Sources
                 {Type.Background, new BitmapImage(new Uri(@"../../Resources/background1.png", UriKind.Relative))},
                 {Type.BlockBk, new BitmapImage(new Uri(@"../../Resources/background2.png", UriKind.Relative))},
                 {Type.BlockUbk, new BitmapImage(new Uri(@"../../Resources/background3.png", UriKind.Relative))},
-                {Type.Bomb, new BitmapImage(new Uri(@"../../Resources/Bomb.png", UriKind.Relative))}
+                {Type.Bomb, new BitmapImage(new Uri(@"../../Resources/BombSheetTNT.png", UriKind.Relative))},
+                {Type.Checkpoint, new BitmapImage(new Uri(@"../../Resources/Checkpoint.png", UriKind.Relative))},
+                {Type.Goal, new BitmapImage(new Uri(@"../../Resources/GoalSheet.png", UriKind.Relative))}
             };
 
         public static Dictionary<Type, int> Index = new Dictionary<Type, int>
             {
                 {Type.Background, 0},
-                {Type.BlockBk, 1},
-                {Type.BlockUbk, 1},
-                {Type.Bomb, 2}
+                {Type.Checkpoint, 1},
+                {Type.BlockBk, 2},
+                {Type.BlockUbk, 2},
+                {Type.Bomb, 3},
+                {Type.Goal, 4}
             };
     }
 }

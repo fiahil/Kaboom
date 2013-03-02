@@ -13,7 +13,9 @@ namespace KaboomEditor.Sources
                 {"background1", KeResources.Type.Background},
                 {"background2", KeResources.Type.BlockBk},
                 {"background3", KeResources.Type.BlockUbk},
-                {"BombSheet", KeResources.Type.Bomb}
+                {"BombSheetTNT", KeResources.Type.Bomb},
+                {"goal", KeResources.Type.Goal},
+                {"checkpoint", KeResources.Type.Checkpoint}
             };
 
         /// <summary>

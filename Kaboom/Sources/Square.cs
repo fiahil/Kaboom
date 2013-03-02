@@ -47,7 +47,7 @@ namespace Kaboom.Sources
             this.entities_[offset] = null;
         }
 
-        public void AnimationDoneFunc(object sender, System.EventArgs ea)
+        public void AnimationDoneFunc(object sender, EventArgs ea)
         {
             foreach (var e in this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(e => e as Explosable))
             {
@@ -169,11 +169,6 @@ namespace Kaboom.Sources
         /// <param name="time">Time before explosion</param>
         public void Explode(double time)
         {
-            if (Base.X == 6 && Base.Y == 7)
-            {
-                int i;
-                i = 9;
-            }
             if (this.entities_[4] != null && ((Block) this.entities_[4]).Destroyable)
             {
                 if (((Block)this.entities_[4]).SetForExplosion(time))

@@ -11,9 +11,9 @@
         		<Label Content="Filename" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<TextBox x:Name="TextBoxFilename" TextWrapping="Wrap" Text="level" Margin="5,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<Button x:Name="ButtonSave" Content="Save" Click="ButtonSave_OnClick" Margin="5,0,0,0" Padding="3,1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
-        		<Label Content="Height" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+        		<Label Content="Width" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<TextBox x:Name="TextBoxHeight" TextWrapping="Wrap" Text="20" Margin="5,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
-        		<Label Content="Width" Margin="5,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+        		<Label Content="Height" Margin="5,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<TextBox x:Name="TextBoxWidth" TextWrapping="Wrap" Text="20" Margin="5,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<Button x:Name="ButtonNew" Content="New" Click="ButtonNew_OnClick" Margin="5,0,0,0" Padding="3,1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
         		<Label x:Name="SelectedEntity" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Width="40"/>
@@ -24,6 +24,8 @@
         	<sources:BucketButton x:Name="BlockUbkButton" Type="BlockUbk" Margin="0,5,0,1" Padding="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Width="40" Click="BucketButton_OnClick"/>
         	<sources:BucketButton x:Name="BlockBkButton" Type="BlockBk" Margin="0,1" Padding="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Width="40" Click="BucketButton_OnClick"/>
         	<sources:BucketButton x:Name="BombButton" Type="Bomb" Margin="0,1" Padding="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Width="40" Click="BucketButton_OnClick"/>
+        	<sources:BucketButton x:Name="CheckpointButton" Type="Checkpoint" Margin="10,1" Padding="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Width="40" Click="BucketButton_OnClick"/>
+        	<sources:BucketButton x:Name="GoalButton" Type="Goal" Margin="10,1" Padding="1" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" Width="40" Click="BucketButton_OnClick"/>
         </StackPanel>
         <StackPanel x:Name="EntitiesPanel" HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="60" Margin="0,301,0,0" Background="#FFF1EDED"/>
     </Grid>
