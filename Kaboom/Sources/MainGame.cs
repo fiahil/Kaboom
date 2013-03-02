@@ -88,7 +88,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["hud_active"] = Content.Load<Texture2D>("hud_active");
             KaboomResources.Textures["highlight"] = Content.Load<Texture2D>("HighLight");
             KaboomResources.Textures["highlight2"] = Content.Load<Texture2D>("HighLight2");
-            KaboomResources.Textures["goal"] = Content.Load<Texture2D>("Goal");
+            KaboomResources.Textures["goal"] = Content.Load<Texture2D>("GoalSheet");
             KaboomResources.Textures["checkpoint"] = Content.Load<Texture2D>("CheckPoint");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
@@ -116,7 +116,7 @@ namespace Kaboom.Sources
             base.Initialize();
 
             this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Levels[this.level_]);
-            this.map_.EndGame += ManageEndGame;
+            this.map_.EndGameManager += ManageEndGame;
             Viewport.Instance.Initialize(GraphicsDevice, this.map_);
             this.Components.Add(this.map_);
             this.hud_ = new Hud(this, this.spriteBatch_, new List<Hud.BombInfo>
@@ -270,6 +270,7 @@ namespace Kaboom.Sources
         public void ManageEndGame(object sender, EventArgs ea)
         {
             // TODO : Manage end game here
+            this.Exit();
         }
     }
 }

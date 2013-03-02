@@ -10,6 +10,13 @@ namespace Kaboom.Sources
         private readonly Pattern pattern_;
         private readonly string highlight_;
 
+        private readonly Dictionary<Pattern.Type, string> spriteCorrespondance_ = new Dictionary<Pattern.Type, string>
+            {
+                {Pattern.Type.BigSquare, "BombBigSquare"},
+                {Pattern.Type.H, "BombH"},
+                {Pattern.Type.X, "BombX"},
+                {Pattern.Type.Ultimate, "BombUltimate"},
+            };
 
         /// <summary>
         /// Construct a new bomb on Z-index 10
@@ -34,9 +41,8 @@ namespace Kaboom.Sources
         {
             if (pattern_.MergePatterns(bomb.pattern_))
             {
-                if (pattern_.SelectedType == Pattern.Type.BigSquare)
-                    Tile = KaboomResources.Sprites["BombBigSquare"].Clone() as SpriteSheet;
-                // TODO : foreach merged pattern
+                if (spriteCorrespondance_.ContainsKey(pattern_.SelectedType))
+                    Tile = KaboomResources.Sprites[spriteCorrespondance_[pattern_.SelectedType]].Clone() as SpriteSheet;
                 return true;
             }
             return false;

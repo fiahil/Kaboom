@@ -123,6 +123,7 @@
     <AndroidAsset Include="Assets\Content\BombSheetH.png" />
     <AndroidAsset Include="Assets\Content\BombSheetX.png" />
     <AndroidAsset Include="Assets\Content\BombSheetTNT.png" />
+    <AndroidAsset Include="Assets\Content\GoalSheet.PNG" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Screen.png" />

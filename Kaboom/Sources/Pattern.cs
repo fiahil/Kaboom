@@ -338,11 +338,19 @@ namespace Kaboom.Sources
             {
                 #region Square Merging
                 { new KeyValuePair<Type, Type>(Type.Square, Type.Square), Type.BigSquare },
+                { new KeyValuePair<Type, Type>(Type.Square, Type.Angle), Type.X },
+                { new KeyValuePair<Type, Type>(Type.Square, Type.Line), Type.H },
                 #endregion
             
                 #region Line Merging
                 { new KeyValuePair<Type, Type>(Type.Line, Type.Angle), Type.X },
+                { new KeyValuePair<Type, Type>(Type.Line, Type.Line), Type.H },
                 #endregion
+
+                { new KeyValuePair<Type, Type>(Type.BigSquare, Type.Angle), Type.Ultimate },
+                { new KeyValuePair<Type, Type>(Type.BigSquare, Type.Line), Type.Ultimate },
+                { new KeyValuePair<Type, Type>(Type.X, Type.Square), Type.Ultimate },
+                { new KeyValuePair<Type, Type>(Type.H, Type.Square), Type.Ultimate },
 
             };
 
@@ -400,7 +408,11 @@ namespace Kaboom.Sources
             var pair = new KeyValuePair<Type, Type>(this.SelectedType, pattern.SelectedType);
 
             if (!mergings_.ContainsKey(pair))
-                return false;
+            {  
+                pair = new KeyValuePair<Type, Type>(pattern.SelectedType, this.SelectedType);
+                if (!mergings_.ContainsKey(pair))
+                    return false;
+            }
             SelectedType = mergings_[pair];
             return true;
         }

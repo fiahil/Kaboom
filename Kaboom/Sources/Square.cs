@@ -16,6 +16,7 @@ namespace Kaboom.Sources
         private readonly Entity[] entities_;
         public event ExplosionHandler Explosion;
         public event EventHandler EndGame;
+        public int NbCurrentExplosions { get; private set; }
 
         /// <summary>
         /// Square ctor
@@ -23,6 +24,7 @@ namespace Kaboom.Sources
         /// <param name="baseLoc">Map coordinates</param>
         public Square(Point baseLoc)
         {
+            NbCurrentExplosions = 0;
             this.entities_ = new Entity[6];
             this.Base = baseLoc;
         }
@@ -47,10 +49,7 @@ namespace Kaboom.Sources
 
         public void AnimationDoneFunc(object sender, System.EventArgs ea)
         {
-            foreach (
-                            var e in
-                                this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(
-                                    e => e as Explosable))
+            foreach (var e in this.entities_.Where(e => e != null && e.Tile == sender && e is Explosable).Select(e => e as Explosable))
             {
                 e.MarkedForDestruction = true;
             }
@@ -119,7 +118,10 @@ namespace Kaboom.Sources
                     if (explosable.IsReadyToExplode() && Explosion != null)
                         Explosion(explosable as Bomb, this.Base);
                     if (explosable.MarkedForDestruction)
+                    {
                         this.entities_[i] = null;
+                        --NbCurrentExplosions;
+                    }
                 }
             }
         }
@@ -157,26 +159,36 @@ namespace Kaboom.Sources
         public void ActiveDetonator()
         {
             if (this.entities_[2] != null && this.entities_[3] != null)
-                    ((Bomb)this.entities_[3]).SetForExplosion(((CheckPoint)this.entities_[2]).Time);
+                if (((Bomb) this.entities_[3]).SetForExplosion(((CheckPoint) this.entities_[2]).Time))
+                    ++NbCurrentExplosions;
         }
 
         /// <summary>
-        /// Set explosion marker on all bombs and blocks in the square
+        /// Set explosion marker on all bombs and blocks in the square. Penser a incrementer le nombre d'explosions courantes pour chacune
         /// </summary>
+        /// <param name="time">Time before explosion</param>
         public void Explode(double time)
         {
+            if (Base.X == 6 && Base.Y == 7)
+            {
+                int i;
+                i = 9;
+            }
             if (this.entities_[4] != null && ((Block) this.entities_[4]).Destroyable)
             {
-                ((Block)this.entities_[4]).SetForExplosion(time);
-                if (((Block) this.entities_[4]).EndBlock)
+                if (((Block)this.entities_[4]).SetForExplosion(time))
+                ++NbCurrentExplosions;
+                if (((Block)this.entities_[4]).EndBlock)
                 {
                     if (EndGame != null)
                         EndGame(this, null);
-                    // TODO : Delegate to advertise Map
                 }
             }
             if (this.entities_[3] != null)
-                ((Bomb)this.entities_[3]).SetForExplosion(time);
+            {
+                if (((Bomb)this.entities_[3]).SetForExplosion(time))
+                ++NbCurrentExplosions;
+            }
         }
 
         #region Unitest

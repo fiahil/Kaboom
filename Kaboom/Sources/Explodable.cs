@@ -36,12 +36,11 @@ namespace Kaboom.Sources
         /// <returns></returns>
         public bool IsReadyToExplode()
         {
-            if (!(readyToExplode_ && timeBeforeExplosion_ <= 0))
+            if (!(readyToExplode_ && timeBeforeExplosion_ <= 0) && !animationLaunched_)
                 return false;
             if (!animationLaunched_)
                 Tile.CAnimation = 1;
             animationLaunched_ = true;
-            readyToExplode_ = false;
             return true;
         }
 
@@ -49,12 +48,13 @@ namespace Kaboom.Sources
         /// Start the timer before the explosable component explodes
         /// </summary>
         /// <param name="time">Time to wait before explosion (in milliseconds)</param>
-        public void SetForExplosion(double time)
+        public bool SetForExplosion(double time)
         {
             if (readyToExplode_)
-                return;
+                return false;
             readyToExplode_ = true;
             timeBeforeExplosion_ = time;
+            return true;
         }
 
         /// <summary>
