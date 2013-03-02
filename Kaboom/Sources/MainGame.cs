@@ -8,20 +8,21 @@ using System.Collections.Generic;
 
 namespace Kaboom.Sources
 {
-    class CurrentElement
-    {
-        public Point Coord;
-        public VirtualBomb Entity;
-
-        public CurrentElement()
-        {
-            Coord = new Point(-1, -1);
-            Entity = null;
-        }
-    }
 
     class MainGame : Game
     {
+        class CurrentElement
+        {
+            public Point Coord;
+            public VirtualBomb Entity;
+
+            public CurrentElement()
+            {
+                Coord = new Point(-1, -1);
+                Entity = null;
+            }
+        }
+
         private readonly GraphicsDeviceManager graphics_;
         private SpriteBatch spriteBatch_;
         private readonly string level_;
@@ -29,7 +30,6 @@ namespace Kaboom.Sources
         private Map map_;
         private Hud hud_;
         private readonly CurrentElement currentBomb_;
-        private int round_;
 
         /// <summary>
         /// Create the game instance
@@ -45,8 +45,6 @@ namespace Kaboom.Sources
             this.level_ = level;
             this.em_ = new Event();
             Content.RootDirectory = "Content";
-            round_ = 10;
-            // TODO : get the round number in map object
         }
 
         /// <summary>
@@ -141,9 +139,12 @@ namespace Kaboom.Sources
                                                                                       ].Clone()
                                                                                   as SpriteSheet, 5, "BombX")
 
-                                                             }, round_);
-            // TODO : This is a HUD Unitest
+                                                             });
 
+            // TODO : This is a HUD Unitest
+            // TODO : get the round number in map object
+            hud_.GameInfos.Round = 10;
+            hud_.GameInfos.Score = 0;
             this.Components.Add(this.hud_);
         }
 
@@ -191,7 +192,13 @@ namespace Kaboom.Sources
                                         map_.RemoveEntity(currentBomb_.Coord);
                                     currentBomb_.Coord.X = -1;
                                     currentBomb_.Coord.Y = -1;
-                                    hud_.NextRound();
+                                    hud_.GameInfos.Round -= 1;
+                                    if (hud_.GameInfos.Round <= 0)
+                                        hud_.GameInfos.Round = 0;
+
+                                    // TODO : calcul du score
+                                    hud_.GameInfos.Score += 9000;
+
                                 }
                                 else if (hudEvent == Hud.EHudAction.BombRotation)
                                 {
