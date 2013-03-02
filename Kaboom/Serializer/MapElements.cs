@@ -35,6 +35,7 @@ namespace Kaboom.Serializer
     public class BlockProxy : EntityProxy
     {
         public bool Destroyable;
+        public bool GameEnd = false;
 
         public override EntityProxy Clone()
         {
@@ -87,14 +88,25 @@ namespace Kaboom.Serializer
     }
 
     /// <summary>
+    /// Checkpoint Proxy Class
+    /// Used to store parameters for instanciation
+    /// </summary>
+    public class CheckPointProxy : EntityProxy
+    {
+        // TODO : Ajouter le pool de bombe
+    }
+
+    /// <summary>
     /// Used to convay a map over xml serialization
     /// </summary>
-    [XmlInclude(typeof(BlockProxy)), XmlInclude(typeof(BombProxy))]
+    [XmlInclude(typeof(BlockProxy)), XmlInclude(typeof(BombProxy)), XmlInclude(typeof(CheckPointProxy))]
     public class MapElements
     {
         public SquareProxy[][] Board;
         public int SizeX;
         public int SizeY;
+        public int EndPosX;
+        public int EndPosY;
 
         /// <summary>
         /// Initialize a new MapElement by default

@@ -12,6 +12,12 @@ namespace Kaboom.Sources
         Transparent
     }
 
+    enum EConsistence
+    {
+        Real,
+        Virtual
+    }
+
     /// <summary>
     /// Basic entity
     /// </summary>
@@ -28,7 +34,10 @@ namespace Kaboom.Sources
             this.ZIndex = zindex;
             this.Visibility = visibility;
             this.Tile = tile;
+            this.Consistency = EConsistence.Real;
         }
+
+        public EConsistence Consistency { get; set; }
 
         /// <summary>
         /// SpriteSheet associated with the entity
@@ -60,9 +69,10 @@ namespace Kaboom.Sources
         /// <param name="sb">spritebatch used to render texture</param>
         /// <param name="t">game clock</param>
         /// <param name="p">Coordinates of the square containing the entity</param>
-        public void Draw(SpriteBatch sb, GameTime t, Point p)
+        /// <param name="depth">the depth on the screen of the sprite</param>
+        public virtual void Draw(SpriteBatch sb, GameTime t, Point p, int depth)
         {
-            this.Tile.Draw(sb, t, p);
+            this.Tile.Draw(sb, t, p, depth);
         }
     }
 }

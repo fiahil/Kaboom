@@ -22,13 +22,15 @@ namespace Kaboom.Sources
             public SpriteSheet Sprite;
             public int Quantity;
             public bool Activated;
+            public string Name;
 
-            public BombInfo(Pattern.Type type, SpriteSheet sprite, int quantity)
+            public BombInfo(Pattern.Type type, SpriteSheet sprite, int quantity, string name)
             {
                 Type = type;
                 Sprite = sprite;
                 Quantity = quantity;
                 Activated = false;
+                Name = name;
             }
         }
 
@@ -38,6 +40,7 @@ namespace Kaboom.Sources
         private bool isActive_;
         private int currentPos_;
         private readonly List<BombInfo> bombSet_;
+        private int round_;
 
         /// <summary>
         /// Constructor
@@ -45,7 +48,7 @@ namespace Kaboom.Sources
         /// <param name="game">Main game parameter</param>
         /// <param name="sb">Main spriteBatch to display hud elements</param>
         /// <param name="bombSet">Different bomb type using during this game</param>
-        public Hud(Game game, SpriteBatch sb, List<BombInfo> bombSet)
+        public Hud(Game game, SpriteBatch sb, List<BombInfo> bombSet, int round)
             : base(game)
         {
             sb_ = sb;
@@ -53,6 +56,7 @@ namespace Kaboom.Sources
             width_ = 0;
             currentPos_ = 0;
             bombSet_ = bombSet;
+            round_ = round;
             isActive_ = false;
         }
 
@@ -75,7 +79,7 @@ namespace Kaboom.Sources
         /// <param name="type">the type of the targeted bomb</param>
         /// <param name="number">the number which will be add</param>
         /// <returns>return true if the specified type is in the set or else falses</returns>
-        public bool AddBombOfType(Pattern.Type type, int number)
+        public bool AddBombOfType(Pattern.Type type, int number = 1)
         {
             foreach (var bombInfo in bombSet_.Where(bombInfo => bombInfo.Type == type))
             {
@@ -91,7 +95,7 @@ namespace Kaboom.Sources
         /// <param name="type">the type of the targeted bomb</param>
         /// <param name="number">the number which will be add</param>
         /// <returns>return true if the specified type is in the set or else false</returns>
-        public bool RemoveBombOfType(Pattern.Type type, int number)
+        public bool RemoveBombOfType(Pattern.Type type, int number = 1)
         {
             foreach (var bombInfo in bombSet_.Where(bombInfo => bombInfo.Type == type))
             {
@@ -109,9 +113,12 @@ namespace Kaboom.Sources
         /// <returns></returns>
         public Pattern.Type SelectedBombType()
         {
-            if (isActive_)
-                return bombSet_[currentPos_].Type;
-            return Pattern.Type.NoPattern;
+            return isActive_ ? bombSet_[currentPos_].Type : Pattern.Type.NoPattern;
+        }
+
+        public string SelectedBombName()
+        {
+            return isActive_ ? bombSet_[currentPos_].Name : "";            
         }
 
         /// <summary>
@@ -125,6 +132,29 @@ namespace Kaboom.Sources
             {
                 bombInfo.Sprite.Update(gameTime);
             }
+        }
+
+        /// <summary>
+        /// Unselect all selected bomb
+        /// </summary>
+        public void UnselectAll()
+        {
+            foreach (var bombInfo in bombSet_.Where(bombInfo => bombInfo.Activated))
+            {
+                bombInfo.Activated = false;
+                bombInfo.Sprite.ResetCurrentAnim();
+            }
+            isActive_ = false;
+        }
+
+        /// <summary>
+        /// Decremente roound number to the next
+        /// </summary>
+        public void NextRound()
+        {
+            round_ -= 1;
+            if (round_ <= 0)
+                round_ = 0;
         }
 
         /// <summary>
@@ -170,7 +200,13 @@ namespace Kaboom.Sources
 
                 padding += 57;
             }
-
+            padding = 0;
+            if (round_ < 10)
+                padding = 5;
+            this.sb_.DrawString(KaboomResources.Fonts["default"],
+                                    round_.ToString(CultureInfo.InvariantCulture),
+                                    new Vector2(((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) + (int)((((780.0 - (77.0 - padding)) / 780.0) * this.width_)),
+                                                (int)(((100.0 / 125.0) * this.height_) / 2)), Color.White);
             this.sb_.End();
         }
 
@@ -200,6 +236,8 @@ namespace Kaboom.Sources
                 {
                     if (bomb.Contains(new Point((int)pos.X, (int)pos.Y)))
                     {
+                        if (bombSet_[i].Quantity <= 0)
+                            return EHudAction.BombSelection;
                         if (i != currentPos_ || this.bombSet_[i].Activated == false)
                         {
                             this.bombSet_[currentPos_].Activated = false;

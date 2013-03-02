@@ -67,6 +67,7 @@
     <Compile Include="Sources\Block.cs" />
     <Compile Include="Sources\Bomb.cs" />
     <Compile Include="Sources\Camera.cs" />
+    <Compile Include="Sources\CheckPoint.cs" />
     <Compile Include="Sources\Event.cs" />
     <Compile Include="Sources\Explodable.cs" />
     <Compile Include="Sources\Gameplay.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Sources\Square.cs" />
     <Compile Include="Sources\Entity.cs" />
     <Compile Include="Sources\Viewport.cs" />
+    <Compile Include="Sources\VirtualBomb.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\defaultFont.xnb" />
@@ -109,6 +111,18 @@
     <AndroidAsset Include="..\KaboomEditor\Levels\level1.xml">
       <Link>Assets\Content\level1.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="Assets\Content\HighLight.png" />
+    <AndroidAsset Include="Assets\Content\HighLight2.png" />
+    <AndroidAsset Include="Assets\Content\Goal.png" />
+    <AndroidAsset Include="Assets\Content\CheckPoint.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetSquare.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetBigSquare.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetLine.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetAngle.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetUltimate.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetH.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetX.png" />
+    <AndroidAsset Include="Assets\Content\BombSheetTNT.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

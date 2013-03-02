@@ -8,6 +8,7 @@ namespace Kaboom.Sources
         public enum Type
         {
             Square,
+            TNT,
             Line,
             Angle,
             BigSquare,
@@ -19,7 +20,7 @@ namespace Kaboom.Sources
 
         public static Type[] All = new[]
             {
-                Type.Square, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
+                Type.Square, Type.TNT, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
             };
 
         /// <summary>
@@ -64,6 +65,26 @@ namespace Kaboom.Sources
                         }
                 },
 
+                #endregion
+
+                #region TNT
+                {
+                    Type.TNT, new List<List<PatternElement>>
+                        {
+                            new List<PatternElement>
+                                {
+                                    new PatternElement(-1, 0),
+                                    new PatternElement(-1, -1),
+                                    new PatternElement(0, 0),
+                                    new PatternElement(1, 0),
+                                    new PatternElement(1, 1),
+                                    new PatternElement(0, -1),
+                                    new PatternElement(1, -1),
+                                    new PatternElement(0, 1),
+                                    new PatternElement(-1, 1)
+                                }
+                        }
+                },
                 #endregion
 
                 #region Line
@@ -309,18 +330,35 @@ namespace Kaboom.Sources
                 #endregion
             };
 
+        /// <summary>
+        /// Pattern merging table
+        /// </summary>
+        private static readonly Dictionary<KeyValuePair<Type, Type>, Type> mergings_ = new Dictionary
+            <KeyValuePair<Type, Type>, Type>
+            {
+                #region Square Merging
+                { new KeyValuePair<Type, Type>(Type.Square, Type.Square), Type.BigSquare },
+                #endregion
+            
+                #region Line Merging
+                { new KeyValuePair<Type, Type>(Type.Line, Type.Angle), Type.X },
+                #endregion
+
+            };
+
         private int orientation_;
 
         /// <summary>
         /// Initialize a class pattern with the given type, throw an exception if the type doesn't exist.
         /// </summary>
         /// <param name="type">Type of the selected pattern</param>
-        public Pattern(Type type)
+        /// <param name="orientation"> </param>
+        public Pattern(Type type, int orientation = 0)
         {
             if (!patterns_.ContainsKey(type))
                 throw new KeyNotFoundException();
             this.SelectedType = type;
-            this.orientation_ = 0;
+            this.orientation_ = orientation;
         }
 
         public Type SelectedType
@@ -341,6 +379,30 @@ namespace Kaboom.Sources
         public List<PatternElement> GetPattern()
         {
             return patterns_[this.SelectedType][this.orientation_];
+        }
+
+        /// <summary>
+        /// return the pattern current orientation
+        /// </summary>
+        /// <returns></returns>
+        public int GetOrientation()
+        {
+            return this.orientation_;
+        }
+
+        /// <summary>
+        /// Try to merge two patterns. If is possible, the current pattern will be modified
+        /// </summary>
+        /// <param name="pattern">The pattern to merge with the object</param>
+        /// <returns>Merge succeded or not</returns>
+        public bool MergePatterns(Pattern pattern)
+        {
+            var pair = new KeyValuePair<Type, Type>(this.SelectedType, pattern.SelectedType);
+
+            if (!mergings_.ContainsKey(pair))
+                return false;
+            SelectedType = mergings_[pair];
+            return true;
         }
     }
 }

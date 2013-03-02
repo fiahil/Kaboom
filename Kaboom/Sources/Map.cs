@@ -10,6 +10,7 @@ namespace Kaboom.Sources
     {
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
+        private readonly int turnsRemeaning_;
 
         /// <summary>
         /// Initialize a new map from a MapElements
@@ -23,6 +24,7 @@ namespace Kaboom.Sources
             this.sb_ = sb;
             this.SizeX = me.SizeX;
             this.SizeY = me.SizeY;
+            this.turnsRemeaning_ = 5;
 
             this.board_ = new Square[this.SizeX,this.SizeY];
             for (var i = 0; i < this.SizeX; i++)
@@ -38,6 +40,7 @@ namespace Kaboom.Sources
                     {
                         var bombProxy = entity as BombProxy;
                         var blockProxy = entity as BlockProxy;
+                        var checkPointProxy = entity as CheckPointProxy;
 
                         if (bombProxy != null)
                         {
@@ -47,9 +50,19 @@ namespace Kaboom.Sources
                                              KaboomResources.Textures[bombProxy.TileIdentifier],
                                              bombProxy.TileFramePerAnim,
                                              bombProxy.TileTotalAnim,
-                                             bombProxy.TileFrameSpeed)));
+                                             bombProxy.TileFrameSpeed), "" ));
                         }
-                        
+
+                        if (checkPointProxy != null)
+                        {
+                            this.board_[i, j].AddEntity(
+                                new CheckPoint(new SpriteSheet(
+                                    KaboomResources.Textures[checkPointProxy.TileIdentifier], 
+                                    checkPointProxy.TileFramePerAnim,
+                                    checkPointProxy.TileTotalAnim,
+                                    checkPointProxy.TileFrameSpeed), 500));
+                        }
+
                         if (blockProxy != null)
                         {
                             this.board_[i, j].AddEntity(
@@ -57,7 +70,7 @@ namespace Kaboom.Sources
                                               KaboomResources.Textures[blockProxy.TileIdentifier],
                                               blockProxy.TileFramePerAnim,
                                               blockProxy.TileTotalAnim,
-                                              blockProxy.TileFrameSpeed), blockProxy.Destroyable));
+                                              blockProxy.TileFrameSpeed), blockProxy.Destroyable, blockProxy.GameEnd));
                         }
                         else
                         {
@@ -111,20 +124,64 @@ namespace Kaboom.Sources
             {
                 for (var j = 0; j < this.SizeY; j++)
                 {
-                    this.board_[i, j].AddEntity(new Entity(1, new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1)));
+                    this.board_[i, j].AddEntity(new Entity(1, KaboomResources.Sprites["Ground"].Clone() as SpriteSheet));
 
                     if (i != 7 || j != 7)
                     {
                         this.board_[i, j].AddEntity(r.Next(2) != 0
                                                         ? new Block(
-                                                              new SpriteSheet(KaboomResources.Textures["background2"],
-                                                                              new[] { 1, 2 }, 2, 2), true)
+                                                              KaboomResources.Sprites["DestructibleBlock"].Clone() as SpriteSheet, true)
                                                         : new Block(
-                                                              new SpriteSheet(KaboomResources.Textures["background3"],
-                                                                              new[] { 1 }, 1, 1), false));
+                                                              KaboomResources.Sprites["UndestructibleBlock"].Clone() as SpriteSheet, false));
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Test if the line in posY is contain in the rectangle
+        /// </summary>
+        /// <param name="vision">Testing rectangle</param>
+        /// <param name="posY">Testing line</param>
+        /// <returns></returns>
+        public Boolean LineIsContainHorizontaly(Rectangle vision, int posY)
+        {
+            for (var i = 0; i < this.SizeX; i++)
+            {
+                if (
+                    vision.Contains(
+                        new Rectangle((board_[i, posY].Base.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                                      (board_[i, posY].Base.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                                      Camera.Instance.DimX, Camera.Instance.DimY)))
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Test if the column in posX is contain in the rectangle
+        /// </summary>
+        /// <param name="vision">Testing rectangle</param>
+        /// <param name="posX">Testing column</param>
+        /// <returns></returns>
+        public Boolean LineIsContainVerticaly(Rectangle vision, int posX)
+        {
+            for (var i = 0; i < this.SizeX; i++)
+            {
+                if (
+                    vision.Contains(
+                        new Rectangle((board_[posX, i].Base.X * Camera.Instance.DimX) + Camera.Instance.OffX,
+                                      (board_[posX, i].Base.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
+                                      Camera.Instance.DimX, Camera.Instance.DimY)))
+                {
+                    return true;
+                }
+
+            }
+            return false;
         }
 
         /// <summary>
@@ -132,10 +189,16 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="entity">the entity to place on the map</param>
         /// <param name="coordinates">coordinates of the entity</param>
-        public void AddNewEntity(Entity entity, Point coordinates)
+        public bool AddNewEntity(Entity entity, Point coordinates)
         {
-            this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
+            return this.board_[coordinates.X, coordinates.Y].AddEntity(entity);
         }
+
+        public void RemoveEntity(Point coordinates, int offset = 5)
+        {
+            this.board_[coordinates.X, coordinates.Y].RemoveEntity(offset);
+        }
+
 
         /// <summary>
         /// Return the coordinates of the square matching the given position
@@ -179,6 +242,7 @@ namespace Kaboom.Sources
             {
                 item.Update(gameTime);
             }
+
         }
 
         /// <summary>
@@ -189,11 +253,12 @@ namespace Kaboom.Sources
         {
             base.Draw(gameTime);
 
-            this.sb_.Begin();
+            this.sb_.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             foreach (var item in this.board_)
             {
                 item.Draw(this.sb_, gameTime);
             }
+            // TODO : Draw final checkpoint at infos_.EndPos;
             this.sb_.End();
         }
 
@@ -215,6 +280,14 @@ namespace Kaboom.Sources
             }
         }
         
+        public void ActivateDetonators()
+        {
+            foreach (var square in board_)
+            {
+                square.ActiveDetonator();
+            }    
+        }
+
         /// <summary>
         /// Launch an explosion on given position
         /// </summary>
