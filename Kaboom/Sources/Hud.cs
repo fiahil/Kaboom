@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace Kaboom.Sources
 {
+    
     internal class Hud : DrawableGameComponent
     {
         public enum EHudAction
@@ -15,6 +16,19 @@ namespace Kaboom.Sources
             BombSelection,
             BombRotation
         }
+
+        public class GameProgressInfos
+        {
+            public int Round { get; set; }
+            public int Score { get; set; }
+
+            public GameProgressInfos(int r, int s)
+            {
+                Round = r;
+                Score = s;
+            }
+        }
+
 
         public class BombInfo
         {
@@ -40,7 +54,7 @@ namespace Kaboom.Sources
         private bool isActive_;
         private int currentPos_;
         private readonly List<BombInfo> bombSet_;
-        private int round_;
+        public GameProgressInfos GameInfos { get; set; }
 
         /// <summary>
         /// Constructor
@@ -48,7 +62,7 @@ namespace Kaboom.Sources
         /// <param name="game">Main game parameter</param>
         /// <param name="sb">Main spriteBatch to display hud elements</param>
         /// <param name="bombSet">Different bomb type using during this game</param>
-        public Hud(Game game, SpriteBatch sb, List<BombInfo> bombSet, int round)
+        public Hud(Game game, SpriteBatch sb, List<BombInfo> bombSet)
             : base(game)
         {
             sb_ = sb;
@@ -56,8 +70,8 @@ namespace Kaboom.Sources
             width_ = 0;
             currentPos_ = 0;
             bombSet_ = bombSet;
-            round_ = round;
             isActive_ = false;
+            GameInfos = new GameProgressInfos(0, 0);
         }
 
         /// <summary>
@@ -148,16 +162,6 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
-        /// Decremente roound number to the next
-        /// </summary>
-        public void NextRound()
-        {
-            round_ -= 1;
-            if (round_ <= 0)
-                round_ = 0;
-        }
-
-        /// <summary>
         /// Display the hud
         /// </summary>
         /// <param name="gameTime"></param>
@@ -166,8 +170,6 @@ namespace Kaboom.Sources
             base.Draw(gameTime);
             this.sb_.Begin();
 
-
-            // au momment de l'activation on set une variable interne a la class pour eviter les boucle inutile
             if (isActive_)
                 this.sb_.Draw(KaboomResources.Textures["hud_active"],
                               new Rectangle((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2), 0,
@@ -186,27 +188,38 @@ namespace Kaboom.Sources
                 bombInfo.Sprite.Draw(this.sb_, gameTime, new Rectangle(
                                                              ((this.Game.GraphicsDevice.Viewport.Width / 2) -
                                                               (this.width_ / 2)) +
-                                                             (int)(((padding) / 780.0) * this.width_),
-                                                             (int)((81.0 / 125.0) * this.height_ * 0.2),
-                                                             (int)((61.0 / 780.0) * this.width_),
-                                                             (int)((61.0 / 780.0) * this.width_)));
+                                                             (int) (((padding) / 780.0) * this.width_),
+                                                             (int) ((81.0 / 125.0) * this.height_ * 0.2),
+                                                             (int) ((61.0 / 780.0) * this.width_),
+                                                             (int) ((61.0 / 780.0) * this.width_)));
 
                 this.sb_.DrawString(KaboomResources.Fonts["default"],
                                     bombInfo.Quantity.ToString(CultureInfo.InvariantCulture),
                                     new Vector2(((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
-                                                (int)(((padding) / 780.0) * this.width_) +
-                                                (int)(((61.0 / 780.0) * this.width_) / 2),
-                                                (int)(((81.0 / 125.0) * this.height_) / 2)), Color.White);
+                                                (int) (((padding) / 780.0) * this.width_) +
+                                                (int) (((61.0 / 780.0) * this.width_) / 2),
+                                                (int) (((81.0 / 125.0) * this.height_) / 2)), Color.White);
 
                 padding += 57;
             }
+
+            var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture) + " Points";
+            this.sb_.DrawString(KaboomResources.Fonts["default"],
+                                scoreS,
+                                new Vector2(
+                                    ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
+                                    (int)((((780.0 - (150.0 + (14 * scoreS.Length))) / 780.0) * this.width_)),
+                                    (int)(((70.0 / 125.0) * this.height_) / 2)), Color.White);
+
             padding = 0;
-            if (round_ < 10)
+            if (GameInfos.Round < 10)
                 padding = 5;
             this.sb_.DrawString(KaboomResources.Fonts["default"],
-                                    round_.ToString(CultureInfo.InvariantCulture),
-                                    new Vector2(((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) + (int)((((780.0 - (77.0 - padding)) / 780.0) * this.width_)),
-                                                (int)(((100.0 / 125.0) * this.height_) / 2)), Color.White);
+                                GameInfos.Round.ToString(CultureInfo.InvariantCulture),
+                                new Vector2(
+                                    ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
+                                    (int) ((((780.0 - (77.0 - padding)) / 780.0) * this.width_)),
+                                    (int) (((100.0 / 125.0) * this.height_) / 2)), Color.White);
             this.sb_.End();
         }
 
