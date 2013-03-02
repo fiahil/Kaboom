@@ -15,14 +15,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -62,14 +61,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -86,14 +84,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -110,14 +107,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -134,14 +130,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -158,14 +153,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -182,14 +176,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -206,14 +199,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -230,14 +222,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -254,14 +245,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -278,14 +268,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -302,14 +291,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -326,14 +314,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -350,14 +337,128 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -376,76 +477,6 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
             <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -717,6 +748,197 @@
             <TileFrameSpeed>2</TileFrameSpeed>
             <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -735,79 +957,6 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
             <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -1008,6 +1157,43 @@
             <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
           </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
@@ -1066,6 +1252,173 @@
             <TileFrameSpeed>2</TileFrameSpeed>
             <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1084,6 +1437,29 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -1106,18 +1482,15 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1131,6 +1504,108 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1392,6 +1867,29 @@
             <TileFrameSpeed>2</TileFrameSpeed>
             <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1410,6 +1908,29 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -1432,18 +1953,16 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1545,6 +2064,270 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -1552,161 +2335,6 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
             <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1725,6 +2353,29 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -1747,18 +2398,16 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1773,18 +2422,16 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1886,6 +2533,187 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -1933,73 +2761,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -2018,6 +2786,77 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -2143,6 +2982,89 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -2205,6 +3127,30 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -2212,65 +3158,6 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
             <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -2289,6 +3176,253 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -2357,96 +3491,16 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -2494,54 +3548,6 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
             <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -2560,6 +3566,77 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -2691,18 +3768,16 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -2717,6 +3792,17 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
         </Entities>
       </SquareProxy>
       <SquareProxy>
@@ -2729,6 +3815,41 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -2825,6 +3946,53 @@
             <TileFrameSpeed>2</TileFrameSpeed>
             <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -2843,6 +4011,101 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -2899,6 +4162,127 @@
             <TileTotalAnim>1</TileTotalAnim>
             <Destroyable>false</Destroyable>
           </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
@@ -2969,71 +4353,6 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
@@ -3132,14 +4451,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -3158,148 +4476,6 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
             <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -3499,6 +4675,267 @@
             <TileFrameSpeed>2</TileFrameSpeed>
             <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -3517,49 +4954,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -3608,6 +5009,139 @@
             <TileFrameSpeed>2</TileFrameSpeed>
             <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
@@ -3691,17 +5225,6 @@
             <TileTotalAnim>1</TileTotalAnim>
             <Destroyable>false</Destroyable>
           </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
         </Entities>
       </SquareProxy>
       <SquareProxy>
@@ -3740,6 +5263,150 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -3747,172 +5414,6 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
             <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -3931,6 +5432,245 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -4154,125 +5894,6 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
             <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -4291,6 +5912,125 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -4419,6 +6159,67 @@
             <TileFrameSpeed>2</TileFrameSpeed>
             <TileTotalAnim>2</TileTotalAnim>
             <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background2</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+              <int>2</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
@@ -4573,88 +6374,6 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
             <Destroyable>false</Destroyable>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -4673,278 +6392,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-          </EntityProxy>
-        </Entities>
-      </SquareProxy>
-      <SquareProxy>
-        <Entities>
-          <EntityProxy>
-            <ZIndex>1</ZIndex>
-            <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -4984,14 +6438,13 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -5008,19 +6461,386 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
+            <TileIdentifier>background3</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
-              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
+          </EntityProxy>
+        </Entities>
+      </SquareProxy>
+      <SquareProxy>
+        <Entities>
+          <EntityProxy>
+            <ZIndex>1</ZIndex>
+            <TileIdentifier>background1</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
+          <EntityProxy xsi:type="BlockProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>background3</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+            <Destroyable>false</Destroyable>
           </EntityProxy>
         </Entities>
       </SquareProxy>
     </ArrayOfSquareProxy>
   </Board>
   <SizeX>15</SizeX>
-  <SizeY>15</SizeY>
+  <SizeY>20</SizeY>
 </MapElements>
