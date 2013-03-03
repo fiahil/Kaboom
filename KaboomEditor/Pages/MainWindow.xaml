@@ -8,7 +8,8 @@
         <UniformGrid x:Name="Board" HorizontalAlignment="Left" Height="646" VerticalAlignment="Top" Width="1189" Margin="75,35,0,0"/>
         <StatusBar HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="1274">
         	<StackPanel Orientation="Horizontal" Width="620" Height="20">
-        		<Label Content="Filename" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                <Button Content="Open" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="ButtonOpen_OnClick"/>
+                <Label Content="Filename" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<TextBox x:Name="TextBoxFilename" TextWrapping="Wrap" Text="level" Margin="5,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<Button x:Name="ButtonSave" Content="Save" Click="ButtonSave_OnClick" Margin="5,0,0,0" Padding="3,1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
         		<Label Content="Width" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
@@ -16,8 +17,8 @@
         		<Label Content="Height" Margin="5,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<TextBox x:Name="TextBoxWidth" TextWrapping="Wrap" Text="20" Margin="5,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
         		<Button x:Name="ButtonNew" Content="New" Click="ButtonNew_OnClick" Margin="5,0,0,0" Padding="3,1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
-        		<Label x:Name="SelectedEntity" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Width="40"/>
-        	</StackPanel>
+        		<Label x:Name="SelectedEntity" Margin="20,0,0,0" Padding="3,1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            </StackPanel>
         </StatusBar>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,30,0,0" Background="#FFF1EDED" Height="271" Width="60" HorizontalAlignment="Left">
         		<!--<sources:BucketButton x:Name="BackgroundButton" Type="Background" Margin="0,1" Padding="1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="40" Click="BucketButton_OnClick"/>-->

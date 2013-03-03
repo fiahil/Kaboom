@@ -105,5 +105,15 @@ namespace KaboomEditor.Sources
                 {Type.Bomb, 3},
                 {Type.Goal, 4}
             };
+
+        public static readonly Dictionary<string, Type> TypeLink = new Dictionary<string, Type>
+            {
+                {"background1", Type.Background},
+                {"background2", Type.BlockBk},
+                {"background3", Type.BlockUbk},
+                {"BombSheetTNT", Type.Bomb},
+                {"goal", Type.Goal},
+                {"checkpoint", Type.Checkpoint}
+            };
     }
 }

@@ -117,8 +117,6 @@ namespace Kaboom.Serializer
         public SquareProxy[][] Board;
         public int SizeX;
         public int SizeY;
-        public int EndPosX;
-        public int EndPosY;
 
         /// <summary>
         /// Initialize a new MapElement by default
