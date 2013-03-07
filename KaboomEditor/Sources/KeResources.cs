@@ -102,8 +102,8 @@ namespace KaboomEditor.Sources
                 {Type.Checkpoint, 1},
                 {Type.BlockBk, 2},
                 {Type.BlockUbk, 2},
-                {Type.Bomb, 3},
-                {Type.Goal, 4}
+                {Type.Bomb, 2},
+                {Type.Goal, 3}
             };
 
         public static readonly Dictionary<string, Type> TypeLink = new Dictionary<string, Type>

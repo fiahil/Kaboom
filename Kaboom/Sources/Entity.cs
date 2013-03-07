@@ -69,10 +69,9 @@ namespace Kaboom.Sources
         /// <param name="sb">spritebatch used to render texture</param>
         /// <param name="t">game clock</param>
         /// <param name="p">Coordinates of the square containing the entity</param>
-        /// <param name="depth">the depth on the screen of the sprite</param>
-        public virtual void Draw(SpriteBatch sb, GameTime t, Point p, int depth)
+        public virtual void Draw(SpriteBatch sb, GameTime t, Point p)
         {
-            this.Tile.Draw(sb, t, p, depth);
+            this.Tile.Draw(sb, t, p, 0.0f + (1.0f / (this.ZIndex + 2.0f)));
         }
     }
 }

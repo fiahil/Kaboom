@@ -147,7 +147,7 @@ namespace Kaboom.Sources
                 entity => entity.Visibility == EVisibility.Transparent ||
                           (entity.Visibility == EVisibility.Opaque && opaqueAllowed++ == 0)).Reverse().Where(entity => entity.Consistency == EConsistence.Real))
             {
-                entity.Draw(sb, t, this.Base, 1);
+                entity.Draw(sb, t, this.Base);
             }
         }
 
@@ -156,6 +156,9 @@ namespace Kaboom.Sources
         /// </summary>
         public Point Base { get; private set; }
 
+        /// <summary>
+        /// Set bomb for explosion if there is a detonator on the square
+        /// </summary>
         public void ActiveDetonator()
         {
             if (this.entities_[2] != null && this.entities_[3] != null)
@@ -164,25 +167,24 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
-        /// Set explosion marker on all bombs and blocks in the square. Penser a incrementer le nombre d'explosions courantes pour chacune
+        /// Set explosion marker on all bombs and blocks in the square and increment nbexplosions counter
         /// </summary>
         /// <param name="time">Time before explosion</param>
         public void Explode(double time)
         {
             if (this.entities_[4] != null && ((Block) this.entities_[4]).Destroyable)
             {
-                if (((Block)this.entities_[4]).SetForExplosion(time))
-                ++NbCurrentExplosions;
-                if (((Block)this.entities_[4]).EndBlock)
+                if (((Block) this.entities_[4]).SetForExplosion(time))
+                    ++NbCurrentExplosions;
+                if (((Block) this.entities_[4]).EndBlock && EndGame != null)
                 {
-                    if (EndGame != null)
-                        EndGame(this, null);
+                    EndGame(this, null);
                 }
             }
             if (this.entities_[3] != null)
             {
-                if (((Bomb)this.entities_[3]).SetForExplosion(time))
-                ++NbCurrentExplosions;
+                if (((Bomb) this.entities_[3]).SetForExplosion(time))
+                    ++NbCurrentExplosions;
             }
         }
 
