@@ -109,7 +109,6 @@ namespace Kaboom.Sources
 
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
             KaboomResources.Levels["level1"] = LoadLevel("level1");
-            KaboomResources.Levels["level2"] = LoadLevel("level2");
         }
 
         /// <summary>
