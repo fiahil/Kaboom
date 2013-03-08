@@ -182,6 +182,11 @@ namespace Kaboom.Sources
                         Viewport.Instance.ZoomOut();
                         break;
 
+                    case Action.Type.Pinch:
+                            {
+                                Viewport.Instance.HandlePinch(ret);
+                                break;
+                            }
                     case Action.Type.Tap:
                         {
                             var hudEvent = this.hud_.GetHudEvent(ret.Pos);
