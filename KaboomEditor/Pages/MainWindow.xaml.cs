@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,6 +8,7 @@ using System.Windows.Input;
 using System.Xml.Serialization;
 using Kaboom.Serializer;
 using KaboomEditor.Sources;
+using Microsoft.Win32;
 
 namespace KaboomEditor.Pages
 {
@@ -58,6 +60,7 @@ namespace KaboomEditor.Pages
                     var elt = new SquareLabel(i, j);
 
                     elt.Entities[KeResources.Index[KeResources.Type.Background]] = KeResources.Proxy[KeResources.Type.Background].Clone();
+                    elt.Content = new AssetImage(KeResources.Type.Background);
 
                     elt.MouseLeftButtonUp += OnLeftButtonUp;
                     elt.MouseLeftButtonDown += OnLeftButtonDown;
@@ -89,7 +92,7 @@ namespace KaboomEditor.Pages
 
             var mySerializer = new XmlSerializer(typeof(MapElements));
 
-            var box = (TextBox) this.FindName("TextBoxFilename");
+            var box = this.FindName("TextBoxFilename") as TextBox;
             if (box != null)
             {
                 using (var writer = new StreamWriter(Path.Combine("../../Levels", box.Text + ".xml")))
@@ -115,6 +118,66 @@ namespace KaboomEditor.Pages
                 int.TryParse(width.Text, out h);
                 int.TryParse(height.Text, out w);
                 this.CreateBoard(w, h);
+            }
+        }
+
+        /// <summary>
+        /// Open a file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonOpen_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            var mySerializer = new XmlSerializer(typeof(MapElements));
+
+            dialog.ShowDialog();
+            dialog.CheckFileExists = true;
+            if (!string.IsNullOrEmpty(dialog.FileName))
+            {
+                using (var stream = dialog.OpenFile())
+                {
+                    try
+                    {
+                        this.mapElements_ = (MapElements) mySerializer.Deserialize(stream);
+                    }
+                    catch (Exception)
+                    {
+                        var se = this.FindName("SelectedEntity") as Label;
+                        if (se != null)
+                            se.Content = "Fail to load file. ";
+                    }
+                    var uniformGrid = (UniformGrid) this.FindName("Board");
+                    if (uniformGrid == null)
+                        return;
+
+                    uniformGrid.Children.Clear();
+                    uniformGrid.Columns = this.mapElements_.SizeX;
+                    uniformGrid.Rows = this.mapElements_.SizeY;
+
+                    for (var i = 0; i < this.mapElements_.SizeY; i++)
+                    {
+                        for (var j = 0; j < this.mapElements_.SizeX; j++)
+                        {
+                            var elt = new SquareLabel(i, j);
+
+                            foreach (var entity in this.mapElements_.Board[j][i].Entities)
+                            {
+                                elt.Entities[KeResources.Index[KeResources.TypeLink[entity.TileIdentifier]]] =
+                                    entity.Clone();
+                                elt.Content = new AssetImage(entity.TileIdentifier);
+                            }
+
+                            elt.MouseLeftButtonUp += OnLeftButtonUp;
+                            elt.MouseLeftButtonDown += OnLeftButtonDown;
+                            elt.MouseRightButtonUp += OnRightButtonUp;
+                            elt.MouseRightButtonDown += OnRightButtonDown;
+                            elt.MouseEnter += OnBucketAction;
+
+                            uniformGrid.Children.Add(elt);
+                        }
+                    }
+                }
             }
         }
 
@@ -153,7 +216,7 @@ namespace KaboomEditor.Pages
                     ((SquareLabel)sender).Entities[i] = null;
                 }
 
-                ((SquareLabel)sender).Content = null;
+                ((SquareLabel)sender).Content = new AssetImage(KeResources.Type.Background);
             }
             var panel = this.FindName("EntitiesPanel") as StackPanel;
             if (panel == null) return;

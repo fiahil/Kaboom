@@ -175,6 +175,10 @@ namespace Kaboom.Sources
             }
         }
 
+        /// <summary>
+        /// Return actual map's dimension
+        /// </summary>
+        /// <returns></returns>
         public Vector2 MapDimensions()
         {
             return new Vector2(map_.SizeX, map_.SizeY);

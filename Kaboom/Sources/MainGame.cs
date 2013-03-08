@@ -41,7 +41,7 @@ namespace Kaboom.Sources
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
                     IsFullScreen = true,
-                    SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
+                    SupportedOrientations = DisplayOrientation.LandscapeLeft
                 };
             this.level_ = level;
             this.em_ = new Event();

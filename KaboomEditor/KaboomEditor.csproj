@@ -141,7 +141,11 @@
     <Resource Include="Resources\background1.png" />
     <Resource Include="Resources\background2.png" />
     <Resource Include="Resources\background3.png" />
-    <Resource Include="Resources\bomb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BombSheetTNT.png" />
+    <Resource Include="Resources\Checkpoint.png" />
+    <Resource Include="Resources\GoalSheet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

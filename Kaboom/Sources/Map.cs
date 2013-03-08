@@ -11,7 +11,7 @@ namespace Kaboom.Sources
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
         private readonly int turnsRemeaning_;
-        private bool endGame_ = false;
+        private bool endGame_;
         public event EventHandler EndGameManager;
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Kaboom.Sources
                                              KaboomResources.Textures[bombProxy.TileIdentifier],
                                              bombProxy.TileFramePerAnim,
                                              bombProxy.TileTotalAnim,
-                                             bombProxy.TileFrameSpeed), "" ));
+                                             bombProxy.TileFrameSpeed), ""));
                         }
 
                         if (checkPointProxy != null)
@@ -114,13 +114,6 @@ namespace Kaboom.Sources
                     this.board_[i, j].Explosion += ExplosionRuler;
                 }
             }
-        }
-
-        /// <summary>
-        /// Randomly fill the map with entities
-        /// </summary>
-        public void Randomize()
-        {
         }
 
         /// <summary>
@@ -270,6 +263,9 @@ namespace Kaboom.Sources
             }
         }
         
+        /// <summary>
+        /// Search for active detonators
+        /// </summary>
         public void ActivateDetonators()
         {
             foreach (var square in board_)
@@ -287,6 +283,11 @@ namespace Kaboom.Sources
             board_[pos.X, pos.Y].Explode(500);
         }
 
+        /// <summary>
+        /// Event handler for end of game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="ea"></param>
         public void ManageEndGame(object sender, EventArgs ea)
         {
             this.endGame_ = true;

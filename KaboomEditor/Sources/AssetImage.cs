@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace KaboomEditor.Sources
 {
@@ -8,14 +8,6 @@ namespace KaboomEditor.Sources
     /// </summary>
     class AssetImage : Image
     {
-        private static readonly Dictionary<string, KeResources.Type> typeLink_ = new Dictionary<string, KeResources.Type>
-            {
-                {"background1", KeResources.Type.Background},
-                {"background2", KeResources.Type.BlockBk},
-                {"background3", KeResources.Type.BlockUbk},
-                {"BombSheet", KeResources.Type.Bomb}
-            };
-
         /// <summary>
         /// Initialize a new AssetImage
         /// </summary>
@@ -23,11 +15,13 @@ namespace KaboomEditor.Sources
         public AssetImage(KeResources.Type type)
         {
             this.Source = KeResources.Bitmap[type];
+            this.Stretch = Stretch.Fill;
         }
 
         public AssetImage(string type)
         {
-            this.Source = KeResources.Bitmap[typeLink_[type]];
+            this.Source = KeResources.Bitmap[KeResources.TypeLink[type]];
+            this.Stretch = Stretch.Fill;
         }
     }
 }

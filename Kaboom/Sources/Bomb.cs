@@ -25,8 +25,8 @@ namespace Kaboom.Sources
         /// <param name="tile">Bomb Skin</param>
         /// <param name="highlight"> </param>
         /// <param name="orientation"> orientation of the current pattern </param>
-        public Bomb(Pattern.Type type, SpriteSheet tile, string highlight = "highlight", int orientation = 0) :
-            base (3, tile, EVisibility.Transparent)
+        public Bomb(Pattern.Type type, SpriteSheet tile, string highlight = "highlight", int orientation = 0)
+            : base(3, tile, EVisibility.Transparent)
         {
             highlight_ = highlight;
             pattern_ = new Pattern(type, orientation);
@@ -48,6 +48,9 @@ namespace Kaboom.Sources
             return false;
         }
 
+        /// <summary>
+        /// Rotate bomb
+        /// </summary>
         public void NextOrientation()
         {
             pattern_.NextOrientation();
@@ -77,10 +80,9 @@ namespace Kaboom.Sources
         /// <param name="sb">the spritebatch</param>
         /// <param name="t">the gametime</param>
         /// <param name="p">the position of the bomb</param>
-        /// <param name="depth">depth of the bomb on screen</param>
-        public override void Draw(SpriteBatch sb, GameTime t, Point p, int depth)
+        public override void Draw(SpriteBatch sb, GameTime t, Point p)
         {
-            base.Draw(sb, t, p, 0);
+            base.Draw(sb, t, p);
             var mapDimension = Viewport.Instance.MapDimensions();
             if (highlight_ != "")
                 foreach (
@@ -97,7 +99,12 @@ namespace Kaboom.Sources
                             (elt.Y * Camera.Instance.DimY) + Camera.Instance.OffY,
                             Camera.Instance.DimX,
                             Camera.Instance.DimY),
-                        Color.White);
+                        KaboomResources.Textures[highlight_].Bounds,
+                        Color.White,
+                        0.0f,
+                        Vector2.Zero,
+                        0,
+                        0.01f);
                 }
         }
     }
