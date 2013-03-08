@@ -36,7 +36,7 @@ namespace Kaboom.Sources
         /// <returns>Merge succeded or not</returns>
         private bool MergeBombs(Entity entity)
         {
-            return ((Bomb)this.entities_[3]).Merge((Bomb)entity);
+            return ((Bomb)this.entities_[3]).Merge((Bomb)entity, false);
         }
 
         public void RemoveEntity(int offset)
@@ -70,7 +70,7 @@ namespace Kaboom.Sources
             {
                 if (this.entities_[3] != null)
                 {
-                    if (!((Bomb) entity).Merge((Bomb) entities_[3]))
+                    if (!((Bomb) entity).Merge((Bomb) entities_[3], true))
                         return false;
                     entities_[3].Consistency = EConsistence.Virtual;
                 }

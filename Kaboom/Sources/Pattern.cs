@@ -403,7 +403,7 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="pattern">The pattern to merge with the object</param>
         /// <returns>Merge succeded or not</returns>
-        public bool MergePatterns(Pattern pattern)
+        public bool MergePatterns(Pattern pattern, bool temp)
         {
             var pair = new KeyValuePair<Type, Type>(this.SelectedType, pattern.SelectedType);
 
@@ -413,7 +413,11 @@ namespace Kaboom.Sources
                 if (!mergings_.ContainsKey(pair))
                     return false;
             }
+            //if (!temp)
             SelectedType = mergings_[pair];
+            this.orientation_ = pattern.orientation_;
+            if (this.orientation_ >= patterns_[this.SelectedType].Count)
+                this.orientation_ = 0;
             return true;
         }
     }

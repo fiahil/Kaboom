@@ -37,9 +37,9 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="bomb">Bomb to merge with the object</param>
         /// <returns>Merge succeded or not</returns>
-        public bool Merge(Bomb bomb)
+        public bool Merge(Bomb bomb, bool temp)
         {
-            if (pattern_.MergePatterns(bomb.pattern_))
+            if (pattern_.MergePatterns(bomb.pattern_, temp))
             {
                 if (spriteCorrespondance_.ContainsKey(pattern_.SelectedType))
                     Tile = KaboomResources.Sprites[spriteCorrespondance_[pattern_.SelectedType]].Clone() as SpriteSheet;
