@@ -63,7 +63,8 @@ namespace Kaboom.Sources
         private int widthEnd_;
         private bool isActive_;
         private int currentPos_;
-        private readonly List<BombInfo> bombSet_;
+
+        public List<BombInfo> BombSet { get; set; }
         public GameProgressInfos GameInfos { get; set; }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace Kaboom.Sources
             height_ = 0;
             width_ = 0;
             currentPos_ = 0;
-            bombSet_ = bombSet;
+            BombSet = bombSet;
             isActive_ = false;
             GameInfos = new GameProgressInfos(0, 0);
         }
@@ -112,7 +113,7 @@ namespace Kaboom.Sources
         /// <returns>return true if the specified type is in the set or else falses</returns>
         public bool AddBombOfType(Pattern.Type type, int number = 1)
         {
-            foreach (var bombInfo in bombSet_.Where(bombInfo => bombInfo.Type == type))
+            foreach (var bombInfo in BombSet.Where(bombInfo => bombInfo.Type == type))
             {
                 bombInfo.Quantity += number;
                 return true;
@@ -124,11 +125,11 @@ namespace Kaboom.Sources
         /// Remove the specified number of the specified bomb to the set
         /// </summary>
         /// <param name="type">the type of the targeted bomb</param>
-        /// <param name="number">the number which will be add</param>
+        /// <param name="number">the number which will be sub</param>
         /// <returns>return true if the specified type is in the set or else false</returns>
         public bool RemoveBombOfType(Pattern.Type type, int number = 1)
         {
-            foreach (var bombInfo in bombSet_.Where(bombInfo => bombInfo.Type == type))
+            foreach (var bombInfo in BombSet.Where(bombInfo => bombInfo.Type == type))
             {
                 bombInfo.Quantity -= number;
                 if (bombInfo.Quantity < 0)
@@ -144,12 +145,16 @@ namespace Kaboom.Sources
         /// <returns></returns>
         public Pattern.Type SelectedBombType()
         {
-            return isActive_ ? bombSet_[currentPos_].Type : Pattern.Type.NoPattern;
+            return isActive_ ? BombSet[currentPos_].Type : Pattern.Type.NoPattern;
         }
 
+        /// <summary>
+        /// Return current bomb name
+        /// </summary>
+        /// <returns></returns>
         public string SelectedBombName()
         {
-            return isActive_ ? bombSet_[currentPos_].Name : "";            
+            return isActive_ ? BombSet[currentPos_].Name : "";            
         }
 
         /// <summary>
@@ -159,7 +164,7 @@ namespace Kaboom.Sources
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            foreach (var bombInfo in bombSet_.Where(bombInfo => bombInfo.Activated))
+            foreach (var bombInfo in BombSet.Where(bombInfo => bombInfo.Activated))
             {
                 bombInfo.Sprite.Update(gameTime);
             }
@@ -170,7 +175,7 @@ namespace Kaboom.Sources
         /// </summary>
         public void UnselectAll()
         {
-            foreach (var bombInfo in bombSet_.Where(bombInfo => bombInfo.Activated))
+            foreach (var bombInfo in BombSet.Where(bombInfo => bombInfo.Activated))
             {
                 bombInfo.Activated = false;
                 bombInfo.Sprite.ResetCurrentAnim();
@@ -187,20 +192,14 @@ namespace Kaboom.Sources
             base.Draw(gameTime);
             this.sb_.Begin();
 
-            if (isActive_)
-                this.sb_.Draw(KaboomResources.Textures["hud_active"],
-                              new Rectangle((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2), 0,
-                                            this.width_, this.height_),
-                              new Rectangle(0, 0, 780, 125), Color.White);
-            else
-                this.sb_.Draw(KaboomResources.Textures["hud"],
-                              new Rectangle((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2), 0,
-                                            this.width_, this.height_),
-                              new Rectangle(0, 0, 780, 125), Color.White);
+            this.sb_.Draw(isActive_ ? KaboomResources.Textures["hud_active"] : KaboomResources.Textures["hud"],
+                          new Rectangle((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2), 0,
+                                        this.width_, this.height_),
+                          new Rectangle(0, 0, 780, 125), Color.White);
 
             var padding = 4;
 
-            foreach (var bombInfo in bombSet_)
+            foreach (var bombInfo in BombSet)
             {
                 bombInfo.Sprite.Draw(this.sb_, gameTime, new Rectangle(
                                                              ((this.Game.GraphicsDevice.Viewport.Width / 2) -
@@ -313,23 +312,23 @@ namespace Kaboom.Sources
                         ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                         (int)(((padding) / 780.0) * this.width_), 0, (int)((61.0 / 780.0) * this.width_),
                         (int)((81.0 / 125.0) * this.height_));
-                if (i < this.bombSet_.Count)
+                if (i < this.BombSet.Count)
                 {
                     if (bomb.Contains(new Point((int)pos.X, (int)pos.Y)))
                     {
-                        if (bombSet_[i].Quantity <= 0)
+                        if (BombSet[i].Quantity <= 0)
                             return EHudAction.BombSelection;
-                        if (i != currentPos_ || this.bombSet_[i].Activated == false)
+                        if (i != currentPos_ || this.BombSet[i].Activated == false)
                         {
-                            this.bombSet_[currentPos_].Activated = false;
-                            this.bombSet_[currentPos_].Sprite.ResetCurrentAnim();
-                            this.bombSet_[i].Activated = true;
+                            this.BombSet[currentPos_].Activated = false;
+                            this.BombSet[currentPos_].Sprite.ResetCurrentAnim();
+                            this.BombSet[i].Activated = true;
                             isActive_ = true;
                         }
                         else
                         {
-                            this.bombSet_[i].Activated = false;
-                            this.bombSet_[i].Sprite.ResetCurrentAnim();
+                            this.BombSet[i].Activated = false;
+                            this.BombSet[i].Sprite.ResetCurrentAnim();
                             isActive_ = false;
                         }
                         this.currentPos_ = i;
@@ -347,15 +346,5 @@ namespace Kaboom.Sources
                 return EHudAction.BombRotation;
             return EHudAction.NoAction;
         }
-
-        #region Unitest
-        /// <summary>
-        /// Event Unitests
-        /// </summary>
-        public static void Unitest()
-        {
-
-        }
-        #endregion
     }
 }

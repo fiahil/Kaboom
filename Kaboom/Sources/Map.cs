@@ -10,7 +10,6 @@ namespace Kaboom.Sources
     {
         private readonly Square[,] board_;
         private readonly SpriteBatch sb_;
-        private readonly int turnsRemeaning_;
         private bool endGame_;
         public event EventHandler EndGameManager;
 
@@ -26,7 +25,6 @@ namespace Kaboom.Sources
             this.sb_ = sb;
             this.SizeX = me.SizeX;
             this.SizeY = me.SizeY;
-            this.turnsRemeaning_ = 5;
 
             this.board_ = new Square[this.SizeX,this.SizeY];
             for (var i = 0; i < this.SizeX; i++)

@@ -109,6 +109,7 @@ namespace Kaboom.Sources
 
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
             KaboomResources.Levels["level1"] = LoadLevel("level1");
+            KaboomResources.Levels["level2"] = LoadLevel("level2");
         }
 
         /// <summary>
@@ -129,7 +130,6 @@ namespace Kaboom.Sources
                                                                                       Clone()
                                                                                   as SpriteSheet, 3, "BombSquare"),
                                                                  new Hud.BombInfo(Pattern.Type.Line,
-
                                                                                   KaboomResources.Sprites["BombLine"].
                                                                                       Clone()
                                                                                   as SpriteSheet, 5, "BombLine"),
