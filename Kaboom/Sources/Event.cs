@@ -71,14 +71,18 @@ namespace Kaboom.Sources
                         this.Pinch_.X = (g.Position.X + g.Position2.X) / 2;
                         this.Pinch_.Y = (g.Position.Y + g.Position2.Y) / 2;
                     }
+                    System.Diagnostics.Debug.Print("----------------------------------------------------");
+                    System.Diagnostics.Debug.Print("g.Position : {0}, g.Position2 : {1}", g.Position, g.Position2);
+                    System.Diagnostics.Debug.Print("g.Delta : {0}, g.Delta2 : {1}", g.Delta, g.Delta2);
 
                     ret.Pos = this.Pinch_;
-                    ret.DeltaX = (int)((Math.Abs(g.Delta.X) + Math.Abs(g.Delta2.X)) * 0.3);
-                    ret.DeltaY = (int)((Math.Abs(g.Delta.Y) + Math.Abs(g.Delta2.Y)) * 0.3);
+                    ret.DeltaX = (int)((Math.Abs(g.Delta.X) + Math.Abs(g.Delta2.X)) * 0.2);
+                    ret.DeltaY = (int)((Math.Abs(g.Delta.Y) + Math.Abs(g.Delta2.Y)) * 0.2);
 
                     ret.DeltaX = ret.DeltaY = (ret.DeltaX > ret.DeltaY) ? ret.DeltaY  : ret.DeltaX;
 
-                    if (g.Delta.Y <= 0 && g.Delta2.Y >= 0)
+                    if (g.Position.Y > g.Position2.Y && g.Delta.Y < 0 && g.Delta2.Y > 0 ||
+                        g.Position.Y < g.Position2.Y && g.Delta.Y > 0 && g.Delta2.Y < 0)
                     {
                         ret.DeltaX = -1 * ret.DeltaX;
                         ret.DeltaY = -1 * ret.DeltaY;
@@ -111,7 +115,7 @@ namespace Kaboom.Sources
                 if (g.GestureType == GestureType.PinchComplete)
                 {
                     this.Pinch_ = Vector2.Zero;
-                    Viewport.Instance.ResetPinch();
+                    //Viewport.Instance.ResetPinch();
                 }
             }
             return ret;

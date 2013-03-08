@@ -39,7 +39,7 @@ namespace Kaboom.Sources
 
             this.map_ = map;
             this.oldOrientation_ = this.GetOrientation();
-
+            this.PinchPos = new Point(this.map_.SizeX / 2, this.map_.SizeY / 2);
             if (this.GetOrientation() == DisplayOrientation.Portrait)
             {
                 maxZoom_[1] = this.graphicsDevice_.Viewport.Width / this.map_.SizeX;
@@ -215,29 +215,44 @@ namespace Kaboom.Sources
 
         public void HandlePinch(Action act)
         {
-            try
-            {
-                if (this.PinchPos == Point.Zero)
-                    this.PinchPos = this.map_.GetCoordByPos(act.Pos);
+            //try
+            //{
+            //    if (this.PinchPos == Point.Zero)
+            //        this.PinchPos = this.map_.GetCoordByPos(act.Pos);
 
-                Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
-                if (this.GetOrientation() == DisplayOrientation.Portrait)
-                    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
-                                           this.graphicsDevice_.Viewport.Height / 2;
-                else
-                    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
-                                           (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
-                                           this.graphicsDevice_.Viewport.Height / 2;
+            //    Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
+            //    if (this.GetOrientation() == DisplayOrientation.Portrait)
+            //        Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
+            //                               this.graphicsDevice_.Viewport.Height / 2;
+            //    else
+            //        Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
+            //                               (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
+            //                               this.graphicsDevice_.Viewport.Height / 2;
 
-            }
-            catch (Exception)
-            { }
+            //}
+            //catch (Exception)
+            //{ }
+
+            if (Math.Abs(act.DeltaX) <= 2) return;
+
+            System.Diagnostics.Debug.Print("## Delta : {0} ##", act.DeltaX);
+            System.Diagnostics.Debug.Print("----------------------------------------------------");
 
             Camera.Instance.DimX += act.DeltaX;
             Camera.Instance.DimY += act.DeltaY;
 
-            if (Camera.Instance.DimX > 80 || Camera.Instance.DimY > 80)
-                Camera.Instance.DimY = Camera.Instance.DimX = 80;
+            Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
+            
+            if (this.GetOrientation() == DisplayOrientation.Portrait)
+                Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
+                                       this.graphicsDevice_.Viewport.Height / 2;
+            else
+                Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
+                                       (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
+                                       this.graphicsDevice_.Viewport.Height / 2;
+
+            if (Camera.Instance.DimX > 100 || Camera.Instance.DimY > 100)
+                Camera.Instance.DimY = Camera.Instance.DimX = 100;
 
             // NEED TO RESHARP
 
@@ -247,6 +262,7 @@ namespace Kaboom.Sources
                 {
                     Camera.Instance.DimX = maxZoom_[1];
                     Camera.Instance.DimY = maxZoom_[1];
+                    //this.ZoomOut();
                 }
             }
             else
@@ -255,6 +271,7 @@ namespace Kaboom.Sources
                 {
                     Camera.Instance.DimX = maxZoom_[0];
                     Camera.Instance.DimY = maxZoom_[0];
+                    //this.ZoomOut();
                 }
             }
 
@@ -268,9 +285,9 @@ namespace Kaboom.Sources
         /// </summary>
         public bool IsZoomed { get; private set; }
 
-        internal void ResetPinch()
-        {
-            this.PinchPos = Point.Zero;
-        }
+        //internal void ResetPinch()
+        //{
+        //    this.PinchPos = Point.Zero;
+        //}
     }
 }
