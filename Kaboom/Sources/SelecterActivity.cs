@@ -8,8 +8,8 @@ namespace Kaboom.Sources
 {
     [Activity(Label = "Kaboom",
         MainLauncher = true,
-        Icon = "@drawable/icon",
-        ScreenOrientation = ScreenOrientation.Portrait)]
+        ScreenOrientation = ScreenOrientation.SensorLandscape,
+        Icon = "@drawable/icon")]
     public class SelecterActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
