@@ -40,6 +40,7 @@ namespace Kaboom.Sources
             this.map_ = map;
             this.oldOrientation_ = this.GetOrientation();
             this.PinchPos = new Point(this.map_.SizeX / 2, this.map_.SizeY / 2);
+
             if (this.GetOrientation() == DisplayOrientation.Portrait)
             {
                 maxZoom_[1] = this.graphicsDevice_.Viewport.Width / this.map_.SizeX;
@@ -241,16 +242,6 @@ namespace Kaboom.Sources
             Camera.Instance.DimX += act.DeltaX;
             Camera.Instance.DimY += act.DeltaY;
 
-            Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
-            
-            if (this.GetOrientation() == DisplayOrientation.Portrait)
-                Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
-                                       this.graphicsDevice_.Viewport.Height / 2;
-            else
-                Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
-                                       (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
-                                       this.graphicsDevice_.Viewport.Height / 2;
-
             if (Camera.Instance.DimX > 100 || Camera.Instance.DimY > 100)
                 Camera.Instance.DimY = Camera.Instance.DimX = 100;
 
@@ -274,6 +265,17 @@ namespace Kaboom.Sources
                     //this.ZoomOut();
                 }
             }
+
+            Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
+            
+            if (this.GetOrientation() == DisplayOrientation.Portrait)
+                Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
+                                       this.graphicsDevice_.Viewport.Height / 2;
+            else
+                Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
+                                       (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
+                                       this.graphicsDevice_.Viewport.Height / 2;
+
 
             this.IsZoomed = true;           
             // NEED TO RESHARP

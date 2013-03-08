@@ -76,11 +76,12 @@ namespace Kaboom.Sources
                     System.Diagnostics.Debug.Print("g.Delta : {0}, g.Delta2 : {1}", g.Delta, g.Delta2);
 
                     ret.Pos = this.Pinch_;
-                    ret.DeltaX = (int)((Math.Abs(g.Delta.X) + Math.Abs(g.Delta2.X)) * 0.2);
-                    ret.DeltaY = (int)((Math.Abs(g.Delta.Y) + Math.Abs(g.Delta2.Y)) * 0.2);
+                    ret.DeltaX = (int)((Math.Abs(g.Delta.X) + Math.Abs(g.Delta2.X)));
+                    ret.DeltaY = (int)((Math.Abs(g.Delta.Y) + Math.Abs(g.Delta2.Y)));
 
-                    ret.DeltaX = ret.DeltaY = (ret.DeltaX > ret.DeltaY) ? ret.DeltaY  : ret.DeltaX;
+                    var dist = Math.Sqrt(Math.Pow(ret.DeltaX, 2) + Math.Pow(ret.DeltaY, 2)) * 0.2;
 
+                    ret.DeltaX = ret.DeltaY = (int)dist;
                     if (g.Position.Y > g.Position2.Y && g.Delta.Y < 0 && g.Delta2.Y > 0 ||
                         g.Position.Y < g.Position2.Y && g.Delta.Y > 0 && g.Delta2.Y < 0)
                     {
