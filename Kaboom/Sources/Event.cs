@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input.Touch;
+using System;
 
 namespace Kaboom.Sources
 {
@@ -11,6 +12,7 @@ namespace Kaboom.Sources
             ZoomIn,
             ZoomOut,
             Tap,
+            Pinch,
             NoEvent
         }
 
@@ -24,14 +26,17 @@ namespace Kaboom.Sources
     {
 
         private Vector2 oldDrag_;
+        private Vector2 Pinch_;
 
         /// <summary>
         /// Enable gestures
         /// </summary>
         public Event()
         {
-            TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete | GestureType.DoubleTap | GestureType.Tap;
+            TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete | GestureType.DoubleTap | 
+                                         GestureType.Tap | GestureType.Pinch | GestureType.PinchComplete;
             this.oldDrag_ = Vector2.Zero;
+            this.Pinch_ = Vector2.Zero;
         }
 
         /// <summary>
@@ -57,12 +62,37 @@ namespace Kaboom.Sources
                     ret.Pos = g.Position;
                     return ret;
                 }
+                if (g.GestureType == GestureType.Pinch)
+                {
+                    ret.ActionType = Action.Type.Pinch;
+                    
+                    if (this.Pinch_ == Vector2.Zero)
+                    {
+                        this.Pinch_.X = (g.Position.X + g.Position2.X) / 2;
+                        this.Pinch_.Y = (g.Position.Y + g.Position2.Y) / 2;
+                    }
+
+                    ret.Pos = this.Pinch_;
+                    ret.DeltaX = (int)((Math.Abs(g.Delta.X) + Math.Abs(g.Delta2.X)) * 0.3);
+                    ret.DeltaY = (int)((Math.Abs(g.Delta.Y) + Math.Abs(g.Delta2.Y)) * 0.3);
+
+                    ret.DeltaX = ret.DeltaY = (ret.DeltaX > ret.DeltaY) ? ret.DeltaY  : ret.DeltaX;
+
+                    if (g.Delta.Y <= 0 && g.Delta2.Y >= 0)
+                    {
+                        ret.DeltaX = -1 * ret.DeltaX;
+                        ret.DeltaY = -1 * ret.DeltaY;
+                    }
+                    return ret;
+                }
+
                 if (g.GestureType == GestureType.Tap)
                 {
                     ret.ActionType = Action.Type.Tap;
                     ret.Pos = g.Position;
                     return ret;
                 }
+
                 if (Viewport.Instance.IsZoomed && g.GestureType == GestureType.FreeDrag)
                 {
                     if (oldDrag_ != Vector2.Zero)
@@ -78,6 +108,11 @@ namespace Kaboom.Sources
                 }
                 if (g.GestureType == GestureType.DragComplete)
                     this.oldDrag_ = Vector2.Zero;
+                if (g.GestureType == GestureType.PinchComplete)
+                {
+                    this.Pinch_ = Vector2.Zero;
+                    Viewport.Instance.ResetPinch();
+                }
             }
             return ret;
         }
