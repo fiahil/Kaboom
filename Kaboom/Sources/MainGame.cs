@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO;
 using System.Xml.Serialization;
 using Kaboom.Serializer;
@@ -31,6 +32,8 @@ namespace Kaboom.Sources
         private Map map_;
         private Hud hud_;
         private readonly CurrentElement currentBomb_;
+        private bool ended_;
+ 
 
         /// <summary>
         /// Create the game instance
@@ -44,6 +47,7 @@ namespace Kaboom.Sources
                     SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
                 };
             this.level_ = level;
+            ended_ = false;
             this.em_ = new Event();
             Content.RootDirectory = "Content";
         }
@@ -88,6 +92,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["highlight2"] = Content.Load<Texture2D>("HighLight2");
             KaboomResources.Textures["goal"] = Content.Load<Texture2D>("GoalSheet");
             KaboomResources.Textures["checkpoint"] = Content.Load<Texture2D>("CheckPoint");
+            KaboomResources.Textures["endScreen"] = Content.Load<Texture2D>("endScreen");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 8, 18 }, 2, 20);
@@ -147,8 +152,29 @@ namespace Kaboom.Sources
             // TODO : This is a HUD Unitest
             // TODO : get the round number in map object
             hud_.GameInfos.Round = 10;
-            hud_.GameInfos.Score = 0;
+            hud_.GameInfos.Score = 4321;
             this.Components.Add(this.hud_);
+        }
+
+
+        private void UpdateEnd(Action ret, GameTime gameTime)
+        {
+             if (ret.ActionType == Action.Type.Tap)
+             {
+                 var hudEvent = this.hud_.GetHudEndEvent(ret.Pos);
+                 switch (hudEvent)
+                 {
+                     case Hud.EHudEndAction.Menu:
+                         this.Exit();
+                         break;
+                     case Hud.EHudEndAction.Reload:
+                         break;
+                     case Hud.EHudEndAction.Next:
+                         break;
+                     default :
+                         break;
+                 }
+             }
         }
 
         /// <summary>
@@ -161,104 +187,116 @@ namespace Kaboom.Sources
 
             Viewport.Instance.Update();
             ///////////////////////////////////////////////////////TODO: Not A TODO: Gesture test
+
             Action ret;
             while ((ret = this.em_.GetEvents()).ActionType != Action.Type.NoEvent)
             {
-                switch (ret.ActionType)
+                if (ended_)
                 {
-                    case Action.Type.NoEvent:
-                        break;
-                    case Action.Type.Drag:
-                        Viewport.Instance.AdjustPos(this.map_, ref ret.DeltaX, ref ret.DeltaY);
-                        
-                        Camera.Instance.OffX += ret.DeltaX;
-                        Camera.Instance.OffY += ret.DeltaY;
-                        
-                        break;
-                    case Action.Type.ZoomIn:
-                        Viewport.Instance.ZoomIn(ret.Pos);
-                        break;
+                    UpdateEnd(ret, gameTime);
+                }
+                else
+                {
+                    switch (ret.ActionType)
+                    {
+                        case Action.Type.NoEvent:
+                            break;
+                        case Action.Type.Drag:
+                            Viewport.Instance.AdjustPos(this.map_, ref ret.DeltaX, ref ret.DeltaY);
 
-                    case Action.Type.ZoomOut:
-                        Viewport.Instance.ZoomOut();
-                        break;
+                            Camera.Instance.OffX += ret.DeltaX;
+                            Camera.Instance.OffY += ret.DeltaY;
 
-                    case Action.Type.Tap:
-                        {
-                            var hudEvent = this.hud_.GetHudEvent(ret.Pos);
-                            if (hudEvent != Hud.EHudAction.NoAction)
+                            break;
+                        case Action.Type.ZoomIn:
+                            Viewport.Instance.ZoomIn(ret.Pos);
+                            break;
+
+                        case Action.Type.ZoomOut:
+                            Viewport.Instance.ZoomOut();
+                            break;
+
+                        case Action.Type.Tap:
                             {
-                                if (hudEvent == Hud.EHudAction.BombDetonation)
+                                var hudEvent = this.hud_.GetHudEvent(ret.Pos);
+                                if (hudEvent != Hud.EHudAction.NoAction)
                                 {
-                                    map_.ActivateDetonators();
-                                    if (currentBomb_.Coord.X != -1)
-                                        map_.RemoveEntity(currentBomb_.Coord);
-                                    currentBomb_.Coord.X = -1;
-                                    currentBomb_.Coord.Y = -1;
-                                    hud_.GameInfos.Round -= 1;
-                                    if (hud_.GameInfos.Round <= 0)
-                                        hud_.GameInfos.Round = 0;
-
-                                    // TODO : calcul du score
-                                    hud_.GameInfos.Score += 9000;
-
-                                }
-                                else if (hudEvent == Hud.EHudAction.BombRotation)
-                                {
-                                    var pattern = hud_.SelectedBombType();
-                                    if (pattern != Pattern.Type.NoPattern && currentBomb_.Coord.X != -1)
+                                    if (hudEvent == Hud.EHudAction.BombDetonation)
                                     {
-                                        currentBomb_.Entity.NextOrientation();
-                                        this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                        map_.ActivateDetonators();
+                                        if (currentBomb_.Coord.X != -1)
+                                            map_.RemoveEntity(currentBomb_.Coord);
+                                        currentBomb_.Coord.X = -1;
+                                        currentBomb_.Coord.Y = -1;
+                                        hud_.GameInfos.Round -= 1;
+                                        if (hud_.GameInfos.Round <= 0)
+                                            hud_.GameInfos.Round = 0;
+
+                                        // TODO : calcul du score
+                                        hud_.GameInfos.Score += 9000;
+
+                                    }
+                                    else if (hudEvent == Hud.EHudAction.BombRotation)
+                                    {
+                                        var pattern = hud_.SelectedBombType();
+                                        if (pattern != Pattern.Type.NoPattern && currentBomb_.Coord.X != -1)
+                                        {
+                                            currentBomb_.Entity.NextOrientation();
+                                            this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                        }
+                                    }
+                                    else if (hudEvent == Hud.EHudAction.BombSelection)
+                                    {
+                                        if (currentBomb_.Coord.X != -1)
+                                            map_.RemoveEntity(currentBomb_.Coord);
+                                        currentBomb_.Coord.X = -1;
+                                        currentBomb_.Coord.Y = -1;
                                     }
                                 }
-                                else if (hudEvent == Hud.EHudAction.BombSelection)
+                                else
                                 {
-                                    if (currentBomb_.Coord.X != -1)
-                                        map_.RemoveEntity(currentBomb_.Coord);
-                                    currentBomb_.Coord.X = -1;
-                                    currentBomb_.Coord.Y = -1;
-                                }
-                            }
-                            else
-                            {
-                                try
-                                {
-                                    var pattern = hud_.SelectedBombType();
-                                    if (pattern != Pattern.Type.NoPattern)
+                                    try
                                     {
-                                        if (this.map_.GetCoordByPos(ret.Pos) == currentBomb_.Coord)
+                                        var pattern = hud_.SelectedBombType();
+                                        if (pattern != Pattern.Type.NoPattern)
                                         {
-                                            this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(), currentBomb_.Coord);
-                                            hud_.RemoveBombOfType(pattern);
-                                            hud_.UnselectAll();
-                                            currentBomb_.Coord.X = -1;
-                                            currentBomb_.Coord.Y = -1;
-                                        }
-                                        else
-                                        {
-                                            if (currentBomb_.Coord.X != -1)
-                                                map_.RemoveEntity(currentBomb_.Coord);
-                                            currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
-                                            currentBomb_.Entity = new VirtualBomb(pattern,
-                                                                                  KaboomResources.Sprites[hud_.SelectedBombName()].Clone() as SpriteSheet);
-                                            if (!(this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord)))
+                                            if (this.map_.GetCoordByPos(ret.Pos) == currentBomb_.Coord)
                                             {
+                                                this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(),
+                                                                       currentBomb_.Coord);
+                                                hud_.RemoveBombOfType(pattern);
+                                                hud_.UnselectAll();
                                                 currentBomb_.Coord.X = -1;
                                                 currentBomb_.Coord.Y = -1;
                                             }
-                                        }                                   
+                                            else
+                                            {
+                                                if (currentBomb_.Coord.X != -1)
+                                                    map_.RemoveEntity(currentBomb_.Coord);
+                                                currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
+                                                currentBomb_.Entity = new VirtualBomb(pattern,
+                                                                                      KaboomResources.Sprites[
+                                                                                          hud_.SelectedBombName()].
+                                                                                          Clone
+                                                                                          () as SpriteSheet);
+                                                if (
+                                                    !(this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord)))
+                                                {
+                                                    currentBomb_.Coord.X = -1;
+                                                    currentBomb_.Coord.Y = -1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    catch
+                                    {
                                     }
                                 }
-                                catch
-                                {
-                                }
                             }
-                        }
-                        break;
+                            break;
+                    }
                 }
             }
-
             ///////////////////////////////////////////////////////////////TODO: Not a TODO: BackButton handler
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -273,12 +311,16 @@ namespace Kaboom.Sources
             GraphicsDevice.Clear(Color.Black);
 
             base.Draw(gameTime);
+
+           if (ended_)
+               hud_.DrawEnd(gameTime);
         }
 
         public void ManageEndGame(object sender, EventArgs ea)
         {
             // TODO : Manage end game here
-            this.Exit();
+            ended_ = true;
+            //this.Exit();
         }
     }
 }

@@ -17,6 +17,14 @@ namespace Kaboom.Sources
             BombRotation
         }
 
+        public enum EHudEndAction
+        {
+            NoAction,
+            Reload,
+            Menu,
+            Next
+        }
+
         public class GameProgressInfos
         {
             public int Round { get; set; }
@@ -51,6 +59,8 @@ namespace Kaboom.Sources
         private readonly SpriteBatch sb_;
         private int width_;
         private int height_;
+        private int heightEnd_;
+        private int widthEnd_;
         private bool isActive_;
         private int currentPos_;
         private readonly List<BombInfo> bombSet_;
@@ -80,6 +90,13 @@ namespace Kaboom.Sources
         public override void Initialize()
         {
             base.Initialize();
+
+            if (this.Game.Window.CurrentOrientation == DisplayOrientation.Portrait)
+                this.widthEnd_ = (int)(this.GraphicsDevice.Viewport.Height * 0.9);
+            else
+                this.widthEnd_ = (int)(this.GraphicsDevice.Viewport.Width * 0.9);
+
+            this.heightEnd_ = (int)(450.0 / 700.0 * this.widthEnd_);
             if (this.Game.Window.CurrentOrientation == DisplayOrientation.Portrait)
                 this.height_ = (int)(this.Game.GraphicsDevice.Viewport.Width * 0.15);
             else
@@ -222,6 +239,57 @@ namespace Kaboom.Sources
                                     (int) (((100.0 / 125.0) * this.height_) / 2)), Color.White);
             this.sb_.End();
         }
+
+
+        public void DrawEnd(GameTime gametime)
+        {
+                this.sb_.Begin();
+                this.sb_.Draw(KaboomResources.Textures["endScreen"],
+                                       new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
+                                                     (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
+                                                     this.widthEnd_, this.heightEnd_), Color.White);
+                var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture);
+                this.sb_.DrawString(KaboomResources.Fonts["default"],
+                                             scoreS,
+                                             new Vector2(
+                                                 ((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))
+                                                 + (int)((((260.0 + (14 * scoreS.Length)) / 700) * this.widthEnd_)),
+                                                 ((this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2))
+                                                 + (int)((325.0 / 450.0) * this.heightEnd_)), Color.White);
+                this.sb_.End();
+        }
+
+        public EHudEndAction GetHudEndEvent(Vector2 pos)
+        {
+            // case = 109 w 82 h
+
+            // 192 w 373 h
+            var menu =
+               new Rectangle(
+                   ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2)) +
+                   (int)((192.0 / 700.0) * this.widthEnd_), ((this.Game.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2)) +
+                   (int)((373.0 / 450.0) * this.heightEnd_), (int)((109.0 / 700.0) * this.widthEnd_), (int)((82.0 / 450.0) * this.heightEnd_));
+            if (menu.Contains(new Point((int)pos.X, (int)pos.Y)))
+                return EHudEndAction.Menu;
+
+            var reload =
+                          new Rectangle(
+                   ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2)) +
+                   (int)(((192.0 + 109.0) / 700.0) * this.widthEnd_), ((this.Game.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2)) +
+                   (int)((373.0 / 450.0) * this.heightEnd_), (int)((109.0 / 700.0) * this.widthEnd_), (int)((82.0 / 450.0) * this.heightEnd_));
+            if (reload.Contains(new Point((int)pos.X, (int)pos.Y)))
+                return EHudEndAction.Reload;
+
+            var next =
+                          new Rectangle(
+                   ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2)) +
+                   (int)(((192.0 + 109.0 + 109.0) / 700.0) * this.widthEnd_), ((this.Game.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2)) +
+                   (int)((373.0 / 450.0) * this.heightEnd_), (int)((109.0 / 700.0) * this.widthEnd_), (int)((82.0 / 450.0) * this.heightEnd_));
+            if (next.Contains(new Point((int)pos.X, (int)pos.Y)))
+                return EHudEndAction.Next; 
+            return EHudEndAction.NoAction;
+        }
+
 
         /// <summary>
         /// Detect if the corrent tapped position is on a hud element or not
