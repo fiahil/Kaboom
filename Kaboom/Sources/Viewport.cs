@@ -14,6 +14,7 @@ namespace Kaboom.Sources
         private int[] maxZoom_;
         private Map map_;
         private DisplayOrientation oldOrientation_;
+        private Point PinchPos;
 
         public static Viewport Instance = new Viewport();
 
@@ -212,9 +213,64 @@ namespace Kaboom.Sources
             this.IsZoomed = false;
         }
 
+        public void HandlePinch(Action act)
+        {
+            try
+            {
+                if (this.PinchPos == Point.Zero)
+                    this.PinchPos = this.map_.GetCoordByPos(act.Pos);
+
+                Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
+                if (this.GetOrientation() == DisplayOrientation.Portrait)
+                    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
+                                           this.graphicsDevice_.Viewport.Height / 2;
+                else
+                    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
+                                           (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
+                                           this.graphicsDevice_.Viewport.Height / 2;
+
+            }
+            catch (Exception)
+            { }
+
+            Camera.Instance.DimX += act.DeltaX;
+            Camera.Instance.DimY += act.DeltaY;
+
+            if (Camera.Instance.DimX > 80 || Camera.Instance.DimY > 80)
+                Camera.Instance.DimY = Camera.Instance.DimX = 80;
+
+            // NEED TO RESHARP
+
+            if (this.GetOrientation() == DisplayOrientation.Portrait)
+            {
+                if (Camera.Instance.DimX < maxZoom_[1])
+                {
+                    Camera.Instance.DimX = maxZoom_[1];
+                    Camera.Instance.DimY = maxZoom_[1];
+                }
+            }
+            else
+            {
+                if (Camera.Instance.DimX < maxZoom_[0])
+                {
+                    Camera.Instance.DimX = maxZoom_[0];
+                    Camera.Instance.DimY = maxZoom_[0];
+                }
+            }
+
+            this.IsZoomed = true;           
+            // NEED TO RESHARP
+
+        }
+
         /// <summary>
         /// Getter for zoom status
         /// </summary>
         public bool IsZoomed { get; private set; }
+
+        internal void ResetPinch()
+        {
+            this.PinchPos = Point.Zero;
+        }
     }
 }

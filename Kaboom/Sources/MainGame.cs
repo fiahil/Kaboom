@@ -44,7 +44,7 @@ namespace Kaboom.Sources
             this.graphics_ = new GraphicsDeviceManager(this)
                 {
                     IsFullScreen = true,
-                    SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait
+                    SupportedOrientations = DisplayOrientation.LandscapeLeft
                 };
             this.level_ = level;
             ended_ = false;
@@ -212,13 +212,16 @@ namespace Kaboom.Sources
                             Viewport.Instance.ZoomIn(ret.Pos);
                             break;
 
-                        case Action.Type.ZoomOut:
-                            Viewport.Instance.ZoomOut();
-                            break;
 
+                        case Action.Type.Pinch:
+                            {
+                                Viewport.Instance.HandlePinch(ret);
+                                break;
+                            }
                         case Action.Type.Tap:
                             {
                                 var hudEvent = this.hud_.GetHudEvent(ret.Pos);
+
                                 if (hudEvent != Hud.EHudAction.NoAction)
                                 {
                                     if (hudEvent == Hud.EHudAction.BombDetonation)
@@ -292,8 +295,9 @@ namespace Kaboom.Sources
                                     {
                                     }
                                 }
+
+                                break;
                             }
-                            break;
                     }
                 }
             }
