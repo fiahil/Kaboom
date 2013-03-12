@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 using System.IO;
 using System.Xml.Serialization;
 using Kaboom.Serializer;
@@ -24,6 +23,8 @@ namespace Kaboom.Sources
                 Entity = null;
             }
         }
+
+        public event EventHandler BombSet;
 
         private readonly GraphicsDeviceManager graphics_;
         private SpriteBatch spriteBatch_;
@@ -156,7 +157,7 @@ namespace Kaboom.Sources
         }
 
 
-        private void UpdateEnd(Action ret, GameTime gameTime)
+        private void UpdateEnd(Action ret)
         {
              if (ret.ActionType == Action.Type.Tap)
              {
@@ -169,8 +170,6 @@ namespace Kaboom.Sources
                      case Hud.EHudEndAction.Reload:
                          break;
                      case Hud.EHudEndAction.Next:
-                         break;
-                     default :
                          break;
                  }
              }
@@ -192,7 +191,7 @@ namespace Kaboom.Sources
             {
                 if (ended_)
                 {
-                    UpdateEnd(ret, gameTime);
+                    UpdateEnd(ret);
                 }
                 else
                 {
@@ -324,6 +323,17 @@ namespace Kaboom.Sources
             // TODO : Manage end game here
             ended_ = true;
             //this.Exit();
+        }
+
+        /// <summary>
+        /// Activate Bombset handler
+        /// </summary>
+        public void OnBombSet()
+        {
+            if (this.BombSet != null)
+            {
+                this.BombSet(this, EventArgs.Empty);
+            }
         }
     }
 }
