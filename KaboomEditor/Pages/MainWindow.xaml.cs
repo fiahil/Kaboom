@@ -147,6 +147,12 @@ namespace KaboomEditor.Pages
                         if (se != null)
                             se.Content = "Fail to load file. ";
                     }
+                    this.Title = Path.GetFileName(dialog.FileName);
+                    var box = this.FindName("TextBoxFilename") as TextBox;
+                    if (box != null)
+                    {
+                        box.Text = Path.GetFileNameWithoutExtension(dialog.FileName);
+                    }
                     var uniformGrid = (UniformGrid) this.FindName("Board");
                     if (uniformGrid == null)
                         return;
