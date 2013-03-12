@@ -1191,6 +1191,15 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
           </EntityProxy>
+          <EntityProxy xsi:type="CheckPointProxy">
+            <ZIndex>0</ZIndex>
+            <TileIdentifier>checkpoint</TileIdentifier>
+            <TileFramePerAnim>
+              <int>1</int>
+            </TileFramePerAnim>
+            <TileFrameSpeed>1</TileFrameSpeed>
+            <TileTotalAnim>1</TileTotalAnim>
+          </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
             <TileIdentifier>background2</TileIdentifier>
@@ -1383,15 +1392,6 @@
           <EntityProxy>
             <ZIndex>1</ZIndex>
             <TileIdentifier>background1</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="CheckPointProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>checkpoint</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
             </TileFramePerAnim>
