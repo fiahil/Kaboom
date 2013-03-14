@@ -194,7 +194,7 @@ namespace KaboomEditor.Pages
         /// <param name="e"></param>
         private void BombSetButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var bombset = new Bombset();
+            var bombset = new Bombset(this.mapElements_);
 
             bombset.Show();
         }

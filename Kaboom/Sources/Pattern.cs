@@ -402,6 +402,7 @@ namespace Kaboom.Sources
         /// Try to merge two patterns. If is possible, the current pattern will be modified
         /// </summary>
         /// <param name="pattern">The pattern to merge with the object</param>
+        /// <param name="temp">==== Il set a quoi lui ? ====</param>
         /// <returns>Merge succeded or not</returns>
         public bool MergePatterns(Pattern pattern, bool temp)
         {

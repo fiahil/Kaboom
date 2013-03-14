@@ -6,17 +6,41 @@
       mc:Ignorable="d"
       WindowStyle="ToolWindow"
       HorizontalAlignment="Stretch"
-      VerticalAlignment="Stretch" Width="600" Height="300">
+      VerticalAlignment="Stretch" Width="600" Height="300" ResizeMode="NoResize">
 
     <Grid>
-        <ListView SelectedIndex="0" Margin="0,0,-8,0">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        	<Button Content="COUCOU"/>
-        </ListView>
-
+        <ListView x:Name="BombsetList" Width="250" HorizontalAlignment="Left" Margin="0">
+    		<ListView.View>
+    			<GridView>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Name}" Width="140"/>
+                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
+    			</GridView>
+    		</ListView.View>
+    	</ListView>
+    	<ComboBox x:Name="TypeSelecter" HorizontalAlignment="Left" Margin="355.58,22,0,0" VerticalAlignment="Top" Width="100" Height="21.96">
+            <ComboBoxItem Content="BombSquare"/>
+            <ComboBoxItem Content="BombTNT"/>
+            <ComboBoxItem Content="BombLine"/>
+            <ComboBoxItem Content="BombAngle"/>
+            <ComboBoxItem Content="BombBigSquare"/>
+            <ComboBoxItem Content="BombH"/>
+            <ComboBoxItem Content="BombX"/>
+            <ComboBoxItem Content="BombUltimate"/>
+        </ComboBox>
+        <Button x:Name="OkButton" Content="Ok" HorizontalAlignment="Left" Margin="495,24,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="OkButton_OnClick"/>
+    	<Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="495,79,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="DeleteButton_OnClick"/>
+    	<Label Content="Type" HorizontalAlignment="Left" Margin="295,22,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Quantity" HorizontalAlignment="Left" Margin="295,76,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="QuantitySelector" HorizontalAlignment="Left" Margin="356,84,0,0" VerticalAlignment="Top" Width="100" SmallChange="1" Maximum="50" ValueChanged="QuantitySelector_OnValueChanged" MouseWheel="QuantitySelector_OnMouseWheel"/>
+        <Label x:Name="QuantityLabel" Content="0" HorizontalAlignment="Left" Margin="461,76,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Bombset" HorizontalAlignment="Left" Margin="295,147,0,0" VerticalAlignment="Top" Height="103" Width="262">
+            <Grid>
+                <Button x:Name="NewButton" Content="New Bombset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Click="NewButton_Click" Margin="10,50.08,0,0"/>
+                <Button x:Name="RemoveButton" Content="Remove Bombset" HorizontalAlignment="Left" VerticalAlignment="Top" Click="RemoveButton_Click" Margin="143.133,50.08,0,0"/>
+                <Label x:Name="IdLabel" Content="ID : 1 / 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" BorderBrush="Black" BorderThickness="1" Width="80"/>
+                <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Height="19.96" Margin="143.133,14,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="69.193"/>
+                <Button x:Name="GoButton" Content="Go!" HorizontalAlignment="Left" Margin="217.326,14,0,0" VerticalAlignment="Top" Click="GoButton_OnClick"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

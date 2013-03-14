@@ -117,5 +117,17 @@ namespace KaboomEditor.Sources
                 {"goal", Type.Goal},
                 {"checkpoint", Type.Checkpoint}
             };
+
+        public static readonly Dictionary<string, int> BombTypeLink = new Dictionary<string, int>
+            {
+                {"BombSquare", 0},
+                {"BombTNT", 1},
+                {"BombLine", 2},
+                {"BombAngle", 3},
+                {"BombBigSquare", 4},
+                {"BombH", 5},
+                {"BombX", 6},
+                {"BombUltimate", 7}
+            };
     }
 }

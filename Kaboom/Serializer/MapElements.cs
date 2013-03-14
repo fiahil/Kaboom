@@ -118,9 +118,27 @@ namespace Kaboom.Serializer
     /// </summary>
     public class BombInfoProxy
     {
-        public int Quantity;
-        public int Type;
-        public string Name;
+        private int quantity_;
+        private int type_;
+        private string name_;
+
+        public int Quantity
+        {
+            get { return quantity_; }
+            set { quantity_ = value; }
+        }
+
+        public int Type
+        {
+            get { return type_; }
+            set { type_ = value; }
+        }
+
+        public string Name
+        {
+            get { return name_; }
+            set { name_ = value; }
+        }
     }
 
     /// <summary>
@@ -160,33 +178,7 @@ namespace Kaboom.Serializer
                     this.Board[i][j] = new SquareProxy();
                 }
             }
-            this.Bombset = new List<List<BombInfoProxy>>
-                {
-                        new List<BombInfoProxy>
-                        {
-                            new BombInfoProxy
-                                {
-                                    Name = "BombX",
-                                    Quantity = 6,
-                                    Type = 6
-                                },
-                            new BombInfoProxy
-                                {
-                                    Name = "BombH",
-                                    Quantity = 5,
-                                    Type = 5
-                                }
-                        },
-                        new List<BombInfoProxy>
-                        {
-                            new BombInfoProxy
-                                {
-                                    Name = "BombTNT",
-                                    Quantity = 9,
-                                    Type = 1
-                                }
-                        }
-                };
+            this.Bombset = new List<List<BombInfoProxy>> {new List<BombInfoProxy>()};
         }
     }
 }
