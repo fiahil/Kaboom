@@ -161,6 +161,24 @@
     <AndroidAsset Include="..\KaboomEditor\Levels\LineBombTuto.xml">
       <Link>Assets\Content\LineBombTuto.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\FaceToFace.xml">
+      <Link>Assets\Content\FaceToFace.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\FindYourWayOut.xml">
+      <Link>Assets\Content\FindYourWayOut.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\NumbaWan.xml">
+      <Link>Assets\Content\NumbaWan.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\Unreachable.xml">
+      <Link>Assets\Content\Unreachable.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\Versus.xml">
+      <Link>Assets\Content\Versus.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\DynamiteWarehouse.xml">
+      <Link>Assets\Content\DynamiteWarehouse.xml</Link>
+    </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

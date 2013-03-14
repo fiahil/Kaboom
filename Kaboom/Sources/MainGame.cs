@@ -123,7 +123,13 @@ namespace Kaboom.Sources
             KaboomResources.Levels["A-Maze-Me"] = LoadLevel("A-Maze-Me");
             KaboomResources.Levels["CombisTheG"] = LoadLevel("CombisTheG");
             KaboomResources.Levels["DidUCheckTuto"] = LoadLevel("DidUCheckTuto");
+            KaboomResources.Levels["DynamiteWarehouse"] = LoadLevel("DynamiteWarehouse");
             KaboomResources.Levels["TheBreach"] = LoadLevel("TheBreach");
+            KaboomResources.Levels["FaceToFace"] = LoadLevel("FaceToFace");
+            KaboomResources.Levels["FindYourWayOut"] = LoadLevel("FindYourWayOut");
+            KaboomResources.Levels["NumbaWan"] = LoadLevel("NumbaWan");
+            KaboomResources.Levels["Unreachable"] = LoadLevel("Unreachable");
+            KaboomResources.Levels["Versus"] = LoadLevel("Versus");
             
         }
 
