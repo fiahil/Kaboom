@@ -116,7 +116,7 @@ namespace Kaboom.Sources
                 if (g.GestureType == GestureType.PinchComplete)
                 {
                     this.Pinch_ = Vector2.Zero;
-                    //Viewport.Instance.ResetPinch();
+                    Viewport.Instance.ResetPinch();
                 }
             }
             return ret;

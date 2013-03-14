@@ -117,7 +117,7 @@ namespace Kaboom.Sources
             KaboomResources.Levels["TutoHBomb"] = LoadLevel("HBombsCombinationTuto");
             KaboomResources.Levels["TutoUltimateBomb"] = LoadLevel("UltimateBombTuto");
             KaboomResources.Levels["TutoBonusTNT"] = LoadLevel("TNTBonusTuto");
-            
+
             KaboomResources.Levels["A-Maze-Me"] = LoadLevel("A-Maze-Me");
             KaboomResources.Levels["CombisTheG"] = LoadLevel("CombisTheG");
             KaboomResources.Levels["DidUCheckTuto"] = LoadLevel("DidUCheckTuto");

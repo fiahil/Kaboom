@@ -216,29 +216,8 @@ namespace Kaboom.Sources
 
         public void HandlePinch(Action act)
         {
-            //try
-            //{
-            //    if (this.PinchPos == Point.Zero)
-            //        this.PinchPos = this.map_.GetCoordByPos(act.Pos);
-
-            //    Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
-            //    if (this.GetOrientation() == DisplayOrientation.Portrait)
-            //        Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
-            //                               this.graphicsDevice_.Viewport.Height / 2;
-            //    else
-            //        Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
-            //                               (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
-            //                               this.graphicsDevice_.Viewport.Height / 2;
-
-            //}
-            //catch (Exception)
-            //{ }
-
             if (Math.Abs(act.DeltaX) <= 2) return;
-
-            System.Diagnostics.Debug.Print("## Delta : {0} ##", act.DeltaX);
-            System.Diagnostics.Debug.Print("----------------------------------------------------");
-
+            
             Camera.Instance.DimX += act.DeltaX;
             Camera.Instance.DimY += act.DeltaY;
 
@@ -266,15 +245,39 @@ namespace Kaboom.Sources
                 }
             }
 
-            Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
+            try
+            {
+                if (this.PinchPos == Point.Zero)
+                    this.PinchPos = this.map_.GetCoordByPos(new Vector2(this.graphicsDevice_.Viewport.Width / 2, this.graphicsDevice_.Viewport.Height / 2));
+
+                Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
+                if (this.GetOrientation() == DisplayOrientation.Portrait)
+                    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
+                                           this.graphicsDevice_.Viewport.Height / 2;
+                else
+                    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
+                                           (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
+                                           this.graphicsDevice_.Viewport.Height / 2;
+
+            }
+            catch (Exception)
+            { }
+
+ 
+
+            //System.Diagnostics.Debug.Print("## Delta : {0} ##", act.DeltaX);
+            //System.Diagnostics.Debug.Print("----------------------------------------------------");
+
+
+            //Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
             
-            if (this.GetOrientation() == DisplayOrientation.Portrait)
-                Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
-                                       this.graphicsDevice_.Viewport.Height / 2;
-            else
-                Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
-                                       (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
-                                       this.graphicsDevice_.Viewport.Height / 2;
+            //if (this.GetOrientation() == DisplayOrientation.Portrait)
+            //    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
+            //                           this.graphicsDevice_.Viewport.Height / 2;
+            //else
+            //    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
+            //                           (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
+            //                           this.graphicsDevice_.Viewport.Height / 2;
 
 
             this.IsZoomed = true;           
@@ -287,9 +290,9 @@ namespace Kaboom.Sources
         /// </summary>
         public bool IsZoomed { get; private set; }
 
-        //internal void ResetPinch()
-        //{
-        //    this.PinchPos = Point.Zero;
-        //}
+        internal void ResetPinch()
+        {
+            this.PinchPos = Point.Zero;
+        }
     }
 }
