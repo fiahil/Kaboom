@@ -104,11 +104,31 @@ namespace Kaboom.Sources
             KaboomResources.Sprites["BombX"] = new SpriteSheet(KaboomResources.Textures["BombSheetX"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["DestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);
             KaboomResources.Sprites["UndestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background3"], new[] { 1 }, 1, 1);
-            KaboomResources.Sprites["Ground"] = new SpriteSheet(KaboomResources.Textures["background1"], new[] {1}, 1);
+            KaboomResources.Sprites["Ground"] = new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1);
 
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
             KaboomResources.Levels["level1"] = LoadLevel("level1");
             KaboomResources.Levels["level2"] = LoadLevel("level2");
+            KaboomResources.Levels["TutoNormalBomb"] = LoadLevel("normalBombTuto");
+            KaboomResources.Levels["TutoLineBomb"] = LoadLevel("LineBombTuto");
+            KaboomResources.Levels["TutoConeBomb"] = LoadLevel("ConeBombTuto");
+            KaboomResources.Levels["TutoXBomb"] = LoadLevel("XBombsCombinationTuto");
+            KaboomResources.Levels["TutoCheckPointBS"] = LoadLevel("CheckpointBS");
+            KaboomResources.Levels["TutoHBomb"] = LoadLevel("HBombsCombinationTuto");
+            KaboomResources.Levels["TutoUltimateBomb"] = LoadLevel("UltimateBombTuto");
+            KaboomResources.Levels["TutoBonusTNT"] = LoadLevel("TNTBonusTuto");
+            
+            KaboomResources.Levels["A-Maze-Me"] = LoadLevel("A-Maze-Me");
+            KaboomResources.Levels["CombisTheG"] = LoadLevel("CombisTheG");
+            KaboomResources.Levels["DidUCheckTuto"] = LoadLevel("DidUCheckTuto");
+            KaboomResources.Levels["DynamiteWarehouse"] = LoadLevel("DynamiteWarehouse");
+            KaboomResources.Levels["TheBreach"] = LoadLevel("TheBreach");
+            KaboomResources.Levels["FaceToFace"] = LoadLevel("FaceToFace");
+            KaboomResources.Levels["FindYourWayOut"] = LoadLevel("FindYourWayOut");
+            KaboomResources.Levels["NumbaWan"] = LoadLevel("NumbaWan");
+            KaboomResources.Levels["Unreachable"] = LoadLevel("Unreachable");
+            KaboomResources.Levels["Versus"] = LoadLevel("Versus");
+            
         }
 
         /// <summary>

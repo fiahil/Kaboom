@@ -125,6 +125,60 @@
     </AndroidAsset>
     <AndroidAsset Include="Assets\Content\GoalSheet.PNG" />
     <AndroidAsset Include="Assets\Content\endScreen.png" />
+    <AndroidAsset Include="..\KaboomEditor\Levels\normalBombTuto.xml">
+      <Link>Assets\Content\normalBombTuto.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\A-Maze-Me.xml">
+      <Link>Assets\Content\A-Maze-Me.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\CheckpointBS.xml">
+      <Link>Assets\Content\CheckpointBS.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\CombisTheG.xml">
+      <Link>Assets\Content\CombisTheG.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\ConeBombTuto.xml">
+      <Link>Assets\Content\ConeBombTuto.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\DidUCheckTuto.xml">
+      <Link>Assets\Content\DidUCheckTuto.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\HBombsCombinationTuto.xml">
+      <Link>Assets\Content\HBombsCombinationTuto.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\TheBreach.xml">
+      <Link>Assets\Content\TheBreach.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\TNTBonusTuto.xml">
+      <Link>Assets\Content\TNTBonusTuto.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\UltimateBombTuto.xml">
+      <Link>Assets\Content\UltimateBombTuto.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\XBombsCombinationTuto.xml">
+      <Link>Assets\Content\XBombsCombinationTuto.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\LineBombTuto.xml">
+      <Link>Assets\Content\LineBombTuto.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\FaceToFace.xml">
+      <Link>Assets\Content\FaceToFace.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\FindYourWayOut.xml">
+      <Link>Assets\Content\FindYourWayOut.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\NumbaWan.xml">
+      <Link>Assets\Content\NumbaWan.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\Unreachable.xml">
+      <Link>Assets\Content\Unreachable.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\Versus.xml">
+      <Link>Assets\Content\Versus.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\DynamiteWarehouse.xml">
+      <Link>Assets\Content\DynamiteWarehouse.xml</Link>
+    </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
