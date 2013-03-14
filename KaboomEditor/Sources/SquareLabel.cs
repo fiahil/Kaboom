@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using Kaboom.Serializer;
+using KaboomEditor.Pages;
 
 namespace KaboomEditor.Sources
 {
@@ -14,6 +15,8 @@ namespace KaboomEditor.Sources
 
         public int XCoord { get; set; }
         public int YCoord { get; set; }
+
+        public static bool Raise;
 
         /// <summary>
         /// Instanciate a fresh label
@@ -28,6 +31,15 @@ namespace KaboomEditor.Sources
             ToolTip = "(" + j + ", " + i + ")";
             XCoord = j;
             YCoord = i;
+            MouseWheel += (sender, args) =>
+                {
+                    if (Entities[1] != null && Raise == false)
+                    {
+                        Raise = true;
+                        var c = new Checkpoint((CheckPointProxy) Entities[1]);
+                        c.Show();
+                    }
+                };
         }
     }
 }

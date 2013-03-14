@@ -74,6 +74,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Checkpoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,6 +91,9 @@
     </Compile>
     <Compile Include="Pages\Bombset.xaml.cs">
       <DependentUpon>Bombset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Checkpoint.xaml.cs">
+      <DependentUpon>Checkpoint.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -67,7 +67,7 @@ namespace KaboomEditor.Pages
                 this.AddToMapElt((string) ((ComboBoxItem) this.TypeSelecter.SelectedItem).Content,
                                  Convert.ToInt32(this.QuantitySelector.Value));
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 return;
             }

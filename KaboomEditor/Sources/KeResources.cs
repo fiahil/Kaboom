@@ -83,7 +83,7 @@ namespace KaboomEditor.Sources
                             TileTotalAnim = 1,
                             TileFrameSpeed = 1,
                             Activated = false,
-                            Bombsetidx = 1
+                            Bombsetidx = 0
                         }
                 }
             };
