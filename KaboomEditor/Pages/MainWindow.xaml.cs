@@ -187,6 +187,18 @@ namespace KaboomEditor.Pages
             }
         }
 
+        /// <summary>
+        /// Handle BomsetEditing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BombSetButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var bombset = new Bombset();
+
+            bombset.Show();
+        }
+
         #region Buckets
 
         /// <summary>

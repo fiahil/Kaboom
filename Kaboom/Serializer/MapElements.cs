@@ -186,7 +186,6 @@ namespace Kaboom.Serializer
                                     Type = 1
                                 }
                         }
-
                 };
         }
     }
