@@ -81,7 +81,9 @@ namespace KaboomEditor.Sources
                             TileIdentifier = "checkpoint",
                             TileFramePerAnim = new[] {1},
                             TileTotalAnim = 1,
-                            TileFrameSpeed = 1
+                            TileFrameSpeed = 1,
+                            Activated = false,
+                            Bombsetidx = 1
                         }
                 }
             };

@@ -24,8 +24,6 @@ namespace Kaboom.Sources
             }
         }
 
-        public event EventHandler BombSet;
-
         private readonly GraphicsDeviceManager graphics_;
         private SpriteBatch spriteBatch_;
         private readonly string level_;
@@ -120,40 +118,15 @@ namespace Kaboom.Sources
         {
             base.Initialize();
 
+            this.hud_ = new Hud(this, this.spriteBatch_);
+            hud_.GameInfos.Round = 10;
+            hud_.GameInfos.Score = 4321;
+            this.Components.Add(this.hud_);
+
             this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Levels[this.level_]);
             this.map_.EndGameManager += ManageEndGame;
             Viewport.Instance.Initialize(GraphicsDevice, this.map_);
             this.Components.Add(this.map_);
-            this.hud_ = new Hud(this, this.spriteBatch_, new List<Hud.BombInfo>
-                                                             {
-                                                                 new Hud.BombInfo(Pattern.Type.Square,
-                                                                                  KaboomResources.Sprites["BombSquare"].
-                                                                                      Clone()
-                                                                                  as SpriteSheet, 3, "BombSquare"),
-                                                                 new Hud.BombInfo(Pattern.Type.Line,
-                                                                                  KaboomResources.Sprites["BombLine"].
-                                                                                      Clone()
-                                                                                  as SpriteSheet, 5, "BombLine"),
-                                                                 new Hud.BombInfo(Pattern.Type.Angle,
-                                                                                  KaboomResources.Sprites["BombAngle"].
-                                                                                      Clone()
-                                                                                  as SpriteSheet, 5, "BombAngle"),
-                                                                 new Hud.BombInfo(Pattern.Type.Ultimate,
-                                                                                  KaboomResources.Sprites["BombUltimate"
-                                                                                      ].Clone()
-                                                                                  as SpriteSheet, 5, "BombUltimate"),
-                                                                 new Hud.BombInfo(Pattern.Type.X,
-                                                                                  KaboomResources.Sprites["BombX"
-                                                                                      ].Clone()
-                                                                                  as SpriteSheet, 5, "BombX")
-
-                                                             });
-
-            // TODO : This is a HUD Unitest
-            // TODO : get the round number in map object
-            hud_.GameInfos.Round = 10;
-            hud_.GameInfos.Score = 4321;
-            this.Components.Add(this.hud_);
         }
 
 
@@ -276,10 +249,7 @@ namespace Kaboom.Sources
                                                     map_.RemoveEntity(currentBomb_.Coord);
                                                 currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
                                                 currentBomb_.Entity = new VirtualBomb(pattern,
-                                                                                      KaboomResources.Sprites[
-                                                                                          hud_.SelectedBombName()].
-                                                                                          Clone
-                                                                                          () as SpriteSheet);
+                                                                                      KaboomResources.Sprites[hud_.SelectedBombName()].Clone());
                                                 if (
                                                     !(this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord)))
                                                 {
@@ -318,6 +288,11 @@ namespace Kaboom.Sources
                hud_.DrawEnd(gameTime);
         }
 
+        /// <summary>
+        /// Handle the end of the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="ea"></param>
         public void ManageEndGame(object sender, EventArgs ea)
         {
             // TODO : Manage end game here
@@ -326,14 +301,11 @@ namespace Kaboom.Sources
         }
 
         /// <summary>
-        /// Activate Bombset handler
+        /// Activate Bombset in checkpoint
         /// </summary>
-        public void OnBombSet()
+        public void BombSet(List<Hud.BombInfo> value)
         {
-            if (this.BombSet != null)
-            {
-                this.BombSet(this, EventArgs.Empty);
-            }
+            this.hud_.BombSet = value;
         }
     }
 }

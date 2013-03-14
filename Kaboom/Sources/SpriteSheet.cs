@@ -9,7 +9,7 @@ namespace Kaboom.Sources
     /// <summary>
     /// Definition of an animated Sprite
     /// </summary>
-    internal class SpriteSheet : ICloneable
+    internal class SpriteSheet
     {
         /// <summary>
         /// Represent the animations of the SpriteSheet
@@ -219,7 +219,7 @@ namespace Kaboom.Sources
         /// Clone the current spritesheet into a new object
         /// </summary>
         /// <returns></returns>
-        public object Clone()
+        public SpriteSheet Clone()
         {
             return new SpriteSheet(this);
         }

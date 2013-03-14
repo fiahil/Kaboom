@@ -46,10 +46,10 @@ namespace Kaboom.Sources
             public bool Activated;
             public string Name;
 
-            public BombInfo(Pattern.Type type, SpriteSheet sprite, int quantity, string name)
+            public BombInfo(Pattern.Type type, int quantity, string name)
             {
                 Type = type;
-                Sprite = sprite;
+                Sprite = KaboomResources.Sprites[name].Clone();
                 Quantity = quantity;
                 Activated = false;
                 Name = name;
@@ -63,8 +63,22 @@ namespace Kaboom.Sources
         private int widthEnd_;
         private bool isActive_;
         private int currentPos_;
+        private List<BombInfo> bombSet_;
 
-        public List<BombInfo> BombSet { get; set; }
+        public List<BombInfo> BombSet
+        {
+            get
+            {
+                return bombSet_;
+            }
+            set
+            {
+                bombSet_ = value;
+                this.isActive_ = false;
+                this.currentPos_ = 0;
+            }
+        }
+
         public GameProgressInfos GameInfos { get; set; }
 
         /// <summary>
@@ -72,15 +86,13 @@ namespace Kaboom.Sources
         /// </summary>
         /// <param name="game">Main game parameter</param>
         /// <param name="sb">Main spriteBatch to display hud elements</param>
-        /// <param name="bombSet">Different bomb type using during this game</param>
-        public Hud(Game game, SpriteBatch sb, List<BombInfo> bombSet)
+        public Hud(Game game, SpriteBatch sb)
             : base(game)
         {
             sb_ = sb;
             height_ = 0;
             width_ = 0;
             currentPos_ = 0;
-            BombSet = bombSet;
             isActive_ = false;
             GameInfos = new GameProgressInfos(0, 0);
         }
@@ -284,9 +296,7 @@ namespace Kaboom.Sources
                    ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2)) +
                    (int)(((192.0 + 109.0 + 109.0) / 700.0) * this.widthEnd_), ((this.Game.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2)) +
                    (int)((373.0 / 450.0) * this.heightEnd_), (int)((109.0 / 700.0) * this.widthEnd_), (int)((82.0 / 450.0) * this.heightEnd_));
-            if (next.Contains(new Point((int)pos.X, (int)pos.Y)))
-                return EHudEndAction.Next; 
-            return EHudEndAction.NoAction;
+            return next.Contains(new Point((int)pos.X, (int)pos.Y)) ? EHudEndAction.Next : EHudEndAction.NoAction;
         }
 
 
@@ -342,9 +352,7 @@ namespace Kaboom.Sources
                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                     (int)((296.0 / 780.0) * this.width_), 0, (int)((109.0 / 780.0) * this.width_),
                     (int)((119.0 / 125.0) * this.height_));
-            if (rotation.Contains(new Point((int)pos.X, (int)pos.Y)))
-                return EHudAction.BombRotation;
-            return EHudAction.NoAction;
+            return rotation.Contains(new Point((int)pos.X, (int)pos.Y)) ? EHudAction.BombRotation : EHudAction.NoAction;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Kaboom.Serializer;
 using Microsoft.Xna.Framework;
@@ -9,6 +10,7 @@ namespace Kaboom.Sources
     class Map : DrawableGameComponent
     {
         private readonly Square[,] board_;
+        private readonly List<List<Hud.BombInfo>> bombsets_;
         private readonly SpriteBatch sb_;
         private bool endGame_;
         public event EventHandler EndGameManager;
@@ -26,6 +28,8 @@ namespace Kaboom.Sources
             this.SizeX = me.SizeX;
             this.SizeY = me.SizeY;
 
+            var typeArray = Pattern.All;
+
             this.board_ = new Square[this.SizeX,this.SizeY];
             for (var i = 0; i < this.SizeX; i++)
             {
@@ -34,9 +38,20 @@ namespace Kaboom.Sources
                     this.board_[i, j] = new Square(new Point(i, j));
                     this.board_[i, j].Explosion += ExplosionRuler;
                     this.board_[i, j].EndGame += ManageEndGame;
-                   
+                    this.board_[i, j].Bombset +=
+                        (sender, args) =>
+                        ((MainGame) this.Game).BombSet(this.bombsets_[((CheckPoint) sender).BombsetIdx]);
 
-                    var typeArray = Pattern.All;
+                    this.bombsets_ = new List<List<Hud.BombInfo>>();
+
+                    foreach (var bombset in me.Bombset)
+                    {
+                        this.bombsets_.Add(
+                            bombset.Select(bomb => new Hud.BombInfo(typeArray[bomb.Type], bomb.Quantity, bomb.Name))
+                                   .ToList());
+                    }
+
+                    ((MainGame)this.Game).BombSet(this.bombsets_[0]);
 
                     foreach (var entity in me.Board[i][j].Entities)
                     {
@@ -62,7 +77,7 @@ namespace Kaboom.Sources
                                     KaboomResources.Textures[checkPointProxy.TileIdentifier], 
                                     checkPointProxy.TileFramePerAnim,
                                     checkPointProxy.TileTotalAnim,
-                                    checkPointProxy.TileFrameSpeed), 500));
+                                    checkPointProxy.TileFrameSpeed), 500, checkPointProxy.Activated, checkPointProxy.Bombsetidx));
                         }
 
                         if (blockProxy != null)

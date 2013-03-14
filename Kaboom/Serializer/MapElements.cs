@@ -80,11 +80,15 @@ namespace Kaboom.Serializer
     /// </summary>
     public class CheckPointProxy : EntityProxy
     {
+        public int Bombsetidx;
+        public bool Activated;
 
         public override EntityProxy Clone()
         {
             return new CheckPointProxy
                 {
+                    Activated = this.Activated,
+                    Bombsetidx = this.Bombsetidx,
                     ZIndex = this.ZIndex,
                     TileIdentifier = this.TileIdentifier,
                     TileFramePerAnim = this.TileFramePerAnim,
@@ -109,12 +113,24 @@ namespace Kaboom.Serializer
     }
 
     /// <summary>
+    /// Bombset Proxy Class
+    /// Store bombset
+    /// </summary>
+    public class BombInfoProxy
+    {
+        public int Quantity;
+        public int Type;
+        public string Name;
+    }
+
+    /// <summary>
     /// Used to convay a map over xml serialization
     /// </summary>
     [XmlInclude(typeof(BlockProxy)), XmlInclude(typeof(BombProxy)), XmlInclude(typeof(CheckPointProxy))]
     public class MapElements
     {
         public SquareProxy[][] Board;
+        public List<List<BombInfoProxy>> Bombset; 
         public int SizeX;
         public int SizeY;
 
@@ -123,9 +139,6 @@ namespace Kaboom.Serializer
         /// </summary>
         public MapElements()
         {
-            this.SizeX = 0;
-            this.SizeY = 0;
-            this.Board = null;
         }
 
         /// <summary>
@@ -147,6 +160,34 @@ namespace Kaboom.Serializer
                     this.Board[i][j] = new SquareProxy();
                 }
             }
+            this.Bombset = new List<List<BombInfoProxy>>
+                {
+                        new List<BombInfoProxy>
+                        {
+                            new BombInfoProxy
+                                {
+                                    Name = "BombX",
+                                    Quantity = 6,
+                                    Type = 6
+                                },
+                            new BombInfoProxy
+                                {
+                                    Name = "BombH",
+                                    Quantity = 5,
+                                    Type = 5
+                                }
+                        },
+                        new List<BombInfoProxy>
+                        {
+                            new BombInfoProxy
+                                {
+                                    Name = "BombTNT",
+                                    Quantity = 9,
+                                    Type = 1
+                                }
+                        }
+
+                };
         }
     }
 }

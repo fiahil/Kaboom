@@ -14,8 +14,11 @@ namespace Kaboom.Sources
         public delegate void ExplosionHandler(Bomb bomb, Point pos);
 
         private readonly Entity[] entities_;
+
         public event ExplosionHandler Explosion;
         public event EventHandler EndGame;
+        public event EventHandler Bombset;
+        
         public int NbCurrentExplosions { get; private set; }
 
         /// <summary>
@@ -161,7 +164,7 @@ namespace Kaboom.Sources
         /// </summary>
         public void ActiveDetonator()
         {
-            if (this.entities_[2] != null && this.entities_[3] != null)
+            if (this.entities_[2] != null && this.entities_[3] != null && ((CheckPoint)this.entities_[2]).Activated)
                 if (((Bomb) this.entities_[3]).SetForExplosion(((CheckPoint) this.entities_[2]).Time))
                     ++NbCurrentExplosions;
         }
@@ -185,6 +188,12 @@ namespace Kaboom.Sources
             {
                 if (((Bomb) this.entities_[3]).SetForExplosion(time))
                     ++NbCurrentExplosions;
+            }
+            if (this.entities_[2] != null)
+            {
+                ((CheckPoint) this.entities_[2]).Activated = true;
+                if (this.Bombset != null)
+                    this.Bombset(this.entities_[2], null);
             }
         }
 
