@@ -227,6 +227,7 @@ namespace Kaboom.Sources
                                             hud_.GameInfos.Round = 0;
 
                                         this.hud_.ResetBombset();
+                                        this.hud_.UnselectAll();
                                         // TODO : calcul du score
                                         hud_.GameInfos.Score += 9000;
 
