@@ -1003,6 +1003,8 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
+            <Bombsetidx>0</Bombsetidx>
+            <Activated>true</Activated>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -1199,6 +1201,8 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
+            <Bombsetidx>1</Bombsetidx>
+            <Activated>false</Activated>
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
@@ -2000,6 +2004,28 @@
       </SquareProxy>
     </ArrayOfSquareProxy>
   </Board>
+  <Bombset>
+    <ArrayOfBombInfoProxy>
+      <BombInfoProxy>
+        <Quantity>2</Quantity>
+        <Type>0</Type>
+        <Name>BombSquare</Name>
+      </BombInfoProxy>
+    </ArrayOfBombInfoProxy>
+    <ArrayOfBombInfoProxy>
+      <BombInfoProxy>
+        <Quantity>1</Quantity>
+        <Type>3</Type>
+        <Name>BombAngle</Name>
+      </BombInfoProxy>
+      <BombInfoProxy>
+        <Quantity>1</Quantity>
+        <Type>3</Type>
+        <Name>BombAngle</Name>
+      </BombInfoProxy>
+    </ArrayOfBombInfoProxy>
+    <ArrayOfBombInfoProxy />
+  </Bombset>
   <SizeX>9</SizeX>
   <SizeY>9</SizeY>
 </MapElements>

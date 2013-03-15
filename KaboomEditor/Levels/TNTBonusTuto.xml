@@ -69,6 +69,8 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
+            <Bombsetidx>0</Bombsetidx>
+            <Activated>true</Activated>
           </EntityProxy>
         </Entities>
       </SquareProxy>
@@ -667,6 +669,15 @@
       </SquareProxy>
     </ArrayOfSquareProxy>
   </Board>
+  <Bombset>
+    <ArrayOfBombInfoProxy>
+      <BombInfoProxy>
+        <Quantity>1</Quantity>
+        <Type>3</Type>
+        <Name>BombAngle</Name>
+      </BombInfoProxy>
+    </ArrayOfBombInfoProxy>
+  </Bombset>
   <SizeX>9</SizeX>
   <SizeY>3</SizeY>
 </MapElements>

@@ -108,12 +108,10 @@ namespace Kaboom.Sources
 
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
 
-            KaboomResources.Levels["level1"] = LoadLevel("level1");
-            KaboomResources.Levels["level2"] = LoadLevel("level2");
             KaboomResources.Levels["TutoNormalBomb"] = LoadLevel("normalBombTuto");
             KaboomResources.Levels["TutoLineBomb"] = LoadLevel("LineBombTuto");
             KaboomResources.Levels["TutoConeBomb"] = LoadLevel("ConeBombTuto");
-            KaboomResources.Levels["TutoXBomb"] = LoadLevel("XBombsCombinationTuto");
+            KaboomResources.Levels["TutoXBomb"] = LoadLevel("CrossBombTuto");
             KaboomResources.Levels["TutoCheckPointBS"] = LoadLevel("CheckpointBS");
             KaboomResources.Levels["TutoHBomb"] = LoadLevel("HBombsCombinationTuto");
             KaboomResources.Levels["TutoUltimateBomb"] = LoadLevel("UltimateBombTuto");
@@ -128,7 +126,8 @@ namespace Kaboom.Sources
             KaboomResources.Levels["FindYourWayOut"] = LoadLevel("FindYourWayOut");
             KaboomResources.Levels["NumbaWan"] = LoadLevel("NumbaWan");
             KaboomResources.Levels["Unreachable"] = LoadLevel("Unreachable");
-            KaboomResources.Levels["Versus"] = LoadLevel("Versus");
+            KaboomResources.Levels["XFactor"] = LoadLevel("XFactor");
+            KaboomResources.Levels["OneStepAway"] = LoadLevel("OneStepAway");
             
         }
 

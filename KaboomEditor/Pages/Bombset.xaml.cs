@@ -30,6 +30,8 @@ namespace KaboomEditor.Pages
         /// </summary>
         private void FillBombList()
         {
+            if (this.me_.Bombset.Count == 0)
+                this.me_.Bombset.Add(new List<BombInfoProxy>());
             foreach (var bombInfoProxy in this.me_.Bombset[this.meIdx_])
                 this.BombsetList.Items.Add(bombInfoProxy);
         }
