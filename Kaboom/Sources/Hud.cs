@@ -54,6 +54,11 @@ namespace Kaboom.Sources
                 Activated = false;
                 Name = name;
             }
+
+            public BombInfo Clone()
+            {
+                return new BombInfo(this.Type, this.Quantity, this.Name);
+            }
         }
 
         private readonly SpriteBatch sb_;
@@ -63,7 +68,8 @@ namespace Kaboom.Sources
         private int widthEnd_;
         private bool isActive_;
         private int currentPos_;
-        private readonly List<BombInfo> bombSet_;
+        private List<BombInfo> bombSet_;
+        private readonly List<BombInfo> bombSetRef_;
 
         public List<BombInfo> BombSet
         {
@@ -73,7 +79,8 @@ namespace Kaboom.Sources
             }
             set
             {
-                bombSet_.AddRange(value);
+                bombSetRef_.AddRange(value);
+                this.bombSet_ = this.bombSetRef_.Select(bomb => bomb.Clone()).ToList();
                 this.isActive_ = false;
                 this.currentPos_ = 0;
             }
@@ -90,6 +97,7 @@ namespace Kaboom.Sources
             : base(game)
         {
             bombSet_ = new List<BombInfo>();
+            bombSetRef_ = new List<BombInfo>();
             sb_ = sb;
             height_ = 0;
             width_ = 0;
@@ -146,7 +154,11 @@ namespace Kaboom.Sources
             {
                 bombInfo.Quantity -= number;
                 if (bombInfo.Quantity < 0)
+                {
                     bombInfo.Quantity = 0;
+                }
+                else if (bombInfo.Quantity == 0)
+                    this.UnselectAll();
                 return true;
             }
             return false;
@@ -354,6 +366,14 @@ namespace Kaboom.Sources
                     (int)((296.0 / 780.0) * this.width_), 0, (int)((109.0 / 780.0) * this.width_),
                     (int)((119.0 / 125.0) * this.height_));
             return rotation.Contains(new Point((int)pos.X, (int)pos.Y)) ? EHudAction.BombRotation : EHudAction.NoAction;
+        }
+
+        /// <summary>
+        /// Reset current bombset
+        /// </summary>
+        public void ResetBombset()
+        {
+            this.bombSet_ = this.bombSetRef_.Select(bomb => bomb.Clone()).ToList();
         }
     }
 }

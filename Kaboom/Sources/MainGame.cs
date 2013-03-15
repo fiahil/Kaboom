@@ -226,6 +226,7 @@ namespace Kaboom.Sources
                                         if (hud_.GameInfos.Round <= 0)
                                             hud_.GameInfos.Round = 0;
 
+                                        this.hud_.ResetBombset();
                                         // TODO : calcul du score
                                         hud_.GameInfos.Score += 9000;
 
@@ -259,7 +260,7 @@ namespace Kaboom.Sources
                                                 this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(),
                                                                        currentBomb_.Coord);
                                                 hud_.RemoveBombOfType(pattern);
-                                                hud_.UnselectAll();
+                                                //hud_.UnselectAll(); Dot not unselect bomb after a put
                                                 currentBomb_.Coord.X = -1;
                                                 currentBomb_.Coord.Y = -1;
                                             }

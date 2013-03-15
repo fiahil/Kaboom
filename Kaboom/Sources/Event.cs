@@ -33,7 +33,7 @@ namespace Kaboom.Sources
         /// </summary>
         public Event()
         {
-            TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete | GestureType.DoubleTap | 
+            TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete | 
                                          GestureType.Tap | GestureType.Pinch | GestureType.PinchComplete;
             this.oldDrag_ = Vector2.Zero;
             this.Pinch_ = Vector2.Zero;
