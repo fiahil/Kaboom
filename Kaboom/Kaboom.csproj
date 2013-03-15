@@ -185,9 +185,6 @@
     <AndroidAsset Include="..\KaboomEditor\Levels\XFactor.xml">
       <Link>Assets\Content\XFactor.xml</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\KaboomEditor\Levels\level.xml">
-      <Link>Assets\Content\level.xml</Link>
-    </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
