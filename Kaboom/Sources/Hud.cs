@@ -73,7 +73,7 @@ namespace Kaboom.Sources
             }
             set
             {
-                bombSet_ = value;
+                bombSet_.AddRange(value);
                 this.isActive_ = false;
                 this.currentPos_ = 0;
             }
