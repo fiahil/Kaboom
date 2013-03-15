@@ -189,31 +189,12 @@ namespace Kaboom.Sources
                 if (((Bomb) this.entities_[3]).SetForExplosion(time))
                     ++NbCurrentExplosions;
             }
-            if (this.entities_[2] != null)
+            if (this.entities_[2] != null && ((CheckPoint)this.entities_[2]).Activated == false)
             {
                 ((CheckPoint) this.entities_[2]).Activated = true;
                 if (this.Bombset != null)
                     this.Bombset(this.entities_[2], null);
             }
         }
-
-        #region Unitest
-        /// <summary>
-        /// Square Unitests
-        /// </summary>
-        public static void Unitest()
-        {
-            var sq = new Square(Point.Zero);
-
-            // Z-index test
-            sq.AddEntity(new Entity(0, null));
-            sq.AddEntity(new Entity(2, null));
-            sq.AddEntity(new Entity(5, null, EVisibility.Transparent));
-            sq.AddEntity(new Entity(1, null));
-            sq.AddEntity(new Entity(2, null));
-
-            // Put your breakpoint here
-        }
-        #endregion
     }
 }

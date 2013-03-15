@@ -22,7 +22,7 @@
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
             <Bombsetidx>0</Bombsetidx>
-            <Activated>false</Activated>
+            <Activated>true</Activated>
           </EntityProxy>
         </Entities>
       </SquareProxy>

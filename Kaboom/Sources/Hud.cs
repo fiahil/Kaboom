@@ -63,7 +63,7 @@ namespace Kaboom.Sources
         private int widthEnd_;
         private bool isActive_;
         private int currentPos_;
-        private List<BombInfo> bombSet_;
+        private readonly List<BombInfo> bombSet_;
 
         public List<BombInfo> BombSet
         {
@@ -89,6 +89,7 @@ namespace Kaboom.Sources
         public Hud(Game game, SpriteBatch sb)
             : base(game)
         {
+            bombSet_ = new List<BombInfo>();
             sb_ = sb;
             height_ = 0;
             width_ = 0;

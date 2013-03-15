@@ -30,7 +30,18 @@ namespace Kaboom.Sources
 
             var typeArray = Pattern.All;
 
+            this.bombsets_ = new List<List<Hud.BombInfo>>();
+
+            foreach (var bombset in me.Bombset)
+            {
+                this.bombsets_.Add(
+                    bombset.Select(bomb => new Hud.BombInfo(typeArray[bomb.Type], bomb.Quantity, bomb.Name))
+                           .ToList());
+            }
+
+            ((MainGame)this.Game).BombSet(this.bombsets_[0]);
             this.board_ = new Square[this.SizeX,this.SizeY];
+
             for (var i = 0; i < this.SizeX; i++)
             {
                 for (var j = 0; j < this.SizeY; j++)
@@ -41,17 +52,6 @@ namespace Kaboom.Sources
                     this.board_[i, j].Bombset +=
                         (sender, args) =>
                         ((MainGame) this.Game).BombSet(this.bombsets_[((CheckPoint) sender).BombsetIdx]);
-
-                    this.bombsets_ = new List<List<Hud.BombInfo>>();
-
-                    foreach (var bombset in me.Bombset)
-                    {
-                        this.bombsets_.Add(
-                            bombset.Select(bomb => new Hud.BombInfo(typeArray[bomb.Type], bomb.Quantity, bomb.Name))
-                                   .ToList());
-                    }
-
-                    ((MainGame)this.Game).BombSet(this.bombsets_[0]);
 
                     foreach (var entity in me.Board[i][j].Entities)
                     {
