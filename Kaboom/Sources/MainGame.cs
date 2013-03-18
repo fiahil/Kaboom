@@ -141,12 +141,13 @@ namespace Kaboom.Sources
             this.hud_ = new Hud(this, this.spriteBatch_);
             hud_.GameInfos.Round = 10;
             hud_.GameInfos.Score = 4321;
-            this.Components.Add(this.hud_);
 
             this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Levels[this.level_]);
             this.map_.EndGameManager += ManageEndGame;
             Viewport.Instance.Initialize(GraphicsDevice, this.map_);
+
             this.Components.Add(this.map_);
+            this.Components.Add(this.hud_);
         }
 
 

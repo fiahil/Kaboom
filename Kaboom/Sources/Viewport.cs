@@ -217,12 +217,16 @@ namespace Kaboom.Sources
         public void HandlePinch(Action act)
         {
             if (Math.Abs(act.DeltaX) <= 2) return;
-            
+
+            var tmp = Camera.Instance.DimY;
             Camera.Instance.DimX += act.DeltaX;
             Camera.Instance.DimY += act.DeltaY;
 
             if (Camera.Instance.DimX > 100 || Camera.Instance.DimY > 100)
                 Camera.Instance.DimY = Camera.Instance.DimX = 100;
+
+            if (tmp == Camera.Instance.DimY)
+                return;
 
             // NEED TO RESHARP
 
@@ -232,7 +236,8 @@ namespace Kaboom.Sources
                 {
                     Camera.Instance.DimX = maxZoom_[1];
                     Camera.Instance.DimY = maxZoom_[1];
-                    //this.ZoomOut();
+                    this.ZoomOut();
+                    return;
                 }
             }
             else
@@ -241,14 +246,15 @@ namespace Kaboom.Sources
                 {
                     Camera.Instance.DimX = maxZoom_[0];
                     Camera.Instance.DimY = maxZoom_[0];
-                    //this.ZoomOut();
+                    this.ZoomOut();
+                    return;
                 }
             }
 
             try
             {
                 if (this.PinchPos == Point.Zero)
-                    this.PinchPos = this.map_.GetCoordByPos(new Vector2(this.graphicsDevice_.Viewport.Width / 2, this.graphicsDevice_.Viewport.Height / 2));
+                    this.PinchPos = this.map_.GetCoordByPos(new Vector2((int)(this.graphicsDevice_.Viewport.Width / 2.0), (int)(this.graphicsDevice_.Viewport.Height / 2.0)));
 
                 Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
                 if (this.GetOrientation() == DisplayOrientation.Portrait)
