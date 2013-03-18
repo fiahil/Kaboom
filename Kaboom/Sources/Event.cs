@@ -56,12 +56,7 @@ namespace Kaboom.Sources
             {
                 var g = TouchPanel.ReadGesture();
 
-                if (g.GestureType == GestureType.DoubleTap)
-                {
-                    ret.ActionType = Viewport.Instance.IsZoomed ? Action.Type.ZoomOut : Action.Type.ZoomIn;
-                    ret.Pos = g.Position;
-                    return ret;
-                }
+              
                 if (g.GestureType == GestureType.Pinch)
                 {
                     ret.ActionType = Action.Type.Pinch;

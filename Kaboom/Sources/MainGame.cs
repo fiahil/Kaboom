@@ -200,11 +200,6 @@ namespace Kaboom.Sources
                             Camera.Instance.OffY += ret.DeltaY;
 
                             break;
-                        case Action.Type.ZoomIn:
-                            Viewport.Instance.ZoomIn(ret.Pos);
-                            break;
-
-
                         case Action.Type.Pinch:
                             {
                                 Viewport.Instance.HandlePinch(ret);
