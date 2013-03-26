@@ -71,6 +71,7 @@
     <Compile Include="Sources\Event.cs" />
     <Compile Include="Sources\Explodable.cs" />
     <Compile Include="Sources\Hud.cs" />
+    <Compile Include="Sources\Ladder.cs" />
     <Compile Include="Sources\MainActivity.cs" />
     <Compile Include="Sources\MainGame.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -179,6 +180,7 @@
     <AndroidAsset Include="..\KaboomEditor\Levels\CrossBombTuto.xml">
       <Link>Assets\Content\CrossBombTuto.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="Assets\Content\LadderScreen.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

@@ -32,6 +32,8 @@ namespace Kaboom.Sources
         private Hud hud_;
         private readonly CurrentElement currentBomb_;
         private bool ended_;
+        private Ladder ladder_;
+
  
 
         /// <summary>
@@ -48,6 +50,13 @@ namespace Kaboom.Sources
             this.level_ = level;
             ended_ = false;
             this.em_ = new Event();
+            this.ladder_ = new Ladder("test.xml"); // TODO : test
+            this.ladder_.AddEntry(1000000, "toto1");
+            this.ladder_.AddEntry(100, "toto3");
+            this.ladder_.AddEntry(100553, "toto3");
+            this.ladder_.AddEntry(1030, "bite");
+            this.ladder_.AddEntry(167400, "totobba");
+
             Content.RootDirectory = "Content";
         }
 
@@ -92,6 +101,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["goal"] = Content.Load<Texture2D>("GoalSheet");
             KaboomResources.Textures["checkpoint"] = Content.Load<Texture2D>("CheckPoint");
             KaboomResources.Textures["endScreen"] = Content.Load<Texture2D>("endScreen");
+            KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 8, 18 }, 2, 20);
@@ -160,6 +170,12 @@ namespace Kaboom.Sources
                  {
                      case Hud.EHudEndAction.Menu:
                          this.Exit();
+                         break;
+                     case Hud.EHudEndAction.Ladder:
+                         ladder_.IsDisplay = true;
+                         break;
+                     case Hud.EHudEndAction.Score:
+                         ladder_.IsDisplay = false;
                          break;
                      case Hud.EHudEndAction.Reload:
                          break;
@@ -302,8 +318,13 @@ namespace Kaboom.Sources
 
             base.Draw(gameTime);
 
-           if (ended_)
-               hud_.DrawEnd(gameTime);
+            if (ended_)
+            {
+                if (ladder_.IsDisplay)
+                    hud_.DrawLadder(gameTime, ladder_.GetLadder());
+                else
+                    hud_.DrawEnd(gameTime);
+            }
         }
 
         /// <summary>
@@ -313,6 +334,8 @@ namespace Kaboom.Sources
         /// <param name="ea"></param>
         public void ManageEndGame(object sender, EventArgs ea)
         {
+            if (ended_ == false)
+                this.ladder_.AddEntry(this.hud_.GameInfos.Score, "Mon Score");
             // TODO : Manage end game here
             ended_ = true;
             //this.Exit();

@@ -22,6 +22,8 @@ namespace Kaboom.Sources
             NoAction,
             Reload,
             Menu,
+            Ladder,
+            Score,
             Next
         }
 
@@ -264,6 +266,42 @@ namespace Kaboom.Sources
             this.sb_.End();
         }
 
+        public void DrawLadder(GameTime gameTime, List<Ladder.LadderEntry> ladder)
+        {
+            this.sb_.Begin();
+            // Image en fonction du nombre de point (pour etoile)
+            this.sb_.Draw(KaboomResources.Textures["ladderScreen"],
+                                   new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
+                                                 (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
+                                                 this.widthEnd_, this.heightEnd_), Color.White);
+
+            var padding = 0;
+
+            foreach (var ladderEntry in ladder)
+            {
+                if (padding == (100 * 5))
+                    break;
+
+                var scoreS = ladderEntry.Name;
+                var toPadd = 14 - scoreS.Length;
+                if (toPadd > 0)
+                    for (var i = 0; i < toPadd; i++)
+                    {
+                        scoreS += " ";
+                    }
+                scoreS += " " + ladderEntry.Score.ToString(CultureInfo.InvariantCulture);
+                this.sb_.DrawString(KaboomResources.Fonts["default"],
+                                scoreS,
+                                new Vector2(
+                                    ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))
+                                    + (int)((((270.0) / 700.0) * this.widthEnd_)),
+                                    ((this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2))
+                                    + (int)((((260.0 + padding) / 450.0) * this.heightEnd_) / 2)), Color.White);
+                padding += 100;
+            }
+
+            this.sb_.End();
+        }
 
         public void DrawEnd(GameTime gametime)
         {
@@ -277,7 +315,7 @@ namespace Kaboom.Sources
                                              scoreS,
                                              new Vector2(
                                                  ((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))
-                                                 + (int)((((260.0 + (14 * scoreS.Length)) / 700) * this.widthEnd_)),
+                                                 + (int)((((240.0 + (14 * scoreS.Length)) / 700) * this.widthEnd_)),
                                                  ((this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2))
                                                  + (int)((325.0 / 450.0) * this.heightEnd_)), Color.White);
                 this.sb_.End();
@@ -309,7 +347,29 @@ namespace Kaboom.Sources
                    ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2)) +
                    (int)(((192.0 + 109.0 + 109.0) / 700.0) * this.widthEnd_), ((this.Game.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2)) +
                    (int)((373.0 / 450.0) * this.heightEnd_), (int)((109.0 / 700.0) * this.widthEnd_), (int)((82.0 / 450.0) * this.heightEnd_));
-            return next.Contains(new Point((int)pos.X, (int)pos.Y)) ? EHudEndAction.Next : EHudEndAction.NoAction;
+            if (next.Contains(new Point((int)pos.X, (int)pos.Y)))
+                return EHudEndAction.Next;
+ 
+            var ladder =
+                          new Rectangle(
+                   ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2)) +
+                   (int)(((402) / 700.0) * this.widthEnd_), ((this.Game.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2)) +
+                   (int)((305.0 / 450.0) * this.heightEnd_), (int)((109.0 / 700.0) * this.widthEnd_), (int)((82.0 / 450.0) * this.heightEnd_));
+            if (ladder.Contains(new Point((int)pos.X, (int)pos.Y)))
+                return EHudEndAction.Ladder;
+
+            // square 130w 51h
+            // pos 388w 59h
+            var score =
+                         new Rectangle(
+                  ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2)) +
+                  (int)(((388) / 700.0) * this.widthEnd_), ((this.Game.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2)) +
+                  (int)((59 / 450.0) * this.heightEnd_), (int)((130.0 / 700.0) * this.widthEnd_), (int)((51.0 / 450.0) * this.heightEnd_));
+            if (score.Contains(new Point((int)pos.X, (int)pos.Y)))
+                return EHudEndAction.Score;
+
+            return EHudEndAction.NoAction;
+
         }
 
 
