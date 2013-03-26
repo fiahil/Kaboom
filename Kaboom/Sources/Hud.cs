@@ -81,7 +81,14 @@ namespace Kaboom.Sources
             }
             set
             {
-                bombSetRef_.AddRange(value);
+                foreach (var bombInfo in value)
+                {
+                    var i = this.bombSetRef_.FindIndex((val) => bombInfo.Type == val.Type);
+                    if (i != -1)
+                        this.bombSetRef_[i].Quantity += bombInfo.Quantity;
+                    else
+                        this.bombSetRef_.Add(bombInfo);
+                }
                 this.bombSet_ = this.bombSetRef_.Select(bomb => bomb.Clone()).ToList();
                 this.isActive_ = false;
                 this.currentPos_ = 0;
