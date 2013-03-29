@@ -73,14 +73,17 @@ namespace Kaboom.Sources
                         if (checkPointProxy != null)
                         {
                             this.board_[i, j].AddEntity(
-                                new CheckPoint(new SpriteSheet(
-                                    KaboomResources.Textures[checkPointProxy.TileIdentifier], 
-                                    checkPointProxy.TileFramePerAnim,
-                                    checkPointProxy.TileTotalAnim,
-                                    checkPointProxy.TileFrameSpeed), 500, checkPointProxy.Activated, checkPointProxy.Bombsetidx));
+                                new CheckPoint(KaboomResources.Sprites[checkPointProxy.TileIdentifier].Clone(), 500,
+                                               checkPointProxy.Activated, checkPointProxy.Bombsetidx));
                         }
 
-                        if (blockProxy != null)
+                        if (blockProxy != null && blockProxy.GameEnd)
+                        {
+                            this.board_[i, j].AddEntity(
+                                new Block(KaboomResources.Sprites[blockProxy.TileIdentifier].Clone(), blockProxy.Destroyable, blockProxy.GameEnd));
+                        }
+                        
+                        if (blockProxy != null && blockProxy.GameEnd == false)
                         {
                             this.board_[i, j].AddEntity(
                                 new Block(new SpriteSheet(
@@ -89,6 +92,7 @@ namespace Kaboom.Sources
                                               blockProxy.TileTotalAnim,
                                               blockProxy.TileFrameSpeed), blockProxy.Destroyable, blockProxy.GameEnd));
                         }
+
                         else
                         {
                             this.board_[i, j].AddEntity(

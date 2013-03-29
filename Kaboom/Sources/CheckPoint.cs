@@ -2,6 +2,8 @@
 {
     class CheckPoint : Entity
     {
+        private bool activated_;
+
         /// <summary>
         /// Creates a new CheckPoint
         /// </summary>
@@ -17,7 +19,16 @@
             BombsetIdx = bombsetidx;
         }
 
-        public bool Activated { get; set; }
+        public bool Activated
+        {
+            get { return activated_; }
+            set
+            {
+                activated_ = value;
+                this.Tile.CAnimation = value ? 1 : 0;
+            }
+        }
+
         public int BombsetIdx { get; set; }
         public int Time { get; private set; }
     }

@@ -83,7 +83,7 @@ namespace Kaboom.Sources
             {
                 foreach (var bombInfo in value)
                 {
-                    var i = this.bombSetRef_.FindIndex((val) => bombInfo.Type == val.Type);
+                    var i = this.bombSetRef_.FindIndex(val => bombInfo.Type == val.Type);
                     if (i != -1)
                         this.bombSetRef_[i].Quantity += bombInfo.Quantity;
                     else
