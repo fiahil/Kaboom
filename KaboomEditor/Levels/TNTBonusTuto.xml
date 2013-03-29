@@ -39,13 +39,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -89,13 +90,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -137,13 +139,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -163,13 +166,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -211,13 +215,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -237,13 +242,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -285,13 +291,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -311,13 +318,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -359,13 +367,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -385,13 +394,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -433,13 +443,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -459,13 +470,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -507,13 +519,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -533,13 +546,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -581,13 +595,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>
@@ -632,13 +647,14 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
+            <TileIdentifier>background2</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
+              <int>2</int>
             </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
+            <TileFrameSpeed>2</TileFrameSpeed>
+            <TileTotalAnim>2</TileTotalAnim>
+            <Destroyable>true</Destroyable>
             <GameEnd>false</GameEnd>
           </EntityProxy>
         </Entities>

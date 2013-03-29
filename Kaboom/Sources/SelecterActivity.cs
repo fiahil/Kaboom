@@ -21,9 +21,10 @@ namespace Kaboom.Sources
             FindViewById<ListView>(Resource.Id.listViewLevel).Adapter = new ArrayAdapter(this,
                                                                                          Android.Resource.Layout.SimpleListItem1,
                                                                                          new[] {"TutoNormalBomb", "TutoLineBomb", "TutoConeBomb", "TutoXBomb", "TutoCheckPointBS",
-                                                                                             "TutoHBomb", "TutoUltimateBomb", "TutoBonusTNT", "NumbaWan", "Versus", "CombisTheG",
-                                                                                             "DidUCheckTuto", "TheBreach","DynamiteWarehouse", "FaceToFace", "OneStepAway", "XFactor",
-                                                                                                "Unreachable", "FindYourWayOut", "A-Maze-Me"});
+                                                                                             "TutoHBomb", "TutoUltimateBomb", "TutoBonusTNT", "A-Maze-Me", "CombisTheG", "Corporate",
+                                                                                         "ChooseYourSide", "DidUCheckTuto", "DynamiteWarehouse", "FaceToFace", "FindYourWayOut",
+                                                                                         "InTheRedCorner", "Invasion", "It's Something", "Life", "NumbaWan", "OneStepAway",
+                                                                                         "OppositeForces", "Tetris", "TheBreach", "Unreachable", "Versus", "XFactor"});
 
             FindViewById<ListView>(Resource.Id.listViewLevel).ItemClick +=
                 (sender, e) =>

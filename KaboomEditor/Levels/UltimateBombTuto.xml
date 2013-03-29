@@ -159,18 +159,6 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background2</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-              <int>2</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>2</TileFrameSpeed>
-            <TileTotalAnim>2</TileTotalAnim>
-            <Destroyable>true</Destroyable>
-            <GameEnd>false</GameEnd>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
             <TileIdentifier>goal</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>

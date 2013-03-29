@@ -129,16 +129,28 @@ namespace Kaboom.Sources
 
             KaboomResources.Levels["A-Maze-Me"] = LoadLevel("A-Maze-Me");
             KaboomResources.Levels["CombisTheG"] = LoadLevel("CombisTheG");
+            KaboomResources.Levels["Corporate"] = LoadLevel("Corporate");
+            KaboomResources.Levels["ChooseYourSide"] = LoadLevel("ChooseYourSide");
             KaboomResources.Levels["DidUCheckTuto"] = LoadLevel("DidUCheckTuto");
+
             KaboomResources.Levels["DynamiteWarehouse"] = LoadLevel("DynamiteWarehouse");
-            KaboomResources.Levels["TheBreach"] = LoadLevel("TheBreach");
             KaboomResources.Levels["FaceToFace"] = LoadLevel("FaceToFace");
             KaboomResources.Levels["FindYourWayOut"] = LoadLevel("FindYourWayOut");
+            KaboomResources.Levels["InTheRedCorner"] = LoadLevel("InTheRedCorner");
+            KaboomResources.Levels["Invasion"] = LoadLevel("Invasion");
+
+            KaboomResources.Levels["It's Something"] = LoadLevel("It's Something");
+            KaboomResources.Levels["Life"] = LoadLevel("Life");
             KaboomResources.Levels["NumbaWan"] = LoadLevel("NumbaWan");
-            KaboomResources.Levels["Unreachable"] = LoadLevel("Unreachable");
-            KaboomResources.Levels["XFactor"] = LoadLevel("XFactor");
             KaboomResources.Levels["OneStepAway"] = LoadLevel("OneStepAway");
-            
+            KaboomResources.Levels["OppositeForces"] = LoadLevel("OppositeForces");
+
+            KaboomResources.Levels["Tetris"] = LoadLevel("Tetris");
+            KaboomResources.Levels["TheBreach"] = LoadLevel("TheBreach");
+            KaboomResources.Levels["Unreachable"] = LoadLevel("Unreachable");
+            KaboomResources.Levels["Versus"] = LoadLevel("Versus");
+            KaboomResources.Levels["XFactor"] = LoadLevel("XFactor");
+          
         }
 
         /// <summary>

@@ -1303,7 +1303,7 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
-            <Bombsetidx>1</Bombsetidx>
+            <Bombsetidx>2</Bombsetidx>
             <Activated>false</Activated>
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">

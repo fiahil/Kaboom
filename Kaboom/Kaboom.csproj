@@ -181,6 +181,30 @@
       <Link>Assets\Content\CrossBombTuto.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="Assets\Content\LadderScreen.png" />
+    <AndroidAsset Include="..\KaboomEditor\Levels\ChooseYourSide.xml">
+      <Link>Assets\Content\ChooseYourSide.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\Corporate.xml">
+      <Link>Assets\Content\Corporate.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\InTheRedCorner.xml">
+      <Link>Assets\Content\InTheRedCorner.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\Invasion.xml">
+      <Link>Assets\Content\Invasion.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\It%27s Something.xml">
+      <Link>Assets\Content\It%27s Something.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\Life.xml">
+      <Link>Assets\Content\Life.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\OppositeForces.xml">
+      <Link>Assets\Content\OppositeForces.xml</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\KaboomEditor\Levels\Tetris.xml">
+      <Link>Assets\Content\Tetris.xml</Link>
+    </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

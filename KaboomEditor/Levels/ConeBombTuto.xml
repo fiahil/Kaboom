@@ -619,7 +619,7 @@
   <Bombset>
     <ArrayOfBombInfoProxy>
       <BombInfoProxy>
-        <Quantity>3</Quantity>
+        <Quantity>4</Quantity>
         <Type>3</Type>
         <Name>BombAngle</Name>
       </BombInfoProxy>

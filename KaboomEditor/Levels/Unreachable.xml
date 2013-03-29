@@ -2492,8 +2492,8 @@
     <ArrayOfBombInfoProxy>
       <BombInfoProxy>
         <Quantity>1</Quantity>
-        <Type>2</Type>
-        <Name>BombLine</Name>
+        <Type>3</Type>
+        <Name>BombAngle</Name>
       </BombInfoProxy>
     </ArrayOfBombInfoProxy>
     <ArrayOfBombInfoProxy>
