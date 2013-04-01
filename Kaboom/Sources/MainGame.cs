@@ -112,8 +112,8 @@ namespace Kaboom.Sources
             KaboomResources.Sprites["BombTNT"] = new SpriteSheet(KaboomResources.Textures["BombSheetTNT"], new[] { 1, 25 }, 2, 20);
             KaboomResources.Sprites["BombH"] = new SpriteSheet(KaboomResources.Textures["BombSheetH"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombX"] = new SpriteSheet(KaboomResources.Textures["BombSheetX"], new[] { 8, 18 }, 2, 20);
-            KaboomResources.Sprites["DestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);
-            KaboomResources.Sprites["UndestructibleBlock"] = new SpriteSheet(KaboomResources.Textures["background3"], new[] { 1 }, 1, 1);
+            KaboomResources.Sprites["background2"] = new SpriteSheet(KaboomResources.Textures["background2"], new[] { 1, 2 }, 2, 2);
+            KaboomResources.Sprites["background3"] = new SpriteSheet(KaboomResources.Textures["background3"], new[] { 1, 8 }, 2, 20);
             KaboomResources.Sprites["Ground"] = new SpriteSheet(KaboomResources.Textures["background1"], new[] { 1 }, 1);
             KaboomResources.Sprites["checkpoint"] = new SpriteSheet(KaboomResources.Textures["checkpoint"], new[] { 1, 14 }, 2);
             KaboomResources.Sprites["goal"] = new SpriteSheet(KaboomResources.Textures["goal"], new[] { 14, 14 }, 2);

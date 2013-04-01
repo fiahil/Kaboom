@@ -77,20 +77,11 @@ namespace Kaboom.Sources
                                                checkPointProxy.Activated, checkPointProxy.Bombsetidx));
                         }
 
-                        if (blockProxy != null && blockProxy.GameEnd)
+                        if (blockProxy != null)
                         {
                             this.board_[i, j].AddEntity(
-                                new Block(KaboomResources.Sprites[blockProxy.TileIdentifier].Clone(), blockProxy.Destroyable, blockProxy.GameEnd));
-                        }
-                        
-                        if (blockProxy != null && blockProxy.GameEnd == false)
-                        {
-                            this.board_[i, j].AddEntity(
-                                new Block(new SpriteSheet(
-                                              KaboomResources.Textures[blockProxy.TileIdentifier],
-                                              blockProxy.TileFramePerAnim,
-                                              blockProxy.TileTotalAnim,
-                                              blockProxy.TileFrameSpeed), blockProxy.Destroyable, blockProxy.GameEnd));
+                                new Block(KaboomResources.Sprites[blockProxy.TileIdentifier].Clone(),
+                                          blockProxy.Destroyable, blockProxy.GameEnd));
                         }
 
                         else

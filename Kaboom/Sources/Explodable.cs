@@ -57,6 +57,13 @@ namespace Kaboom.Sources
             return true;
         }
 
+        public void ResetExplosionSettings()
+        {
+            readyToExplode_ = false;
+            timeBeforeExplosion_ = 0;
+            animationLaunched_ = false;
+        }
+
         /// <summary>
         /// Indicate whether the explosable component will be removed
         /// </summary>

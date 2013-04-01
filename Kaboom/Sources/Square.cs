@@ -95,6 +95,19 @@ namespace Kaboom.Sources
                 return false;
             }
 
+            if (entity is Block && this.entities_[4] == null)
+            {
+                if (((Block)entity).Destroyable == false && ((Block)entity).EndBlock == false)
+                {
+                    entity.Tile.AnimationDone -= AnimationDoneFunc;
+                    entity.Tile.AnimationDone += (sender, args) =>
+                        {
+                            ((Block) this.entities_[4]).ResetExplosionSettings();
+                            this.entities_[4].Tile.CAnimation = 0;
+                        };
+                }
+            }
+
             if (this.entities_[entity.ZIndex] == null)
             {
                 this.entities_[5] = null;
@@ -175,7 +188,7 @@ namespace Kaboom.Sources
         /// <param name="time">Time before explosion</param>
         public void Explode(double time)
         {
-            if (this.entities_[4] != null && ((Block) this.entities_[4]).Destroyable)
+            if (this.entities_[4] != null && ((Block)this.entities_[4]).Destroyable)
             {
                 if (((Block) this.entities_[4]).SetForExplosion(time))
                     ++NbCurrentExplosions;
@@ -183,6 +196,10 @@ namespace Kaboom.Sources
                 {
                     EndGame(this, null);
                 }
+            }
+            if (this.entities_[4] != null && ((Block)this.entities_[4]).Destroyable == false)
+            {
+                ((Block) this.entities_[4]).SetForExplosion(250);
             }
             if (this.entities_[3] != null)
             {
