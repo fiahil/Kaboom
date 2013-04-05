@@ -68,6 +68,7 @@
     <Compile Include="Sources\Bomb.cs" />
     <Compile Include="Sources\Camera.cs" />
     <Compile Include="Sources\CheckPoint.cs" />
+    <Compile Include="Sources\CustomizedList.cs" />
     <Compile Include="Sources\Event.cs" />
     <Compile Include="Sources\Explodable.cs" />
     <Compile Include="Sources\Hud.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Sources\Map.cs" />
     <Compile Include="Sources\KaboomResources.cs" />
     <Compile Include="Serializer\MapElements.cs" />
+    <Compile Include="Sources\MenuActivity.cs" />
     <Compile Include="Sources\Pattern.cs" />
     <Compile Include="Sources\SelecterActivity.cs" />
     <Compile Include="Sources\SpriteSheet.cs" />
@@ -92,6 +94,12 @@
     <AndroidAsset Include="Assets\Content\BombSheet.xnb" />
     <AndroidAsset Include="Assets\Content\defaultFont.xnb" />
     <None Include="Resources\AboutResources.txt" />
+    <AndroidResource Include="Resources\Layout\LevelSelector.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ModeSelection.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Layout\Main.axml" />
@@ -209,6 +217,9 @@
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
     <AndroidResource Include="Resources\Drawable\Screen.png" />
+    <AndroidResource Include="Resources\Drawable\kboom.png" />
+    <AndroidResource Include="Resources\Drawable\backgroundMenu.png" />
+    <AndroidResource Include="Resources\Drawable\button.PNG" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

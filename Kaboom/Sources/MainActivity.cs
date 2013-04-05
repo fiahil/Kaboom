@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework;
 
 namespace Kaboom.Sources
 {
+
+
     [Activity(MainLauncher = false,
         Icon = "@drawable/icon",
         Theme = "@style/Theme.Splash",
