@@ -50,12 +50,10 @@ namespace Kaboom.Sources
             this.level_ = level;
             ended_ = false;
             this.em_ = new Event();
-            this.ladder_ = new Ladder("test.xml"); // TODO : test
-            this.ladder_.AddEntry(1000000, "toto1");
-            this.ladder_.AddEntry(100, "toto3");
-            this.ladder_.AddEntry(100553, "toto3");
-            this.ladder_.AddEntry(1030, "bite");
-            this.ladder_.AddEntry(167400, "totobba");
+            this.ladder_ = new Ladder(); // TODO : test
+            this.ladder_.AddEntry(167400, "King Prius");
+            this.ladder_.AddEntry(100553, "Queen Sandra");
+            this.ladder_.AddEntry(1030, "Prince Fubbert");
 
             Content.RootDirectory = "Content";
         }
@@ -81,6 +79,8 @@ namespace Kaboom.Sources
         {
             base.LoadContent();
             this.spriteBatch_ = new SpriteBatch(GraphicsDevice);
+
+            #region Load
 
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
@@ -152,7 +152,9 @@ namespace Kaboom.Sources
             KaboomResources.Levels["Unreachable"] = LoadLevel("Unreachable");
             KaboomResources.Levels["Versus"] = LoadLevel("Versus");
             KaboomResources.Levels["XFactor"] = LoadLevel("XFactor");
-          
+
+            #endregion
+
         }
 
         /// <summary>

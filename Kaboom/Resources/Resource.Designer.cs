@@ -36,7 +36,7 @@ namespace Kaboom
 			public const int Icon = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int kboom = 2130837507;
+			public const int iconList = 2130837507;
 			
 			// aapt resource value: 0x7f020004
 			public const int Screen = 2130837508;

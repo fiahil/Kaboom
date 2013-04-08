@@ -28,12 +28,10 @@ namespace Kaboom.Sources
         }
 
         private List<LadderEntry> ladder_;
-        private readonly string mapName_;
         public bool IsDisplay;
 
-        public Ladder(string mapName)
+        public Ladder()
         {
-            mapName_ = mapName;
             ladder_ = new List<LadderEntry>();
             IsDisplay = false;
             //Todo : Load current ladder from xml file
@@ -80,14 +78,6 @@ namespace Kaboom.Sources
             Sort();
         }
 
-        public void Serialize()
-        {
-            var serializer = new XmlSerializer(typeof(Ladder));
-            using (var fs = TitleContainer.OpenStream(mapName_))
-            {
-                serializer.Serialize(fs, this);
-            }
-        }
 
     }
 }

@@ -102,7 +102,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Layout\Main.axml" />
+    <AndroidResource Include="Resources\Layout\Main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -217,9 +219,9 @@
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
     <AndroidResource Include="Resources\Drawable\Screen.png" />
-    <AndroidResource Include="Resources\Drawable\kboom.png" />
     <AndroidResource Include="Resources\Drawable\backgroundMenu.png" />
     <AndroidResource Include="Resources\Drawable\button.PNG" />
+    <AndroidResource Include="Resources\Drawable\iconList.PNG" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widget28"
     android:layout_width="fill_parent"
-    android:layout_height="80px">
+    android:layout_height="80px"
+      android:background="@drawable/button"
+  >
     <ImageView
         android:id="@+id/imageItem"
         android:layout_width="wrap_content"
@@ -16,11 +18,13 @@
         android:layout_marginLeft="10px"
         android:layout_marginTop="10px">
         <TextView
+          android:textColor="#ffffff"
             android:id="@+id/textTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView" />
         <TextView
+          android:textColor="#ffffff"
             android:id="@+id/textBottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

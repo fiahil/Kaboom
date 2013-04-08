@@ -5,8 +5,9 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="@drawable/backgroundMenu">
-    <TextView
-        android:text="Select a Map"
+  <TextView
+        android:textColor="#000000"
+      android:text="Select a Map"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -18,6 +19,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="30.0dp"
-        android:layout_marginLeft="0.0dp"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
         android:stackFromBottom="false" />
 </LinearLayout>

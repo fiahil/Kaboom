@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/backgroundMenu">
     <TextView
+          android:textColor="#000000"
         android:text="Game mode"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="fill_parent"
@@ -17,7 +18,7 @@
          android:id="@+id/linearText"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
-         android:layout_marginTop="100.0dp" 
+         android:layout_marginTop="80.0dp" 
          >
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -55,7 +56,7 @@
          android:layout_height="80.7dp"
          android:id="@+id/TutoButton"
          android:layout_marginTop="30.7dp"
-         android:layout_marginBottom="30.7dp"
+         android:layout_marginBottom="50.7dp"
          android:layout_marginRight="24.0dp"
          android:layout_marginLeft="24.0dp"
            android:clickable="true"

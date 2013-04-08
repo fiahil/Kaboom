@@ -43,21 +43,21 @@ namespace Kaboom.Sources
                 list_ = new List<ElementMenu>()
                             {
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "TutoNormalBomb"},
+                                    {Description = "A tutorial map to learn how to use normal bomb", Image = Resource.Drawable.iconList, Name = "TutoNormalBomb"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "TutoLineBomb"},
+                                    {Description = "A tutorial map to learn how to use line bomb", Image = Resource.Drawable.iconList, Name = "TutoLineBomb"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "TutoConeBomb"},
+                                    {Description = "A tutorial map to learn how to use cone bomb", Image = Resource.Drawable.iconList, Name = "TutoConeBomb"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "TutoXBomb"},
+                                    {Description = "A tutorial map to learn how to use \"X\" bomb", Image = Resource.Drawable.iconList, Name = "TutoXBomb"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "TutoCheckPointBS"},
+                                    {Description = "A tutorial map to learn how usefull are the checkpoints", Image = Resource.Drawable.iconList, Name = "TutoCheckPointBS"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "TutoHBomb"},
+                                    {Description = "A tutorial map to learn how to use \"H\" bomb", Image = Resource.Drawable.iconList, Name = "TutoHBomb"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "TutoUltimateBomb"},
+                                    {Description = "A tutorial map to learn how to use ultimate bomb", Image = Resource.Drawable.iconList, Name = "TutoUltimateBomb"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "TutoBonusTNT"}
+                                    {Description = "A tutorial map to learn how to interact with TNT bonus", Image = Resource.Drawable.iconList, Name = "TutoBonusTNT"}
                             };
                 #endregion
             }
@@ -71,36 +71,53 @@ namespace Kaboom.Sources
                 list_ = new List<ElementMenu>()
                             {
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "A-Maze-Me"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "A-Maze-Me"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "CombisTheG"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "CombisTheG"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "Corporate"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Corporate"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "ChooseYourSide"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "ChooseYourSide"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "DidUCheckTuto"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "DidUCheckTuto"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "DynamiteWarehouse"},
+                                    {
+                                        Description = "test",
+                                        Image = Resource.Drawable.iconList,
+                                        Name = "DynamiteWarehouse"
+                                    },
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "FaceToFace"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "FaceToFace"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "FindYourWayOut"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "FindYourWayOut"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "InTheRedCorner"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "InTheRedCorner"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "Invasion"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Invasion"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "It's Something"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "It's Something"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "Life"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Life"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "NumbaWan"},
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "NumbaWan"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.Icon, Name = "OneStepAway"}
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "OneStepAway"},
+                                new ElementMenu()
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "OppositeForces"},
+                                new ElementMenu()
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Tetris"},
+                                new ElementMenu()
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "TheBreach"},
+                                new ElementMenu()
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Unreachable"},
+                                new ElementMenu()
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Versus"},
+                                new ElementMenu()
+                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "XFactor"}
                             };
+
                 #endregion
-            }     
+            }
 
 
             listAdapter_ = new CustomListAdapter(this, list_);
