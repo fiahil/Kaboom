@@ -33,8 +33,8 @@ namespace Kaboom.Sources
         private readonly CurrentElement currentBomb_;
         private bool ended_;
         private Ladder ladder_;
-
- 
+        private bool explosionMode_;
+        private ScoreManager score_ = ScoreManager.Instance;
 
         /// <summary>
         /// Create the game instance
@@ -166,7 +166,7 @@ namespace Kaboom.Sources
 
             this.hud_ = new Hud(this, this.spriteBatch_);
             hud_.GameInfos.Round = 10;
-            hud_.GameInfos.Score = 4321;
+            score_.Restart(10); // mettre le bombre de tour au depart
 
             this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Levels[this.level_]);
             this.map_.EndGameManager += ManageEndGame;
@@ -212,6 +212,14 @@ namespace Kaboom.Sources
             Viewport.Instance.Update();
             ///////////////////////////////////////////////////////TODO: Not A TODO: Gesture test
 
+            if (explosionMode_)
+            {
+                if (map_.NbExplosions == 0)
+                {
+                    explosionMode_ = false;
+                    score_.EndOfTurn(hud_.TotalBombsNumber());
+                }
+            }
             Action ret;
             while ((ret = this.em_.GetEvents()).ActionType != Action.Type.NoEvent)
             {
@@ -241,6 +249,7 @@ namespace Kaboom.Sources
                             {
                                 var hudEvent = this.hud_.GetHudEvent(ret.Pos);
 
+                                if (explosionMode_) continue;
                                 if (hudEvent != Hud.EHudAction.NoAction)
                                 {
                                     if (hudEvent == Hud.EHudAction.BombDetonation)
@@ -256,9 +265,7 @@ namespace Kaboom.Sources
 
                                         this.hud_.ResetBombset();
                                         this.hud_.UnselectAll();
-                                        // TODO : calcul du score
-                                        hud_.GameInfos.Score += 9000;
-
+                                        explosionMode_ = true;
                                     }
                                     else if (hudEvent == Hud.EHudAction.BombRotation)
                                     {
@@ -350,8 +357,9 @@ namespace Kaboom.Sources
         /// <param name="ea"></param>
         public void ManageEndGame(object sender, EventArgs ea)
         {
+            score_.EndReached(hud_.RemainingTurns);
             if (ended_ == false)
-                this.ladder_.AddEntry(this.hud_.GameInfos.Score, "Mon Score");
+                this.ladder_.AddEntry(this.hud_.GameInfos.Score.Score, "Mon Score");
             // TODO : Manage end game here
             ended_ = true;
             //this.Exit();

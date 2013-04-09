@@ -30,12 +30,12 @@ namespace Kaboom.Sources
         public class GameProgressInfos
         {
             public int Round { get; set; }
-            public int Score { get; set; }
+            public ScoreManager Score { get; set; }
 
             public GameProgressInfos(int r, int s)
             {
                 Round = r;
-                Score = s;
+                Score = ScoreManager.Instance;
             }
         }
 
@@ -72,6 +72,7 @@ namespace Kaboom.Sources
         private int currentPos_;
         private List<BombInfo> bombSet_;
         private readonly List<BombInfo> bombSetRef_;
+        public int RemainingTurns { get { return GameInfos.Round; } }
 
         public List<BombInfo> BombSet
         {
@@ -253,7 +254,7 @@ namespace Kaboom.Sources
                 padding += 57;
             }
 
-            var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture);
+            var scoreS = GameInfos.Score.Score.ToString();
             this.sb_.DrawString(KaboomResources.Fonts["default"],
                                 scoreS,
                                 new Vector2(
@@ -317,7 +318,7 @@ namespace Kaboom.Sources
                                        new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
                                                      (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
                                                      this.widthEnd_, this.heightEnd_), Color.White);
-                var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture);
+                var scoreS = GameInfos.Score.Score.ToString(CultureInfo.InvariantCulture);
                 this.sb_.DrawString(KaboomResources.Fonts["default"],
                                              scoreS,
                                              new Vector2(
@@ -441,6 +442,11 @@ namespace Kaboom.Sources
         public void ResetBombset()
         {
             this.bombSet_ = this.bombSetRef_.Select(bomb => bomb.Clone()).ToList();
+        }
+
+        public int TotalBombsNumber()
+        {
+            return bombSet_.Sum(bombInfo => bombInfo.Quantity);
         }
     }
 }

@@ -82,6 +82,7 @@
     <Compile Include="Serializer\MapElements.cs" />
     <Compile Include="Sources\MenuActivity.cs" />
     <Compile Include="Sources\Pattern.cs" />
+    <Compile Include="Sources\ScoreManager.cs" />
     <Compile Include="Sources\SelecterActivity.cs" />
     <Compile Include="Sources\SpriteSheet.cs" />
     <Compile Include="Sources\Square.cs" />

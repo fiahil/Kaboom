@@ -20,6 +20,7 @@ namespace Kaboom.Sources
         public event EventHandler Bombset;
         
         public int NbCurrentExplosions { get; private set; }
+        private readonly ScoreManager score_ = ScoreManager.Instance;
 
         /// <summary>
         /// Square ctor
@@ -135,6 +136,7 @@ namespace Kaboom.Sources
                         Explosion(explosable as Bomb, this.Base);
                     if (explosable.MarkedForDestruction)
                     {
+                        score_.EntityDestructed(this.entities_[i]);
                         this.entities_[i] = null;
                         --NbCurrentExplosions;
                     }

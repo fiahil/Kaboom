@@ -14,6 +14,7 @@ namespace Kaboom.Sources
         private readonly SpriteBatch sb_;
         private bool endGame_;
         public event EventHandler EndGameManager;
+        public int NbExplosions { get; private set; }
 
         /// <summary>
         /// Initialize a new map from a MapElements
@@ -222,16 +223,15 @@ namespace Kaboom.Sources
         /// <param name="gameTime">GameClock</param>
         public override void Update(GameTime gameTime)
         {
-            var nbExplosions = 0;
-
             base.Update(gameTime);
 
+            NbExplosions = 0;
             foreach (var item in this.board_)
             {
                 item.Update(gameTime);
-                nbExplosions += item.NbCurrentExplosions;
+                NbExplosions += item.NbCurrentExplosions;
             }
-            if (nbExplosions == 0 && endGame_)
+            if (NbExplosions == 0 && endGame_)
             {
                 EndGameManager(this, null);
             }

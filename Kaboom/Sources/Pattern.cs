@@ -15,12 +15,17 @@ namespace Kaboom.Sources
             H,
             X,
             Ultimate,
+            BigLine,
+            DoubleSquare,
+            Rectangle,
+            HourGlass,
             NoPattern
         }
 
         public static Type[] All = new[]
             {
-                Type.Square, Type.Tnt, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate
+                Type.Square, Type.Tnt, Type.Line, Type.Angle, Type.BigSquare, Type.H, Type.X, Type.Ultimate, Type.BigLine, Type.DoubleSquare,
+                Type.Rectangle, Type.HourGlass
             };
 
         /// <summary>
@@ -326,10 +331,287 @@ namespace Kaboom.Sources
                                     new PatternElement(-3, -4)
                                 }
                         }
-                }
+                },
 
                 #endregion
+
+                #region BigLine
+                {
+                    Type.BigLine, new List<List<PatternElement>>
+                    {
+                        #region Vertival
+                        new List<PatternElement>
+                        {
+                                    new PatternElement(0, 0),
+
+                                    new PatternElement(-5, -1),
+                                    new PatternElement(-5, 0),
+                                    new PatternElement(-5, 1),
+
+                                    new PatternElement(-4, 0),
+
+                                    new PatternElement(-3, -1),
+                                    new PatternElement(-3, 0),
+                                    new PatternElement(-3, 1),
+
+                                    new PatternElement(-2, 0),
+
+                                    new PatternElement(-1, -1),
+                                    new PatternElement(-1, 1),
+
+                                    new PatternElement(0, -2),
+                                    new PatternElement(0, 2),
+
+                                    new PatternElement(1, -1),
+                                    new PatternElement(1, 1),
+
+                                    new PatternElement(2, 0),
+
+                                    new PatternElement(3, -1),
+                                    new PatternElement(3, 0),
+                                    new PatternElement(3, 1),
+                                    
+                                    new PatternElement(4, 0),
+
+                                    new PatternElement(5, -1),
+                                    new PatternElement(5, 0),
+                                    new PatternElement(5, 1),
+                        },
+                        #endregion
+            
+                        #region Horizontal
+                        new List<PatternElement>
+                        {
+                                    new PatternElement(0, 0),
+
+                                    new PatternElement(-1, -5),
+                                    new PatternElement(-0, -5),
+                                    new PatternElement(1, -5),
+
+                                    new PatternElement(0, -4),
+
+                                    new PatternElement(-1, -3),
+                                    new PatternElement(0, -3),
+                                    new PatternElement(1, -3),
+
+                                    new PatternElement(0, -2),
+
+                                    new PatternElement(-1, -1),
+                                    new PatternElement(1, -1),
+
+                                    new PatternElement(-2, 0),
+                                    new PatternElement(2, 0),
+
+                                    new PatternElement(-1, 1),
+                                    new PatternElement(1, 1),
+
+                                    new PatternElement(0, 2),
+
+                                    new PatternElement(-1, 3),
+                                    new PatternElement(0, 3),
+                                    new PatternElement(1, 3),
+
+                                    new PatternElement(0, 4),
+
+                                    new PatternElement(-1, 5),
+                                    new PatternElement(-0, 5),
+                                    new PatternElement(1, 5),
+
+                        }
+#endregion
+                    }
+                },
+                #endregion
+   
+                #region DoubleSquare
+                                {
+                                    Type.DoubleSquare, new List<List<PatternElement>>
+                                    {
+                                        new List<PatternElement>
+                                        {
+                                            new PatternElement(-2, -2),
+                                            new PatternElement(-2, -1),
+                                            new PatternElement(-2, 0),
+                                            new PatternElement(-2, 1),
+                                            new PatternElement(-2, 2),
+
+                                            new PatternElement(-1, -2),
+                                            new PatternElement(-1, -1),
+                                            new PatternElement(-1, 1),
+                                            new PatternElement(-1, 2),
+
+                                            new PatternElement(0, -2),
+                                            new PatternElement(0, 2),
+
+                                            new PatternElement(1, -2),
+                                            new PatternElement(1, -1),
+                                            new PatternElement(1, 1),
+                                            new PatternElement(1, 2),
+
+                                            new PatternElement(2, -2),
+                                            new PatternElement(2, -1),
+                                            new PatternElement(2, 0),
+                                            new PatternElement(2, 1),
+                                            new PatternElement(2, 2),
+                                        }
+                                    }
+                                },
+                #endregion
+
+                #region Rectangle
+                                                {
+                                                    Type.Rectangle, new List<List<PatternElement>>
+                                                    {
+                                                        #region Vertical
+                                                                                                new List<PatternElement>
+                                                                                                {
+                                                                                                    new PatternElement(-3, -2),
+                                                                                                    new PatternElement(-3, -1),
+                                                                                                    new PatternElement(-3, 0),
+                                                                                                    new PatternElement(-3, 1),
+                                                                                                    new PatternElement(-3, 2),
+
+                                                                                                    new PatternElement(-2, -2),
+                                                                                                    new PatternElement(-2, 2),
+
+                                                                                                    new PatternElement(-1, -2),
+                                                                                                    new PatternElement(-1,-1),
+                                                                                                    new PatternElement(-1, 0),
+                                                                                                    new PatternElement(-1, 1),
+                                                                                                    new PatternElement(-1, 2),
+
+                                                                                                    new PatternElement(0, -2),
+                                                                                                    new PatternElement(0, 2),
+
+                                                                                                    new PatternElement(1, -2),
+                                                                                                    new PatternElement(1,-1),
+                                                                                                    new PatternElement(1, 0),
+                                                                                                    new PatternElement(1, 1),
+                                                                                                    new PatternElement(1, 2),
+
+                                                                                                    new PatternElement(2, -2),
+                                                                                                    new PatternElement(2, 2),
+
+                                                                                                    new PatternElement(3, -2),
+                                                                                                    new PatternElement(3, -1),
+                                                                                                    new PatternElement(3, 0),
+                                                                                                    new PatternElement(3, 1),
+                                                                                                    new PatternElement(3, 2),
+                                                                                                },
+                                                        #endregion
+                                                        #region Horizontal
+                                                                                                new List<PatternElement>
+                                                                                                {
+                                                                                                    new PatternElement(-2, -3),
+                                                                                                    new PatternElement(-1, -3),
+                                                                                                    new PatternElement(0, -3),
+                                                                                                    new PatternElement(1, -3),
+                                                                                                    new PatternElement(2, -3),
+
+                                                                                                    new PatternElement(-2, -2),
+                                                                                                    new PatternElement(2, -2),
+                                        
+                                                                                                    new PatternElement(-2, -1),
+                                                                                                    new PatternElement(-1, -1),
+                                                                                                    new PatternElement(0, -1),
+                                                                                                    new PatternElement(1, -1),
+                                                                                                    new PatternElement(2, -1),
+
+                                                                                                    new PatternElement(-2, 0),
+                                                                                                    new PatternElement(2, 0),
+
+                                                                                                    new PatternElement(-2, 1),
+                                                                                                    new PatternElement(-1, 1),
+                                                                                                    new PatternElement(0, 1),
+                                                                                                    new PatternElement(1, 1),
+                                                                                                    new PatternElement(2, 1),
+
+                                                                                                    new PatternElement(-2, 2),
+                                                                                                    new PatternElement(2, 2),
+                                        
+                                                                                                    new PatternElement(-2, 3),
+                                                                                                    new PatternElement(-1, 3),
+                                                                                                    new PatternElement(0, 3),
+                                                                                                    new PatternElement(1, 3),
+                                                                                                    new PatternElement(2, 3),
+                                                        }
+                                                        #endregion
+                                                    }
+                                                },
+                #endregion
+
+                #region HourGlass
+                                                {
+                                                    Type.HourGlass, new List<List<PatternElement>>
+                                                    {
+                                                        #region Vertical
+                                                                                                                new List<PatternElement>
+                                                                                                                {
+                                                                                                                    new PatternElement(-3, -3),
+                                                                                                                    new PatternElement(-3, -2),
+                                                                                                                    new PatternElement(-3, -1),
+                                                                                                                    new PatternElement(-3, 0),
+                                                                                                                    new PatternElement(-3, 1),
+                                                                                                                    new PatternElement(-3, 2),
+                                                                                                                    new PatternElement(-3, 3),
+
+                                                                                                                    new PatternElement(-2, -2),
+                                                                                                                    new PatternElement(-2, 2),
+
+                                                                                                                    new PatternElement(-1, -1),
+                                                                                                                    new PatternElement(-1, 1),
+
+                                                                                                                    new PatternElement(1, -1),
+                                                                                                                    new PatternElement(1, 1),
+
+                                                                                                                    new PatternElement(2, -2),
+                                                                                                                    new PatternElement(2, 2),
+
+                                                                                                                    new PatternElement(3, -3),
+                                                                                                                    new PatternElement(3, -2),
+                                                                                                                    new PatternElement(3, -1),
+                                                                                                                    new PatternElement(3, 0),
+                                                                                                                    new PatternElement(3, 1),
+                                                                                                                    new PatternElement(3, 2),
+                                                                                                                    new PatternElement(3, 3),
+
+                                                                                                                },
+                                                        #endregion
+                                                        #region Horizontal
+                                                                                                                    new List<PatternElement>
+                                                                                                                    {
+                                                                                                                           new PatternElement(-3, -3),
+                                                                                                                           new PatternElement(-2, -3),
+                                                                                                                           new PatternElement(-1, -3),
+                                                                                                                           new PatternElement(1, -3),
+                                                                                                                           new PatternElement(2, -3),
+                                                                                                                           new PatternElement(3, -3),
+
+                                                                                                                           new PatternElement(-2, -2),
+                                                                                                                           new PatternElement(2, -2),
+
+                                                                                                                           new PatternElement(-1, -1),
+                                                                                                                           new PatternElement(1, -1),
+
+                                                                                                                           new PatternElement(-1, 1),
+                                                                                                                           new PatternElement(1, 1),
+
+                                                                                                                           new PatternElement(-2, 2),
+                                                                                                                           new PatternElement(2, 2),
+
+                                                                                                                           new PatternElement(-3, 3),
+                                                                                                                           new PatternElement(-2, 3),
+                                                                                                                           new PatternElement(-1, 3),
+                                                                                                                           new PatternElement(1, 3),
+                                                                                                                           new PatternElement(2, 3),
+                                                                                                                           new PatternElement(3, 3),
+                                                            }
+                                                            #endregion
+                                                    }
+                                                }
+#endregion
             };
+
 
         /// <summary>
         /// Pattern merging table
@@ -380,7 +662,7 @@ namespace Kaboom.Sources
         {
             this.orientation_ = (this.orientation_ + 1) % patterns_[this.SelectedType].Count;
         }
-        
+
         /// <summary>
         /// GetPattern
         /// </summary>
@@ -410,7 +692,7 @@ namespace Kaboom.Sources
             var pair = new KeyValuePair<Type, Type>(this.SelectedType, pattern.SelectedType);
 
             if (!mergings_.ContainsKey(pair))
-            {  
+            {
                 pair = new KeyValuePair<Type, Type>(pattern.SelectedType, this.SelectedType);
                 if (!mergings_.ContainsKey(pair))
                     return false;
