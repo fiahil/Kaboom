@@ -310,22 +310,33 @@ namespace Kaboom.Sources
             this.sb_.End();
         }
 
-        public void DrawEnd(GameTime gametime)
+        public void DrawEnd(GameTime gametime, bool lose)
         {
                 this.sb_.Begin();
-                this.sb_.Draw(KaboomResources.Textures["endScreen"],
-                                       new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
-                                                     (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
-                                                     this.widthEnd_, this.heightEnd_), Color.White);
-                var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture);
-                this.sb_.DrawString(KaboomResources.Fonts["default"],
-                                             scoreS,
-                                             new Vector2(
-                                                 ((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))
-                                                 + (int)((((240.0 + (14 * scoreS.Length)) / 700) * this.widthEnd_)),
-                                                 ((this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2))
-                                                 + (int)((325.0 / 450.0) * this.heightEnd_)), Color.White);
-                this.sb_.End();
+
+                if (lose)
+                {
+                    this.sb_.Draw(KaboomResources.Textures["failScreen"],
+                                 new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
+                                               (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
+                                               this.widthEnd_, this.heightEnd_), Color.White);
+                }
+                else
+                {
+                    this.sb_.Draw(KaboomResources.Textures["endScreen"],
+                                  new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
+                                                (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
+                                                this.widthEnd_, this.heightEnd_), Color.White);
+                    var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture);
+                    this.sb_.DrawString(KaboomResources.Fonts["default"],
+                                        scoreS,
+                                        new Vector2(
+                                            ((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))
+                                            + (int) ((((240.0 + (14 * scoreS.Length)) / 700) * this.widthEnd_)),
+                                            ((this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2))
+                                            + (int) ((325.0 / 450.0) * this.heightEnd_)), Color.White);
+                }
+            this.sb_.End();
         }
 
         public EHudEndAction GetHudEndEvent(Vector2 pos)

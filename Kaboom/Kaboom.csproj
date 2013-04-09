@@ -215,6 +215,7 @@
     <AndroidAsset Include="..\KaboomEditor\Levels\Tetris.xml">
       <Link>Assets\Content\Tetris.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="Assets\Content\failScreen.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

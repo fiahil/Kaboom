@@ -33,8 +33,8 @@ namespace Kaboom.Sources
         private readonly CurrentElement currentBomb_;
         private bool ended_;
         private Ladder ladder_;
+        private bool lose_;
 
- 
 
         /// <summary>
         /// Create the game instance
@@ -49,6 +49,7 @@ namespace Kaboom.Sources
                 };
             this.level_ = level;
             ended_ = false;
+            lose_ = false;
             this.em_ = new Event();
             this.ladder_ = new Ladder(); // TODO : test
             this.ladder_.AddEntry(167400, "King Prius");
@@ -101,6 +102,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["goal"] = Content.Load<Texture2D>("GoalSheet");
             KaboomResources.Textures["checkpoint"] = Content.Load<Texture2D>("CheckPoint");
             KaboomResources.Textures["endScreen"] = Content.Load<Texture2D>("endScreen");
+            KaboomResources.Textures["failScreen"] = Content.Load<Texture2D>("failScreen");
             KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
@@ -188,10 +190,12 @@ namespace Kaboom.Sources
                          this.Exit();
                          break;
                      case Hud.EHudEndAction.Ladder:
-                         ladder_.IsDisplay = true;
+                         if (!lose_)
+                            ladder_.IsDisplay = true;
                          break;
                      case Hud.EHudEndAction.Score:
-                         ladder_.IsDisplay = false;
+                         if (!lose_)
+                            ladder_.IsDisplay = false;
                          break;
                      case Hud.EHudEndAction.Reload:
                          break;
@@ -245,6 +249,13 @@ namespace Kaboom.Sources
                                 {
                                     if (hudEvent == Hud.EHudAction.BombDetonation)
                                     {
+                                        if (hud_.GameInfos.Round <= 0)
+                                        {
+                                            ended_ = true;
+                                            lose_ = true;
+                                            return;
+                                        }
+
                                         map_.ActivateDetonators();
                                         if (currentBomb_.Coord.X != -1)
                                             map_.RemoveEntity(currentBomb_.Coord);
@@ -339,7 +350,7 @@ namespace Kaboom.Sources
                 if (ladder_.IsDisplay)
                     hud_.DrawLadder(gameTime, ladder_.GetLadder());
                 else
-                    hud_.DrawEnd(gameTime);
+                    hud_.DrawEnd(gameTime, lose_);
             }
         }
 
