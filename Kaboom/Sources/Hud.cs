@@ -328,7 +328,7 @@ namespace Kaboom.Sources
                                   new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
                                                 (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
                                                 this.widthEnd_, this.heightEnd_), Color.White);
-                    var scoreS = GameInfos.Score.ToString(CultureInfo.InvariantCulture);
+                    var scoreS = GameInfos.Score.Score.ToString(CultureInfo.InvariantCulture);
                     this.sb_.DrawString(KaboomResources.Fonts["default"],
                                         scoreS,
                                         new Vector2(
