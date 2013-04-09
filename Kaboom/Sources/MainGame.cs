@@ -85,6 +85,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
+            KaboomResources.Textures["background4"] = Content.Load<Texture2D>("background4");
             KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
             KaboomResources.Textures["BombSheetSquare"] = Content.Load<Texture2D>("BombSheetSquare");
             KaboomResources.Textures["BombSheetLine"] = Content.Load<Texture2D>("BombSheetLine");
@@ -331,6 +332,9 @@ namespace Kaboom.Sources
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+            this.spriteBatch_.Begin();
+            this.spriteBatch_.Draw(KaboomResources.Textures["background4"], new Rectangle(0, 0, this.graphics_.PreferredBackBufferWidth, this.graphics_.PreferredBackBufferHeight), KaboomResources.Textures["background4"].Bounds, Color.White);
+            this.spriteBatch_.End();
 
             base.Draw(gameTime);
 
