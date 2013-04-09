@@ -155,7 +155,7 @@ namespace Kaboom.Sources
         /// <returns></returns>
         public Boolean LineIsContainVerticaly(Rectangle vision, int posX)
         {
-            for (var i = 0; i < this.SizeX; i++)
+            for (var i = 0; i < this.SizeY; i++)
             {
                 if (
                     vision.Contains(

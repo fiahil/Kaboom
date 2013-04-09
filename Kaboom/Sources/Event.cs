@@ -66,9 +66,6 @@ namespace Kaboom.Sources
                         this.Pinch_.X = (g.Position.X + g.Position2.X) / 2;
                         this.Pinch_.Y = (g.Position.Y + g.Position2.Y) / 2;
                     }
-                    System.Diagnostics.Debug.Print("----------------------------------------------------");
-                    System.Diagnostics.Debug.Print("g.Position : {0}, g.Position2 : {1}", g.Position, g.Position2);
-                    System.Diagnostics.Debug.Print("g.Delta : {0}, g.Delta2 : {1}", g.Delta, g.Delta2);
 
                     ret.Pos = this.Pinch_;
                     ret.DeltaX = (int)((Math.Abs(g.Delta.X) + Math.Abs(g.Delta2.X)));

@@ -269,23 +269,6 @@ namespace Kaboom.Sources
             catch (Exception)
             { }
 
- 
-
-            //System.Diagnostics.Debug.Print("## Delta : {0} ##", act.DeltaX);
-            //System.Diagnostics.Debug.Print("----------------------------------------------------");
-
-
-            //Camera.Instance.OffX = -1 * (this.PinchPos.X * Camera.Instance.DimX) + this.graphicsDevice_.Viewport.Width / 2;
-            
-            //if (this.GetOrientation() == DisplayOrientation.Portrait)
-            //    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) + (int)(0.15 * this.graphicsDevice_.Viewport.Width) +
-            //                           this.graphicsDevice_.Viewport.Height / 2;
-            //else
-            //    Camera.Instance.OffY = -1 * (this.PinchPos.Y * Camera.Instance.DimY) +
-            //                           (int)(0.15 * this.graphicsDevice_.Viewport.Height) +
-            //                           this.graphicsDevice_.Viewport.Height / 2;
-
-
             this.IsZoomed = true;           
             // NEED TO RESHARP
 

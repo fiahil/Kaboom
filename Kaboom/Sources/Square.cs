@@ -71,7 +71,7 @@ namespace Kaboom.Sources
 
             if (entity is VirtualBomb)
             {
-                if (this.entities_[3] != null)
+                if (this.entities_[3] != null && this.entities_[5] == null)
                 {
                     if (!((Bomb) entity).Merge((Bomb) entities_[3], true))
                         return false;
