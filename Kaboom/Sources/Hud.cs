@@ -247,8 +247,8 @@ namespace Kaboom.Sources
                                     bombInfo.Quantity.ToString(CultureInfo.InvariantCulture),
                                     new Vector2(((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                                                 (int) (((padding) / 780.0) * this.width_) +
-                                                (int) (((61.0 / 780.0) * this.width_) / 2),
-                                                (int) (((81.0 / 125.0) * this.height_) / 2)), Color.White);
+                                                (int) (((60.0 / 780.0) * this.width_) / 2),
+                                                (int) (((150.0 / 125.0) * this.height_) / 2)), Color.White);
 
                 padding += 57;
             }
@@ -258,17 +258,17 @@ namespace Kaboom.Sources
                                 scoreS,
                                 new Vector2(
                                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
-                                    (int)((((780.0 - (150.0 + (14 * scoreS.Length))) / 780.0) * this.width_)),
-                                    (int)(((67.0 / 125.0) * this.height_) / 2)), Color.White);
+                                    (int)((((680 - (150.0 + (14 * scoreS.Length))) / 780.0) * this.width_)),
+                                    (int)(((60.0 / 125.0) * this.height_) / 2)), Color.White);
 
             padding = 0;
             if (GameInfos.Round < 10)
-                padding = 5;
+                padding = 10;
             this.sb_.DrawString(KaboomResources.Fonts["default"],
                                 GameInfos.Round.ToString(CultureInfo.InvariantCulture),
                                 new Vector2(
                                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
-                                    (int) ((((780.0 - (77.0 - padding)) / 780.0) * this.width_)),
+                                    (int) ((((775.0 - (80.0 - padding)) / 780.0) * this.width_)),
                                     (int) (((100.0 / 125.0) * this.height_) / 2)), Color.White);
             this.sb_.End();
         }
