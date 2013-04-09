@@ -33,8 +33,10 @@ namespace Kaboom.Sources
         private readonly CurrentElement currentBomb_;
         private bool ended_;
         private Ladder ladder_;
+        private bool lose_;
         private bool explosionMode_;
         private ScoreManager score_ = ScoreManager.Instance;
+
 
         /// <summary>
         /// Create the game instance
@@ -49,6 +51,7 @@ namespace Kaboom.Sources
                 };
             this.level_ = level;
             ended_ = false;
+            lose_ = false;
             this.em_ = new Event();
             this.ladder_ = new Ladder(); // TODO : test
             this.ladder_.AddEntry(167400, "King Prius");
@@ -85,6 +88,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
+            KaboomResources.Textures["background4"] = Content.Load<Texture2D>("background4");
             KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
             KaboomResources.Textures["BombSheetSquare"] = Content.Load<Texture2D>("BombSheetSquare");
             KaboomResources.Textures["BombSheetLine"] = Content.Load<Texture2D>("BombSheetLine");
@@ -101,6 +105,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["goal"] = Content.Load<Texture2D>("GoalSheet");
             KaboomResources.Textures["checkpoint"] = Content.Load<Texture2D>("CheckPoint");
             KaboomResources.Textures["endScreen"] = Content.Load<Texture2D>("endScreen");
+            KaboomResources.Textures["failScreen"] = Content.Load<Texture2D>("failScreen");
             KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
@@ -188,10 +193,12 @@ namespace Kaboom.Sources
                          this.Exit();
                          break;
                      case Hud.EHudEndAction.Ladder:
-                         ladder_.IsDisplay = true;
+                         if (!lose_)
+                            ladder_.IsDisplay = true;
                          break;
                      case Hud.EHudEndAction.Score:
-                         ladder_.IsDisplay = false;
+                         if (!lose_)
+                            ladder_.IsDisplay = false;
                          break;
                      case Hud.EHudEndAction.Reload:
                          break;
@@ -254,6 +261,13 @@ namespace Kaboom.Sources
                                 {
                                     if (hudEvent == Hud.EHudAction.BombDetonation)
                                     {
+                                        if (hud_.GameInfos.Round <= 0)
+                                        {
+                                            ended_ = true;
+                                            lose_ = true;
+                                            return;
+                                        }
+
                                         map_.ActivateDetonators();
                                         if (currentBomb_.Coord.X != -1)
                                             map_.RemoveEntity(currentBomb_.Coord);
@@ -338,6 +352,9 @@ namespace Kaboom.Sources
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+            this.spriteBatch_.Begin();
+            this.spriteBatch_.Draw(KaboomResources.Textures["background4"], new Rectangle(0, 0, this.graphics_.PreferredBackBufferWidth, this.graphics_.PreferredBackBufferHeight), KaboomResources.Textures["background4"].Bounds, Color.White);
+            this.spriteBatch_.End();
 
             base.Draw(gameTime);
 
@@ -346,7 +363,7 @@ namespace Kaboom.Sources
                 if (ladder_.IsDisplay)
                     hud_.DrawLadder(gameTime, ladder_.GetLadder());
                 else
-                    hud_.DrawEnd(gameTime);
+                    hud_.DrawEnd(gameTime, lose_);
             }
         }
 

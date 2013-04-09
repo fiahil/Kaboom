@@ -29,7 +29,7 @@ namespace Kaboom.Sources
         /// <param name="zindex">Z-Axis' indice of supperposition</param>
         /// <param name="tile">Texture associated with the entity</param>
         /// <param name="visibility">Entity's visibility</param>
-        public Entity(int zindex, SpriteSheet tile, EVisibility visibility = EVisibility.Opaque)
+        public Entity(int zindex, SpriteSheet tile, EVisibility visibility = EVisibility.Transparent)
         {
             this.ZIndex = zindex;
             this.Visibility = visibility;

@@ -91,7 +91,6 @@
     <Compile Include="Sources\VirtualBomb.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Content\background1.xnb" />
     <AndroidAsset Include="Assets\Content\BombSheet.xnb" />
     <AndroidAsset Include="Assets\Content\defaultFont.xnb" />
     <None Include="Resources\AboutResources.txt" />
@@ -216,13 +215,16 @@
     <AndroidAsset Include="..\KaboomEditor\Levels\Tetris.xml">
       <Link>Assets\Content\Tetris.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="Assets\Content\failScreen.png" />
+    <AndroidAsset Include="Assets\Content\background1.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
     <AndroidResource Include="Resources\Drawable\Screen.png" />
-    <AndroidResource Include="Resources\Drawable\backgroundMenu.png" />
+    <AndroidAsset Include="Assets\Content\background4.png" />
     <AndroidResource Include="Resources\Drawable\button.PNG" />
     <AndroidResource Include="Resources\Drawable\iconList.PNG" />
+    <AndroidResource Include="Resources\Drawable\backgroundMenu.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

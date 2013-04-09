@@ -71,14 +71,14 @@ namespace Kaboom.Sources
                                              bombProxy.TileFrameSpeed), ""));
                         }
 
-                        if (checkPointProxy != null)
+                        else if (checkPointProxy != null)
                         {
                             this.board_[i, j].AddEntity(
                                 new CheckPoint(KaboomResources.Sprites[checkPointProxy.TileIdentifier].Clone(), 500,
                                                checkPointProxy.Activated, checkPointProxy.Bombsetidx));
                         }
 
-                        if (blockProxy != null)
+                        else if (blockProxy != null)
                         {
                             this.board_[i, j].AddEntity(
                                 new Block(KaboomResources.Sprites[blockProxy.TileIdentifier].Clone(),
