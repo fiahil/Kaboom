@@ -255,6 +255,7 @@ namespace Kaboom.Sources
             }
 
             var scoreS = GameInfos.Score.Score.ToString();
+            var sc = GameInfos.Score;
             this.sb_.DrawString(KaboomResources.Fonts["default"],
                                 scoreS,
                                 new Vector2(

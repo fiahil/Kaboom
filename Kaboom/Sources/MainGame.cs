@@ -227,6 +227,14 @@ namespace Kaboom.Sources
                     score_.EndOfTurn(hud_.TotalBombsNumber());
                 }
             }
+            else
+            {
+                if (hud_.GameInfos.Round <= 0)
+                {
+                    ended_ = true;
+                    lose_ = true;
+                }
+            }
             Action ret;
             while ((ret = this.em_.GetEvents()).ActionType != Action.Type.NoEvent)
             {
@@ -261,12 +269,7 @@ namespace Kaboom.Sources
                                 {
                                     if (hudEvent == Hud.EHudAction.BombDetonation)
                                     {
-                                        if (hud_.GameInfos.Round <= 0)
-                                        {
-                                            ended_ = true;
-                                            lose_ = true;
-                                            return;
-                                        }
+                                        
 
                                         map_.ActivateDetonators();
                                         if (currentBomb_.Coord.X != -1)
