@@ -299,7 +299,7 @@ namespace Kaboom.Sources
                         scoreS += " ";
                     }
                 scoreS += " " + ladderEntry.Score.ToString(CultureInfo.InvariantCulture);
-                this.sb_.DrawString(KaboomResources.Fonts["default"],
+                this.sb_.DrawString(KaboomResources.Fonts["end"],
                                 scoreS,
                                 new Vector2(
                                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))
@@ -330,7 +330,7 @@ namespace Kaboom.Sources
                                                 (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
                                                 this.widthEnd_, this.heightEnd_), Color.White);
                     var scoreS = GameInfos.Score.Score.ToString(CultureInfo.InvariantCulture);
-                    this.sb_.DrawString(KaboomResources.Fonts["default"],
+                    this.sb_.DrawString(KaboomResources.Fonts["end"],
                                         scoreS,
                                         new Vector2(
                                             ((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))

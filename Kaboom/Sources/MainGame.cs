@@ -167,6 +167,7 @@ namespace Kaboom.Sources
             KaboomResources.Sprites["goal"] = new SpriteSheet(KaboomResources.Textures["goal"], new[] { 14, 14 }, 2);
 
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
+            KaboomResources.Fonts["end"] = Content.Load<SpriteFont>("endFont");
 
             KaboomResources.Levels["TutoNormalBomb"] = LoadLevel("normalBombTuto");
             KaboomResources.Levels["TutoLineBomb"] = LoadLevel("LineBombTuto");

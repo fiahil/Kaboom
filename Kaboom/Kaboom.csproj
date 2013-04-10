@@ -93,6 +93,7 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Content\BombSheet.xnb" />
     <AndroidAsset Include="Assets\Content\defaultFont.xnb" />
+    <AndroidAsset Include="Assets\Content\endFont.xnb" />
     <None Include="Resources\AboutResources.txt" />
     <AndroidResource Include="Resources\Layout\LevelSelector.axml">
       <SubType>Designer</SubType>
