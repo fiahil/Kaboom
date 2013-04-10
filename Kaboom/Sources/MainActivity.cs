@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Microsoft.Xna.Framework;
@@ -23,11 +24,11 @@ namespace Kaboom.Sources
             base.OnCreate(bundle);
 
             Game.Activity = this;
+           
+                this.game_ = new MainGame(Intent.GetStringExtra("level"));
+                SetContentView(this.game_.Window);
+                this.game_.Run();
 
-            this.game_ = new MainGame(Intent.GetStringExtra("level"));
-
-            SetContentView(this.game_.Window);
-            this.game_.Run();
         }
     }
 }

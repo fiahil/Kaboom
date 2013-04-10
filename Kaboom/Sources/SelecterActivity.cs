@@ -19,7 +19,7 @@ namespace Kaboom.Sources
 
         CustomListAdapter listAdapter_;
         private List<ElementMenu> list_;
-
+       
         public SelecterActivity()
         {
             list_ = null;
@@ -32,7 +32,7 @@ namespace Kaboom.Sources
             var type = Intent.GetStringExtra("type");
 
             SetContentView(Resource.Layout.Main);
-
+  
             if (type == "tuto")
             {
                 #region Tuto
@@ -80,12 +80,8 @@ namespace Kaboom.Sources
                                     {Description = "test", Image = Resource.Drawable.iconList, Name = "ChooseYourSide"},
                                 new ElementMenu()
                                     {Description = "test", Image = Resource.Drawable.iconList, Name = "DidUCheckTuto"},
-                                new ElementMenu()
-                                    {
-                                        Description = "test",
-                                        Image = Resource.Drawable.iconList,
-                                        Name = "DynamiteWarehouse"
-                                    },
+                                new ElementMenu() 
+                                    {Description = "test", Image = Resource.Drawable.iconList,  Name = "DynamiteWarehouse"},
                                 new ElementMenu()
                                     {Description = "test", Image = Resource.Drawable.iconList, Name = "FaceToFace"},
                                 new ElementMenu()
@@ -130,5 +126,6 @@ namespace Kaboom.Sources
                                                                                                          e.Position).
                                                                                                      Name));
         }
+
     }
 }

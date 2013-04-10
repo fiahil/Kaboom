@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 using System.Xml.Serialization;
+using Android.App;
+using Android.Content;
 using Kaboom.Serializer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -37,6 +39,8 @@ namespace Kaboom.Sources
         private bool explosionMode_;
         private ScoreManager score_ = ScoreManager.Instance;
 
+        private List<string> mapName_;
+        private List<string> tutoName_;
 
         /// <summary>
         /// Create the game instance
@@ -45,10 +49,10 @@ namespace Kaboom.Sources
         {
             currentBomb_ = new CurrentElement();
             this.graphics_ = new GraphicsDeviceManager(this)
-                {
-                    IsFullScreen = true,
-                    SupportedOrientations = DisplayOrientation.LandscapeLeft
-                };
+                                 {
+                                     IsFullScreen = true,
+                                     SupportedOrientations = DisplayOrientation.LandscapeLeft
+                                 };
             this.level_ = level;
             ended_ = false;
             lose_ = false;
@@ -57,6 +61,45 @@ namespace Kaboom.Sources
             this.ladder_.AddEntry(167400, "King Prius");
             this.ladder_.AddEntry(100553, "Queen Sandra");
             this.ladder_.AddEntry(1030, "Prince Fubbert");
+
+            #region mapNameInit
+
+            mapName_ = new List<string>()
+                           {
+                               "A-Maze-Me",
+                               "CombisTheG",
+                               "Corporate",
+                               "ChooseYourSide",
+                               "DidUCheckTuto",
+                               "DynamiteWarehouse",
+                               "FaceToFace",
+                               "FindYourWayOut",
+                               "InTheRedCorner",
+                               "Invasion",
+                               "It's Something",
+                               "Life",
+                               "NumbaWan",
+                               "OneStepAway",
+                               "OppositeForces",
+                               "Tetris",
+                               "TheBreach",
+                               "Unreachable",
+                               "Versus",
+                               "XFactor"
+                           };
+            tutoName_ = new List<string>()
+                            {
+                                "TutoNormalBomb",
+                                "TutoLineBomb",
+                                "TutoConeBomb",
+                                "TutoXBomb",
+                                "TutoCheckPointBS",
+                                "TutoHBomb",
+                                "TutoUltimateBomb",
+                                "TutoBonusTNT"
+                            };
+
+            #endregion
 
             Content.RootDirectory = "Content";
         }
@@ -190,19 +233,40 @@ namespace Kaboom.Sources
                  switch (hudEvent)
                  {
                      case Hud.EHudEndAction.Menu:
-                         this.Exit();
+                         Activity.StartActivity(new Intent(Activity, typeof (MenuActivity)));
                          break;
                      case Hud.EHudEndAction.Ladder:
                          if (!lose_)
-                            ladder_.IsDisplay = true;
+                             ladder_.IsDisplay = true;
                          break;
                      case Hud.EHudEndAction.Score:
                          if (!lose_)
-                            ladder_.IsDisplay = false;
+                             ladder_.IsDisplay = false;
                          break;
                      case Hud.EHudEndAction.Reload:
+                         Activity.Finish();
+                         Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
+                                                                                                     this.level_));
                          break;
                      case Hud.EHudEndAction.Next:
+                         Activity.Finish();
+                         int idx;
+                         if ((idx = mapName_.IndexOf(level_)) != -1)
+                         {
+                             idx++;
+                             if (idx >= mapName_.Count)
+                                 idx = 0;
+                             Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
+                                                                                                         mapName_[idx]));
+                         }
+                         else
+                         {
+                             idx = tutoName_.IndexOf(level_) + 1;
+                             if (idx >= mapName_.Count)
+                                 idx = 0;
+                             Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
+                                                                                                         tutoName_[idx]));
+                         }
                          break;
                  }
              }
