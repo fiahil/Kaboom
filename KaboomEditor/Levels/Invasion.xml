@@ -377,17 +377,6 @@
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-            <GameEnd>false</GameEnd>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
             <TileIdentifier>goal</TileIdentifier>
             <TileFramePerAnim>
               <int>1</int>
@@ -2653,17 +2642,6 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-            <GameEnd>false</GameEnd>
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
@@ -4948,17 +4926,6 @@
             </TileFramePerAnim>
             <TileFrameSpeed>1</TileFrameSpeed>
             <TileTotalAnim>1</TileTotalAnim>
-          </EntityProxy>
-          <EntityProxy xsi:type="BlockProxy">
-            <ZIndex>0</ZIndex>
-            <TileIdentifier>background3</TileIdentifier>
-            <TileFramePerAnim>
-              <int>1</int>
-            </TileFramePerAnim>
-            <TileFrameSpeed>1</TileFrameSpeed>
-            <TileTotalAnim>1</TileTotalAnim>
-            <Destroyable>false</Destroyable>
-            <GameEnd>false</GameEnd>
           </EntityProxy>
           <EntityProxy xsi:type="BlockProxy">
             <ZIndex>0</ZIndex>
