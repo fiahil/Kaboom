@@ -262,7 +262,7 @@ namespace Kaboom.Sources
                          else
                          {
                              idx = tutoName_.IndexOf(level_) + 1;
-                             if (idx >= mapName_.Count)
+                             if (idx >= tutoName_.Count)
                                  idx = 0;
                              Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
                                                                                                          tutoName_[idx]));
