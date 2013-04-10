@@ -58,9 +58,9 @@ namespace Kaboom.Sources
             lose_ = false;
             this.em_ = new Event();
             this.ladder_ = new Ladder(); // TODO : test
-            this.ladder_.AddEntry(167400, "King Prius");
-            this.ladder_.AddEntry(100553, "Queen Sandra");
-            this.ladder_.AddEntry(1030, "Prince Fubbert");
+            this.ladder_.AddEntry(15000, "King");
+            this.ladder_.AddEntry(10000, "Prince");
+            this.ladder_.AddEntry(5000, "Champion");
 
             #region mapNameInit
 
