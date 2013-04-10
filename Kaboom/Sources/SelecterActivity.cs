@@ -70,46 +70,50 @@ namespace Kaboom.Sources
 
                 list_ = new List<ElementMenu>()
                             {
+                                 new ElementMenu()
+                                    {Description = "The first one you need to play", Image = Resource.Drawable.iconList, Name = "NumbaWan"},
+                               new ElementMenu()
+                                    {Description = "This one will not bother you then", Image = Resource.Drawable.iconList, Name = "DidUCheckTuto"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "A-Maze-Me"},
+                                    {Description = "Something", Image = Resource.Drawable.iconList, Name = "It's Something"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "CombisTheG"},
+                                    {Description = "Combinations of bombs is the key", Image = Resource.Drawable.iconList, Name = "CombisTheG"},
+                                 new ElementMenu()
+                                    {Description = "Get out of this boxing ring", Image = Resource.Drawable.iconList, Name = "InTheRedCorner"},
+                                 new ElementMenu()
+                                    {Description = "There is somewhere where the wall is thinner", Image = Resource.Drawable.iconList, Name = "TheBreach"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Corporate"},
+                                    {Description = "They can't stand each other", Image = Resource.Drawable.iconList, Name = "OppositeForces"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "ChooseYourSide"},
+                                    {Description = "He got a better defense ... But you have cookie", Image = Resource.Drawable.iconList, Name = "Versus"},
+                                  new ElementMenu()
+                                    {Description = "get through the X", Image = Resource.Drawable.iconList, Name = "XFactor"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "DidUCheckTuto"},
-                                new ElementMenu() 
-                                    {Description = "test", Image = Resource.Drawable.iconList,  Name = "DynamiteWarehouse"},
+                                    {Description = "Right ot left ? Choose your path", Image = Resource.Drawable.iconList, Name = "ChooseYourSide"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "FaceToFace"},
+                                    {
+                                        Description = "TNT, TNT Everywhere",
+                                        Image = Resource.Drawable.iconList,
+                                        Name = "DynamiteWarehouse"
+                                    },
+                               new ElementMenu()
+                                    {Description = "Don't go straight forward", Image = Resource.Drawable.iconList, Name = "FaceToFace"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "FindYourWayOut"},
+                                    {Description = "Just one inch further", Image = Resource.Drawable.iconList, Name = "OneStepAway"},
+                                 new ElementMenu()
+                                    {Description = "Which path wil you take ?", Image = Resource.Drawable.iconList, Name = "FindYourWayOut"},
+                             new ElementMenu()
+                                    {Description = "{Epitech.}", Image = Resource.Drawable.iconList, Name = "Corporate"},
+                                 new ElementMenu()
+                                    {Description = "But you have the power force to do it", Image = Resource.Drawable.iconList, Name = "Unreachable"},
+                               new ElementMenu()
+                                    {Description = "There is something wrong with these patterns", Image = Resource.Drawable.iconList, Name = "Tetris"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "InTheRedCorner"},
+                                    {Description = "Life is something that everyone should try at least once", Image = Resource.Drawable.iconList, Name = "Life"},
                                 new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Invasion"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "It's Something"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Life"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "NumbaWan"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "OneStepAway"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "OppositeForces"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Tetris"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "TheBreach"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Unreachable"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "Versus"},
-                                new ElementMenu()
-                                    {Description = "test", Image = Resource.Drawable.iconList, Name = "XFactor"}
+                                    {Description = "Don't let them have your back", Image = Resource.Drawable.iconList, Name = "Invasion"},
+                               new ElementMenu()
+                                    {Description = "The exit must be near ... or not", Image = Resource.Drawable.iconList, Name = "A-Maze-Me"}
                             };
 
                 #endregion
