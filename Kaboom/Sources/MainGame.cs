@@ -234,6 +234,7 @@ namespace Kaboom.Sources
                  switch (hudEvent)
                  {
                      case Hud.EHudEndAction.Menu:
+                         Activity.Finish();
                          Activity.StartActivity(new Intent(Activity, typeof (MenuActivity)));
                          break;
                      case Hud.EHudEndAction.Ladder:
