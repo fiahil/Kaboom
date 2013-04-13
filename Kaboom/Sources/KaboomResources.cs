@@ -12,6 +12,6 @@ namespace Kaboom.Sources
         public static Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, SpriteSheet> Sprites = new Dictionary<string, SpriteSheet>();
         public static Dictionary<string, SpriteFont> Fonts = new Dictionary<string, SpriteFont>();
-        public static Dictionary<string, MapElements> Levels = new Dictionary<string, MapElements>();
+        public static MapElements Level = null;
     }
 }

@@ -218,6 +218,7 @@
     </AndroidAsset>
     <AndroidAsset Include="Assets\Content\failScreen.png" />
     <AndroidAsset Include="Assets\Content\background1.png" />
+    <AndroidAsset Include="Assets\Content\TutoNormalBomb.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
@@ -226,6 +227,8 @@
     <AndroidResource Include="Resources\Drawable\button.PNG" />
     <AndroidResource Include="Resources\Drawable\iconList.PNG" />
     <AndroidResource Include="Resources\Drawable\backgroundMenu.png" />
+    <AndroidResource Include="Resources\Drawable\easyIcon.PNG" />
+    <AndroidResource Include="Resources\Drawable\hardIcon.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

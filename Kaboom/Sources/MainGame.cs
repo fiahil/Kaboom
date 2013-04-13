@@ -38,9 +38,10 @@ namespace Kaboom.Sources
         private bool lose_;
         private bool explosionMode_;
         private ScoreManager score_ = ScoreManager.Instance;
-
+        private bool isTuto_;
         private List<string> mapName_;
         private List<string> tutoName_;
+
 
         /// <summary>
         /// Create the game instance
@@ -101,6 +102,8 @@ namespace Kaboom.Sources
 
             #endregion
 
+            isTuto_ = tutoName_.Contains(this.level_);
+
             Content.RootDirectory = "Content";
         }
 
@@ -150,6 +153,8 @@ namespace Kaboom.Sources
             KaboomResources.Textures["endScreen"] = Content.Load<Texture2D>("endScreen");
             KaboomResources.Textures["failScreen"] = Content.Load<Texture2D>("failScreen");
             KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
+            if (isTuto_)
+                KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>("TutoNormalBomb"); // level_
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 8, 18 }, 2, 20);
@@ -169,39 +174,7 @@ namespace Kaboom.Sources
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
             KaboomResources.Fonts["end"] = Content.Load<SpriteFont>("endFont");
 
-            KaboomResources.Levels["TutoNormalBomb"] = LoadLevel("normalBombTuto");
-            KaboomResources.Levels["TutoLineBomb"] = LoadLevel("LineBombTuto");
-            KaboomResources.Levels["TutoConeBomb"] = LoadLevel("ConeBombTuto");
-            KaboomResources.Levels["TutoXBomb"] = LoadLevel("CrossBombTuto");
-            KaboomResources.Levels["TutoCheckPointBS"] = LoadLevel("CheckpointBS");
-            KaboomResources.Levels["TutoHBomb"] = LoadLevel("HBombsCombinationTuto");
-            KaboomResources.Levels["TutoUltimateBomb"] = LoadLevel("UltimateBombTuto");
-            KaboomResources.Levels["TutoBonusTNT"] = LoadLevel("TNTBonusTuto");
-
-            KaboomResources.Levels["A-Maze-Me"] = LoadLevel("A-Maze-Me");
-            KaboomResources.Levels["CombisTheG"] = LoadLevel("CombisTheG");
-            KaboomResources.Levels["Corporate"] = LoadLevel("Corporate");
-            KaboomResources.Levels["ChooseYourSide"] = LoadLevel("ChooseYourSide");
-            KaboomResources.Levels["DidUCheckTuto"] = LoadLevel("DidUCheckTuto");
-
-            KaboomResources.Levels["DynamiteWarehouse"] = LoadLevel("DynamiteWarehouse");
-            KaboomResources.Levels["FaceToFace"] = LoadLevel("FaceToFace");
-            KaboomResources.Levels["FindYourWayOut"] = LoadLevel("FindYourWayOut");
-            KaboomResources.Levels["InTheRedCorner"] = LoadLevel("InTheRedCorner");
-            KaboomResources.Levels["Invasion"] = LoadLevel("Invasion");
-
-            KaboomResources.Levels["It's Something"] = LoadLevel("It's Something");
-            KaboomResources.Levels["Life"] = LoadLevel("Life");
-            KaboomResources.Levels["NumbaWan"] = LoadLevel("NumbaWan");
-            KaboomResources.Levels["OneStepAway"] = LoadLevel("OneStepAway");
-            KaboomResources.Levels["OppositeForces"] = LoadLevel("OppositeForces");
-
-            KaboomResources.Levels["Tetris"] = LoadLevel("Tetris");
-            KaboomResources.Levels["TheBreach"] = LoadLevel("TheBreach");
-            KaboomResources.Levels["Unreachable"] = LoadLevel("Unreachable");
-            KaboomResources.Levels["Versus"] = LoadLevel("Versus");
-            KaboomResources.Levels["XFactor"] = LoadLevel("XFactor");
-
+            KaboomResources.Level = LoadLevel(level_);
             #endregion
 
         }
@@ -217,7 +190,7 @@ namespace Kaboom.Sources
             hud_.GameInfos.Round = 10;
             score_.Restart(10); // mettre le bombre de tour au depart
 
-            this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Levels[this.level_]);
+            this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Level);
             this.map_.EndGameManager += ManageEndGame;
             Viewport.Instance.Initialize(GraphicsDevice, this.map_);
 
@@ -274,6 +247,15 @@ namespace Kaboom.Sources
              }
         }
 
+
+        private void UpdateTuto(Action ret)
+        {
+            if (ret.ActionType == Action.Type.Tap)
+            {
+                isTuto_ = false;
+            }
+        }
+
         /// <summary>
         /// Update game and game components
         /// </summary>
@@ -307,6 +289,10 @@ namespace Kaboom.Sources
                 if (ended_)
                 {
                     UpdateEnd(ret);
+                }
+                else if (isTuto_)
+                {
+                    UpdateTuto(ret);
                 }
                 else
                 {
@@ -426,6 +412,18 @@ namespace Kaboom.Sources
             this.spriteBatch_.End();
 
             base.Draw(gameTime);
+
+            if (isTuto_)
+            {
+                this.spriteBatch_.Begin();
+                this.spriteBatch_.Draw(KaboomResources.Textures["Tuto"],
+                                       new Rectangle((int)(this.graphics_.PreferredBackBufferWidth * 0.05),
+                                                     (int)(this.graphics_.PreferredBackBufferHeight * 0.05),
+                                                     (int)(this.graphics_.PreferredBackBufferWidth * 0.9),
+                                                     (int)(this.graphics_.PreferredBackBufferHeight * 0.9)),
+                                       KaboomResources.Textures["Tuto"].Bounds, Color.White);
+                this.spriteBatch_.End();
+            }
 
             if (ended_)
             {
