@@ -63,12 +63,7 @@ namespace Kaboom.Sources
                         if (bombProxy != null)
                         {
                             this.board_[i, j].AddEntity(
-                                new Bomb(typeArray[bombProxy.Type],
-                                         new SpriteSheet(
-                                             KaboomResources.Textures[bombProxy.TileIdentifier],
-                                             bombProxy.TileFramePerAnim,
-                                             bombProxy.TileTotalAnim,
-                                             bombProxy.TileFrameSpeed), ""));
+                                new Bomb(typeArray[bombProxy.Type], KaboomResources.Sprites[bombProxy.TileIdentifier].Clone(), ""));
                         }
 
                         else if (checkPointProxy != null)
