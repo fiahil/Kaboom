@@ -14,7 +14,8 @@ namespace Kaboom.Sources
             NoAction,
             BombDetonation,
             BombSelection,
-            BombRotation
+            BombLock,
+            Help
         }
 
         public enum EHudEndAction
@@ -232,6 +233,14 @@ namespace Kaboom.Sources
                                         this.width_, this.height_),
                           new Rectangle(0, 0, 780, 125), Color.White);
 
+            this.sb_.Draw(KaboomResources.Textures["help"],
+                                      new Rectangle((int)(this.Game.GraphicsDevice.Viewport.Width * 0.91),
+                                     (int) (this.Game.GraphicsDevice.Viewport.Height * 0.91),
+                                     (int) (this.Game.GraphicsDevice.Viewport.Width * 0.07),
+                                     (int) (this.Game.GraphicsDevice.Viewport.Height * 0.07)),
+                                      KaboomResources.Textures["help"].Bounds, Color.White);
+          
+
             var padding = 4;
 
             foreach (var bombInfo in BombSet)
@@ -312,7 +321,7 @@ namespace Kaboom.Sources
             this.sb_.End();
         }
 
-        public void DrawEnd(GameTime gametime, bool lose)
+        public void DrawEnd(GameTime gametime, bool lose, int pos)
         {
                 this.sb_.Begin();
 
@@ -325,10 +334,27 @@ namespace Kaboom.Sources
                 }
                 else
                 {
-                    this.sb_.Draw(KaboomResources.Textures["endScreen"],
+                    if (pos == 0)
+                    {
+                        this.sb_.Draw(KaboomResources.Textures["endScreen3"],
                                   new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
                                                 (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
                                                 this.widthEnd_, this.heightEnd_), Color.White);
+                    }
+                    else if (pos == 1)
+                    {
+                        this.sb_.Draw(KaboomResources.Textures["endScreen2"],
+                                  new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
+                                                (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
+                                                this.widthEnd_, this.heightEnd_), Color.White);
+                    }
+                    else
+                    {
+                        this.sb_.Draw(KaboomResources.Textures["endScreen"],
+                                  new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
+                                                (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
+                                                this.widthEnd_, this.heightEnd_), Color.White);
+                    } 
                     var scoreS = GameInfos.Score.Score.ToString(CultureInfo.InvariantCulture);
                     this.sb_.DrawString(KaboomResources.Fonts["end"],
                                         scoreS,
@@ -440,12 +466,19 @@ namespace Kaboom.Sources
                 }
             }
 
-            var rotation =
+            var help = new Rectangle((int)(this.Game.GraphicsDevice.Viewport.Width * 0.91),
+                                     (int) (this.Game.GraphicsDevice.Viewport.Height * 0.91),
+                                     (int) (this.Game.GraphicsDevice.Viewport.Width * 0.07),
+                                     (int) (this.Game.GraphicsDevice.Viewport.Height * 0.07));
+            if (help.Contains(new Point((int)pos.X, (int)pos.Y)))
+                return EHudAction.Help;
+
+            var locked =
                 new Rectangle(
                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                     (int)((296.0 / 780.0) * this.width_), 0, (int)((109.0 / 780.0) * this.width_),
                     (int)((119.0 / 125.0) * this.height_));
-            return rotation.Contains(new Point((int)pos.X, (int)pos.Y)) ? EHudAction.BombRotation : EHudAction.NoAction;
+            return locked.Contains(new Point((int)pos.X, (int)pos.Y)) ? EHudAction.BombLock : EHudAction.NoAction;
         }
 
         /// <summary>

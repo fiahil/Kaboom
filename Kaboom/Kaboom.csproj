@@ -219,6 +219,10 @@
     <AndroidAsset Include="..\KaboomEditor\Levels\TutoXBomb.xml">
       <Link>Assets\Content\TutoXBomb.xml</Link>
     </AndroidAsset>
+    <AndroidAsset Include="Assets\Content\endScreen3.png" />
+    <AndroidAsset Include="Assets\Content\endScreen2.png" />
+    <AndroidAsset Include="Assets\Content\question-mark.png" />
+    <AndroidAsset Include="Assets\Content\helpScreen.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

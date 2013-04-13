@@ -41,6 +41,7 @@ namespace Kaboom.Sources
         private bool isTuto_;
         private List<string> mapName_;
         private List<string> tutoName_;
+        private bool onHelp_;
 
 
         /// <summary>
@@ -59,9 +60,9 @@ namespace Kaboom.Sources
             lose_ = false;
             this.em_ = new Event();
             this.ladder_ = new Ladder(); // TODO : test
-            this.ladder_.AddEntry(15000, "King");
-            this.ladder_.AddEntry(10000, "Prince");
-            this.ladder_.AddEntry(5000, "Champion");
+            this.ladder_.AddEntry(10000, "King");
+            this.ladder_.AddEntry(6000, "Prince");
+            this.ladder_.AddEntry(3000, "Champion");
 
             #region mapNameInit
 
@@ -151,10 +152,14 @@ namespace Kaboom.Sources
             KaboomResources.Textures["goal"] = Content.Load<Texture2D>("GoalSheet");
             KaboomResources.Textures["checkpoint"] = Content.Load<Texture2D>("CheckPoint");
             KaboomResources.Textures["endScreen"] = Content.Load<Texture2D>("endScreen");
+            KaboomResources.Textures["endScreen2"] = Content.Load<Texture2D>("endScreen2");
+            KaboomResources.Textures["endScreen3"] = Content.Load<Texture2D>("endScreen3");
             KaboomResources.Textures["failScreen"] = Content.Load<Texture2D>("failScreen");
             KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
+            KaboomResources.Textures["help"] = Content.Load<Texture2D>("question-mark");
             if (isTuto_)
                 KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>("TutoNormalBomb"); // level_
+            KaboomResources.Textures["helpScreen"] = Content.Load<Texture2D>("helpScreen");
 
             KaboomResources.Sprites["Bomb"] = new SpriteSheet(KaboomResources.Textures["BombSheet"], new[] { 8, 18 }, 2, 20);
             KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 8, 18 }, 2, 20);
@@ -248,11 +253,14 @@ namespace Kaboom.Sources
         }
 
 
-        private void UpdateTuto(Action ret)
+        private void UpdateSplash(Action ret)
         {
             if (ret.ActionType == Action.Type.Tap)
             {
-                isTuto_ = false;
+                if (isTuto_)
+                    isTuto_ = false; 
+                else
+                    onHelp_ = false;
             }
         }
 
@@ -290,9 +298,9 @@ namespace Kaboom.Sources
                 {
                     UpdateEnd(ret);
                 }
-                else if (isTuto_)
+                else if (isTuto_ || onHelp_)
                 {
-                    UpdateTuto(ret);
+                    UpdateSplash(ret);
                 }
                 else
                 {
@@ -321,13 +329,17 @@ namespace Kaboom.Sources
                                 {
                                     if (hudEvent == Hud.EHudAction.BombDetonation)
                                     {
-                                        
+
+                                        if (currentBomb_.Coord.X != -1)
+                                        {
+                                            this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(),
+                                                                       currentBomb_.Coord);
+                                            currentBomb_.Coord.X = -1;
+                                            currentBomb_.Coord.Y = -1;
+                                        }
 
                                         map_.ActivateDetonators();
-                                        if (currentBomb_.Coord.X != -1)
-                                            map_.RemoveEntity(currentBomb_.Coord);
-                                        currentBomb_.Coord.X = -1;
-                                        currentBomb_.Coord.Y = -1;
+
                                         hud_.GameInfos.Round -= 1;
                                         if (hud_.GameInfos.Round <= 0)
                                             hud_.GameInfos.Round = 0;
@@ -336,14 +348,22 @@ namespace Kaboom.Sources
                                         this.hud_.UnselectAll();
                                         explosionMode_ = true;
                                     }
-                                    else if (hudEvent == Hud.EHudAction.BombRotation)
+                                    else if (hudEvent == Hud.EHudAction.BombLock)
                                     {
-                                        var pattern = hud_.SelectedBombType();
-                                        if (pattern != Pattern.Type.NoPattern && currentBomb_.Coord.X != -1)
+                                        if (currentBomb_.Coord.X != -1)
                                         {
-                                            currentBomb_.Entity.NextOrientation();
-                                            this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                            var pattern = hud_.SelectedBombType();
+
+                                            this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(),
+                                                                   currentBomb_.Coord);
+                                            hud_.RemoveBombOfType(pattern);
+                                            currentBomb_.Coord.X = -1;
+                                            currentBomb_.Coord.Y = -1;
                                         }
+                                    }
+                                    else if (hudEvent == Hud.EHudAction.Help)
+                                    {
+                                        onHelp_ = true;
                                     }
                                     else if (hudEvent == Hud.EHudAction.BombSelection)
                                     {
@@ -358,30 +378,29 @@ namespace Kaboom.Sources
                                     try
                                     {
                                         var pattern = hud_.SelectedBombType();
-                                        if (pattern != Pattern.Type.NoPattern)
+
+                                        if (this.map_.GetCoordByPos(ret.Pos) == currentBomb_.Coord)
                                         {
-                                            if (this.map_.GetCoordByPos(ret.Pos) == currentBomb_.Coord)
+                                            if (pattern != Pattern.Type.NoPattern && currentBomb_.Coord.X != -1)
                                             {
-                                                this.map_.AddNewEntity(currentBomb_.Entity.ToBomb(),
-                                                                       currentBomb_.Coord);
-                                                hud_.RemoveBombOfType(pattern);
-                                                //hud_.UnselectAll(); Dot not unselect bomb after a put
+                                                currentBomb_.Entity.NextOrientation();
+                                                this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord);
+                                            }
+                                        }
+                                        else if (pattern != Pattern.Type.NoPattern)
+                                        {
+                                            if (currentBomb_.Coord.X != -1)
+                                                map_.RemoveEntity(currentBomb_.Coord);
+                                            currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
+                                            currentBomb_.Entity = new VirtualBomb(pattern,
+                                                                                  KaboomResources.Sprites[
+                                                                                      hud_.SelectedBombName()].Clone
+                                                                                      ());
+                                            if (
+                                                !(this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord)))
+                                            {
                                                 currentBomb_.Coord.X = -1;
                                                 currentBomb_.Coord.Y = -1;
-                                            }
-                                            else
-                                            {
-                                                if (currentBomb_.Coord.X != -1)
-                                                    map_.RemoveEntity(currentBomb_.Coord);
-                                                currentBomb_.Coord = this.map_.GetCoordByPos(ret.Pos);
-                                                currentBomb_.Entity = new VirtualBomb(pattern,
-                                                                                      KaboomResources.Sprites[hud_.SelectedBombName()].Clone());
-                                                if (
-                                                    !(this.map_.AddNewEntity(currentBomb_.Entity, currentBomb_.Coord)))
-                                                {
-                                                    currentBomb_.Coord.X = -1;
-                                                    currentBomb_.Coord.Y = -1;
-                                                }
                                             }
                                         }
                                     }
@@ -424,13 +443,24 @@ namespace Kaboom.Sources
                                        KaboomResources.Textures["Tuto"].Bounds, Color.White);
                 this.spriteBatch_.End();
             }
+            else if (onHelp_)
+            {
+                this.spriteBatch_.Begin();
+                this.spriteBatch_.Draw(KaboomResources.Textures["helpScreen"],
+                                       new Rectangle((int)(this.graphics_.PreferredBackBufferWidth * 0.05),
+                                                     (int)(this.graphics_.PreferredBackBufferHeight * 0.05),
+                                                     (int)(this.graphics_.PreferredBackBufferWidth * 0.9),
+                                                     (int)(this.graphics_.PreferredBackBufferHeight * 0.9)),
+                                       KaboomResources.Textures["helpScreen"].Bounds, Color.White);
+                this.spriteBatch_.End();
+            }
 
             if (ended_)
             {
                 if (ladder_.IsDisplay)
                     hud_.DrawLadder(gameTime, ladder_.GetLadder());
                 else
-                    hud_.DrawEnd(gameTime, lose_);
+                    hud_.DrawEnd(gameTime, lose_, ladder_.GetIdxOf("Player"));
             }
         }
 
@@ -443,7 +473,7 @@ namespace Kaboom.Sources
         {
             score_.EndReached(hud_.RemainingTurns);
             if (ended_ == false)
-                this.ladder_.AddEntry(this.hud_.GameInfos.Score.Score, "Mon Score");
+                this.ladder_.AddEntry(this.hud_.GameInfos.Score.Score, "Player");
             // TODO : Manage end game here
             ended_ = true;
             //this.Exit();

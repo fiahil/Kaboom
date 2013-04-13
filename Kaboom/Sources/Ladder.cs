@@ -78,6 +78,17 @@ namespace Kaboom.Sources
             Sort();
         }
 
+        public int GetIdxOf(string name)
+        {
+            var idx = 0;
+            foreach (var entry in ladder_)
+            {
+                if (entry.Name == name)
+                    return idx;
+                ++idx;
+            }
+            return 0;
+        }
 
     }
 }
