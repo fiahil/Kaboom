@@ -1590,4 +1590,10 @@
   </Bombset>
   <SizeX>9</SizeX>
   <SizeY>7</SizeY>
+  <Score>
+    <Turn>6</Turn>
+    <Score1>2450</Score1>
+    <Score2>2250</Score2>
+    <Score3>2000</Score3>
+  </Score>
 </MapElements>
