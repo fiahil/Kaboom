@@ -223,6 +223,10 @@
     <AndroidAsset Include="Assets\Content\endScreen2.png" />
     <AndroidAsset Include="Assets\Content\question-mark.png" />
     <AndroidAsset Include="Assets\Content\helpScreen.png" />
+    <AndroidAsset Include="Assets\Content\Drop.wav" />
+    <AndroidAsset Include="Assets\Content\InGame.mp3" />
+    <AndroidAsset Include="Assets\Content\Detonate.mp3" />
+    <AndroidAsset Include="Assets\Content\Explosion.mp3" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
@@ -233,6 +237,7 @@
     <AndroidResource Include="Resources\Drawable\backgroundMenu.png" />
     <AndroidResource Include="Resources\Drawable\easyIcon.PNG" />
     <AndroidResource Include="Resources\Drawable\hardIcon.png" />
+    <AndroidResource Include="Resources\raw\InGameMusic.mp3" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

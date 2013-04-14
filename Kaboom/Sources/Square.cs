@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace Kaboom.Sources
 {
@@ -179,6 +180,8 @@ namespace Kaboom.Sources
         /// </summary>
         public void ActiveDetonator()
         {
+            var eff = KaboomResources.Effects["Detonate"].CreateInstance();
+            eff.Play();
             if (this.entities_[2] != null && this.entities_[3] != null && ((CheckPoint)this.entities_[2]).Activated)
                 if (((Bomb) this.entities_[3]).SetForExplosion(((CheckPoint) this.entities_[2]).Time))
                     ++NbCurrentExplosions;
@@ -206,7 +209,11 @@ namespace Kaboom.Sources
             if (this.entities_[3] != null)
             {
                 if (((Bomb) this.entities_[3]).SetForExplosion(time))
+                {
+                    var eff = KaboomResources.Effects["Explode"].CreateInstance();
+                    eff.Play();
                     ++NbCurrentExplosions;
+                }
             }
             if (this.entities_[2] != null && ((CheckPoint)this.entities_[2]).Activated == false)
             {

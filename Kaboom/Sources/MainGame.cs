@@ -5,9 +5,11 @@ using Android.App;
 using Android.Content;
 using Kaboom.Serializer;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Media;
 
 namespace Kaboom.Sources
 {
@@ -133,7 +135,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
-            KaboomResources.Textures["background4"] = Content.Load<Texture2D>("background4");
+            KaboomResources.Textures["background4"] = Content.Load<Texture2D>("background3");
             KaboomResources.Textures["BombSheet"] = Content.Load<Texture2D>("BombSheet");
             KaboomResources.Textures["BombSheetSquare"] = Content.Load<Texture2D>("BombSheetSquare");
             KaboomResources.Textures["BombSheetLine"] = Content.Load<Texture2D>("BombSheetLine");
@@ -177,6 +179,13 @@ namespace Kaboom.Sources
             KaboomResources.Fonts["default"] = Content.Load<SpriteFont>("defaultFont");
             KaboomResources.Fonts["end"] = Content.Load<SpriteFont>("endFont");
 
+            KaboomResources.Effects["DropBomb"] = Content.Load<SoundEffect>("Drop");
+            KaboomResources.Effects["Explode"] = Content.Load<SoundEffect>("Explosion");
+            KaboomResources.Effects["Detonate"] = Content.Load<SoundEffect>("Detonate");
+
+            KaboomResources.Musics["InGame"] = Content.Load<Song>("InGame");
+            //KaboomResources.Musics[""] = Content.Load<Song>(""); TODO : Mettre la BineBa Song Ici
+
             KaboomResources.Level = LoadLevel(level_);
             #endregion
 
@@ -203,6 +212,10 @@ namespace Kaboom.Sources
 
             this.Components.Add(this.map_);
             this.Components.Add(this.hud_);
+
+            MediaPlayer.Play(KaboomResources.Musics["InGame"]);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.8f;
         }
 
 
