@@ -226,6 +226,13 @@
     <AndroidAsset Include="Assets\Content\Detonate.mp3" />
     <AndroidAsset Include="Assets\Content\Explosion.mp3" />
     <AndroidAsset Include="Assets\Content\Drop.mp3" />
+    <AndroidAsset Include="Assets\Content\TutoLineBomb.png" />
+    <AndroidAsset Include="Assets\Content\TutoConeBomb.png" />
+    <AndroidAsset Include="Assets\Content\TutoXBomb.png" />
+    <AndroidAsset Include="Assets\Content\TutoBonusTNT.png" />
+    <AndroidAsset Include="Assets\Content\TutoCheckpointBS.png" />
+    <AndroidAsset Include="Assets\Content\TutoHBomb.png" />
+    <AndroidAsset Include="Assets\Content\TutoUltimateBomb.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

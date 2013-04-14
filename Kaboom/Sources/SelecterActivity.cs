@@ -52,7 +52,7 @@ namespace Kaboom.Sources
                                 new ElementMenu()
                                     {Description = "A tutorial map to learn how to use \"X\" bomb", Image = Resource.Drawable.easyIcon, Name = "TutoXBomb"},
                                 new ElementMenu()
-                                    {Description = "A tutorial map to learn how usefull are the checkpoints", Image = Resource.Drawable.easyIcon, Name = "TutoCheckpointBS"},
+                                    {Description = "A tutorial map to learn how usefull are the checkpoints and discover the big bomb", Image = Resource.Drawable.easyIcon, Name = "TutoCheckpointBS"},
                                 new ElementMenu()
                                     {Description = "A tutorial map to learn how to use \"H\" bomb", Image = Resource.Drawable.easyIcon, Name = "TutoHBomb"},
                                 new ElementMenu()
