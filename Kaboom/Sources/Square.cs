@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Media;
+using System.Timers;
 
 namespace Kaboom.Sources
 {
@@ -180,10 +180,19 @@ namespace Kaboom.Sources
         /// </summary>
         public void ActiveDetonator()
         {
-            KaboomResources.Effects["Detonate"].Play();
             if (this.entities_[2] != null && this.entities_[3] != null && ((CheckPoint)this.entities_[2]).Activated)
-                if (((Bomb) this.entities_[3]).SetForExplosion(((CheckPoint) this.entities_[2]).Time))
+            {
+                KaboomResources.Effects["Detonate"].Play();
+
+                var interval = ((CheckPoint)this.entities_[2]).Time + 160;
+                var t = new Timer(interval);
+                t.Elapsed += (sender, args) => KaboomResources.Effects["Explode"].Play();
+                t.AutoReset = false;
+                t.Start();
+
+                if (((Bomb)this.entities_[3]).SetForExplosion(((CheckPoint)this.entities_[2]).Time))
                     ++NbCurrentExplosions;
+            }
         }
 
         /// <summary>
@@ -209,7 +218,12 @@ namespace Kaboom.Sources
             {
                 if (((Bomb) this.entities_[3]).SetForExplosion(time))
                 {
-                    KaboomResources.Effects["Explode"].Play();
+                    var interval = time + (((Bomb)this.entities_[3]).Type == Pattern.Type.Tnt ? 280 : 160);
+                    var t = new Timer(interval);
+                    t.Elapsed += (sender, args) => KaboomResources.Effects["Explode"].Play();
+                    t.AutoReset = false;
+                    t.Start();
+
                     ++NbCurrentExplosions;
                 }
             }

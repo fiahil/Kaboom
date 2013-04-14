@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Xml.Serialization;
-using Android.App;
 using Android.Content;
 using Kaboom.Serializer;
 using Microsoft.Xna.Framework;
@@ -36,13 +35,13 @@ namespace Kaboom.Sources
         private Hud hud_;
         private readonly CurrentElement currentBomb_;
         private bool ended_;
-        private Ladder ladder_;
+        private readonly Ladder ladder_;
         private bool lose_;
         private bool explosionMode_;
-        private ScoreManager score_ = ScoreManager.Instance;
+        private readonly ScoreManager score_ = ScoreManager.Instance;
         private bool isTuto_;
-        private List<string> mapName_;
-        private List<string> tutoName_;
+        private readonly List<string> mapName_;
+        private readonly List<string> tutoName_;
         private bool onHelp_;
 
 
@@ -213,7 +212,7 @@ namespace Kaboom.Sources
 
             MediaPlayer.Play(KaboomResources.Musics["InGame"]);
             MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.8f;
+            MediaPlayer.Volume = 0.5f;
         }
 
 
@@ -225,6 +224,7 @@ namespace Kaboom.Sources
                  switch (hudEvent)
                  {
                      case Hud.EHudEndAction.Menu:
+                         MediaPlayer.Stop();
                          Activity.Finish();
                          Activity.StartActivity(new Intent(Activity, typeof (MenuActivity)));
                          break;
@@ -237,11 +237,13 @@ namespace Kaboom.Sources
                              ladder_.IsDisplay = false;
                          break;
                      case Hud.EHudEndAction.Reload:
+                         MediaPlayer.Stop();
                          Activity.Finish();
                          Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
                                                                                                      this.level_));
                          break;
                      case Hud.EHudEndAction.Next:
+                         MediaPlayer.Stop();
                          Activity.Finish();
                          int idx;
                          if ((idx = mapName_.IndexOf(level_)) != -1)
@@ -429,7 +431,10 @@ namespace Kaboom.Sources
             }
             ///////////////////////////////////////////////////////////////TODO: Not a TODO: BackButton handler
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            {
+                MediaPlayer.Stop();
                 this.Exit();
+            }
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Timers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -18,6 +19,8 @@ namespace Kaboom.Sources
                 {Pattern.Type.Ultimate, "BombUltimate"},
             };
 
+        public Pattern.Type Type { get; set; }
+
         /// <summary>
         /// Construct a new bomb on Z-index 10
         /// </summary>
@@ -28,6 +31,7 @@ namespace Kaboom.Sources
         public Bomb(Pattern.Type type, SpriteSheet tile, string highlight = "highlight", int orientation = 0)
             : base(3, tile, EVisibility.Transparent)
         {
+            Type = type;
             highlight_ = highlight;
             pattern_ = new Pattern(type, orientation);
         }

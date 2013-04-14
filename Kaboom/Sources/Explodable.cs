@@ -34,7 +34,7 @@ namespace Kaboom.Sources
         /// Specifies whether the explosable component must explode or not
         /// </summary>
         /// <returns></returns>
-        public bool IsReadyToExplode()
+        public virtual bool IsReadyToExplode()
         {
             if (!(readyToExplode_ && timeBeforeExplosion_ <= 0) && !animationLaunched_)
                 return false;
