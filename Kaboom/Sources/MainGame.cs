@@ -95,7 +95,7 @@ namespace Kaboom.Sources
                                 "TutoLineBomb",
                                 "TutoConeBomb",
                                 "TutoXBomb",
-                                "TutoCheckPointBS",
+                                "TutoCheckpointBS",
                                 "TutoHBomb",
                                 "TutoUltimateBomb",
                                 "TutoBonusTNT"
@@ -157,7 +157,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
             KaboomResources.Textures["help"] = Content.Load<Texture2D>("question-mark");
             if (isTuto_)
-                KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>("TutoConeBomb"); // level_
+                KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>(level_); // level_
             KaboomResources.Textures["helpScreen"] = Content.Load<Texture2D>("helpScreen");
 
             KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 14, 14 }, 2, 20);
@@ -296,7 +296,7 @@ namespace Kaboom.Sources
                     score_.EndOfTurn(hud_.TotalBombsNumber());
                 }
             }
-            else
+            else if (!ended_)
             {
                 if (hud_.GameInfos.Round <= 0)
                 {
