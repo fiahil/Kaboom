@@ -210,7 +210,7 @@ namespace Kaboom.Sources
                 if (((Bomb) this.entities_[3]).SetForExplosion(time))
                 {
                     KaboomResources.Effects["Explode"].Play();
-                    ++NbCurrentExplosions;
+                        ++NbCurrentExplosions;
                 }
             }
             if (this.entities_[2] != null && ((CheckPoint)this.entities_[2]).Activated == false)
