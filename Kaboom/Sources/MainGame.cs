@@ -157,7 +157,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
             KaboomResources.Textures["help"] = Content.Load<Texture2D>("question-mark");
             if (isTuto_)
-                KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>("TutoNormalBomb"); // level_
+                KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>("TutoConeBomb"); // level_
             KaboomResources.Textures["helpScreen"] = Content.Load<Texture2D>("helpScreen");
 
             KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 8, 18 }, 2, 20);

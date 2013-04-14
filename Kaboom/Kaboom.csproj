@@ -226,6 +226,8 @@
     <AndroidAsset Include="Assets\Content\Detonate.mp3" />
     <AndroidAsset Include="Assets\Content\Explosion.mp3" />
     <AndroidAsset Include="Assets\Content\Drop.mp3" />
+    <AndroidAsset Include="Assets\Content\TutoLineBomb.png" />
+    <AndroidAsset Include="Assets\Content\TutoConeBomb.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />
