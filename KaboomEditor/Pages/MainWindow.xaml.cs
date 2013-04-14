@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -89,6 +90,15 @@ namespace KaboomEditor.Pages
                     this.mapElements_.Board[elt.XCoord][elt.YCoord].Entities = elt.Entities.Where(entity => entity != null).ToList();
                 }
             }
+
+            var turn = this.FindName("TextBoxTurn") as TextBox;
+            this.mapElements_.Score.Turn = (turn != null ? int.Parse(turn.Text) : 10);
+            var score1 = this.FindName("TextBoxScore1") as TextBox;
+            this.mapElements_.Score.Score1 = (score1 != null ? int.Parse(score1.Text) : 10000);
+            var score2 = this.FindName("TextBoxScore2") as TextBox;
+            this.mapElements_.Score.Score2 = (score2 != null ? int.Parse(score2.Text) : 6000);
+            var score3 = this.FindName("TextBoxScore3") as TextBox;
+            this.mapElements_.Score.Score3 = (score3 != null ? int.Parse(score3.Text) : 3000);
 
             var mySerializer = new XmlSerializer(typeof(MapElements));
 
@@ -183,6 +193,16 @@ namespace KaboomEditor.Pages
                             uniformGrid.Children.Add(elt);
                         }
                     }
+
+                    var turn = this.FindName("TextBoxTurn") as TextBox;
+                    turn.Text = this.mapElements_.Score.Turn.ToString(CultureInfo.InvariantCulture);
+                    var score1 = this.FindName("TextBoxScore1") as TextBox;
+                    score1.Text = this.mapElements_.Score.Score1.ToString(CultureInfo.InvariantCulture);
+                    var score2 = this.FindName("TextBoxScore2") as TextBox;
+                    score2.Text = this.mapElements_.Score.Score2.ToString(CultureInfo.InvariantCulture);
+                    var score3 = this.FindName("TextBoxScore3") as TextBox;
+                    score3.Text = this.mapElements_.Score.Score3.ToString(CultureInfo.InvariantCulture);
+
                 }
             }
         }

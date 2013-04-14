@@ -141,6 +141,38 @@ namespace Kaboom.Serializer
         }
     }
 
+    public class ScoreInfoProxy
+    {
+        private int turn_ = 1;
+        private int score1_;
+        private int score2_;
+        private int score3_;
+
+        public int Turn
+        {
+            get { return turn_; }
+            set { turn_ = value; }
+        }
+
+        public int Score1
+        {
+            get { return score1_; }
+            set { score1_ = value; }
+        }
+
+        public int Score2
+        {
+            get { return score2_; }
+            set { score2_ = value; }
+        }
+
+        public int Score3
+        {
+            get { return score3_; }
+            set { score3_ = value; }
+        }
+    }
+
     /// <summary>
     /// Used to convay a map over xml serialization
     /// </summary>
@@ -151,12 +183,16 @@ namespace Kaboom.Serializer
         public List<List<BombInfoProxy>> Bombset; 
         public int SizeX;
         public int SizeY;
+        public ScoreInfoProxy Score;
+
 
         /// <summary>
         /// Initialize a new MapElement by default
         /// </summary>
         public MapElements()
         {
+            if (Score == null)
+                Score = new ScoreInfoProxy();
         }
 
         /// <summary>
@@ -169,6 +205,7 @@ namespace Kaboom.Serializer
             this.SizeX = x;
             this.SizeY = y;
             this.Board = new SquareProxy[x][];
+            this.Score = new ScoreInfoProxy();
 
             for (var i = 0; i < x; i++)
             {

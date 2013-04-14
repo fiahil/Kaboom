@@ -59,10 +59,8 @@ namespace Kaboom.Sources
             ended_ = false;
             lose_ = false;
             this.em_ = new Event();
-            this.ladder_ = new Ladder(); // TODO : test
-            this.ladder_.AddEntry(10000, "King");
-            this.ladder_.AddEntry(6000, "Prince");
-            this.ladder_.AddEntry(3000, "Champion");
+            this.ladder_ = new Ladder();
+            
 
             #region mapNameInit
 
@@ -196,6 +194,10 @@ namespace Kaboom.Sources
             score_.Restart(10); // mettre le bombre de tour au depart
 
             this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Level);
+            this.ladder_.AddEntry(KaboomResources.Level.Score.Score1, "King");
+            this.ladder_.AddEntry(KaboomResources.Level.Score.Score2, "Prince");
+            this.ladder_.AddEntry(KaboomResources.Level.Score.Score3, "Champion");
+            this.hud_.GameInfos.Round = KaboomResources.Level.Score.Turn;
             this.map_.EndGameManager += ManageEndGame;
             Viewport.Instance.Initialize(GraphicsDevice, this.map_);
 
