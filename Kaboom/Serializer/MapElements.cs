@@ -143,7 +143,7 @@ namespace Kaboom.Serializer
 
     public class ScoreInfoProxy
     {
-        private int turn_ = 1;
+        private int turn_ = 10;
         private int score1_;
         private int score2_;
         private int score3_;
