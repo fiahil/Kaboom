@@ -316,8 +316,8 @@
   <SizeY>3</SizeY>
   <Score>
     <Turn>6</Turn>
-    <Score1>3000</Score1>
-    <Score2>1500</Score2>
-    <Score3>500</Score3>
+    <Score1>0</Score1>
+    <Score2>0</Score2>
+    <Score3>0</Score3>
   </Score>
 </MapElements>
