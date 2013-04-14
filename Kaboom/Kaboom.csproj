@@ -91,7 +91,6 @@
     <Compile Include="Sources\VirtualBomb.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Content\BombSheet.xnb" />
     <AndroidAsset Include="Assets\Content\defaultFont.xnb" />
     <AndroidAsset Include="Assets\Content\endFont.xnb" />
     <None Include="Resources\AboutResources.txt" />
@@ -223,7 +222,6 @@
     <AndroidAsset Include="Assets\Content\endScreen2.png" />
     <AndroidAsset Include="Assets\Content\question-mark.png" />
     <AndroidAsset Include="Assets\Content\helpScreen.png" />
-    <AndroidAsset Include="Assets\Content\Drop.wav" />
     <AndroidAsset Include="Assets\Content\InGame.mp3" />
     <AndroidAsset Include="Assets\Content\Detonate.mp3" />
     <AndroidAsset Include="Assets\Content\Explosion.mp3" />
