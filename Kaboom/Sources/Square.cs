@@ -180,8 +180,7 @@ namespace Kaboom.Sources
         /// </summary>
         public void ActiveDetonator()
         {
-            var eff = KaboomResources.Effects["Detonate"].CreateInstance();
-            eff.Play();
+            KaboomResources.Effects["Detonate"].Play();
             if (this.entities_[2] != null && this.entities_[3] != null && ((CheckPoint)this.entities_[2]).Activated)
                 if (((Bomb) this.entities_[3]).SetForExplosion(((CheckPoint) this.entities_[2]).Time))
                     ++NbCurrentExplosions;
@@ -210,9 +209,8 @@ namespace Kaboom.Sources
             {
                 if (((Bomb) this.entities_[3]).SetForExplosion(time))
                 {
-                    var eff = KaboomResources.Effects["Explode"].CreateInstance();
-                    eff.Play();
-                    ++NbCurrentExplosions;
+                    KaboomResources.Effects["Explode"].Play();
+                        ++NbCurrentExplosions;
                 }
             }
             if (this.entities_[2] != null && ((CheckPoint)this.entities_[2]).Activated == false)

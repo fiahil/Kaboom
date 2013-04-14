@@ -77,7 +77,9 @@ namespace Kaboom.Sources
                                     {Description = "This one will not bother you then", Image = Resource.Drawable.easyIcon, Name = "DidUCheckTuto"},
                                 new ElementMenu()
                                     {Description = "Something", Image = Resource.Drawable.easyIcon, Name = "It's Something"},
-                                new ElementMenu()
+                                 new ElementMenu()
+                                    {Description = "He got a better defense ... But you have cookie", Image = Resource.Drawable.easyIcon, Name = "Versus"},
+                               new ElementMenu()
                                     {Description = "Combinations of bombs is the key", Image = Resource.Drawable.easyIcon, Name = "CombisTheG"},
                                  new ElementMenu()
                                     {Description = "Get out of this boxing ring", Image = Resource.Drawable.easyIcon, Name = "InTheRedCorner"},
@@ -85,8 +87,6 @@ namespace Kaboom.Sources
                                     {Description = "There is somewhere where the wall is thinner", Image = Resource.Drawable.easyIcon, Name = "TheBreach"},
                                 new ElementMenu()
                                     {Description = "They can't stand each other", Image = Resource.Drawable.easyIcon, Name = "OppositeForces"},
-                                new ElementMenu()
-                                    {Description = "He got a better defense ... But you have cookie", Image = Resource.Drawable.easyIcon, Name = "Versus"},
                                   new ElementMenu()
                                     {Description = "get through the X", Image = Resource.Drawable.easyIcon, Name = "XFactor"},
                                 new ElementMenu()

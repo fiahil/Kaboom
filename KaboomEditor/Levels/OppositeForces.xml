@@ -1299,4 +1299,10 @@
   </Bombset>
   <SizeX>10</SizeX>
   <SizeY>5</SizeY>
+  <Score>
+    <Turn>7</Turn>
+    <Score1>4200</Score1>
+    <Score2>3800</Score2>
+    <Score3>3300</Score3>
+  </Score>
 </MapElements>

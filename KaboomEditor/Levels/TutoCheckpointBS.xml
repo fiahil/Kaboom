@@ -2028,4 +2028,10 @@
   </Bombset>
   <SizeX>9</SizeX>
   <SizeY>9</SizeY>
+  <Score>
+    <Turn>4</Turn>
+    <Score1>2100</Score1>
+    <Score2>2000</Score2>
+    <Score3>1800</Score3>
+  </Score>
 </MapElements>

@@ -135,7 +135,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
-            KaboomResources.Textures["background4"] = Content.Load<Texture2D>("background4");
+            KaboomResources.Textures["background4"] = Content.Load<Texture2D>("background3");
             KaboomResources.Textures["BombSheetSquare"] = Content.Load<Texture2D>("BombSheetSquare");
             KaboomResources.Textures["BombSheetLine"] = Content.Load<Texture2D>("BombSheetLine");
             KaboomResources.Textures["BombSheetAngle"] = Content.Load<Texture2D>("BombSheetAngle");

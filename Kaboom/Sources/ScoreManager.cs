@@ -52,7 +52,7 @@
         {
             Score += (explodedBlocks_ * explodedBlocks_) * 5;
             if (explodedBombs_ != 0)
-                Score += (100 * bombsAvailable / explodedBombs_);
+                Score += (20 * bombsAvailable / explodedBombs_);
             explodedBlocks_ = 0;
             explodedBombs_ = 0;
         }

@@ -6032,4 +6032,10 @@
   </Bombset>
   <SizeX>16</SizeX>
   <SizeY>15</SizeY>
+  <Score>
+    <Turn>12</Turn>
+    <Score1>11000</Score1>
+    <Score2>9000</Score2>
+    <Score3>7500</Score3>
+  </Score>
 </MapElements>
