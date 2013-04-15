@@ -253,16 +253,25 @@ namespace Kaboom.Sources
                              idx++;
                              if (idx >= mapName_.Count)
                                  idx = 0;
-                             Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
-                                                                                                         mapName_[idx]));
+                             if (idx < mapName_.Count - 1)
+                                 Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
+                                                                                                             mapName_[
+                                                                                                                 idx]));
+                             else
+                                 Activity.StartActivity(new Intent(Activity, typeof (MenuActivity)));
                          }
                          else
                          {
                              idx = tutoName_.IndexOf(level_) + 1;
                              if (idx >= tutoName_.Count)
                                  idx = 0;
-                             Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
-                                                                                                         tutoName_[idx]));
+                             if (idx < tutoName_.Count - 1)
+                                 Activity.StartActivity(new Intent(Activity, typeof(MainActivity)).PutExtra("level",
+                                                                                                             tutoName_[
+                                                                                                                 idx]));
+                             else
+                                 Activity.StartActivity(new Intent(Activity, typeof(MainActivity)).PutExtra("level",
+                                                                                                             mapName_[0]));
                          }
                          break;
                  }

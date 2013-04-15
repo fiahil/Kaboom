@@ -241,7 +241,7 @@ namespace Kaboom.Sources
                                       KaboomResources.Textures["help"].Bounds, Color.White);
           
 
-            var padding = 4;
+            var padding = 7;
 
             foreach (var bombInfo in BombSet)
             {
@@ -249,9 +249,9 @@ namespace Kaboom.Sources
                                                              ((this.Game.GraphicsDevice.Viewport.Width / 2) -
                                                               (this.width_ / 2)) +
                                                              (int) (((padding) / 780.0) * this.width_),
-                                                             (int) ((81.0 / 125.0) * this.height_ * 0.2),
-                                                             (int) ((61.0 / 780.0) * this.width_),
-                                                             (int) ((61.0 / 780.0) * this.width_)));
+                                                             (int) ((120.0 / 125.0) * this.height_ * 0.2),
+                                                             (int) ((57.0 / 780.0) * this.width_),
+                                                             (int) ((57.0 / 780.0) * this.width_)));
 
                 this.sb_.DrawString(KaboomResources.Fonts["default"],
                                     bombInfo.Quantity.ToString(CultureInfo.InvariantCulture),
@@ -260,10 +260,10 @@ namespace Kaboom.Sources
                                                 (int) (((60.0 / 780.0) * this.width_) / 2),
                                                 (int) (((150.0 / 125.0) * this.height_) / 2)), Color.White);
 
-                padding += 57;
+                padding += 58;
             }
 
-            var scoreS = GameInfos.Score.Score.ToString();
+            var scoreS = GameInfos.Score.Score.ToString(CultureInfo.InvariantCulture);
             var sc = GameInfos.Score;
             this.sb_.DrawString(KaboomResources.Fonts["default"],
                                 scoreS,
@@ -287,7 +287,6 @@ namespace Kaboom.Sources
         public void DrawLadder(GameTime gameTime, List<Ladder.LadderEntry> ladder)
         {
             this.sb_.Begin();
-            // Image en fonction du nombre de point (pour etoile)
             this.sb_.Draw(KaboomResources.Textures["ladderScreen"],
                                    new Rectangle((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2),
                                                  (this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2),
