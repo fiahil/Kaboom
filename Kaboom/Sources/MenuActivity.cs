@@ -13,7 +13,10 @@ namespace Kaboom.Sources
 
     [Activity(Label = "Kaboom",
         MainLauncher = true,
+        AlwaysRetainTaskState = true,
+        LaunchMode = LaunchMode.SingleInstance,
         ScreenOrientation = ScreenOrientation.SensorLandscape,
+        ConfigurationChanges = ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.Orientation,
         Icon = "@drawable/icon")]
     public class MenuActivity : Activity
     {

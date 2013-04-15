@@ -11,7 +11,10 @@ namespace Kaboom.Sources
     
     [Activity(Label = "Kaboom",
         MainLauncher = false,
+        AlwaysRetainTaskState = true,
+        LaunchMode = LaunchMode.SingleInstance,
         ScreenOrientation = ScreenOrientation.SensorLandscape,
+        ConfigurationChanges = ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.Orientation,
         Icon = "@drawable/icon")]
     public class SelecterActivity : Activity
     {
