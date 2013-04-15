@@ -61,35 +61,35 @@ namespace Kaboom.Sources
             lose_ = false;
             this.em_ = new Event();
             this.ladder_ = new Ladder();
-            
+
 
             #region mapNameInit
 
             mapName_ = new List<string>
-                {
-                               "A-Maze-Me",
-                               "CombisTheG",
-                               "Corporate",
-                               "ChooseYourSide",
+                           {
+                               "NumbaWan",
                                "DidUCheckTuto",
+                               "It's Something",
+                               "Versus",
+                               "CombisTheG",
+                               "InTheRedCorner",
+                               "TheBreach",
+                               "OppositeForces",
+                               "XFactor",
+                               "ChooseYourSide",
                                "DynamiteWarehouse",
                                "FaceToFace",
-                               "FindYourWayOut",
-                               "InTheRedCorner",
-                               "Invasion",
-                               "It's Something",
-                               "Life",
-                               "NumbaWan",
                                "OneStepAway",
-                               "OppositeForces",
-                               "Tetris",
-                               "TheBreach",
+                               "FindYourWayOut",
+                               "Corporate",
                                "Unreachable",
-                               "Versus",
-                               "XFactor"
+                               "Tetris",
+                               "Life",
+                               "Invasion",
+                               "A-Maze-Me"
                            };
             tutoName_ = new List<string>
-                {
+                            {
                                 "TutoNormalBomb",
                                 "TutoLineBomb",
                                 "TutoConeBomb",
@@ -252,26 +252,22 @@ namespace Kaboom.Sources
                          {
                              idx++;
                              if (idx >= mapName_.Count)
-                                 idx = 0;
-                             if (idx < mapName_.Count - 1)
+                                 Activity.StartActivity(new Intent(Activity, typeof (MenuActivity)));
+                             else
                                  Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
                                                                                                              mapName_[
                                                                                                                  idx]));
-                             else
-                                 Activity.StartActivity(new Intent(Activity, typeof (MenuActivity)));
                          }
                          else
                          {
                              idx = tutoName_.IndexOf(level_) + 1;
                              if (idx >= tutoName_.Count)
-                                 idx = 0;
-                             if (idx < tutoName_.Count - 1)
-                                 Activity.StartActivity(new Intent(Activity, typeof(MainActivity)).PutExtra("level",
+                                 Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
+                                                                                                             mapName_[0]));
+                             else
+                                 Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
                                                                                                              tutoName_[
                                                                                                                  idx]));
-                             else
-                                 Activity.StartActivity(new Intent(Activity, typeof(MainActivity)).PutExtra("level",
-                                                                                                             mapName_[0]));
                          }
                          break;
                  }
