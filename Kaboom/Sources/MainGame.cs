@@ -65,8 +65,8 @@ namespace Kaboom.Sources
 
             #region mapNameInit
 
-            mapName_ = new List<string>()
-                           {
+            mapName_ = new List<string>
+                {
                                "A-Maze-Me",
                                "CombisTheG",
                                "Corporate",
@@ -88,8 +88,8 @@ namespace Kaboom.Sources
                                "Versus",
                                "XFactor"
                            };
-            tutoName_ = new List<string>()
-                            {
+            tutoName_ = new List<string>
+                {
                                 "TutoNormalBomb",
                                 "TutoLineBomb",
                                 "TutoConeBomb",
@@ -134,7 +134,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["background1"] = Content.Load<Texture2D>("background1");
             KaboomResources.Textures["background2"] = Content.Load<Texture2D>("background2");
             KaboomResources.Textures["background3"] = Content.Load<Texture2D>("background3");
-            KaboomResources.Textures["background4"] = Content.Load<Texture2D>("background3");
+            KaboomResources.Textures["background4"] = Content.Load<Texture2D>("background4");
             KaboomResources.Textures["BombSheetSquare"] = Content.Load<Texture2D>("BombSheetSquare");
             KaboomResources.Textures["BombSheetLine"] = Content.Load<Texture2D>("BombSheetLine");
             KaboomResources.Textures["BombSheetAngle"] = Content.Load<Texture2D>("BombSheetAngle");
@@ -156,7 +156,7 @@ namespace Kaboom.Sources
             KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
             KaboomResources.Textures["help"] = Content.Load<Texture2D>("question-mark");
             if (isTuto_)
-                KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>(level_); // level_
+                KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>(level_);
             KaboomResources.Textures["helpScreen"] = Content.Load<Texture2D>("helpScreen");
 
             KaboomResources.Sprites["BombUltimate"] = new SpriteSheet(KaboomResources.Textures["BombSheetUltimate"], new[] { 14, 14 }, 2, 20);
@@ -181,7 +181,6 @@ namespace Kaboom.Sources
             KaboomResources.Effects["Detonate"] = Content.Load<SoundEffect>("Detonate");
 
             KaboomResources.Musics["InGame"] = Content.Load<Song>("InGame");
-            //KaboomResources.Musics[""] = Content.Load<Song>(""); TODO : Mettre la BineBa Song Ici
 
             KaboomResources.Level = LoadLevel(level_);
             #endregion
@@ -197,7 +196,7 @@ namespace Kaboom.Sources
 
             this.hud_ = new Hud(this, this.spriteBatch_);
             hud_.GameInfos.Round = 10;
-            score_.Restart(10); // mettre le bombre de tour au depart
+            score_.Restart(10);
 
             this.map_ = new Map(this, this.spriteBatch_, KaboomResources.Level);
             this.ladder_.AddEntry(KaboomResources.Level.Score.Score1, "King");
@@ -224,6 +223,7 @@ namespace Kaboom.Sources
                  switch (hudEvent)
                  {
                      case Hud.EHudEndAction.Menu:
+                         MediaPlayer.IsRepeating = false;
                          MediaPlayer.Stop();
                          Activity.Finish();
                          Activity.StartActivity(new Intent(Activity, typeof (MenuActivity)));
@@ -237,12 +237,14 @@ namespace Kaboom.Sources
                              ladder_.IsDisplay = false;
                          break;
                      case Hud.EHudEndAction.Reload:
+                         MediaPlayer.IsRepeating = false;
                          MediaPlayer.Stop();
                          Activity.Finish();
                          Activity.StartActivity(new Intent(Activity, typeof (MainActivity)).PutExtra("level",
                                                                                                      this.level_));
                          break;
                      case Hud.EHudEndAction.Next:
+                         MediaPlayer.IsRepeating = false;
                          MediaPlayer.Stop();
                          Activity.Finish();
                          int idx;
@@ -288,7 +290,6 @@ namespace Kaboom.Sources
             base.Update(gameTime);
 
             Viewport.Instance.Update();
-            ///////////////////////////////////////////////////////TODO: Not A TODO: Gesture test
 
             if (explosionMode_)
             {
@@ -374,6 +375,7 @@ namespace Kaboom.Sources
                                             hud_.RemoveBombOfType(pattern);
                                             currentBomb_.Coord.X = -1;
                                             currentBomb_.Coord.Y = -1;
+                                            KaboomResources.Effects["DropBomb"].Play();
                                         }
                                     }
                                     else if (hudEvent == Hud.EHudAction.Help)
@@ -419,7 +421,9 @@ namespace Kaboom.Sources
                                             }
                                         }
                                     }
+// ReSharper disable EmptyGeneralCatchClause
                                     catch
+// ReSharper restore EmptyGeneralCatchClause
                                     {
                                     }
                                 }
@@ -429,9 +433,9 @@ namespace Kaboom.Sources
                     }
                 }
             }
-            ///////////////////////////////////////////////////////////////TODO: Not a TODO: BackButton handler
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
             {
+                MediaPlayer.IsRepeating = false;
                 MediaPlayer.Stop();
                 this.Exit();
             }
@@ -492,9 +496,7 @@ namespace Kaboom.Sources
             score_.EndReached(hud_.RemainingTurns);
             if (ended_ == false)
                 this.ladder_.AddEntry(this.hud_.GameInfos.Score.Score, "Player");
-            // TODO : Manage end game here
             ended_ = true;
-            //this.Exit();
         }
 
         /// <summary>

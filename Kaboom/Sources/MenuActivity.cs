@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Media;
 using Android.OS;
 using Android.Widget;
 using System;
@@ -31,6 +32,10 @@ namespace Kaboom.Sources
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            var p = MediaPlayer.Create(this, Resource.Raw.MenuAmbiance);
+            p.Looping = true;
+            p.Start();
 
             SetContentView(Resource.Layout.ModeSelection);
 
