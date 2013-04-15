@@ -80,6 +80,7 @@
     <Compile Include="Sources\Map.cs" />
     <Compile Include="Sources\KaboomResources.cs" />
     <Compile Include="Serializer\MapElements.cs" />
+    <Compile Include="Sources\AutoMediaPlayer.cs" />
     <Compile Include="Sources\MenuActivity.cs" />
     <Compile Include="Sources\Pattern.cs" />
     <Compile Include="Sources\ScoreManager.cs" />

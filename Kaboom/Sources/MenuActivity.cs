@@ -13,15 +13,13 @@ namespace Kaboom.Sources
 
     [Activity(Label = "Kaboom",
         MainLauncher = true,
-        AlwaysRetainTaskState = true,
         LaunchMode = LaunchMode.SingleInstance,
         ScreenOrientation = ScreenOrientation.SensorLandscape,
         ConfigurationChanges = ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.Orientation,
         Icon = "@drawable/icon")]
     public class MenuActivity : Activity
     {
-
-        List<string> mapName_;
+        readonly List<string> mapName_;
 
 
         public MenuActivity()
@@ -36,25 +34,56 @@ namespace Kaboom.Sources
         {
             base.OnCreate(bundle);
 
-            var p = MediaPlayer.Create(this, Resource.Raw.MenuAmbiance);
-            p.Looping = true;
-            p.Start();
+            if (AutoMediaPlayer.Instance == null)
+                AutoMediaPlayer.Instance = MediaPlayer.Create(this, Resource.Raw.MenuAmbiance);
+            if (AutoMediaPlayer.Instance.IsPlaying == false)
+            {
+                AutoMediaPlayer.Instance.Looping = true;
+                AutoMediaPlayer.Instance.Start();
+            }
 
             SetContentView(Resource.Layout.ModeSelection);
 
             var quickButton = FindViewById<Button>(Resource.Id.QuickButton);
             quickButton.Click += (sender, e) =>
-                                     {
-                                         var rand = new Random();
-                StartActivity(new Intent(this, typeof(MainActivity)).PutExtra("level",
-                                                              mapName_[rand.Next(0, 19)]));
-            };
+                {
+                    AutoMediaPlayer.Instance.Looping = false;
+                    AutoMediaPlayer.Instance.Stop();
+                    var rand = new Random();
+                    StartActivity(new Intent(this, typeof (MainActivity)).PutExtra("level",
+                                                                                   mapName_[rand.Next(0, 19)]));
+                };
             var mapButton = FindViewById<Button>(Resource.Id.MapButton);
             mapButton.Click += (sender, e) => StartActivity(new Intent(this, typeof(SelecterActivity)).PutExtra("type",
                                                                                                             "map"));
             var tutoButton = FindViewById<Button>(Resource.Id.TutoButton);
             tutoButton.Click += (sender, e) => StartActivity(new Intent(this, typeof(SelecterActivity)).PutExtra("type",
                                                                                                              "tuto"));
+        }
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+
+            if (AutoMediaPlayer.Instance != null)
+            {
+                AutoMediaPlayer.Instance.Looping = false;
+                AutoMediaPlayer.Instance.Stop();
+            }
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            if (AutoMediaPlayer.Instance != null)
+                AutoMediaPlayer.Instance.Pause();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            if (AutoMediaPlayer.Instance != null)
+                AutoMediaPlayer.Instance.Start();
         }
 
     }
