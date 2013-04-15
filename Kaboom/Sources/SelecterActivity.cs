@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Media;
 using Android.OS;
 using Android.Widget;
 
@@ -30,11 +31,8 @@ namespace Kaboom.Sources
         {
             base.OnCreate(bundle);
 
-            if (AutoMediaPlayer.Instance.IsPlaying == false)
-            {
-                AutoMediaPlayer.Instance.Looping = true;
-                AutoMediaPlayer.Instance.Start();
-            }
+            if (AutoMediaPlayer.Instance2 == null)
+                AutoMediaPlayer.Instance2 = MediaPlayer.Create(this, Resource.Raw.MenuAmbiance);
 
             var type = Intent.GetStringExtra("type");
 
@@ -47,52 +45,52 @@ namespace Kaboom.Sources
                 var title = FindViewById<TextView>(Resource.Id.textView1);
                 title.Text = "Select a tutorial";
 
-                list_ = new List<ElementMenu>()
+                list_ = new List<ElementMenu>
                     {
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "A tutorial map to learn how to use normal bomb",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TutoNormalBomb"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "A tutorial map to learn how to use line bomb",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TutoLineBomb"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "A tutorial map to learn how to use cone bomb",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TutoConeBomb"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "A tutorial map to learn how to use \"X\" bomb",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TutoXBomb"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description =
                                     "A tutorial map to learn how usefull are the checkpoints and discover the big bomb",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TutoCheckpointBS"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "A tutorial map to learn how to use \"H\" bomb",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TutoHBomb"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "A tutorial map to learn how to use ultimate bomb",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TutoUltimateBomb"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "A tutorial map to learn how to interact with TNT bonus",
                                 Image = Resource.Drawable.easyIcon,
@@ -109,111 +107,111 @@ namespace Kaboom.Sources
                 var title = FindViewById<TextView>(Resource.Id.textView1);
                 title.Text = "Select a map";
 
-                list_ = new List<ElementMenu>()
+                list_ = new List<ElementMenu>
                     {
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "The first one you need to play",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "NumbaWan"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "This one will not bother you then",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "DidUCheckTuto"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {Description = "Something", Image = Resource.Drawable.easyIcon, Name = "It's Something"},
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "He got a better defense ... But you have cookie",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "Versus"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "Combinations of bombs is the key",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "CombisTheG"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "Get out of this boxing ring",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "InTheRedCorner"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "There is somewhere where the wall is thinner",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TheBreach"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "They can't stand each other",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "OppositeForces"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {Description = "get through the X", Image = Resource.Drawable.easyIcon, Name = "XFactor"},
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "Right ot left ? Choose your path",
                                 Image = Resource.Drawable.iconList,
                                 Name = "ChooseYourSide"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "TNT, TNT Everywhere",
                                 Image = Resource.Drawable.iconList,
                                 Name = "DynamiteWarehouse"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "Don't go straight forward",
                                 Image = Resource.Drawable.iconList,
                                 Name = "FaceToFace"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "Just one inch further",
                                 Image = Resource.Drawable.iconList,
                                 Name = "OneStepAway"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "Which path wil you take ?",
                                 Image = Resource.Drawable.iconList,
                                 Name = "FindYourWayOut"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {Description = "{Epitech.}", Image = Resource.Drawable.iconList, Name = "Corporate"},
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "But you have the power force to do it",
                                 Image = Resource.Drawable.iconList,
                                 Name = "Unreachable"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "There is something wrong with these patterns",
                                 Image = Resource.Drawable.iconList,
                                 Name = "Tetris"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "Life is something that everyone should try at least once",
                                 Image = Resource.Drawable.hardIcon,
                                 Name = "Life"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "Don't let them have your back",
                                 Image = Resource.Drawable.hardIcon,
                                 Name = "Invasion"
                             },
-                        new ElementMenu()
+                        new ElementMenu
                             {
                                 Description = "The exit must be near ... or not",
                                 Image = Resource.Drawable.hardIcon,
@@ -228,31 +226,40 @@ namespace Kaboom.Sources
             listAdapter_ = new CustomListAdapter(this, list_);
             var listView = FindViewById<ListView>(Resource.Id.listView);
             listView.Adapter = listAdapter_;
-            listView.ItemClick += (sender, e) =>
-                {
-                    AutoMediaPlayer.Instance.Looping = false;
-                    AutoMediaPlayer.Instance.Stop();
-                    StartActivity(new Intent(this, typeof (MainActivity)).PutExtra("level",
-                                                                                   this.listAdapter_.
-                                                                                        GetItemAtPosition(
-                                                                                            e.Position).
-                                                                                        Name));
-                };
+            listView.ItemClick += (sender, e) => StartActivity(new Intent(this, typeof (MainActivity)).PutExtra("level",
+                                                                                                                this.listAdapter_.
+                                                                                                                     GetItemAtPosition(
+                                                                                                                         e.Position).
+                                                                                                                     Name));
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            AutoMediaPlayer.Instance2.Start();
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            AutoMediaPlayer.Instance2.Pause();
         }
 
         protected override void OnPause()
         {
             base.OnPause();
-            if (AutoMediaPlayer.Instance != null)
-                AutoMediaPlayer.Instance.Pause();
+            AutoMediaPlayer.Instance2.Pause();
         }
 
         protected override void OnResume()
         {
             base.OnResume();
-            if (AutoMediaPlayer.Instance != null)
-                AutoMediaPlayer.Instance.Start();
+            AutoMediaPlayer.Instance2.Start();
         }
 
+        public override void OnBackPressed()
+        {
+            StartActivity(new Intent(this, typeof(MenuActivity)));
+        }
     }
 }
