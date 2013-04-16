@@ -33,7 +33,7 @@ namespace Kaboom.Sources
             public int Round { get; set; }
             public ScoreManager Score { get; set; }
 
-            public GameProgressInfos(int r, int s)
+            public GameProgressInfos(int r)
             {
                 Round = r;
                 Score = ScoreManager.Instance;
@@ -114,7 +114,7 @@ namespace Kaboom.Sources
             width_ = 0;
             currentPos_ = 0;
             isActive_ = false;
-            GameInfos = new GameProgressInfos(0, 0);
+            GameInfos = new GameProgressInfos(0);
         }
 
         /// <summary>
@@ -258,19 +258,18 @@ namespace Kaboom.Sources
                                     new Vector2(((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                                                 (int) (((padding) / 780.0) * this.width_) +
                                                 (int) (((60.0 / 780.0) * this.width_) / 2),
-                                                (int) (((150.0 / 125.0) * this.height_) / 2)), Color.White);
+                                                (int)(((150.0 / 125.0) * this.height_) / 2)), Color.White, 0, Vector2.Zero, new Vector2((this.Game.GraphicsDevice.Viewport.Height * (7.0f / 100.0f)) / 50.0f), SpriteEffects.None, 1);
 
                 padding += 58;
             }
 
             var scoreS = GameInfos.Score.Score.ToString(CultureInfo.InvariantCulture);
-            var sc = GameInfos.Score;
             this.sb_.DrawString(KaboomResources.Fonts["default"],
                                 scoreS,
                                 new Vector2(
                                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                                     (int)((((680 - (150.0 + (14 * scoreS.Length))) / 780.0) * this.width_)),
-                                    (int)(((60.0 / 125.0) * this.height_) / 2)), Color.White);
+                                    (int)(((60.0 / 125.0) * this.height_) / 2)), Color.White, 0, Vector2.Zero, new Vector2((this.Game.GraphicsDevice.Viewport.Height * (7.0f / 100.0f)) / 50.0f), SpriteEffects.None, 1);
 
             padding = 0;
             if (GameInfos.Round < 10)
@@ -280,7 +279,7 @@ namespace Kaboom.Sources
                                 new Vector2(
                                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.width_ / 2)) +
                                     (int) ((((775.0 - (80.0 - padding)) / 780.0) * this.width_)),
-                                    (int) (((100.0 / 125.0) * this.height_) / 2)), Color.White);
+                                    (int)(((100.0 / 125.0) * this.height_) / 2)), Color.White, 0, Vector2.Zero, new Vector2((this.Game.GraphicsDevice.Viewport.Height * (7.0f / 100.0f)) / 50.0f), SpriteEffects.None, 1);
             this.sb_.End();
         }
 
@@ -313,7 +312,7 @@ namespace Kaboom.Sources
                                     ((this.Game.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))
                                     + (int)((((270.0) / 700.0) * this.widthEnd_)),
                                     ((this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2))
-                                    + (int)((((260.0 + padding) / 450.0) * this.heightEnd_) / 2)), Color.White);
+                                    + (int)((((260.0 + padding) / 450.0) * this.heightEnd_) / 2)), Color.White, 0, Vector2.Zero, new Vector2((this.Game.GraphicsDevice.Viewport.Height * (7.0f / 100.0f)) / 50.0f), SpriteEffects.None, 1);
                 padding += 100;
             }
 
@@ -361,7 +360,7 @@ namespace Kaboom.Sources
                                             ((this.GraphicsDevice.Viewport.Width / 2) - (this.widthEnd_ / 2))
                                             + (int) ((((240.0 + (14 * scoreS.Length)) / 700) * this.widthEnd_)),
                                             ((this.GraphicsDevice.Viewport.Height / 2) - (this.heightEnd_ / 2))
-                                            + (int) ((325.0 / 450.0) * this.heightEnd_)), Color.White);
+                                            + (int)((325.0 / 450.0) * this.heightEnd_)), Color.White, 0, Vector2.Zero, new Vector2((this.Game.GraphicsDevice.Viewport.Height * (7.0f / 100.0f)) / 50.0f), SpriteEffects.None, 1);
                 }
             this.sb_.End();
         }

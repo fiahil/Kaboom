@@ -54,7 +54,8 @@ namespace Kaboom.Sources
             this.graphics_ = new GraphicsDeviceManager(this)
                                  {
                                      IsFullScreen = true,
-                                     SupportedOrientations = DisplayOrientation.LandscapeLeft
+                                     SupportedOrientations = DisplayOrientation.LandscapeLeft,
+                                     PreferMultiSampling = true
                                  };
             this.level_ = level;
             ended_ = false;
