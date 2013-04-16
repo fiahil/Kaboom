@@ -256,10 +256,5 @@ namespace Kaboom.Sources
             base.OnResume();
             AutoMediaPlayer.Instance2.Start();
         }
-
-        public override void OnBackPressed()
-        {
-            StartActivity(new Intent(this, typeof(MenuActivity)));
-        }
     }
 }

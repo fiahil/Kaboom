@@ -66,9 +66,11 @@ namespace Kaboom.Sources
                                                                                    mapName_[rand.Next(0, 19)]));
                 };
             var mapButton = FindViewById<Button>(Resource.Id.MapButton);
-            mapButton.Click += (sender, e) => StartActivity(new Intent(this, typeof (SelecterActivity)).PutExtra("type", "map"));
+            mapButton.Click += (sender, e) =>
+                StartActivity(new Intent(this, typeof (SelecterActivity)).PutExtra("type", "map"));
             var tutoButton = FindViewById<Button>(Resource.Id.TutoButton);
-            tutoButton.Click += (sender, e) => StartActivity(new Intent(this, typeof (SelecterActivity)).PutExtra("type", "tuto"));
+            tutoButton.Click += (sender, e) =>
+                StartActivity(new Intent(this, typeof (SelecterActivity)).PutExtra("type", "tuto"));
         }
 
         protected override void OnStart()
