@@ -74,7 +74,7 @@ namespace Kaboom.Sources
                         new ElementMenu
                             {
                                 Description =
-                                    "A tutorial map to learn how usefull are the checkpoints and discover the big bomb",
+                                    "A tutorial map to learn how usefull are the checkpoints",
                                 Image = Resource.Drawable.easyIcon,
                                 Name = "TutoCheckpointBS"
                             },
