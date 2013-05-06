@@ -29,10 +29,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-    <AndroidLinkMode>Full</AndroidLinkMode>
-    <AndroidLinkSkip />
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -47,21 +43,19 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\Lidgren.Network.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Android" />
-    <Reference Include="MonoGame.Framework, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\MonoGame.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="OpenTK" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\Dependencies\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\Dependencies\MonoGame.Framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sources\Block.cs" />
@@ -85,6 +79,7 @@
     <Compile Include="Sources\Pattern.cs" />
     <Compile Include="Sources\ScoreManager.cs" />
     <Compile Include="Sources\SelecterActivity.cs" />
+    <Compile Include="Sources\SelecterAnimation.cs" />
     <Compile Include="Sources\SpriteSheet.cs" />
     <Compile Include="Sources\Square.cs" />
     <Compile Include="Sources\Entity.cs" />
@@ -181,7 +176,7 @@
       <Link>Assets\Content\Invasion.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\KaboomEditor\Levels\It%27s Something.xml">
-      <Link>Assets\Content\It%27s Something.xml</Link>
+      <Link>Assets\Content\It%2527s Something.xml</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\KaboomEditor\Levels\Life.xml">
       <Link>Assets\Content\Life.xml</Link>
@@ -234,6 +229,7 @@
     <AndroidAsset Include="Assets\Content\TutoCheckpointBS.png" />
     <AndroidAsset Include="Assets\Content\TutoHBomb.png" />
     <AndroidAsset Include="Assets\Content\TutoUltimateBomb.png" />
+    <AndroidAsset Include="Assets\Content\Selecter.png" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Drawable\Splash.xml" />

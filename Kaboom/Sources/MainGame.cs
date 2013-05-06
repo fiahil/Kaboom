@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Timers;
 using System.Xml.Serialization;
 using Android.Content;
 using Kaboom.Serializer;
@@ -43,6 +44,8 @@ namespace Kaboom.Sources
         private readonly List<string> mapName_;
         private readonly List<string> tutoName_;
         private bool onHelp_;
+        private readonly SelecterAnimation selecterAnimation_;
+        private Vector2 selecterCoord_;
 
 
         /// <summary>
@@ -62,7 +65,7 @@ namespace Kaboom.Sources
             lose_ = false;
             this.em_ = new Event();
             this.ladder_ = new Ladder();
-
+            this.selecterAnimation_ = new SelecterAnimation();
 
             #region mapNameInit
 
@@ -156,6 +159,8 @@ namespace Kaboom.Sources
             KaboomResources.Textures["failScreen"] = Content.Load<Texture2D>("failScreen");
             KaboomResources.Textures["ladderScreen"] = Content.Load<Texture2D>("ladderScreen");
             KaboomResources.Textures["help"] = Content.Load<Texture2D>("question-mark");
+            KaboomResources.Textures["selecter"] = Content.Load<Texture2D>("Selecter");
+
             if (isTuto_)
                 KaboomResources.Textures["Tuto"] = Content.Load<Texture2D>(level_);
             KaboomResources.Textures["helpScreen"] = Content.Load<Texture2D>("helpScreen");
@@ -329,7 +334,7 @@ namespace Kaboom.Sources
                     switch (ret.ActionType)
                     {
                         case Action.Type.NoEvent:
-                            break;
+                            break;/*
                         case Action.Type.Drag:
                             Viewport.Instance.AdjustPos(this.map_, ref ret.DeltaX, ref ret.DeltaY);
 
@@ -341,9 +346,13 @@ namespace Kaboom.Sources
                             {
                                 Viewport.Instance.HandlePinch(ret);
                                 break;
-                            }
-                        case Action.Type.Tap:
-                            {
+                            }*/
+                        case Action.Type.DragComplete:
+                            if (this.Selecter)
+                                this.Selecter = false;
+                            break;
+                        case Action.Type.Drag:
+                            {/*
                                 var hudEvent = this.hud_.GetHudEvent(ret.Pos);
 
                                 if (explosionMode_) continue;
@@ -432,7 +441,25 @@ namespace Kaboom.Sources
 // ReSharper restore EmptyGeneralCatchClause
                                     {
                                     }
+                                }*/
+
+                                try
+                                {
+                                    if (this.Selecter == false)
+                                    {
+                                        var s = this.map_.GetCoordByPos(ret.Pos);
+                                        this.selecterCoord_ = new Vector2(
+                                            (s.X * Camera.Instance.DimX) + (Camera.Instance.DimX / 2),
+                                            (s.Y * Camera.Instance.DimY) + (Camera.Instance.DimY / 2));
+                                        this.Selecter = true;                                        
+                                    }
                                 }
+                                // ReSharper disable EmptyGeneralCatchClause
+                                catch
+                                // ReSharper restore EmptyGeneralCatchClause
+                                {
+                                }
+
 
                                 break;
                             }
@@ -444,6 +471,20 @@ namespace Kaboom.Sources
                 MediaPlayer.IsRepeating = false;
                 MediaPlayer.Stop();
                 this.Exit();
+            }
+        }
+
+        protected bool Selecter
+        {
+            get { return selecterAnimation_.Enabled || this.selecterAnimation_.IsFading(); }
+            set
+            {
+                this.selecterAnimation_.Enabled = value;
+
+                if (value)
+                    this.selecterAnimation_.Start();
+                else
+                    this.selecterAnimation_.Stop();
             }
         }
 
@@ -459,6 +500,27 @@ namespace Kaboom.Sources
             this.spriteBatch_.End();
 
             base.Draw(gameTime);
+
+            if (this.Selecter)
+            {
+                this.spriteBatch_.Begin();
+
+                this.selecterAnimation_.Update();
+
+                this.spriteBatch_.Draw(KaboomResources.Textures["selecter"],
+                    new Vector2(
+                        this.selecterCoord_.X - (KaboomResources.Textures["selecter"].Bounds.Width * this.selecterAnimation_.Size / 2.0f) + Camera.Instance.OffX,
+                        this.selecterCoord_.Y - (KaboomResources.Textures["selecter"].Bounds.Height * this.selecterAnimation_.Size / 2.0f) + Camera.Instance.OffY),
+                    KaboomResources.Textures["selecter"].Bounds,
+                    Color.White,
+                    0f,
+                    Vector2.Zero,
+                    this.selecterAnimation_.Size,
+                    SpriteEffects.None,
+                    1);
+
+                this.spriteBatch_.End();
+            }
 
             if (isTuto_)
             {

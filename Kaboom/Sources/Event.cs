@@ -13,7 +13,8 @@ namespace Kaboom.Sources
             ZoomOut,
             Tap,
             Pinch,
-            NoEvent
+            NoEvent,
+            DragComplete
         }
 
         public Type ActionType;
@@ -33,14 +34,13 @@ namespace Kaboom.Sources
         /// </summary>
         public Event()
         {
-            TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete | 
-                                         GestureType.Tap | GestureType.Pinch | GestureType.PinchComplete;
+            TouchPanel.EnabledGestures = GestureType.Tap;
             this.oldDrag_ = Vector2.Zero;
             this.Pinch_ = Vector2.Zero;
         }
 
         /// <summary>
-        /// Get one event and return the correspondant Action, that contain position and delta of gesture
+        /// Get one event and return the corresponding Action, that contain position and delta of gesture
         /// </summary>
         public Action GetEvents()
         {
@@ -90,27 +90,46 @@ namespace Kaboom.Sources
                     return ret;
                 }
 
-                if (Viewport.Instance.IsZoomed && g.GestureType == GestureType.FreeDrag)
+                if (g.GestureType == GestureType.FreeDrag)
                 {
                     if (oldDrag_ != Vector2.Zero)
                     {
                         ret.ActionType = Action.Type.Drag;
                         ret.DeltaX = (int) (g.Position.X - oldDrag_.X);
                         ret.DeltaY = (int) (g.Position.Y - oldDrag_.Y);
+                        ret.Pos = g.Position;
                         this.oldDrag_ = g.Position;
                         return ret;
                     }
                     
                     this.oldDrag_ = g.Position;
+                    ret.Pos = g.Position;
                 }
                 if (g.GestureType == GestureType.DragComplete)
+                {
                     this.oldDrag_ = Vector2.Zero;
+                    ret.ActionType = Action.Type.DragComplete;
+                }
                 if (g.GestureType == GestureType.PinchComplete)
                 {
                     this.Pinch_ = Vector2.Zero;
                     Viewport.Instance.ResetPinch();
                 }
             }
+			var touchCollection = TouchPanel.GetState();
+			foreach (var elt in touchCollection)
+			{
+				if (elt.State == TouchLocationState.Pressed)
+				{
+					ret.Pos = elt.Position;
+					ret.ActionType = Action.Type.Drag;
+				}
+				if (elt.State == TouchLocationState.Released)
+				{
+					ret.Pos = elt.Position;
+					ret.ActionType = Action.Type.DragComplete;
+				}
+			}
             return ret;
         }
 
