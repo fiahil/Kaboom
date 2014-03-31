@@ -1,7 +1,14 @@
 Kaboom
 ===
 
-An awesome puzzle game with bombs and chain reaction.
+An awesome puzzle game with bombs and chain reaction. Unfortunately, no screenshots are available due to a lack of recent build. However, we made two videos:
+- https://www.youtube.com/watch?v=DVBjmsV9g0U (gameplay presentation in french)
+- https://www.youtube.com/watch?v=41WK-n88np4 (Trailer)
+
+Technology
+===
+
+We chose to build this application using Xamarin.Android and Monogame in C#.
 
 Blog
 ====
