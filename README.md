@@ -1,4 +1,4 @@
-PFA
+Kaboom
 ===
 
 An awesome puzzle game with bombs and chain reaction.
