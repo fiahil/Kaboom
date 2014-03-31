@@ -9,7 +9,7 @@ Technology
 ===
 
 We chose to build this application using Xamarin.Android and Monogame in C#.
-Wee also made a custom editor using C#/.NET and the WPF Framework.
+We also made a custom editor using C#/.NET and the WPF Framework.
 
 Blog
 ====
