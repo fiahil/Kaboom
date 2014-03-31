@@ -3,6 +3,11 @@ PFA
 
 An awesome puzzle game with bombs and chain reaction.
 
+Blog
+====
+
+http://gamedevlab.epitech.eu/blog/?cat=112
+
 Levels
 ======
 
