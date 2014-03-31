@@ -3,7 +3,8 @@ PFA
 
 An awesome puzzle game with bombs and chain reaction.
 
-# Levels
+Levels
+======
 
 + 8 tutos
 + NumbaWan - Easy
